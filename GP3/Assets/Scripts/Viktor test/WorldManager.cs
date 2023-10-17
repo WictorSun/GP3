@@ -5,6 +5,7 @@ public class WorldManager : MonoBehaviour
 {
     public GameObject player; // Reference to the player object
     public GameObject groundPrefab; // The ground rectangle prefab
+    public GameObject enemyPrefab; // The enemy prefab
     public float spawnDistance = 50f; // Distance ahead of player to spawn rectangles
     public float destroyDistance = -10f; // Distance behind player to destroy rectangles
     public float groundWidth = 10f; // Width of a single ground rectangle

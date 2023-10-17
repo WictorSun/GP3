@@ -9,7 +9,7 @@ public class ArrowMovement : MonoBehaviour
 
     public float rotateAngle; [Tooltip("Value in degrees to rotate, negative for left, positive for right")]
 
-    public float arrowSpeed; [Tooltip("Value in unity units")]
+    //public float arrowSpeed; [Tooltip("Value in unity units")]
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,7 @@ public class ArrowMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector3(0, 0, arrowSpeed);
+        //rb.velocity = new Vector3(0, 0, arrowSpeed);
     }
 
     public void rotateLeft()

@@ -53,7 +53,7 @@ public class WorldManager : MonoBehaviour
     void SpawnGround(float xPos)
     {
         // Spawn a new ground rectangle at the given x position
-        GameObject newGround = Instantiate(groundPrefab, new Vector3(xPos, 0, 0), Quaternion.identity);
+        GameObject newGround = Instantiate(groundPrefab, new Vector3(0, 0, xPos), Quaternion.identity);
         spawnedGrounds.Enqueue(newGround); // Add to the queue
     }
 

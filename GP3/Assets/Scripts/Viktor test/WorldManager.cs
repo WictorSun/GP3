@@ -5,12 +5,12 @@ public class WorldManager : MonoBehaviour
 {
     public GameObject player; // Reference to the player object
     public GameObject groundPrefab; // The ground rectangle prefab
-    public GameObject enemyPrefab; // The enemy prefab
     public float spawnDistance = 50f; // Distance ahead of player to spawn rectangles
     public float destroyDistance = -10f; // Distance behind player to destroy rectangles
     public float groundWidth = 10f; // Width of a single ground rectangle
-    public int numberOfGrounds = 5; // Number of ground rectangles to maintain
-    public float spawnCooldown = 1.0f; // Cooldown in seconds 
+    public int numberOfGrounds = 5; // Number of ground rectangles to maintain at beginning
+    public float spawnCooldown = 1.0f; // Cooldown in seconds
+    public float groundSpeed;
 
     private Queue<GameObject> spawnedGrounds = new Queue<GameObject>(); // Queue to hold spawned ground rectangles
     private float nextSpawnTime = 0f; // Time at which the next ground rectangle can be spawned
@@ -49,12 +49,18 @@ public class WorldManager : MonoBehaviour
         {
             DestroyGround();
         }
+
+        // Move all spawned grounds
+        foreach (GameObject ground in spawnedGrounds)
+        {
+            ground.transform.Translate(Vector3.forward * groundSpeed * Time.deltaTime);
+        }
     }
 
-    void SpawnGround(float xPos)
+    void SpawnGround(float zPos)
     {
         // Spawn a new ground rectangle at the given x position
-        GameObject newGround = Instantiate(groundPrefab, new Vector3(0, 0, xPos), Quaternion.identity);
+        GameObject newGround = Instantiate(groundPrefab, new Vector3(0, 0, zPos), Quaternion.identity);
         spawnedGrounds.Enqueue(newGround); // Add to the queue
     }
 

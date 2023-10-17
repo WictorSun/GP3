@@ -31,8 +31,4 @@ public class ArrowMovement : MonoBehaviour
     {
         transform.Rotate(0, 0, rotateAngle, Space.Self);
     }
-
-
-
-
 }

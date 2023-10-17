@@ -30,18 +30,18 @@ public class WorldManager : MonoBehaviour
 
         // Get the position of the last spawned ground
         GameObject lastGround = spawnedGrounds.Peek();
-        float distanceToLastGround = lastGround.transform.position.x - playerPos.x;
+        float distanceToLastGround = lastGround.transform.position.z - playerPos.z;
 
         // Spawn new ground if the last one is within spawnDistance units ahead of the player
         if (Time.time >= nextSpawnTime && distanceToLastGround < spawnDistance)
         {
-            SpawnGround(player.transform.position.x + spawnDistance);
+            SpawnGround(player.transform.position.z + spawnDistance);
             nextSpawnTime = Time.time + spawnCooldown;
         }
 
         // Get the position of the first spawned ground
         GameObject firstGround = spawnedGrounds.Peek();
-        float distanceToFirstGround = firstGround.transform.position.x - playerPos.x;
+        float distanceToFirstGround = firstGround.transform.position.z - playerPos.z;
 
         // Destroy the first ground if it's more than destroyDistance units behind the player
         if (distanceToFirstGround < destroyDistance)

@@ -27,7 +27,6 @@ public class HealthComponent : MonoBehaviour
 
     public void UpdateHealth(float amt) // Update the object's health by the amount passed in
     {
-        Debug.Log("Health Updated");
         currentHealth += amt;
     }
     public void ResetHealth()

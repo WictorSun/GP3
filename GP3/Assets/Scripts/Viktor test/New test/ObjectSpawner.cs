@@ -43,7 +43,7 @@ public class ObjectSpawner : MonoBehaviour
         ObjectPooler.instance.SpawnFromPool("ground", new Vector3(0, 0, groundSpawnDistance), Quaternion.identity);
     }
 
-    private IEnumerator SpawnObject(string type, float time)
+    private IEnumerator SpawnObject(string type, float time) // spawns object after set time
     {
         yield return new WaitForSeconds(time);
         ObjectPooler.instance.SpawnFromPool(type, new Vector3(Random.Range(-4.4f, 4.4f), 0.5f, -11f), Quaternion.identity);
@@ -53,19 +53,20 @@ public class ObjectSpawner : MonoBehaviour
 
     void Update()
     {
-        if(!spawningObject && GameController.EnemyCount < spawnSettings[0].maxObjects)
+        if(!spawningObject && GameController.EnemyCount < spawnSettings[0].maxObjects) // if not spawning object and enemy count is less than max objects, spawn object
         {
             spawningObject = true;
             float pick = Random.value * totalWeight;
             int chosenIndex = 0;
             float cumulativeWeight = enemySpawnables[0].weight;
 
-            while(pick > cumulativeWeight && chosenIndex < enemySpawnables.Count - 1)
+            while(pick > cumulativeWeight && chosenIndex < enemySpawnables.Count - 1) // picks random enemy to spawn
             {
                 chosenIndex++;
                 cumulativeWeight += enemySpawnables[chosenIndex].weight;
             }
 
+            // spawns enemy
             StartCoroutine(SpawnObject(enemySpawnables[chosenIndex].type, Random.Range(spawnSettings[0].minWait / GameController.DifficultyMultiplier, spawnSettings[0].maxWait / GameController.DifficultyMultiplier)));
         }
     }

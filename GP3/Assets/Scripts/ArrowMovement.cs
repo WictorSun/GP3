@@ -14,6 +14,8 @@ public class ArrowMovement : MonoBehaviour
 
     [SerializeField] float speed = 5;
 
+    [SerializeField] float tiltSpeed = 5;
+
 
     void Start()
     {
@@ -33,6 +35,12 @@ public class ArrowMovement : MonoBehaviour
     void MoveArrow() // Handles the movement through input actions.
     {
         Vector2 direction = moveAction.ReadValue<Vector2>();
-        transform.position += new Vector3(direction.x, 0, 0) * speed *Time.deltaTime;
+        transform.position += new Vector3(direction.x, 0, 0) * speed * Time.deltaTime;
+
+        float z = Input.GetAxis("Horizontal");
+        Vector3 euler = transform.localEulerAngles;
+        euler.z = Mathf.Lerp(euler.z, z, tiltSpeed * Time.deltaTime);
+        transform.localEulerAngles = euler;
+
     }
 }

@@ -20,12 +20,32 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _AlbedoTexture:
+        m_Texture: {fileID: 2800000, guid: 7cc3c654cf391a74da218d6c778164be, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Alpha:
+        m_Texture: {fileID: 2800000, guid: 6faae87bb90726f4b85e3cf207f537eb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BakedNormalMap:
+        m_Texture: {fileID: 2800000, guid: 3b97b9c75905eee4bbf0610e0dc5bcc5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _ColorRamp:
         m_Texture: {fileID: 2800000, guid: 4378651f2ed612e4abe5216810ad3d61, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Nomralmap:
-        m_Texture: {fileID: 2800000, guid: 21d2d1626413cfe4db8957281f3e27d1, type: 3}
+        m_Texture: {fileID: 2800000, guid: ce329f56b50e23c42bd3e861def1fdb0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normalmap:
+        m_Texture: {fileID: 2800000, guid: ce329f56b50e23c42bd3e861def1fdb0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Pot_Low_DefaultMaterial_Albedo:
+        m_Texture: {fileID: 2800000, guid: 7cc3c654cf391a74da218d6c778164be, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture0:
@@ -50,41 +70,46 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _ColorMask: 4.43
+    - _AlbedoTextureStrokes: 0.6
+    - _BakeSwitch: 0
+    - _BakeSwitch1: 0
+    - _ColorMask: 0.77
     - _ColorPower: 0.63
     - _ColorTint: 0.1
     - _ColorVar: 0.5
     - _ColorVar1: 0.32
     - _Float0: 0.5
     - _Float1: 0.58
+    - _Keyword0: 0
     - _LightGradient_Inner: 4.72
     - _LightGradient_Middle: 4.42
     - _Max: 6
     - _Min: 5
     - _NormalStrength: 1
+    - _NormalSwitch: 0
     - _Offset: 0.5
-    - _RimPower: 0
-    - _Rim_Offset: 0.76
+    - _RimPower: 0.55
+    - _Rim_Offset: 0.6
     - _Roughness: 0.418
     - _ShadowAmbiance: 0.1
-    - _SpecArea: 0.155
+    - _SpecArea: 0.172
     - _SpecColorRamp: 0.655
     - _SpecInt: 1
     - _SpecMapInt: 1
-    - _SpecOpacity: 0.204
+    - _SpecOpacity: 1
     - _SpecPower: 0.33
-    - _SpecTransition: 0.49
+    - _SpecTransition: 0
     - _Tile: 2
     - _Tile1: 2
     - __dirty: 0
     m_Colors:
     - _Color0: {r: 1, g: 0, b: 0, a: 0}
     - _Color1: {r: 1, g: 0, b: 0, a: 0}
-    - _ColorMain: {r: 1, g: 0, b: 0, a: 0}
-    - _ColorVar: {r: 0.6509804, g: 0.30394077, b: 0.19999997, a: 0}
-    - _RimColor: {r: 1, g: 0.009412606, b: 0, a: 0}
-    - _ShadowColor: {r: 0.019090435, g: 0.3032033, b: 0.31132078, a: 0}
+    - _ColorMain: {r: 0.9145039, g: 0.9528302, b: 0.46293166, a: 0}
+    - _ColorVar: {r: 0.4298262, g: 0.81960785, b: 0.14509803, a: 0}
+    - _RimColor: {r: 0, g: 0.10077143, b: 1, a: 0}
+    - _ShadowColor: {r: 0.98806953, g: 0, b: 1, a: 0}
     - _SpecColor: {r: 0.5377358, g: 0.12428801, b: 0.12428801, a: 0}
-    - _TotalynotSpeccolor: {r: 1, g: 0, b: 0, a: 0}
+    - _TotalynotSpeccolor: {r: 0.01677084, g: 0, b: 1, a: 0}
     - _yaya: {r: 1, g: 0.7122642, b: 0.7122642, a: 0}
   m_BuildTextureStacks: []

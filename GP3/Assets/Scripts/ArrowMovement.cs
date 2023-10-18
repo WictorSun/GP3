@@ -12,10 +12,10 @@ public class ArrowMovement : MonoBehaviour
 
     InputAction moveAction;
 
-    [SerializeField] float speed = 5;
+    [SerializeField] float horizontalSpeed = 5;
 
     [SerializeField] float tiltSpeed = 5;
-
+    [SerializeField] float spinSpeed = 0;
 
     void Start()
     {
@@ -35,12 +35,16 @@ public class ArrowMovement : MonoBehaviour
     void MoveArrow() // Handles the movement through input actions.
     {
         Vector2 direction = moveAction.ReadValue<Vector2>();
-        transform.position += new Vector3(direction.x, 0, 0) * speed * Time.deltaTime;
+        transform.position += new Vector3(direction.x, 0, 0) * horizontalSpeed * Time.deltaTime;
 
         float z = Input.GetAxis("Horizontal");
+        float y = Input.GetAxis("Horizontal");
         Vector3 euler = transform.localEulerAngles;
-        euler.z = Mathf.Lerp(euler.z, z, tiltSpeed * Time.deltaTime);
+        euler.z = Mathf.Lerp(euler.z, z, spinSpeed * Time.deltaTime);
+        euler.y = Mathf.Lerp(euler.y, y, tiltSpeed);
         transform.localEulerAngles = euler;
+
+
 
     }
 }

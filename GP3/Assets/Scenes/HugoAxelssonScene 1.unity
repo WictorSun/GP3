@@ -2379,8 +2379,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2110877805}
-  speed: 10
-  tiltSpeed: 75
+  horizontalSpeed: 5
+  tiltSpeed: 1
+  spinSpeed: 75
 --- !u!114 &2110877807
 MonoBehaviour:
   m_ObjectHideFlags: 0

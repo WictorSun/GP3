@@ -1,34 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 public class ArrowMovement : MonoBehaviour
 {
     public Rigidbody rb;
 
-    public float rotateAngle; [Tooltip("Value in degrees to rotate, negative for left, positive for right")]
+    PlayerInput playerInput;
 
-    //public float arrowSpeed; [Tooltip("Value in unity units")]
+    InputAction moveAction;
 
-    // Start is called before the first frame update
+    [SerializeField] float speed = 5;
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+        playerInput = GetComponent<PlayerInput>();
+        moveAction = playerInput.actions.FindAction("Move");
+
+
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        //rb.velocity = new Vector3(0, 0, arrowSpeed);
+        MoveArrow();
     }
 
-    public void rotateLeft()
+    void MoveArrow() // Handles the movement through input actions.
     {
-        transform.Rotate(0, 0, rotateAngle, Space.Self);
-    }
-
-    public void rotateRight()
-    {
-        transform.Rotate(0, 0, rotateAngle, Space.Self);
+        Vector2 direction = moveAction.ReadValue<Vector2>();
+        transform.position += new Vector3(direction.x, 0, 0) * speed *Time.deltaTime;
     }
 }

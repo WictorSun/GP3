@@ -14,9 +14,9 @@ public class AudioManager : MonoBehaviour
 
     [Header("Sources")]
     [Tooltip("The AudioSource for Music")]
-    [SerializeField] private AudioSource musicSource;
+    [SerializeField] public AudioSource musicSource;
     [Tooltip("The AudioSource for SFX")]
-    [SerializeField] private AudioSource sfxSource;
+    [SerializeField] public AudioSource sfxSource;
 
     private void Awake()
     {
@@ -32,7 +32,7 @@ public class AudioManager : MonoBehaviour
     }
     private void Start()
     {
-        PlayBackGroundMusic("Tester");
+        PlayBackGroundMusic("BGSounds");
     }
 
     // Call on this where we want to play BGSounds/Music with the name of the sound/Music in the musicSounds list in inspector
@@ -64,5 +64,15 @@ public class AudioManager : MonoBehaviour
         {
             sfxSource.PlayOneShot(s.clip);
         }
+    }
+    public void MusicVolume(float volume)
+    {
+        musicSource.volume = volume;
+
+    }
+    public void SFXVolume(float volume)
+    {
+        sfxSource.volume = volume;
+
     }
 }

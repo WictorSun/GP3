@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class ObjectPooler : MonoBehaviour
 {
-    [System.Serializable]
-    // Start is called before the first frame update
+    [System.Serializable] // allows for editing in inspector
     public class Pool
     {
         public string type;
@@ -15,17 +14,17 @@ public class ObjectPooler : MonoBehaviour
 
     public static ObjectPooler instance;
 
-    private void Awake()
+    private void Awake() // sets instance to this object
     {
         instance = this;
     }
 
-    public List<Pool> pools;
+    public List<Pool> pools; // list of pools
 
     public Dictionary<string, Queue<GameObject>> poolDictionary;
     GameObject objectToSpawn;
 
-    void Start()
+    void Start() // creates pools
     {
         poolDictionary = new Dictionary<string, Queue<GameObject>>();
 
@@ -44,21 +43,21 @@ public class ObjectPooler : MonoBehaviour
         }
     }
 
-    public GameObject SpawnFromPool(string type, Vector3 position, Quaternion rotation)
+    public GameObject SpawnFromPool(string type, Vector3 position, Quaternion rotation) // spawns object from pool
     {
-        if(!poolDictionary.ContainsKey(type))
+        if(!poolDictionary.ContainsKey(type)) // if pool does not exist, return null
         {
             Debug.LogWarning("Pool with tag " + type + " doesn't exist.");
             return null;
         }
 
-        objectToSpawn = poolDictionary[type].Dequeue();
+        objectToSpawn = poolDictionary[type].Dequeue(); // sets object to spawn to the first object in the pool
 
         objectToSpawn.SetActive(true);
-        objectToSpawn.transform.position = position;
+        objectToSpawn.transform.position = position; // sets position and rotation of object to spawn
         objectToSpawn.transform.rotation = rotation;
 
-        poolDictionary[type].Enqueue(objectToSpawn);
+        poolDictionary[type].Enqueue(objectToSpawn); // adds object back to pool
 
         return objectToSpawn;
     }

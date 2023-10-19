@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     private Transform player;
+    [SerializeField] public float moveSpeed = 2f;
+
     private HealthComponent health; // prob will remove Health and just if collision with player, enemy dead
 
     //public bool targetingPlayer = false;

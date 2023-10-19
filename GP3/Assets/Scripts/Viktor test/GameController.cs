@@ -6,8 +6,8 @@ using TMPro;
 public class GameController : MonoBehaviour
 {
     private static float distance = 0;
-    private static float difficultyMultiplier = 1;
-    private static float difficultyOffset = 100f;
+    private static float difficultyMultiplier = 1; //
+    private static float difficultyOffset = 10f; // Difficulty increases by 1% every 10 units
     private static int enemyCount = 0;
 
 

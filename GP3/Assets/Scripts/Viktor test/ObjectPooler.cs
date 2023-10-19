@@ -9,6 +9,7 @@ public class ObjectPooler : MonoBehaviour
     {
         public string type;
         public GameObject prefab;
+        [Tooltip("Number of pre instanciated objects in pool.")]
         public int size;
     }
 

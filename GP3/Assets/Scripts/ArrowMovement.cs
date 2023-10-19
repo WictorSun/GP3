@@ -12,7 +12,7 @@ public class ArrowMovement : MonoBehaviour
 
     InputAction moveAction;
 
-    [SerializeField] float horizontalSpeed = 5;
+    [SerializeField] float horizontalSpeed = 10;
 
     [SerializeField] float tiltSpeed = 5;
     [SerializeField] float spinSpeed = 0;

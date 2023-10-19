@@ -18,15 +18,16 @@ public class ObjectSpawner : MonoBehaviour
     {
         [Tooltip("This is the type of object that will be spawned.")]
         public string type; // this could be like enemies, trees, obstacles ect.
-        [Tooltip("This is the minimum and maximum time between spawns.")]
+        [Tooltip("This is the maximum time between spawns.")]
         public float minWait; // min and max wait time between spawns
+        [Tooltip("This is the minimum time between spawns.")]
         public float maxWait;
         [Tooltip("This is the maximum number of objects of this type that can be spawned.")]
         public int maxObjects; // max objects of this type that can be spawned
     }
     private float totalWeight; 
     private bool spawningObject = false;
-    [SerializeField] private float groundSpawnDistance = 50f; 
+    [SerializeField] private float groundSpawnDistance = 50f;
     public List<Spawnable> spawnableObjects = new List<Spawnable>(); // list of spawnable objects that can be spawned
     public List<Spawnsettings> spawnSettings = new List<Spawnsettings>(); // list of spawn settings for different objects
 

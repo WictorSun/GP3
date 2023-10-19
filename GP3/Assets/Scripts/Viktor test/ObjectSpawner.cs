@@ -26,8 +26,8 @@ public class ObjectSpawner : MonoBehaviour
     }
     private float totalWeight; 
     private bool spawningObject = false;
-    [SerializeField] private float groundSpawnDistance = 20f; 
-    public List<Spawnable> enemySpawnables = new List<Spawnable>(); // list of enemies that can be spawned
+    [SerializeField] private float groundSpawnDistance = 50f; 
+    public List<Spawnable> spawnableObjects = new List<Spawnable>(); // list of spawnable objects that can be spawned
     public List<Spawnsettings> spawnSettings = new List<Spawnsettings>(); // list of spawn settings for different objects
 
     public static ObjectSpawner instance;
@@ -36,7 +36,7 @@ public class ObjectSpawner : MonoBehaviour
     {
         instance = this;
         totalWeight = 0;
-        foreach(Spawnable spawnable in enemySpawnables) // adds up total weight of enemies
+        foreach(Spawnable spawnable in spawnableObjects) // adds up total weight of enemies
         {
             totalWeight += spawnable.weight;
         }
@@ -63,16 +63,16 @@ public class ObjectSpawner : MonoBehaviour
             spawningObject = true;
             float pick = Random.value * totalWeight; // picks random enemy to spawn
             int chosenIndex = 0;
-            float cumulativeWeight = enemySpawnables[0].weight; 
+            float cumulativeWeight = spawnableObjects[0].weight; 
 
-            while(pick > cumulativeWeight && chosenIndex < enemySpawnables.Count - 1) // loops through enemies and picks one to spawn
+            while(pick > cumulativeWeight && chosenIndex < spawnableObjects.Count - 1) // loops through enemies and picks one to spawn
             {
                 chosenIndex++;
-                cumulativeWeight += enemySpawnables[chosenIndex].weight;
+                cumulativeWeight += spawnableObjects[chosenIndex].weight;
             }
 
             // spawns enemy
-            StartCoroutine(SpawnObject(enemySpawnables[chosenIndex].type, Random.Range(spawnSettings[0].minWait / GameController.DifficultyMultiplier, spawnSettings[0].maxWait / GameController.DifficultyMultiplier)));
+            StartCoroutine(SpawnObject(spawnableObjects[chosenIndex].type, Random.Range(spawnSettings[0].minWait / GameController.DifficultyMultiplier, spawnSettings[0].maxWait / GameController.DifficultyMultiplier)));
         }
     }
 }

@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  objectDistance: -40
+  objectDistance: -60
   despawnDistance: -110
 --- !u!54 &1905975224
 Rigidbody:

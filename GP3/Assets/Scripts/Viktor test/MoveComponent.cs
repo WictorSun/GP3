@@ -9,6 +9,8 @@ public class MoveComponent : MonoBehaviour
     [SerializeField] private float despawnDistance = -110f; // Distance at which the object will despawn
     private bool canSpawnGround = true; // Bool to check if ground can spawn
 
+    private float lateralDirection = 1f; // 1 for right, -1 for left
+
     private HealthComponent health;
     private GameObject player;
     private EnemyController enemy;
@@ -26,41 +28,48 @@ public class MoveComponent : MonoBehaviour
         {
             enemy = GetComponent<EnemyController>();
         }
+        if (GetComponent<EnemyController>() != null)
+        {
+            enemy = GetComponent<EnemyController>();
+            
+            // Randomly set initial lateral direction
+            lateralDirection = Random.Range(0, 2) == 0 ? -1f : 1f;
+        }
     }
 
     void Update()
     {
-        Vector3 forwardMovement = -transform.forward * speed * Time.deltaTime; // Move the object forward
-        Vector3 lateralMovement = Vector3.zero; //Latteral is "Left and right"
+    Vector3 forwardMovement = -transform.forward * speed * Time.deltaTime;
+    Vector3 lateralMovement = Vector3.zero;
 
-        if(enemy != null)
+    float groundWidth = 10f;  // Replace with the actual width of your ground
+    float halfGroundWidth = groundWidth / 2f;
+
+    if (enemy != null)
+    {
+        // Linear lateral movement
+        lateralMovement = Vector3.right * lateralDirection * enemy.moveSpeed * Time.deltaTime;
+
+        // Calculate new position
+        Vector3 newPosition = transform.position + forwardMovement + lateralMovement;
+
+        // Check if the new position is outside the ground
+        if (Mathf.Abs(newPosition.x) > halfGroundWidth)
         {
-            // Add lateral movement based on the moveSpeed in EnemyController
-            lateralMovement = Vector3.right * Mathf.Sin(Time.time * enemy.moveSpeed) * enemy.moveSpeed;
+            // Reverse the direction
+            lateralDirection *= -1;
 
-            // Combine forward and lateral movements
-            //transform.position += forwardMovement + lateralMovement;
-
-            // Calculate new position
-            Vector3 newPosition = transform.position + forwardMovement + lateralMovement;
-
-            float groundWidth = 10f;
-            float halfGroundWidth = groundWidth / 2f;
-
-            // Check if the new position is outside the ground
-            if (Mathf.Abs(newPosition.x) > halfGroundWidth)
-            {
-                // Adjust the position to keep it within the ground
-                newPosition.x = Mathf.Clamp(newPosition.x, -halfGroundWidth, halfGroundWidth);
-            }
-
-            // Update the position
-            transform.position = newPosition;
+            // Adjust the position to keep it within the ground
+            newPosition.x = Mathf.Clamp(newPosition.x, -halfGroundWidth, halfGroundWidth);
         }
-        
-        else // if not enemy move as ground does
-            transform.position += -transform.forward * speed * Time.deltaTime;
 
+        // Update the position
+        transform.position = newPosition;
+    }
+    else // if not an enemy, move as the ground does
+    {
+        transform.position += forwardMovement;
+    }
 
 
 

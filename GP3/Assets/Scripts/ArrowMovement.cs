@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 public class ArrowMovement : MonoBehaviour
 {
-    public Rigidbody rb;
+    //public Rigidbody rb;
 
     PlayerInput playerInput;
 
@@ -21,11 +21,10 @@ public class ArrowMovement : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        //rb = GetComponent<Rigidbody>();
 
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions.FindAction("Move");
-
 
     }
 
@@ -61,8 +60,6 @@ public class ArrowMovement : MonoBehaviour
 
             transform.position = newPosition;
         }
-
-
 
     }
 }

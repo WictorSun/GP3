@@ -185,7 +185,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 354070508}
-  m_LocalRotation: {x: 0.5190458, y: 0.000000014707091, z: -0.000000008930899, w: 0.8547464}
+  m_LocalRotation: {x: 0.379615, y: 0.00000001591839, z: -0.0000000065318, w: 0.92514455}
   m_LocalPosition: {x: -0, y: 13.9, z: -39.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -209,6 +209,10 @@ PrefabInstance:
     - target: {fileID: 7730321824056176086, guid: 3737a9c92d2936742a7b1957de52d441, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7730321824056176086, guid: 3737a9c92d2936742a7b1957de52d441, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7730321824056176087, guid: 3737a9c92d2936742a7b1957de52d441, type: 3}
       propertyPath: m_RootOrder
@@ -331,7 +335,7 @@ MonoBehaviour:
   m_HorizontalDamping: 0.5
   m_VerticalDamping: 0.5
   m_ScreenX: 0.5
-  m_ScreenY: 0.5
+  m_ScreenY: 0.78
   m_DeadZoneWidth: 0
   m_DeadZoneHeight: 0
   m_SoftZoneWidth: 0.8
@@ -428,7 +432,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1036790421}
-  m_LocalRotation: {x: 0.5190458, y: 0.000000014707091, z: -0.000000008930899, w: 0.8547464}
+  m_LocalRotation: {x: 0.379615, y: 0.00000001591839, z: -0.0000000065318, w: 0.92514455}
   m_LocalPosition: {x: 0, y: 13.9, z: -39.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -588,6 +592,10 @@ PrefabInstance:
       value: Red enemy
       objectReference: {fileID: 0}
     - target: {fileID: 8473077275504563640, guid: 0520c235fe9ac404ab984d437c0032b6, type: 3}
+      propertyPath: enemySpawnables.Array.data[2].type
+      value: Big goblin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473077275504563640, guid: 0520c235fe9ac404ab984d437c0032b6, type: 3}
       propertyPath: spawnSettings.Array.data[1].maxWait
       value: 5
       objectReference: {fileID: 0}
@@ -602,6 +610,10 @@ PrefabInstance:
     - target: {fileID: 8473077275504563640, guid: 0520c235fe9ac404ab984d437c0032b6, type: 3}
       propertyPath: enemySpawnables.Array.data[1].weight
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473077275504563640, guid: 0520c235fe9ac404ab984d437c0032b6, type: 3}
+      propertyPath: enemySpawnables.Array.data[2].weight
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 8473077275504563640, guid: 0520c235fe9ac404ab984d437c0032b6, type: 3}
       propertyPath: spawnSettings.Array.data[1].maxObjects

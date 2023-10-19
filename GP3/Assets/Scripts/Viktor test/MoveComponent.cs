@@ -71,9 +71,6 @@ public class MoveComponent : MonoBehaviour
         transform.position += forwardMovement;
     }
 
-
-
-
         if(transform.position.z < player.transform.position.z - 10f && enemy != null) // If the object has an enemy controller and is behind the player, reset health and deactivate
         {
             health.ResetHealth();

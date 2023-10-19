@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 public class ArrowMovement : MonoBehaviour
 {
-    public Rigidbody rb;
+    //public Rigidbody rb;
 
     PlayerInput playerInput;
 
@@ -17,13 +17,14 @@ public class ArrowMovement : MonoBehaviour
     [SerializeField] float tiltSpeed = 5;
     [SerializeField] float spinSpeed = 0;
 
+    private float lateralDirection = 1f; // 1 for right, -1 for left
+
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        //rb = GetComponent<Rigidbody>();
 
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions.FindAction("Move");
-
 
     }
 
@@ -44,7 +45,21 @@ public class ArrowMovement : MonoBehaviour
         euler.y = Mathf.Lerp(euler.y, y, tiltSpeed);
         transform.localEulerAngles = euler;
 
+        float groundWidth = 10f;  // Replace with the actual width of your ground
+        float halfGroundWidth = groundWidth / 2f;
 
+        Vector3 newPosition = transform.position;
+
+        if (Mathf.Abs(newPosition.x) > halfGroundWidth)
+        {
+            // Reverse the direction
+            lateralDirection *= -1;
+
+            // Adjust the position to keep it within the ground
+            newPosition.x = Mathf.Clamp(newPosition.x, -halfGroundWidth, halfGroundWidth);
+
+            transform.position = newPosition;
+        }
 
     }
 }

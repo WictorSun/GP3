@@ -45,7 +45,7 @@ public class MoveComponent : MonoBehaviour
     float groundWidth = 10f;  // Replace with the actual width of your ground
     float halfGroundWidth = groundWidth / 2f;
 
-    if (enemy != null)
+    if (enemy != null) 
     {
         // Linear lateral movement
         lateralMovement = Vector3.right * lateralDirection * enemy.moveSpeed * Time.deltaTime;
@@ -70,9 +70,6 @@ public class MoveComponent : MonoBehaviour
     {
         transform.position += forwardMovement;
     }
-
-
-
 
         if(transform.position.z < player.transform.position.z - 10f && enemy != null) // If the object has an enemy controller and is behind the player, reset health and deactivate
         {

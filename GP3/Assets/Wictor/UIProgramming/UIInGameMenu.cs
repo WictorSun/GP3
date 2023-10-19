@@ -44,4 +44,5 @@ public class UIInGameMenu : MonoBehaviour
         
         AudioManager.Instance.MusicVolume(musicSlider.value);
     }
+    
 }

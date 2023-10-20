@@ -14,6 +14,7 @@ public class HealthComponent : MonoBehaviour
 
     void Update()
     {
+        // If you Hit Enemy
         if(currentHealth <= 0) // If the object's health is 0 or less, reset health and deactivate
         {
             if(gameObject.tag == "Enemy")
@@ -21,6 +22,9 @@ public class HealthComponent : MonoBehaviour
                 GameController.EnemyCount--;
                 currentHealth = maxHealth;
                 gameObject.SetActive(false);
+
+                GameController.IsReturning = true;
+                Debug.Log("Hook is getting Reeled!");
             }
         }
     }

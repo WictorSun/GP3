@@ -22,8 +22,6 @@ public class EnemySpawner : MonoBehaviour
             Vector3 groundPosition = movingGround.transform.position;
             Vector3 spawnPosition = new Vector3(groundPosition.x, groundPosition.y, groundPosition.z);
 
-            // Optionally, you could add some random offset to the spawn position here
-
             // Instantiate enemy
             Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
         }

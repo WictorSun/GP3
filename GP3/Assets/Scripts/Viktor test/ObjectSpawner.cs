@@ -30,7 +30,7 @@ public class ObjectSpawner : MonoBehaviour
     [SerializeField] private float groundSpawnDistance = 50f;
     public List<Spawnable> spawnableObjects = new List<Spawnable>(); // list of spawnable objects that can be spawned
     public List<Spawnsettings> spawnSettings = new List<Spawnsettings>(); // list of spawn settings for different objects
-
+    public Transform playerTransform; // reference to player position
     public static ObjectSpawner instance;
 
     private void Awake() // sets instance to this object
@@ -46,13 +46,39 @@ public class ObjectSpawner : MonoBehaviour
 
     public void SpawnGround() // spawns ground at set distance
     {
-        ObjectPooler.instance.SpawnFromPool("ground", new Vector3(0, 0, groundSpawnDistance), Quaternion.identity);
+        if(GameController.IsReturning == false)
+        {
+            ObjectPooler.instance.SpawnFromPool("ground", new Vector3(0, 0, groundSpawnDistance), Quaternion.identity);
+        }
+        else
+        {
+            ObjectPooler.instance.SpawnFromPool("ground", new Vector3(0, 0, -groundSpawnDistance), Quaternion.identity);
+        }
+
     }
 
     private IEnumerator SpawnObject(string type, float time) // spawns object after set time
     {
         yield return new WaitForSeconds(time);
-        ObjectPooler.instance.SpawnFromPool(type, new Vector3(Random.Range(-4.4f, 4.4f), 0.5f, -11f), Quaternion.identity);
+        
+        if (playerTransform == null)
+        {
+            yield break; // exit the coroutine if playerTransform is null
+        }
+
+        Vector3 spawnPosition;
+
+        // if player is returning, spawn object behind player
+        if(GameController.IsReturning == false)
+        {
+            spawnPosition = new Vector3(Random.Range(-4.4f, 4.4f), 0.5f, -11f);
+        }
+        else
+        {
+            spawnPosition = new Vector3(Random.Range(-4.4f, 4.4f), 0.5f,  -65f);
+        }
+        
+        ObjectPooler.instance.SpawnFromPool(type, spawnPosition, Quaternion.identity);
         spawningObject = false;
         GameController.EnemyCount++;
     }

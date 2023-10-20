@@ -1,10 +1,12 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
-public class ArrowMovement : MonoBehaviour
+public class ArrowMovement : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     //public Rigidbody rb;
 
@@ -19,6 +21,9 @@ public class ArrowMovement : MonoBehaviour
 
     private float lateralDirection = 1f; // 1 for right, -1 for left
 
+    bool leftButtonPressed;
+    bool rightButtonPressed;
+
     void Start()
     {
         //rb = GetComponent<Rigidbody>();
@@ -31,6 +36,19 @@ public class ArrowMovement : MonoBehaviour
     private void Update()
     {
         MoveArrow();
+
+        if (leftButtonPressed)
+        {
+            Debug.Log("Moving Left");
+            transform.position += new Vector3(-1 * horizontalSpeed, 0, 0) * Time.deltaTime;
+        }
+
+        if (rightButtonPressed)
+        {
+            Debug.Log("Moving Right");
+            transform.position += new Vector3(1 * horizontalSpeed, 0, 0) * Time.deltaTime;
+        }
+
     }
 
     void MoveArrow() // Handles the movement through input actions.
@@ -62,4 +80,33 @@ public class ArrowMovement : MonoBehaviour
         }
 
     }
+
+
+    public void LeftTouchMovement()
+    {
+        leftButtonPressed = true;
+        Debug.Log("Left button");
+    }
+
+    public void RightTouchMovement()
+    {
+        rightButtonPressed = true;
+        Debug.Log("Right button");
+
+    }
+
+    public void OnPointerUp(PointerEventData pointerEventData)
+    {
+        rightButtonPressed = false;
+        leftButtonPressed = false;
+        Debug.Log("Release buttons");
+    }
+
+    public void OnPointerDown(PointerEventData pointerEventData)
+    {
+        //Output the name of the GameObject that is being clicked
+        //Debug.Log(name + "Game Object Click in Progress");
+    }
+
+
 }

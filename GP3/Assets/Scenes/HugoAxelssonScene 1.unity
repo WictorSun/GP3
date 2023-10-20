@@ -350,7 +350,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 969265703}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -400,7 +400,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 343758359}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2110877805}
+        m_TargetAssemblyTypeName: ArrowMovement, Assembly-CSharp
+        m_MethodName: LeftTouchMovement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &343758359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,13 +420,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 343758356}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -895,7 +907,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 969265703}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -946,13 +958,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2110877803}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 2110877805}
+        m_TargetAssemblyTypeName: ArrowMovement, Assembly-CSharp
+        m_MethodName: RightTouchMovement
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -965,13 +977,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 895556021}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1088,8 +1100,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 895556022}
   - {fileID: 343758357}
+  - {fileID: 895556022}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1939,6 +1951,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7930161530227528620, guid: a615035447253a2489c3ecb65d0ad463, type: 3}
   m_PrefabInstance: {fileID: 7930161529234613191}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2110877805 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7930161530227528617, guid: a615035447253a2489c3ecb65d0ad463, type: 3}
+  m_PrefabInstance: {fileID: 7930161529234613191}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110877803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88f42445702bbe149af3e59bc9226379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7930161529234613191
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
-public class ArrowMovement : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class ArrowMovement : MonoBehaviour
 {
     //public Rigidbody rb;
 
@@ -95,18 +95,11 @@ public class ArrowMovement : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 
     }
 
-    public void OnPointerUp(PointerEventData pointerEventData)
+    public void OnPointerUp()
     {
         rightButtonPressed = false;
         leftButtonPressed = false;
         Debug.Log("Release buttons");
     }
-
-    public void OnPointerDown(PointerEventData pointerEventData)
-    {
-        //Output the name of the GameObject that is being clicked
-        //Debug.Log(name + "Game Object Click in Progress");
-    }
-
 
 }

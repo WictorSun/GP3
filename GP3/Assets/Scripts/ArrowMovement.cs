@@ -79,20 +79,17 @@ public class ArrowMovement : MonoBehaviour
     }
 
 
-
     bool leftButtonPressed;
     bool rightButtonPressed;
 
     public void LeftTouchMovement()
     {
         leftButtonPressed = true;
-        Debug.Log("Left button");
     }
 
     public void RightTouchMovement()
     {
         rightButtonPressed = true;
-        Debug.Log("Right button");
 
     }
 
@@ -100,7 +97,6 @@ public class ArrowMovement : MonoBehaviour
     {
         rightButtonPressed = false;
         leftButtonPressed = false;
-        Debug.Log("Release buttons");
     }
 
 }

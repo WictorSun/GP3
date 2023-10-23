@@ -12,7 +12,7 @@ public class MoveComponent : MonoBehaviour
     private float lateralDirection = 1f; // 1 for right, -1 for left
 
     private HealthComponent health;
-    private GameObject player;
+    public static GameObject player;
     private EnemyController enemy;
 
     void Start()

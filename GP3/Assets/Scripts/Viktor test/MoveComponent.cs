@@ -82,12 +82,12 @@ public class MoveComponent : MonoBehaviour
         }
 
         // Despawn object
-        if(GameController.IsReturning == false && transform.position.z < player.transform.position.z - 10f && enemy != null)
+        if(GameController.IsReturning == false && transform.position.z < player.transform.position.z - 10f && enemy != null && GameController.CanDespawnEnemies)
         {
             health.ResetHealth();
             gameObject.SetActive(false);
         }
-        else if(GameController.IsReturning == true && transform.position.z > player.transform.position.z + 10f && enemy != null)
+        else if(GameController.IsReturning == true && transform.position.z > player.transform.position.z + 10f && enemy != null && GameController.CanDespawnEnemies)
         {
             health.ResetHealth();
             gameObject.SetActive(false);

@@ -50,8 +50,12 @@ public class ArrowMovement : MonoBehaviour
 
     void MoveArrow() // Handles the movement through input actions.
     {
-        Vector2 direction = moveAction.ReadValue<Vector2>();
-        transform.position += new Vector3(direction.x, 0, 0) * horizontalSpeed * Time.deltaTime;
+        if (!leftButtonPressed && !rightButtonPressed) //Checks to see if touch inputs are being pressed to not double movement.
+        {
+            Vector2 direction = moveAction.ReadValue<Vector2>();
+            transform.position += new Vector3(direction.x, 0, 0) * horizontalSpeed * Time.deltaTime;
+        }
+        
 
         float z = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Horizontal");

@@ -1,6 +1,8 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
@@ -25,18 +27,27 @@ public class ArrowMovement : MonoBehaviour
 
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions.FindAction("Move");
-
     }
 
     private void Update()
     {
         MoveArrow();
+
+        if (leftButtonPressed)
+        {
+            Debug.Log("Button pressed, move");
+            transform.position += new Vector3(-1 * horizontalSpeed, 0, 0) * Time.deltaTime;
+        }
+
+        if (rightButtonPressed)
+        {
+            transform.position += new Vector3(1 * horizontalSpeed, 0, 0) * Time.deltaTime;
+        }
     }
 
     void MoveArrow() // Handles the movement through input actions.
     {
-        Vector2 direction = moveAction.ReadValue<Vector2>();
-        transform.position += new Vector3(direction.x, 0, 0) * horizontalSpeed * Time.deltaTime;
+        
 
         float z = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Horizontal");
@@ -50,6 +61,12 @@ public class ArrowMovement : MonoBehaviour
 
         Vector3 newPosition = transform.position;
 
+        if (!leftButtonPressed && !rightButtonPressed) //Checks to see if touch inputs are being pressed to not double movement.
+        {
+            Vector2 direction = moveAction.ReadValue<Vector2>();
+            transform.position += new Vector3(direction.x, 0, 0) * horizontalSpeed * Time.deltaTime;
+        }
+
         if (Mathf.Abs(newPosition.x) > halfGroundWidth)
         {
             // Reverse the direction
@@ -60,6 +77,24 @@ public class ArrowMovement : MonoBehaviour
 
             transform.position = newPosition;
         }
+    }
 
+    static bool leftButtonPressed;
+    static bool rightButtonPressed;
+
+    public void LeftTouchMovement()
+    {
+        leftButtonPressed = true;
+    }
+
+    public void RightTouchMovement()
+    {
+        rightButtonPressed = true;
+    }
+
+    public void OnPointerUp() // When Releasing touch/mouse.
+    {
+        rightButtonPressed = false;
+        leftButtonPressed = false;
     }
 }

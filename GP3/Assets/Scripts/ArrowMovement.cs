@@ -35,12 +35,13 @@ public class ArrowMovement : MonoBehaviour
 
         if (leftButtonPressed)
         {
-            Debug.Log("Button pressed, move");
+            Debug.Log("Move Left");
             transform.position += new Vector3(-1 * horizontalSpeed, 0, 0) * Time.deltaTime;
         }
 
         if (rightButtonPressed)
         {
+            Debug.Log("Move Right");
             transform.position += new Vector3(1 * horizontalSpeed, 0, 0) * Time.deltaTime;
         }
     }
@@ -84,16 +85,19 @@ public class ArrowMovement : MonoBehaviour
 
     public void LeftTouchMovement()
     {
+        Debug.Log("Touch Left");
         leftButtonPressed = true;
     }
 
     public void RightTouchMovement()
     {
+        Debug.Log("Touch Right");
         rightButtonPressed = true;
     }
 
     public void OnPointerUp() // When Releasing touch/mouse.
     {
+        Debug.Log("Lift Finger");
         rightButtonPressed = false;
         leftButtonPressed = false;
     }

@@ -21,15 +21,12 @@ public class ArrowMovement : MonoBehaviour
 
     private float lateralDirection = 1f; // 1 for right, -1 for left
 
-    
-
     void Start()
     {
         //rb = GetComponent<Rigidbody>();
 
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions.FindAction("Move");
-
     }
 
     private void Update()
@@ -38,6 +35,7 @@ public class ArrowMovement : MonoBehaviour
 
         if (leftButtonPressed)
         {
+            Debug.Log("Button pressed, move");
             transform.position += new Vector3(-1 * horizontalSpeed, 0, 0) * Time.deltaTime;
         }
 
@@ -45,16 +43,10 @@ public class ArrowMovement : MonoBehaviour
         {
             transform.position += new Vector3(1 * horizontalSpeed, 0, 0) * Time.deltaTime;
         }
-
     }
 
     void MoveArrow() // Handles the movement through input actions.
     {
-        if (!leftButtonPressed && !rightButtonPressed) //Checks to see if touch inputs are being pressed to not double movement.
-        {
-            Vector2 direction = moveAction.ReadValue<Vector2>();
-            transform.position += new Vector3(direction.x, 0, 0) * horizontalSpeed * Time.deltaTime;
-        }
         
 
         float z = Input.GetAxis("Horizontal");
@@ -69,6 +61,12 @@ public class ArrowMovement : MonoBehaviour
 
         Vector3 newPosition = transform.position;
 
+        if (!leftButtonPressed && !rightButtonPressed) //Checks to see if touch inputs are being pressed to not double movement.
+        {
+            Vector2 direction = moveAction.ReadValue<Vector2>();
+            transform.position += new Vector3(direction.x, 0, 0) * horizontalSpeed * Time.deltaTime;
+        }
+
         if (Mathf.Abs(newPosition.x) > halfGroundWidth)
         {
             // Reverse the direction
@@ -79,12 +77,10 @@ public class ArrowMovement : MonoBehaviour
 
             transform.position = newPosition;
         }
-
     }
 
-
-    bool leftButtonPressed;
-    bool rightButtonPressed;
+    static bool leftButtonPressed;
+    static bool rightButtonPressed;
 
     public void LeftTouchMovement()
     {
@@ -94,7 +90,6 @@ public class ArrowMovement : MonoBehaviour
     public void RightTouchMovement()
     {
         rightButtonPressed = true;
-
     }
 
     public void OnPointerUp() // When Releasing touch/mouse.
@@ -102,5 +97,4 @@ public class ArrowMovement : MonoBehaviour
         rightButtonPressed = false;
         leftButtonPressed = false;
     }
-
 }

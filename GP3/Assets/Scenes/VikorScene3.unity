@@ -790,7 +790,7 @@ PrefabInstance:
       objectReference: {fileID: 327886186}
     - target: {fileID: 8473077275504563640, guid: 0520c235fe9ac404ab984d437c0032b6, type: 3}
       propertyPath: groundSpawnDistance
-      value: 70
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8473077275504563640, guid: 0520c235fe9ac404ab984d437c0032b6, type: 3}
       propertyPath: spawnSettings.Array.size

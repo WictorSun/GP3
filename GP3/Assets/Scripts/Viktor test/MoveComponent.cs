@@ -5,8 +5,8 @@ using UnityEngine;
 public class MoveComponent : MonoBehaviour
 {
     [SerializeField] private float speed = 5f; // Speed at which the object will move
-    [SerializeField] private float objectDistance = -40f; // Distance at which the object will spawn another object
-    [SerializeField] private float despawnDistance = -110f; // Distance at which the object will despawn
+    [SerializeField] private float objectDistance = 50f; // Distance at which the object will spawn another object
+    [SerializeField] private float despawnDistance = -30f; // Distance at which the object will despawn
     private bool canSpawnGround = true; // Bool to check if ground can spawn
 
     private float lateralDirection = 1f; // 1 for right, -1 for left
@@ -99,14 +99,14 @@ public class MoveComponent : MonoBehaviour
             ObjectSpawner.instance.SpawnGround();
             canSpawnGround = false;
         }
-        else if(GameController.IsReturning == true && transform.position.z >= -objectDistance && transform.tag == "Ground" && canSpawnGround)
+        else if(GameController.IsReturning == true && transform.position.z >= -objectDistance && transform.tag == "Ground" && canSpawnGround) // if object is past object distance, spawn another object
         {
             ObjectSpawner.instance.SpawnGround();
             canSpawnGround = false;
         }
 
         // Despawn ground
-        if(GameController.IsReturning == false && transform.position.z <= despawnDistance)
+        if(GameController.IsReturning == false && transform.position.z <= despawnDistance) // if object is past despawn distance, deactivate
         {
             canSpawnGround = true;
             gameObject.SetActive(false);

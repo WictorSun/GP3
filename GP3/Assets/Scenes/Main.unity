@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &327886182 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7930161530227528620, guid: a615035447253a2489c3ecb65d0ad463, type: 3}
+  m_PrefabInstance: {fileID: 657551424}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &327886186 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7930161530227528619, guid: a615035447253a2489c3ecb65d0ad463, type: 3}
@@ -937,11 +942,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8473077275504563647, guid: 0520c235fe9ac404ab984d437c0032b6, type: 3}
       propertyPath: pools.Array.data[3].size
-      value: 20
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8473077275504563647, guid: 0520c235fe9ac404ab984d437c0032b6, type: 3}
       propertyPath: pools.Array.data[3].type
-      value: Ball
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 8473077275504563647, guid: 0520c235fe9ac404ab984d437c0032b6, type: 3}
       propertyPath: pools.Array.data[2].prefab
@@ -950,7 +955,7 @@ PrefabInstance:
     - target: {fileID: 8473077275504563647, guid: 0520c235fe9ac404ab984d437c0032b6, type: 3}
       propertyPath: pools.Array.data[3].prefab
       value: 
-      objectReference: {fileID: 5048665178540273728, guid: 66847866a1596d445897999ffd75a1b4, type: 3}
+      objectReference: {fileID: 327886182}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0520c235fe9ac404ab984d437c0032b6, type: 3}
 --- !u!1001 &1337542014

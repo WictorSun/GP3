@@ -7,7 +7,8 @@ public class UIMainMenuManager : MonoBehaviour
 {
     [SerializeField] private GameObject startMenu;
     [SerializeField] private GameObject settingsMenu;
-   // [SerializeField] private GameObject inGameMenu;
+    [SerializeField] private GameObject UpgradeMenu;
+    [SerializeField] private GameObject inGameMenu;
     [SerializeField] private Slider sfxSlider;
     [SerializeField] private Slider musicSlider;
     //[SerializeField] private GameObject tutorialCanvas;
@@ -23,6 +24,7 @@ public class UIMainMenuManager : MonoBehaviour
     {
         startMenu.SetActive(true);
         settingsMenu.SetActive(false);
+        UpgradeMenu.SetActive(false);
        // firstGame = true;
        
     }
@@ -36,15 +38,15 @@ public class UIMainMenuManager : MonoBehaviour
     {
       //  if(firstGame)
         //{
-            AudioManager.Instance.SFX("ButtonClick");
+           // AudioManager.Instance.SFX("ButtonClick");
             //tutorialCanvas.SetActive(true);
-            this.gameObject.SetActive(false);
+            //this.gameObject.SetActive(false);
           //  firstGame = false;
         //}
        // else
        // {
             AudioManager.Instance.SFX("ButtonClick");
-            //inGameMenu.SetActive(true);
+            inGameMenu.SetActive(true);
             this.gameObject.SetActive(false);
        // }
        
@@ -65,17 +67,20 @@ public class UIMainMenuManager : MonoBehaviour
     }
     public void ShopButton()
     {
+        UpgradeMenu.SetActive(true);
         Shop.SetBool("On", true);
     }
     public void ExitButtonShop()
     {
         Shop.SetBool("On", false);
+        UpgradeMenu.SetActive(true);
         AudioManager.Instance.SFX("ButtonClick");
         //startMenu.SetActive(true);
         //settingsMenu.SetActive(false);
     }
     public void SFXSlider()
     {
+
         AudioManager.Instance.SFXVolume(sfxSlider.value);
     }
     public void MusicSlider()

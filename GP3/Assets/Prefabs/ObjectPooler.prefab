@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pools:
   - type: ground
-    prefab: {fileID: 3387427654378461615, guid: eb031dd480f82ac40b670003a5fb7f74, type: 3}
+    prefab: {fileID: 5986845516468327447, guid: 3eb51cf84bb4d5a47ad656a99130a467, type: 3}
     size: 5
   - type: enemy
     prefab: {fileID: 1006886029716126277, guid: f57040f2bbff22246a5a113e4a46e749, type: 3}
@@ -65,11 +65,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundSpawnDistance: 40
-  enemySpawnables:
-  - type: enemy
-    weight: 1
+  spawnableObjects: []
   spawnSettings:
   - type: enemy
     minWait: 0.5
     maxWait: 5
     maxObjects: 100
+  playerTransform: {fileID: 0}

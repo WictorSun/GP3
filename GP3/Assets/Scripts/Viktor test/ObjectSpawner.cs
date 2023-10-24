@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class ObjectSpawner : MonoBehaviour
 {
+    [Header("Enemy spawn in front of player.")]
+    [SerializeField] private float enemySpawnInFront = 30f;
+    [Header("Enemy spawn behind of player.")]
+    [SerializeField] private float enemySpawnBehind = -30f;
+
     [System.Serializable]
     public struct Spawnable // struct for enemies that can be spawned
     {
@@ -18,40 +23,70 @@ public class ObjectSpawner : MonoBehaviour
     {
         [Tooltip("This is the type of object that will be spawned.")]
         public string type; // this could be like enemies, trees, obstacles ect.
-        [Tooltip("This is the minimum and maximum time between spawns.")]
+        [Tooltip("This is the maximum time between spawns.")]
         public float minWait; // min and max wait time between spawns
+        [Tooltip("This is the minimum time between spawns.")]
         public float maxWait;
         [Tooltip("This is the maximum number of objects of this type that can be spawned.")]
         public int maxObjects; // max objects of this type that can be spawned
     }
     private float totalWeight; 
     private bool spawningObject = false;
-    [SerializeField] private float groundSpawnDistance = 20f; 
-    public List<Spawnable> enemySpawnables = new List<Spawnable>(); // list of enemies that can be spawned
-    public List<Spawnsettings> spawnSettings = new List<Spawnsettings>(); // list of spawn settings for different objects
-
+    [Header("In front of player where ground will spawn.")]
+    [SerializeField] private float groundSpawnDistance = 10f;
+    public List<Spawnable> spawnableObjects = new(); // list of spawnable objects that can be spawned
+    public List<Spawnsettings> spawnSettings = new(); // list of spawn settings for different objects
+    public Transform playerTransform; // reference to player position
     public static ObjectSpawner instance;
 
     private void Awake() // sets instance to this object
     {
         instance = this;
         totalWeight = 0;
-        foreach(Spawnable spawnable in enemySpawnables) // adds up total weight of enemies
+        foreach(Spawnable spawnable in spawnableObjects) // adds up total weight of enemies
         {
             totalWeight += spawnable.weight;
         }
-         
     }
 
-    public void SpawnGround() // spawns ground at set distance
+
+    // this could just be in MoveComponent
+    // Ground Isn't pooled any more, 
+    public void MoveGroundBack(GameObject ground) // spawns ground at set distance
     {
-        ObjectPooler.instance.SpawnFromPool("ground", new Vector3(0, 0, groundSpawnDistance), Quaternion.identity);
+        if(GameController.IsReturning == false)
+        {
+            ground.transform.position = ground.transform.position + Vector3.forward * groundSpawnDistance;
+        }
+        else
+        {
+            ground.transform.position = ground.transform.position - Vector3.forward * groundSpawnDistance;
+        }
+        Debug.Log("Triggered ground spawn");
     }
 
     private IEnumerator SpawnObject(string type, float time) // spawns object after set time
     {
         yield return new WaitForSeconds(time);
-        ObjectPooler.instance.SpawnFromPool(type, new Vector3(Random.Range(-4.4f, 4.4f), 0.5f, -11f), Quaternion.identity);
+        
+        if (playerTransform == null)
+        {
+            yield break; // exit the coroutine if playerTransform is null
+        }
+
+        Vector3 spawnPosition;
+
+        // if player is returning, spawn enemy behind player
+        if(GameController.IsReturning == false)
+        {
+            spawnPosition = playerTransform.position + new Vector3(Random.Range(-4.4f, 4.4f), 0.5f, enemySpawnInFront);
+        }
+        else
+        {
+            spawnPosition = playerTransform.position + new Vector3(Random.Range(-4.4f, 4.4f), 0.5f, enemySpawnBehind);
+        }
+        
+        ObjectPooler.instance.SpawnFromPool(type, spawnPosition, Quaternion.identity);
         spawningObject = false;
         GameController.EnemyCount++;
     }
@@ -63,16 +98,16 @@ public class ObjectSpawner : MonoBehaviour
             spawningObject = true;
             float pick = Random.value * totalWeight; // picks random enemy to spawn
             int chosenIndex = 0;
-            float cumulativeWeight = enemySpawnables[0].weight; 
+            float cumulativeWeight = spawnableObjects[0].weight; 
 
-            while(pick > cumulativeWeight && chosenIndex < enemySpawnables.Count - 1) // loops through enemies and picks one to spawn
+            while(pick > cumulativeWeight && chosenIndex < spawnableObjects.Count - 1) // loops through enemies and picks one to spawn
             {
                 chosenIndex++;
-                cumulativeWeight += enemySpawnables[chosenIndex].weight;
+                cumulativeWeight += spawnableObjects[chosenIndex].weight;
             }
 
             // spawns enemy
-            StartCoroutine(SpawnObject(enemySpawnables[chosenIndex].type, Random.Range(spawnSettings[0].minWait / GameController.DifficultyMultiplier, spawnSettings[0].maxWait / GameController.DifficultyMultiplier)));
+            StartCoroutine(SpawnObject(spawnableObjects[chosenIndex].type, Random.Range(spawnSettings[0].minWait / GameController.DifficultyMultiplier, spawnSettings[0].maxWait / GameController.DifficultyMultiplier)));
         }
     }
 }

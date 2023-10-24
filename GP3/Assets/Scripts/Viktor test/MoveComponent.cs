@@ -4,117 +4,112 @@ using UnityEngine;
 
 public class MoveComponent : MonoBehaviour
 {
-    [SerializeField] private float speed = 5f; // Speed at which the object will move
-    [SerializeField] private float objectDistance = 50f; // Distance at which the object will spawn another object
-    [SerializeField] private float despawnDistance = -30f; // Distance at which the object will despawn
-    private bool canSpawnGround = true; // Bool to check if ground can spawn
+    // Serialized fields for Unity Editor
+    [SerializeField] private float speed = 5f;
+    [Header("Ground spawn settings")]
+    [SerializeField] private float objectDistance = 50f; // Q: WHAT THIS DO? A: This is the distance between the player and the object that will spawn
+    [SerializeField] private float despawnDistance = -30f;
 
-    private float lateralDirection = 1f; // 1 for right, -1 for left
+    // For lateral enemy movement
+    private float lateralDirection = 1f;
 
+    // Component references
     private HealthComponent health;
     public static GameObject player;
     private EnemyController enemy;
 
-    void Start()
+    private void Start()
     {
-        if(GetComponent<HealthComponent>() != null) // If the object has a health component, set health to that component
-        {
-            health = GetComponent<HealthComponent>();
-        }
+        // Initialize component references
+        health = GetComponent<HealthComponent>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        enemy = GetComponent<EnemyController>();
 
-        player = GameObject.FindGameObjectWithTag("Player"); // Set player to the player object
-
-        if(GetComponent<EnemyController>() != null) // If the object has an enemy controller, set enemy to that component
+        // Initialize lateral direction for enemies
+        if (enemy != null)
         {
-            enemy = GetComponent<EnemyController>();
-        }
-        if (GetComponent<EnemyController>() != null)
-        {
-            enemy = GetComponent<EnemyController>();
-            
-            // Randomly set initial lateral direction
             lateralDirection = Random.Range(0, 2) == 0 ? -1f : 1f;
         }
     }
 
-    void Update()
+    private void Update()
     {
-        Vector3 forwardMovement = Vector3.zero;  // Declare forwardMovement here
+        // Determine forward movement direction based on game state
+        float directionMultiplier = GameController.IsReturning ? 1f : -1f;
+        Vector3 forwardMovement = transform.forward * speed * Time.deltaTime * directionMultiplier;
 
-        if (GameController.IsReturning == false)
-        {
-            forwardMovement = -transform.forward * speed * Time.deltaTime;  // Ground moves as walking forward
-        }
-        else if (GameController.IsReturning == true)
-        {
-            forwardMovement = transform.forward * speed * Time.deltaTime;  // Ground moves as walking bakwards
-        }
+        // Handle movement, despawning, and ground spawning
+        MoveObject(forwardMovement);
+        HandleDespawn();
+        HandleGroundSpawn();
+    }
 
-        Vector3 lateralMovement = Vector3.zero;
-
-        float groundWidth = 10f;  // Replace with the actual width of your ground
-        float halfGroundWidth = groundWidth / 2f;
-
-        if (enemy != null)
-        {
-            // Linear lateral movement
-            lateralMovement = Vector3.right * lateralDirection * enemy.moveSpeed * Time.deltaTime;
-
-            // Calculate new position
-            Vector3 newPosition = transform.position + forwardMovement + lateralMovement;
-
-            // Check if the new position is outside the ground
-            if (Mathf.Abs(newPosition.x) > halfGroundWidth)
-            {
-                // Reverse the direction
-                lateralDirection *= -1;
-
-                // Adjust the position to keep it within the ground
-                newPosition.x = Mathf.Clamp(newPosition.x, -halfGroundWidth, halfGroundWidth);
-            }
-
-            // Update the position
-            transform.position = newPosition;
-        }
-        else // if not an enemy, move as the ground does
+    // Handles the movement of the object (either enemy or ground)
+    private void MoveObject(Vector3 forwardMovement)
+    {
+        // If it's not an enemy, just move forward
+        if (enemy == null)
         {
             transform.position += forwardMovement;
+            return;
         }
 
-        // Despawn object
-        if(GameController.IsReturning == false && transform.position.z < player.transform.position.z - 10f && enemy != null)
+        // Handle lateral enemy movement
+        float groundWidth = 10f;
+        float halfGroundWidth = groundWidth / 2f;
+        Vector3 lateralMovement = Vector3.right * lateralDirection * enemy.moveSpeed * Time.deltaTime;
+        Vector3 newPosition = transform.position + forwardMovement + lateralMovement;
+
+        // Keep the enemy within the ground boundaries
+        if (Mathf.Abs(newPosition.x) > halfGroundWidth)
+        {
+            lateralDirection *= -1;
+            newPosition.x = Mathf.Clamp(newPosition.x, -halfGroundWidth, halfGroundWidth);
+        }
+
+        // Update the position
+        transform.position = newPosition;
+    }
+
+    // Handles the despawning of enemies
+    private void HandleDespawn()
+    {
+        // Despawn offset based on game direction
+        float despawnOffset = GameController.IsReturning ? 22f : -22f; // 22 cause then not see the dissapear when reeled back
+
+        // If it's not an enemy or despawning is disabled, do nothing
+        if (enemy == null || !GameController.CanDespawnEnemies) return;
+
+        // Despawn the enemy when it's far enough from the player
+        if (Mathf.Abs(transform.position.z - (player.transform.position.z + despawnOffset)) < 1f)
         {
             health.ResetHealth();
             gameObject.SetActive(false);
         }
-        else if(GameController.IsReturning == true && transform.position.z > player.transform.position.z + 10f && enemy != null)
-        {
-            health.ResetHealth();
-            gameObject.SetActive(false);
-        }
+    }
 
-        // Spawn ground
-        if(GameController.IsReturning == false && transform.position.z <= objectDistance && transform.tag == "Ground" && canSpawnGround)
-        {
-            ObjectSpawner.instance.SpawnGround();
-            canSpawnGround = false;
-        }
-        else if(GameController.IsReturning == true && transform.position.z >= -objectDistance && transform.tag == "Ground" && canSpawnGround) // if object is past object distance, spawn another object
-        {
-            ObjectSpawner.instance.SpawnGround();
-            canSpawnGround = false;
-        }
+    // Handles the spawning of new ground tiles
+    private void HandleGroundSpawn()
+    {
+        // Determine the target distance for spawning based on game direction
+        float targetDistance = GameController.IsReturning ? -objectDistance * 2 : objectDistance;
 
-        // Despawn ground
-        if(GameController.IsReturning == false && transform.position.z <= despawnDistance) // if object is past despawn distance, deactivate
+        // // Spawn a new ground tile when reaching the target distance
+        // if (Mathf.Abs(transform.position.z - targetDistance) < 1f) // this is the distance between the player and the object that will spawn
+        // {
+        //     ObjectSpawner.instance.MoveGroundBack(gameObject);
+        //     Debug.Log("Spawn ground");
+        // }
+
+        // Determine the despawn distance based on game direction
+        float actualDespawnDistance = GameController.IsReturning ? -despawnDistance * 2 : despawnDistance;
+
+        // Deactivate the ground tile when it reaches the despawn distance
+        if (Mathf.Abs(transform.position.z - actualDespawnDistance) < 1f)
         {
-            canSpawnGround = true;
-            gameObject.SetActive(false);
-        }
-        else if(GameController.IsReturning == true && transform.position.z >= -despawnDistance)
-        {
-            canSpawnGround = true;
-            gameObject.SetActive(false);
+            // gameObject.SetActive(false);
+            ObjectSpawner.instance.MoveGroundBack(gameObject);
+            Debug.Log("Despawn ground");
         }
     }
 }

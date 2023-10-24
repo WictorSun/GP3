@@ -1,12 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthComponent : MonoBehaviour
 {
     public float maxHealth;
     public float currentHealth;
-
     private static bool hasMovedBackward = false;
 
     void Start()
@@ -32,6 +30,8 @@ public class HealthComponent : MonoBehaviour
 
         // Ensure the player reaches the target position
         playerTransform.position = targetPosition;
+
+        GameController.CanDespawnEnemies = true; // Re-enable enemy despawn, Why i do this is cause enemies in front of player got disabled during the lerp
     }
 
     void Update()
@@ -55,6 +55,7 @@ public class HealthComponent : MonoBehaviour
                 // Move the player 20 units forward
                 if (playerTransform != null && !hasMovedBackward)
                 {
+                    GameController.CanDespawnEnemies = false; // Disable enemy despawn
                     playerTransform.gameObject.GetComponent<MonoBehaviour>().StartCoroutine(MovePlayerSmoothly(playerTransform));
                     hasMovedBackward = true;
                 }

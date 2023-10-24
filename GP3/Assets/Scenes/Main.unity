@@ -1182,6 +1182,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8473077275504563647, guid: 0520c235fe9ac404ab984d437c0032b6, type: 3}
+      propertyPath: pools.Array.data[0].size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473077275504563647, guid: 0520c235fe9ac404ab984d437c0032b6, type: 3}
       propertyPath: pools.Array.data[1].size
       value: 20
       objectReference: {fileID: 0}
@@ -1201,6 +1205,10 @@ PrefabInstance:
       propertyPath: pools.Array.data[3].type
       value: Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 8473077275504563647, guid: 0520c235fe9ac404ab984d437c0032b6, type: 3}
+      propertyPath: pools.Array.data[0].prefab
+      value: 
+      objectReference: {fileID: 3387427654378461615, guid: eb031dd480f82ac40b670003a5fb7f74, type: 3}
     - target: {fileID: 8473077275504563647, guid: 0520c235fe9ac404ab984d437c0032b6, type: 3}
       propertyPath: pools.Array.data[2].prefab
       value: 

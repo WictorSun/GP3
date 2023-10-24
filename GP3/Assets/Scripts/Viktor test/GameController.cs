@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour
 {
     private static float distance = 0;
     public static bool IncreaseDistance = true;
-    public static bool CanDespawnEnemies = true; // disable enemy despawn during lerp when hit enemy
+    public static bool CanDespawnEnemies = true; // disable enemy despawn during lerp whe
     private static float difficultyMultiplier = 1;
     private static float difficultyOffset = 100f; // Difficulty increases by 1% every 100 units
     private static int enemyCount = 0;

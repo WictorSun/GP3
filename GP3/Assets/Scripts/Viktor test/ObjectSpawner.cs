@@ -27,7 +27,7 @@ public class ObjectSpawner : MonoBehaviour
     }
     private float totalWeight; 
     private bool spawningObject = false;
-    [SerializeField] private float groundSpawnDistance = 50f;
+    [SerializeField] private float groundSpawnDistance = 5f;
     public List<Spawnable> spawnableObjects = new List<Spawnable>(); // list of spawnable objects that can be spawned
     public List<Spawnsettings> spawnSettings = new List<Spawnsettings>(); // list of spawn settings for different objects
     public Transform playerTransform; // reference to player position

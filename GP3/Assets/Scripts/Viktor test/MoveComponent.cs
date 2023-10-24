@@ -6,9 +6,9 @@ public class MoveComponent : MonoBehaviour
 {
     // Serialized fields for Unity Editor
     [SerializeField] private float speed = 5f;
-    [SerializeField] private float objectDistance = 50f;
+    [Header("Ground spawn settings")]
+    [SerializeField] private float objectDistance = 50f; // Q: WHAT THIS DO? A: This is the distance between the player and the object that will spawn
     [SerializeField] private float despawnDistance = -30f;
-    private bool canSpawnGround = true;
 
     // For lateral enemy movement
     private float lateralDirection = 1f;
@@ -91,28 +91,25 @@ public class MoveComponent : MonoBehaviour
     // Handles the spawning of new ground tiles
     private void HandleGroundSpawn()
     {
-        // Do nothing if it's not a ground tile or if spawning is disabled
-        if (transform.tag != "Ground" || !canSpawnGround) return;
-
         // Determine the target distance for spawning based on game direction
-        float targetDistance = GameController.IsReturning ? -objectDistance : objectDistance;
+        float targetDistance = GameController.IsReturning ? -objectDistance * 2 : objectDistance;
 
-        // Spawn a new ground tile when reaching the target distance
-        if (Mathf.Abs(transform.position.z - targetDistance) < 1f)
-        {
-            ObjectSpawner.instance.SpawnGround();
-            canSpawnGround = false;
-        }
+        // // Spawn a new ground tile when reaching the target distance
+        // if (Mathf.Abs(transform.position.z - targetDistance) < 1f) // this is the distance between the player and the object that will spawn
+        // {
+        //     ObjectSpawner.instance.MoveGroundBack(gameObject);
+        //     Debug.Log("Spawn ground");
+        // }
 
         // Determine the despawn distance based on game direction
-        float actualDespawnDistance = GameController.IsReturning ? -despawnDistance : despawnDistance;
+        float actualDespawnDistance = GameController.IsReturning ? -despawnDistance * 2 : despawnDistance;
 
         // Deactivate the ground tile when it reaches the despawn distance
         if (Mathf.Abs(transform.position.z - actualDespawnDistance) < 1f)
         {
-            canSpawnGround = true;
-            gameObject.SetActive(false);
-            Debug.Log("Deactivating object: " + gameObject.name);
+            // gameObject.SetActive(false);
+            ObjectSpawner.instance.MoveGroundBack(gameObject);
+            Debug.Log("Despawn ground");
         }
     }
 }

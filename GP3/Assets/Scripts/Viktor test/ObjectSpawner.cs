@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class ObjectSpawner : MonoBehaviour
 {
+    [Header("Enemy spawn in front of player.")]
+    [SerializeField] private float enemySpawnInFront = 30f;
+    [Header("Enemy spawn behind of player.")]
+    [SerializeField] private float enemySpawnBehind = -30f;
+
     [System.Serializable]
     public struct Spawnable // struct for enemies that can be spawned
     {
@@ -27,9 +32,10 @@ public class ObjectSpawner : MonoBehaviour
     }
     private float totalWeight; 
     private bool spawningObject = false;
-    [SerializeField] private float groundSpawnDistance = 5f;
-    public List<Spawnable> spawnableObjects = new List<Spawnable>(); // list of spawnable objects that can be spawned
-    public List<Spawnsettings> spawnSettings = new List<Spawnsettings>(); // list of spawn settings for different objects
+    [Header("In front of player where ground will spawn.")]
+    [SerializeField] private float groundSpawnDistance = 10f;
+    public List<Spawnable> spawnableObjects = new(); // list of spawnable objects that can be spawned
+    public List<Spawnsettings> spawnSettings = new(); // list of spawn settings for different objects
     public Transform playerTransform; // reference to player position
     public static ObjectSpawner instance;
 
@@ -41,20 +47,22 @@ public class ObjectSpawner : MonoBehaviour
         {
             totalWeight += spawnable.weight;
         }
-         
     }
 
-    public void SpawnGround() // spawns ground at set distance
+
+    // this could just be in MoveComponent
+    // Ground Isn't pooled any more, 
+    public void MoveGroundBack(GameObject ground) // spawns ground at set distance
     {
         if(GameController.IsReturning == false)
         {
-            ObjectPooler.instance.SpawnFromPool("ground", new Vector3(0, 0, groundSpawnDistance), Quaternion.identity);
+            ground.transform.position = ground.transform.position + Vector3.forward * groundSpawnDistance;
         }
         else
         {
-            ObjectPooler.instance.SpawnFromPool("ground", new Vector3(0, 0, -groundSpawnDistance), Quaternion.identity);
+            ground.transform.position = ground.transform.position - Vector3.forward * groundSpawnDistance;
         }
-
+        Debug.Log("Triggered ground spawn");
     }
 
     private IEnumerator SpawnObject(string type, float time) // spawns object after set time
@@ -68,14 +76,14 @@ public class ObjectSpawner : MonoBehaviour
 
         Vector3 spawnPosition;
 
-        // if player is returning, spawn object behind player
+        // if player is returning, spawn enemy behind player
         if(GameController.IsReturning == false)
         {
-            spawnPosition = new Vector3(Random.Range(-4.4f, 4.4f), 0.5f, -11f);
+            spawnPosition = playerTransform.position + new Vector3(Random.Range(-4.4f, 4.4f), 0.5f, enemySpawnInFront);
         }
         else
         {
-            spawnPosition = new Vector3(Random.Range(-4.4f, 4.4f), 0.5f,  -65f);
+            spawnPosition = playerTransform.position + new Vector3(Random.Range(-4.4f, 4.4f), 0.5f, enemySpawnBehind);
         }
         
         ObjectPooler.instance.SpawnFromPool(type, spawnPosition, Quaternion.identity);

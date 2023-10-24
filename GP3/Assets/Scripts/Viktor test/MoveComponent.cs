@@ -75,7 +75,7 @@ public class MoveComponent : MonoBehaviour
     private void HandleDespawn()
     {
         // Despawn offset based on game direction
-        float despawnOffset = GameController.IsReturning ? 10f : -10f;
+        float despawnOffset = GameController.IsReturning ? 22f : -22f; // 22 cause then not see the dissapear when reeled back
 
         // If it's not an enemy or despawning is disabled, do nothing
         if (enemy == null || !GameController.CanDespawnEnemies) return;

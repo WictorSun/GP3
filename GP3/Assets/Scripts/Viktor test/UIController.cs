@@ -10,6 +10,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private float timeMod = 4.0f; // Time modifier for distance
     [SerializeField] private TextMeshProUGUI distanceText = null; // Text for distance
     [SerializeField] private GameObject ReplayButton;
+    [SerializeField] private GameObject winningScreen;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +35,9 @@ public class UIController : MonoBehaviour
         {
             //GameController.EndGame();
             Time.timeScale = 0;
+            ScoreCounter.Instance.WinningScoreCounter();
+            winningScreen.SetActive(true);
+            winningScreen.SetActive(true);
         }
     }
 }

@@ -34,8 +34,7 @@ public class ScoreCounter : MonoBehaviour
     }
     void Start()
     {
-        AddKill(30);
-        WinningScoreCounter();
+
     }
     public void GetDistance(float totalDist)
     {

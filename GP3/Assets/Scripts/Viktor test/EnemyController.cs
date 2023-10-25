@@ -6,7 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     private Transform player;
     [SerializeField] public float moveSpeed = 2f;
-    [SerializeField] private float killAddition;
+    [SerializeField] private float killAddition = 0.2f;
 
     private HealthComponent health; // prob will remove Health and just if collision with player, enemy dead
 

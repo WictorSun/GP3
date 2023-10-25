@@ -33,13 +33,7 @@ public class UIController : MonoBehaviour
         if (GameController.Distance <= 0) // If distance is 0 or less, end game
         {
             //GameController.EndGame();
-            ReplayButton.gameObject.SetActive(true);
             Time.timeScale = 0;
         }
-    }
-    public void ReloadScene()
-    {
-        Time.timeScale = 1;  // Reset the time scale back to normal
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);  // Reload the current scene
     }
 }

@@ -35,7 +35,15 @@ public class MoveComponent : MonoBehaviour
     private void Update()
     {
         // Determine forward movement direction based on game state
-        float directionMultiplier = GameController.IsReturning ? 1f : -1f;
+        float directionMultiplier;
+        if (gameObject.tag == "Enemy" && GameController.IsReturning)
+        {
+            directionMultiplier = 0.5f; // this gives visual loousion of approaching enemies correctly when returning
+        }
+        else
+        {
+            directionMultiplier = GameController.IsReturning ? 1f : -1f;
+        }
         Vector3 forwardMovement = transform.forward * speed * Time.deltaTime * directionMultiplier;
 
         // Handle movement, despawning, and ground spawning
@@ -70,6 +78,16 @@ public class MoveComponent : MonoBehaviour
         // Update the position
         transform.position = newPosition;
     }
+
+    // public static void IncreaseSpeed(float increment)
+    // {
+    //     // Assuming `speed` is not static. If it's static, you won't need the instance.
+    //     MoveComponent instance = GameObject.FindGameObjectWithTag("Player").GetComponent<MoveComponent>();
+    //     if (instance != null)
+    //     {
+    //         instance.speed += increment;
+    //     }
+    // }
 
     // Handles the despawning of enemies
     private void HandleDespawn()

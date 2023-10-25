@@ -38,7 +38,7 @@ public class ScoreCounter : MonoBehaviour
     }
     public void GetDistance(float totalDist)
     {
-        metersTraveled = totalDist;
+        metersTraveled = Mathf.FloorToInt(totalDist);
     }
     public void AddKill(int killvalue)
     {
@@ -63,7 +63,11 @@ public class ScoreCounter : MonoBehaviour
     {
         addedScore = metersTraveled + killScore;
         finalScore = addedScore * multiplier;
-        coins = finalScore / 100;
+        coins = Mathf.FloorToInt(finalScore) / 100;
+        if (coins <= 5)
+        {
+            coins = 5;
+        }
         WinningScreen.metersTravelled.text = "" + metersTraveled + "m";
         WinningScreen.kills.text = "" + killScore;
         WinningScreen.combo.text = "" + multiplier + "X";

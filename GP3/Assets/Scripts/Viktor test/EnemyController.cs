@@ -21,7 +21,7 @@ public class EnemyController : MonoBehaviour
         if (other.tag == "Player")
         {
             health.UpdateHealth(-1); // enemy takes 1 damage
-            ScoreCounter.Instance.KillMultiplier(killAddition);
+            ScoreCounter.Instance.KillMultiplier(0.02f);
             ScoreCounter.Instance.AddKill(1);
         }
     }

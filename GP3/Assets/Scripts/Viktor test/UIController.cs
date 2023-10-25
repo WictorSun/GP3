@@ -10,6 +10,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private float timeMod = 4.0f; // Time modifier for distance
     [SerializeField] private TextMeshProUGUI distanceText = null; // Text for distance
     [SerializeField] private GameObject ReplayButton;
+    [SerializeField] private GameObject winningScreen;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,13 +34,10 @@ public class UIController : MonoBehaviour
         if (GameController.Distance <= 0) // If distance is 0 or less, end game
         {
             //GameController.EndGame();
-            ReplayButton.gameObject.SetActive(true);
             Time.timeScale = 0;
+            ScoreCounter.Instance.WinningScoreCounter();
+            winningScreen.SetActive(true);
+            winningScreen.SetActive(true);
         }
-    }
-    public void ReloadScene()
-    {
-        Time.timeScale = 1;  // Reset the time scale back to normal
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);  // Reload the current scene
     }
 }

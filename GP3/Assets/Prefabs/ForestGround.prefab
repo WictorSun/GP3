@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0716cc13c3817994ead3022506825be6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 5
   objectDistance: -40
   despawnDistance: -50
 --- !u!1001 &642269353703205559

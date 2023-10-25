@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
     [SerializeField] private float timeMod = 4.0f; // Time modifier for distance
     [SerializeField] private TextMeshProUGUI distanceText = null; // Text for distance
+    [SerializeField] private GameObject ReplayButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,5 +29,11 @@ public class UIController : MonoBehaviour
         }
 
         distanceText.text = String.Format("{0:0m}", GameController.Distance);
+
+        if (GameController.Distance <= 0) // If distance is 0 or less, end game
+        {
+            //GameController.EndGame();
+            Time.timeScale = 0;
+        }
     }
 }

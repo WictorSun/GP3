@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthComponent : MonoBehaviour
@@ -52,6 +51,10 @@ public class HealthComponent : MonoBehaviour
 
                 GameObject player = MoveComponent.player;
                 Transform playerTransform = player.transform;
+
+                AudioManager.Instance.SFX("HitEnemy");
+
+                //MoveComponent.IncreaseSpeed(1f);
 
                 // Move the player 20 units forward
                 if (playerTransform != null && !hasMovedBackward)

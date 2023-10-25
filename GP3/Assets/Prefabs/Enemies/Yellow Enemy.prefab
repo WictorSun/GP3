@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b13f6e8d78d6624087cdb3471c98f4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 1
 --- !u!114 &7620315062599006182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +143,7 @@ MonoBehaviour:
   speed: 20
   objectDistance: -60
   despawnDistance: -110
+  enemySpeedDiff: 5
 --- !u!54 &2160916547139492789
 Rigidbody:
   m_ObjectHideFlags: 0

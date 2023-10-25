@@ -15,8 +15,11 @@ public class MoveComponent : MonoBehaviour
 
     // Component references
     private HealthComponent health;
+    private GameObject ground;
     public static GameObject player;
     private EnemyController enemy;
+    private SpeedModifier speedModifier;
+
 
     private void Start()
     {
@@ -25,12 +28,15 @@ public class MoveComponent : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         enemy = GetComponent<EnemyController>();
 
+        speedModifier = GetComponent<SpeedModifier>();
+        
         // Initialize lateral direction for enemies
         if (enemy != null)
         {
             lateralDirection = Random.Range(0, 2) == 0 ? -1f : 1f;
         }
     }
+
 
     private void Update()
     {
@@ -44,8 +50,8 @@ public class MoveComponent : MonoBehaviour
         {
             directionMultiplier = GameController.IsReturning ? 1f : -1f;
         }
-        Vector3 forwardMovement = transform.forward * speed * Time.deltaTime * directionMultiplier;
 
+        Vector3 forwardMovement = transform.forward * (speed + SpeedModifier.speed) * Time.deltaTime * directionMultiplier;
         // Handle movement, despawning, and ground spawning
         MoveObject(forwardMovement);
         HandleDespawn();
@@ -78,16 +84,6 @@ public class MoveComponent : MonoBehaviour
         // Update the position
         transform.position = newPosition;
     }
-
-    // public static void IncreaseSpeed(float increment)
-    // {
-    //     // Assuming `speed` is not static. If it's static, you won't need the instance.
-    //     MoveComponent instance = GameObject.FindGameObjectWithTag("Player").GetComponent<MoveComponent>();
-    //     if (instance != null)
-    //     {
-    //         instance.speed += increment;
-    //     }
-    // }
 
     // Handles the despawning of enemies
     private void HandleDespawn()
@@ -127,7 +123,6 @@ public class MoveComponent : MonoBehaviour
         {
             // gameObject.SetActive(false);
             ObjectSpawner.instance.MoveGroundBack(gameObject);
-            Debug.Log("Despawn ground");
         }
     }
 }

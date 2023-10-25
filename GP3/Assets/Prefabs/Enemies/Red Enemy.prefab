@@ -143,6 +143,7 @@ MonoBehaviour:
   speed: 20
   objectDistance: -60
   despawnDistance: -110
+  enemySpeedDiff: 5
 --- !u!54 &5251057831430686464
 Rigidbody:
   m_ObjectHideFlags: 0

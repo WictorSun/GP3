@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour
     private static float difficultyOffset = 100f; // Difficulty increases by 1% every 100 units
     private static int enemyCount = 0;
     public static bool IsReturning = false; // If player is returning
-
+    public static bool getDist = false;
     public static float Distance { get => distance; set => distance = value; }
     public static float DifficultyMultiplier { get => difficultyMultiplier; set => difficultyMultiplier = value; }
     public static float DifficultyOffset { get => difficultyOffset; set => difficultyOffset = value; }
@@ -28,5 +28,16 @@ public class GameController : MonoBehaviour
     void Update()
     {
         difficultyMultiplier = 1 + (distance / difficultyOffset); // Difficulty increases by 1% every 100 units
+        if (IsReturning && !getDist)
+        {
+            GetDistance();
+        }
+    }
+    public void GetDistance()
+    {
+
+            ScoreCounter.Instance.GetDistance(Distance);
+            getDist = true;
+
     }
 }

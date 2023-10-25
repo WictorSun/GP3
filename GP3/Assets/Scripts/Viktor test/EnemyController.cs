@@ -6,6 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     private Transform player;
     [SerializeField] public float moveSpeed = 2f;
+    [SerializeField] private float killAddition;
 
     private HealthComponent health; // prob will remove Health and just if collision with player, enemy dead
 
@@ -20,6 +21,8 @@ public class EnemyController : MonoBehaviour
         if (other.tag == "Player")
         {
             health.UpdateHealth(-1); // enemy takes 1 damage
+            ScoreCounter.Instance.KillMultiplier(killAddition);
+            ScoreCounter.Instance.AddKill(1);
         }
     }
 }

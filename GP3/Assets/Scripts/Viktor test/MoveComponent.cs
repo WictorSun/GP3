@@ -29,13 +29,12 @@ public class MoveComponent : MonoBehaviour
         enemy = GetComponent<EnemyController>();
 
         speedModifier = GetComponent<SpeedModifier>();
-        
         // Initialize lateral direction for enemies
         if (enemy != null)
         {
             lateralDirection = Random.Range(0, 2) == 0 ? -1f : 1f;
         }
-    }
+    } 
 
 
     private void Update()

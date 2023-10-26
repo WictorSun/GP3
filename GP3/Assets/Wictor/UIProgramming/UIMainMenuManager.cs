@@ -11,6 +11,8 @@ public class UIMainMenuManager : MonoBehaviour
     [SerializeField] private float time = 2.0f;
     [SerializeField] private GameObject Ballista;
     [SerializeField] private GameObject StartMovementPoint; // where game Beins
+    [SerializeField] private GameObject CamBallista;
+    [SerializeField] private GameObject CamStartMovementPoint; // where game Beins
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject startMenu;
     [SerializeField] private GameObject settingsMenu;
@@ -94,13 +96,13 @@ public class UIMainMenuManager : MonoBehaviour
         {
             T += Time.deltaTime / 2f;
 
-            if(T > 1)
+            if(T > 1) // q: 
             {
                 T = 1;
             }
 
             player.transform.position = Vector3.Lerp(player.transform.position, StartMovementPoint.transform.position, T);
-            camera.transform.position = Vector3.Lerp(camera.transform.position, StartMovementPoint.transform.position, T);
+            camera.transform.position = Vector3.Lerp(camera.transform.position, CamStartMovementPoint.transform.position, T);
             yield return null;
         }
 

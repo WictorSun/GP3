@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 430f7c7836f6fe64eb5c2c34967c628a
+guid: 47de905cf9e9f094cbea095005739a05
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,18 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: fabric
-    second: {fileID: 2100000, guid: 8a5ac73bc3b2a4840bef4d4e290e02c1, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: wood
-    second: {fileID: 2100000, guid: 420ed071e9437564193cf71d1866c829, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: woodicircular
-    second: {fileID: 2100000, guid: f9f64d8824f0c984eb77ad71a3bf5b76, type: 2}
+    second: {fileID: 2100000, guid: 56df4d1388d0a6543b4266241a2397de, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

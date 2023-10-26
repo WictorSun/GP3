@@ -12,6 +12,7 @@ public class ScoreCounter : MonoBehaviour
     [SerializeField] private float multiplier;
     private float addedScore;
     private float coins;
+    [SerializeField] float totalCoins;
     private float multipliermeter;
     [SerializeField] private float multiplierComboLimit;
     [SerializeField] private float finalScore;
@@ -63,6 +64,9 @@ public class ScoreCounter : MonoBehaviour
     {
         addedScore = metersTraveled + killScore;
         finalScore = addedScore * multiplier;
+        //SaveManager.Instance.GetFloat("COINS I HAVE");
+        totalCoins = Mathf.FloorToInt(totalCoins + coins);
+        //PlayerPrefs.SetFloat("TotalCoins", totalCoins);
         coins = Mathf.FloorToInt(finalScore) / 100;
         if (coins <= 5)
         {
@@ -73,6 +77,7 @@ public class ScoreCounter : MonoBehaviour
         WinningScreen.combo.text = "" + multiplier + "X";
         WinningScreen.totalScore.text = "" + finalScore;
         WinningScreen.coins.text = "" + coins;
+        WinningScreen.totalCoinsDisp.text = "" + totalCoins;
 
         Debug.Log(finalScore);
     }

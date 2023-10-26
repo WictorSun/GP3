@@ -114,6 +114,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
+  killAddition: 0.2
+  rb: {fileID: 0}
 --- !u!114 &1006886029716126279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,7 +145,6 @@ MonoBehaviour:
   speed: 20
   objectDistance: -60
   despawnDistance: -110
-  enemySpeedDiff: 5
 --- !u!54 &1905975224
 Rigidbody:
   m_ObjectHideFlags: 0

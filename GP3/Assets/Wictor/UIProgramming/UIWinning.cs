@@ -8,6 +8,7 @@ public class UIWinning : MonoBehaviour
 {
 
     public TextMeshProUGUI coins;
+    public TextMeshProUGUI totalCoinsDisp;
     public TextMeshProUGUI metersTravelled;
     public TextMeshProUGUI kills;
     public TextMeshProUGUI combo;

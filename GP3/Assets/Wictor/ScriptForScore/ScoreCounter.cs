@@ -32,6 +32,7 @@ public class ScoreCounter : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        //PlayerPrefs.SetFloat("TotalCoins", 0);
     }
     void Start()
     {
@@ -65,13 +66,16 @@ public class ScoreCounter : MonoBehaviour
         addedScore = metersTraveled + killScore;
         finalScore = addedScore * multiplier;
         //SaveManager.Instance.GetFloat("COINS I HAVE");
-        totalCoins = Mathf.FloorToInt(totalCoins + coins);
-        //PlayerPrefs.SetFloat("TotalCoins", totalCoins);
         coins = Mathf.FloorToInt(finalScore) / 100;
         if (coins <= 5)
         {
             coins = 5;
         }
+        totalCoins = PlayerPrefs.GetFloat("TotalCoins");
+        totalCoins = Mathf.FloorToInt(totalCoins + coins);
+        PlayerPrefs.SetFloat("TotalCoins", totalCoins);
+        
+        
         WinningScreen.metersTravelled.text = "" + metersTraveled + "m";
         WinningScreen.kills.text = "" + killScore;
         WinningScreen.combo.text = "" + multiplier + "X";

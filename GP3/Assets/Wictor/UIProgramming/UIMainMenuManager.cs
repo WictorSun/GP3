@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIMainMenuManager : MonoBehaviour
 {
@@ -13,7 +14,8 @@ public class UIMainMenuManager : MonoBehaviour
     [SerializeField] private Slider musicSlider;
     //[SerializeField] private GameObject tutorialCanvas;
     //private bool firstGame;
-
+    [SerializeField] private float totalCoins;
+    [SerializeField] private TextMeshProUGUI totalCoinsText;
     [Header("Animators")]
     [SerializeField] private Animator settings;
     [SerializeField] private Animator Shop;
@@ -32,23 +34,17 @@ public class UIMainMenuManager : MonoBehaviour
     {
         sfxSlider.value = AudioManager.Instance.sfxSource.volume;
         musicSlider.value = AudioManager.Instance.musicSource.volume;
+        totalCoins = PlayerPrefs.GetFloat("TotalCoins");
         
+        totalCoinsText.text = "" + totalCoins;
     }
     public void PlayButton()
     {
-      //  if(firstGame)
-        //{
-           // AudioManager.Instance.SFX("ButtonClick");
-            //tutorialCanvas.SetActive(true);
-            //this.gameObject.SetActive(false);
-          //  firstGame = false;
-        //}
-       // else
-       // {
+
             AudioManager.Instance.SFX("ButtonClick");
             inGameMenu.SetActive(true);
             this.gameObject.SetActive(false);
-       // }
+
        
     }
     public void SettingsButton()

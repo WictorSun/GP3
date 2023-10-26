@@ -12,6 +12,7 @@ public class UIWinning : MonoBehaviour
     public TextMeshProUGUI kills;
     public TextMeshProUGUI combo;
     public TextMeshProUGUI totalScore;
+    public TextMeshProUGUI totalcoin;
 
   
 }

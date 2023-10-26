@@ -8420,6 +8420,12 @@ MonoBehaviour:
   distanceText: {fileID: 1882372383}
   ReplayButton: {fileID: 87649060}
   winningScreen: {fileID: 1029433638}
+  player: {fileID: 657551425}
+  StartMovementPoint: {fileID: 2019230533}
+  camera: {fileID: 354070508}
+  CamStartMovementPoint: {fileID: 1772522712}
+  time: 2
+  endGame: 1
 --- !u!4 &1017877365
 Transform:
   m_ObjectHideFlags: 0
@@ -15179,7 +15185,6 @@ MonoBehaviour:
   sfxSlider: {fileID: 1516853436}
   musicSlider: {fileID: 1309978199}
   totalCoins: 0
-  totalCoinsText: {fileID: 0}
   settings: {fileID: 991050687}
   Shop: {fileID: 551549628}
 --- !u!114 &1791144982

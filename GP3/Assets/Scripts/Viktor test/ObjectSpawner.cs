@@ -62,7 +62,6 @@ public class ObjectSpawner : MonoBehaviour
         {
             ground.transform.position = ground.transform.position - Vector3.forward * groundSpawnDistance;
         }
-        Debug.Log("Triggered ground spawn");
     }
 
     private IEnumerator SpawnObject(string type, float time) // spawns object after set time

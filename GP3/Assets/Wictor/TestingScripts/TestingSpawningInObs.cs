@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class TestingSpawningInObs : MonoBehaviour
 {
-    [SerializeField] private float timeLeft;
-    private float currentTime;
+    
     [SerializeField] private GameObject[] obstacles;
     [SerializeField] private Transform spawnPoint;
-    private float minWaitTime = 1f;
-    private float maxWaitTime = 4f;
+    [SerializeField] private float minWaitTime = 1f;
+    [SerializeField] private float maxWaitTime = 4f;
     private GameObject placedObj;
 
     private void Start()
@@ -18,15 +17,7 @@ public class TestingSpawningInObs : MonoBehaviour
         StartCoroutine(SpawnIn(randomWaitTime));
     }
 
-    private void SpawnInObstacles()
-    {
-
-        if(timeLeft <= currentTime)
-        {
-
-        }
-
-    }
+ 
     IEnumerator SpawnIn(float WaitTime)
     {
         int objectNumber = obstacles.Length - 1;

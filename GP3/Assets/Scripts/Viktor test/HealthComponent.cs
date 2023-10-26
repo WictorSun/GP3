@@ -52,6 +52,10 @@ public class HealthComponent : MonoBehaviour
                 GameObject player = MoveComponent.player;
                 Transform playerTransform = player.transform;
 
+                AudioManager.Instance.SFX("HitEnemy");
+
+                SpeedModifier.IncreaseSpeed(1f);
+
                 // Move the player 20 units forward
                 if (playerTransform != null && !hasMovedBackward)
                 {

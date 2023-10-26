@@ -15,8 +15,11 @@ public class MoveComponent : MonoBehaviour
 
     // Component references
     private HealthComponent health;
+    private GameObject ground;
     public static GameObject player;
     private EnemyController enemy;
+    private SpeedModifier speedModifier;
+
 
     private void Start()
     {
@@ -25,6 +28,8 @@ public class MoveComponent : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         enemy = GetComponent<EnemyController>();
 
+        speedModifier = GetComponent<SpeedModifier>();
+        
         // Initialize lateral direction for enemies
         if (enemy != null)
         {
@@ -32,12 +37,21 @@ public class MoveComponent : MonoBehaviour
         }
     }
 
+
     private void Update()
     {
         // Determine forward movement direction based on game state
-        float directionMultiplier = GameController.IsReturning ? 1f : -1f;
-        Vector3 forwardMovement = transform.forward * speed * Time.deltaTime * directionMultiplier;
+        float directionMultiplier;
+        if (gameObject.tag == "Enemy" && GameController.IsReturning)
+        {
+            directionMultiplier = 0.5f; // this gives visual loousion of approaching enemies correctly when returning
+        }
+        else
+        {
+            directionMultiplier = GameController.IsReturning ? 1f : -1f;
+        }
 
+        Vector3 forwardMovement = transform.forward * (speed + SpeedModifier.speed) * Time.deltaTime * directionMultiplier;
         // Handle movement, despawning, and ground spawning
         MoveObject(forwardMovement);
         HandleDespawn();
@@ -75,7 +89,7 @@ public class MoveComponent : MonoBehaviour
     private void HandleDespawn()
     {
         // Despawn offset based on game direction
-        float despawnOffset = GameController.IsReturning ? 10f : -10f;
+        float despawnOffset = GameController.IsReturning ? 22f : -22f; // 24 cause then not see the dissapear when reeled back
 
         // If it's not an enemy or despawning is disabled, do nothing
         if (enemy == null || !GameController.CanDespawnEnemies) return;
@@ -109,7 +123,6 @@ public class MoveComponent : MonoBehaviour
         {
             // gameObject.SetActive(false);
             ObjectSpawner.instance.MoveGroundBack(gameObject);
-            Debug.Log("Despawn ground");
         }
     }
 }

@@ -5052,7 +5052,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &637654114
 GameObject:
@@ -5524,6 +5524,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 679338478}
   m_Mesh: {fileID: 1453043773871479701, guid: c2c05d08f8716674a882ab249c5812ab, type: 3}
+--- !u!1 &687828485
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 687828486}
+  m_Layer: 0
+  m_Name: CamStartPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &687828486
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687828485}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.05, y: 28.69, z: -3.99}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &698317280
 GameObject:
   m_ObjectHideFlags: 0
@@ -14807,7 +14838,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1772522713}
   m_Layer: 0
-  m_Name: StartPoint (1)
+  m_Name: CamBallista
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14821,12 +14852,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1772522712}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0.05, y: 28.69, z: -38.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1772707846
 GameObject:
@@ -15134,10 +15165,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cb77a785ff7da24e96fed13eec4e39a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 0}
-  time: 2
+  camera: {fileID: 354070508}
+  time: 0.0001
   Ballista: {fileID: 2019230533}
   StartMovementPoint: {fileID: 636839028}
+  CamBallista: {fileID: 1772522712}
+  CamStartMovementPoint: {fileID: 687828485}
   player: {fileID: 657551425}
   startMenu: {fileID: 1791144980}
   settingsMenu: {fileID: 991050686}
@@ -16418,7 +16451,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2021134500 stripped
 Transform:

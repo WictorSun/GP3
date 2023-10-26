@@ -91,23 +91,41 @@ public class UIMainMenuManager : MonoBehaviour
     IEnumerator StartGame(float time)
     {
         AudioManager.Instance.SFX("ButtonClick");
+        Vector3 playerStartPosition = player.transform.position;
 
         while (T < 1)
         {
-            T += Time.deltaTime / 2f;
+            T += Time.deltaTime / 1f; // This is the speed for the player
 
-            if(T > 1) // q: 
+            if(T > 1)
             {
                 T = 1;
             }
 
-            player.transform.position = Vector3.Lerp(player.transform.position, StartMovementPoint.transform.position, T);
-            camera.transform.position = Vector3.Lerp(camera.transform.position, CamStartMovementPoint.transform.position, T);
+            player.transform.position = Vector3.Lerp(playerStartPosition, StartMovementPoint.transform.position, T);
             yield return null;
         }
 
+
         yield return new WaitForSecondsRealtime(time);
         SpeedModifier.GameStarted();
+
+        Vector3 cameraStartPosition = camera.transform.position;
+
+        float cameraT = 0; // This is the interpolation factor for the camera
+
+        while (cameraT < 1)
+        {
+            cameraT += Time.deltaTime / 1.01f; // This is the speed for the player
+
+            if(cameraT > 1)
+            {
+                cameraT = 1;
+            }
+            
+            camera.transform.position = Vector3.Lerp(cameraStartPosition, CamStartMovementPoint.transform.position, cameraT);
+            yield return null;
+        }
 
         yield return new WaitForSeconds(0.2f);
         inGameMenu.SetActive(true);

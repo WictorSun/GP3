@@ -23,7 +23,7 @@ public class UIMainMenuManager : MonoBehaviour
     //[SerializeField] private GameObject tutorialCanvas;
     //private bool firstGame;
     [SerializeField] private float totalCoins;
-    [SerializeField] private TextMeshProUGUI totalCoinsText;
+    //[SerializeField] private TextMeshProUGUI totalCoinsText;
     [Header("Animators")]
     [SerializeField] private Animator settings;
     [SerializeField] private Animator Shop;
@@ -44,7 +44,7 @@ public class UIMainMenuManager : MonoBehaviour
         musicSlider.value = AudioManager.Instance.musicSource.volume;
         totalCoins = PlayerPrefs.GetFloat("TotalCoins");
         
-        totalCoinsText.text = "" + totalCoins;
+        //totalCoinsText.text = "" + totalCoins;
     }
     public void PlayButton()
     {

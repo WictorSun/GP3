@@ -11,6 +11,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI distanceText = null; // Text for distance
     [SerializeField] private GameObject ReplayButton;
     [SerializeField] private GameObject winningScreen;
+    public bool endGame = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,12 +34,18 @@ public class UIController : MonoBehaviour
 
         distanceText.text = String.Format("{0:0m}", GameController.Distance);
 
-        if (GameController.Distance <= 0) // If distance is 0 or less, end game
+        if (GameController.Distance <= 0 && endGame) // If distance is 0 or less, end game
         {
             //GameController.EndGame();
+            Winning();
             Time.timeScale = 0;
-            ScoreCounter.Instance.WinningScoreCounter();
-            winningScreen.SetActive(true);
+            
         }
+    }
+    public void Winning()
+    {
+        endGame = false;
+        ScoreCounter.Instance.WinningScoreCounter();
+        winningScreen.SetActive(true);
     }
 }

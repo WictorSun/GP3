@@ -18,7 +18,7 @@ public class ScoreCounter : MonoBehaviour
     [SerializeField] private int finalScoreWithMultiplier;
     [SerializeField] private UIWinning WinningScreen;
     [SerializeField] private GameController GC;
-   
+    float totalCoins;
 
     private void Awake()
     {
@@ -31,6 +31,7 @@ public class ScoreCounter : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        totalCoins = PlayerPrefs.GetFloat("TotalCoins");
     }
     void Start()
     {
@@ -68,12 +69,16 @@ public class ScoreCounter : MonoBehaviour
         {
             coins = 5;
         }
+        totalCoins = PlayerPrefs.GetFloat("TotalCoins");
+        totalCoins = Mathf.FloorToInt(totalCoins + coins);
+        PlayerPrefs.SetFloat("TotalCoins", totalCoins);
         WinningScreen.metersTravelled.text = "" + metersTraveled + "m";
         WinningScreen.kills.text = "" + killScore;
         WinningScreen.combo.text = "" + multiplier + "X";
         WinningScreen.totalScore.text = "" + finalScore;
         WinningScreen.coins.text = "" + coins;
-
+        WinningScreen.totalcoin.text = "" + totalCoins;
+        
         Debug.Log(finalScore);
     }
   

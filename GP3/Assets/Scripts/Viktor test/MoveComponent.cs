@@ -39,22 +39,26 @@ public class MoveComponent : MonoBehaviour
 
     private void Update()
     {
-        // Determine forward movement direction based on game state
-        float directionMultiplier;
-        if (gameObject.tag == "Enemy" && GameController.IsReturning)
+        if (SpeedModifier.GameHasStarted)
         {
-            directionMultiplier = 0.5f; // this gives visual loousion of approaching enemies correctly when returning
-        }
-        else
-        {
-            directionMultiplier = GameController.IsReturning ? 1f : -1f;
-        }
+            // Determine forward movement direction based on game state
+            float directionMultiplier;
+            if (gameObject.tag == "Enemy" && GameController.IsReturning)
+            {
+                directionMultiplier = 0.5f; // this gives visual loousion of approaching enemies correctly when returning
+            }
+            else
+            {
+                directionMultiplier = GameController.IsReturning ? 1f : -1f;
+            }
 
-        Vector3 forwardMovement = transform.forward * (speed + SpeedModifier.speed) * Time.deltaTime * directionMultiplier;
-        // Handle movement, despawning, and ground spawning
-        MoveObject(forwardMovement);
-        HandleDespawn();
-        HandleGroundSpawn();
+            Vector3 forwardMovement = transform.forward * (speed + SpeedModifier.speed) * Time.deltaTime * directionMultiplier;
+            
+            // Handle movement, despawning, and ground spawning
+            MoveObject(forwardMovement);
+            HandleDespawn();
+            HandleGroundSpawn();
+        }
     }
 
     // Handles the movement of the object (either enemy or ground)
@@ -106,13 +110,6 @@ public class MoveComponent : MonoBehaviour
     {
         // Determine the target distance for spawning based on game direction
         float targetDistance = GameController.IsReturning ? -objectDistance * 2 : objectDistance;
-
-        // // Spawn a new ground tile when reaching the target distance
-        // if (Mathf.Abs(transform.position.z - targetDistance) < 1f) // this is the distance between the player and the object that will spawn
-        // {
-        //     ObjectSpawner.instance.MoveGroundBack(gameObject);
-        //     Debug.Log("Spawn ground");
-        // }
 
         // Determine the despawn distance based on game direction
         float actualDespawnDistance = GameController.IsReturning ? -despawnDistance * 2 : despawnDistance;

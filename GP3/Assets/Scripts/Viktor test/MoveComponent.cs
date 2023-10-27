@@ -6,9 +6,16 @@ public class MoveComponent : MonoBehaviour
 {
     // Serialized fields for Unity Editor
     [SerializeField] private float speed = 5f;
+    // Speed at which the object will move. The higher the value, the faster the object moves.
+    
     [Header("Ground spawn settings")]
-    [SerializeField] private float objectDistance = 50f; // Q: WHAT THIS DO? A: This is the distance between the player and the object that will spawn
+    [SerializeField] private float objectDistance = 50f; 
+    // Distance between the player and the object that will spawn. 
+    // This sets how far ahead the object will appear in relation to the player.
+    
     [SerializeField] private float despawnDistance = -30f;
+    // Distance at which the object will be despawned. 
+    // Objects behind the player beyond this distance will be removed to save resources.
 
     // For lateral enemy movement
     private float lateralDirection = 1f;
@@ -17,6 +24,8 @@ public class MoveComponent : MonoBehaviour
     private HealthComponent health;
     private GameObject ground;
     public static GameObject player;
+    // Reference to the player GameObject. This is used to determine the object's relative position to the player.
+    
     private EnemyController enemy;
     private SpeedModifier speedModifier;
 
@@ -27,7 +36,7 @@ public class MoveComponent : MonoBehaviour
         health = GetComponent<HealthComponent>();
         player = GameObject.FindGameObjectWithTag("Player");
         enemy = GetComponent<EnemyController>();
-
+        
         speedModifier = GetComponent<SpeedModifier>();
         // Initialize lateral direction for enemies
         if (enemy != null)
@@ -45,7 +54,8 @@ public class MoveComponent : MonoBehaviour
             float directionMultiplier;
             if (gameObject.tag == "Enemy" && GameController.IsReturning)
             {
-                directionMultiplier = 0.5f; // this gives visual loousion of approaching enemies correctly when returning
+                directionMultiplier = 0.5f; 
+                // This gives the visual illusion of approaching enemies correctly when returning
             }
             else
             {
@@ -53,7 +63,7 @@ public class MoveComponent : MonoBehaviour
             }
 
             Vector3 forwardMovement = transform.forward * (speed + SpeedModifier.speed) * Time.deltaTime * directionMultiplier;
-            
+        
             // Handle movement, despawning, and ground spawning
             MoveObject(forwardMovement);
             HandleDespawn();
@@ -63,6 +73,7 @@ public class MoveComponent : MonoBehaviour
 
     // Handles the movement of the object (either enemy or ground)
     private void MoveObject(Vector3 forwardMovement)
+    // Function to move the object. Takes a Vector3 parameter for directional movement.
     {
         // If it's not an enemy, just move forward
         if (enemy == null)
@@ -92,8 +103,9 @@ public class MoveComponent : MonoBehaviour
     private void HandleDespawn()
     {
         // Despawn offset based on game direction
-        float despawnOffset = GameController.IsReturning ? 22f : -22f; // 24 cause then not see the dissapear when reeled back
-
+        float despawnOffset = GameController.IsReturning ? 22f : -22f; 
+        // 24 cause then not see the disappear when reeled back
+        
         // If it's not an enemy or despawning is disabled, do nothing
         if (enemy == null || !GameController.CanDespawnEnemies) return;
 

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3914094786969129200
+--- !u!1 &866452252101288032
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3914094786969129204}
-  - component: {fileID: 3914094786969129205}
-  - component: {fileID: 3914094786969129202}
-  - component: {fileID: 3914094786969129203}
+  - component: {fileID: 866452252101288037}
+  - component: {fileID: 866452252101288034}
+  - component: {fileID: 866452252101288035}
   m_Layer: 0
-  m_Name: Orc Mesh Sequence Player
+  m_Name: Orc_Walk Point Cache Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3914094786969129204
+--- !u!4 &866452252101288037
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3914094786969129200}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000002533197}
+  m_GameObject: {fileID: 866452252101288032}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: -0.00000035762784}
   m_LocalPosition: {x: 0, y: -0.3, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8053710630416358174}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!23 &3914094786969129205
-MeshRenderer:
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+--- !u!137 &866452252101288034
+SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3914094786969129200}
+  m_GameObject: {fileID: 866452252101288032}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -49,12 +48,12 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
+  m_RayTracingMode: 3
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5d1c6d40921183f42a5c4c4a5f4c89da, type: 2}
+  - {fileID: 2100000, guid: 27cda7e1872cd9340a188f235f09ab9b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -75,37 +74,144 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &3914094786969129202
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3914094786969129200}
-  m_Mesh: {fileID: 5642298709932212232, guid: ac2a1b3c9061e6245b380aea7490b932, type: 2}
---- !u!114 &3914094786969129203
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: -5010113713534944162, guid: 7e118f4f4fe838c4d8f7136861138ead, type: 2}
+  m_Bones: []
+  m_BlendShapeWeights:
+  - 100
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  m_RootBone: {fileID: 0}
+  m_AABB:
+    m_Center: {x: 0.14899147, y: 1.5156324, z: 0.0309726}
+    m_Extent: {x: 1.1046715, y: 1.5349424, z: 1.3498626}
+  m_DirtyAABB: 0
+--- !u!114 &866452252101288035
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3914094786969129200}
+  m_GameObject: {fileID: 866452252101288032}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4821658abef6251489ccfa82b2411b54, type: 3}
+  m_Script: {fileID: 11500000, guid: 869b6c025d4cd344493378b931062b64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MF: {fileID: 3914094786969129202}
-  MC: {fileID: 0}
-  MR: {fileID: 3914094786969129205}
-  UpdateMode: 1
-  PlaybackMode: 0
-  FramesPerSecond: 30
   UseTimescale: 1
-  NormalizedTime: 0
-  meshSequence: {fileID: 11400000, guid: ac2a1b3c9061e6245b380aea7490b932, type: 2}
-  TabChoise: 0
+  UpdateMode: 1
+  ActiveMesh: 0
+  MCollider: {fileID: 0}
+  ColliderMesh: {fileID: 0}
+  Clips:
+  - Idx: 0
+    Player: {fileID: 866452252101288035}
+    AutoPlaybackType: 0
+    DurationInSeconds: 1
+    DrawMotionPath: 0
+    MotionPathIconSize: 0.1
+  - Idx: 1
+    Player: {fileID: 866452252101288035}
+    AutoPlaybackType: 0
+    DurationInSeconds: 1
+    DrawMotionPath: 0
+    MotionPathIconSize: 0.1
+  - Idx: 2
+    Player: {fileID: 866452252101288035}
+    AutoPlaybackType: 0
+    DurationInSeconds: 1
+    DrawMotionPath: 0
+    MotionPathIconSize: 0.1
+  - Idx: 3
+    Player: {fileID: 866452252101288035}
+    AutoPlaybackType: 0
+    DurationInSeconds: 1
+    DrawMotionPath: 0
+    MotionPathIconSize: 0.1
+  - Idx: 4
+    Player: {fileID: 866452252101288035}
+    AutoPlaybackType: 0
+    DurationInSeconds: 1
+    DrawMotionPath: 0
+    MotionPathIconSize: 0.1
+  - Idx: 5
+    Player: {fileID: 866452252101288035}
+    AutoPlaybackType: 0
+    DurationInSeconds: 1
+    DrawMotionPath: 0
+    MotionPathIconSize: 0.1
+  - Idx: 6
+    Player: {fileID: 866452252101288035}
+    AutoPlaybackType: 0
+    DurationInSeconds: 1
+    DrawMotionPath: 0
+    MotionPathIconSize: 0.1
+  - Idx: 7
+    Player: {fileID: 866452252101288035}
+    AutoPlaybackType: 0
+    DurationInSeconds: 1
+    DrawMotionPath: 0
+    MotionPathIconSize: 0.1
+  Clip0NormalizedTime: 0
+  Clip0Weight: 1
+  Clip1NormalizedTime: 0
+  Clip1Weight: 0
+  Clip2NormalizedTime: 0
+  Clip2Weight: 0
+  Clip3NormalizedTime: 0
+  Clip3Weight: 0
+  Clip4NormalizedTime: 0
+  Clip4Weight: 0
+  Clip5NormalizedTime: 0
+  Clip5Weight: 0
+  Clip6NormalizedTime: 0
+  Clip6Weight: 0
+  Clip7NormalizedTime: 0
+  Clip7Weight: 0
+  pointCache: {fileID: 11400000, guid: 7e118f4f4fe838c4d8f7136861138ead, type: 2}
+  smr: {fileID: 866452252101288034}
+  Constraints: []
+  DrawMeshGizmo: 0
 --- !u!1 &5048665178540273728
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +247,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 3914094786969129204}
+  - {fileID: 866452252101288037}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

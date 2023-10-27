@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3138104223280968130}
   - component: {fileID: 3138104223280968133}
   - component: {fileID: 3138104223280968132}
+  - component: {fileID: 185554216}
   m_Layer: 0
   m_Name: Orc_Walk Point Cache Player
   m_TagString: Untagged
@@ -78,7 +79,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: -5010113713534944162, guid: 7e118f4f4fe838c4d8f7136861138ead, type: 2}
+  m_Mesh: {fileID: -70066197100379977, guid: 7e118f4f4fe838c4d8f7136861138ead, type: 2}
   m_Bones: []
   m_BlendShapeWeights:
   - 100
@@ -120,11 +121,143 @@ SkinnedMeshRenderer:
   - 0
   - 0
   - 0
+  - 100
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   - 0
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: 0.12300056, y: 1.249743, z: 0.100999475}
-    m_Extent: {x: 1.0790325, y: 1.266182, z: 1.2242404}
+    m_Center: {x: -0.024784684, y: 1.4755545, z: 0.12566245}
+    m_Extent: {x: 1.7914643, y: 1.4919934, z: 1.7251115}
   m_DirtyAABB: 0
 --- !u!114 &3138104223280968132
 MonoBehaviour:
@@ -195,7 +328,7 @@ MonoBehaviour:
   Clip0NormalizedTime: 0
   Clip0Weight: 1
   Clip1NormalizedTime: 0
-  Clip1Weight: 0
+  Clip1Weight: 1
   Clip2NormalizedTime: 0
   Clip2Weight: 0
   Clip3NormalizedTime: 0
@@ -212,3 +345,23 @@ MonoBehaviour:
   smr: {fileID: 3138104223280968133}
   Constraints: []
   DrawMeshGizmo: 0
+--- !u!95 &185554216
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3138104223280968135}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 314bdac893dc4404397619994d2e8865, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

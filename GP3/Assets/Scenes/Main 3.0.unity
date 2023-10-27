@@ -17260,7 +17260,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 7930161530227528617, guid: a615035447253a2489c3ecb65d0ad463, type: 3}
           m_TargetAssemblyTypeName: ArrowMovement, Assembly-CSharp
-          m_MethodName: OnPointerUp
+          m_MethodName: RightPointerUp
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -17308,7 +17308,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 7930161530227528617, guid: a615035447253a2489c3ecb65d0ad463, type: 3}
           m_TargetAssemblyTypeName: ArrowMovement, Assembly-CSharp
-          m_MethodName: OnPointerUp
+          m_MethodName: RightPointerUp
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -17549,7 +17549,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 7930161530227528617, guid: a615035447253a2489c3ecb65d0ad463, type: 3}
           m_TargetAssemblyTypeName: ArrowMovement, Assembly-CSharp
-          m_MethodName: OnPointerUp
+          m_MethodName: LeftPointerUp
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -17597,7 +17597,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 7930161530227528617, guid: a615035447253a2489c3ecb65d0ad463, type: 3}
           m_TargetAssemblyTypeName: ArrowMovement, Assembly-CSharp
-          m_MethodName: OnPointerUp
+          m_MethodName: LeftPointerUp
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

@@ -33,13 +33,15 @@ public class ArrowMovement : MonoBehaviour
     {
         MoveArrow();
 
-        if (leftButtonPressed && leftButtonStillDown)
+        if (leftButtonPressed)
         {
+            Debug.Log("Move Left");
             transform.position += new Vector3(-1 * horizontalSpeed, 0, 0) * Time.deltaTime;
         }
 
-        if (rightButtonPressed && rightButtonStillDown)
+        if (rightButtonPressed)
         {
+            Debug.Log("Move Right");
             transform.position += new Vector3(1 * horizontalSpeed, 0, 0) * Time.deltaTime;
         }
     }
@@ -81,42 +83,22 @@ public class ArrowMovement : MonoBehaviour
     static bool leftButtonPressed;
     static bool rightButtonPressed;
 
-    static bool leftButtonStillDown;
-    static bool rightButtonStillDown;
-
-    public void LeftTouchMovement() // Call when pressing left side of screen.
+    public void LeftTouchMovement()
     {
-        leftButtonStillDown = true;
+        Debug.Log("Touch Left");
         leftButtonPressed = true;
     }
 
-    public void RightTouchMovement() // Call when pressing right side of screen.
+    public void RightTouchMovement()
     {
-        rightButtonStillDown = true;
+        Debug.Log("Touch Right");
         rightButtonPressed = true;
     }
 
-    public void LeftPointerUp() // Lift left finger & check if still holding down right finger.
+    public void OnPointerUp() // When Releasing touch/mouse.
     {
-        leftButtonStillDown = false;
-        leftButtonPressed = false;
-
-        if (rightButtonStillDown)
-        {
-            rightButtonPressed = true;
-            rightButtonStillDown = true;
-        }
-    }
-
-    public void RightPointerUp() // Lift right finger & check if still holding down left finger.
-    {
-        rightButtonStillDown = false;
+        Debug.Log("Lift Finger");
         rightButtonPressed = false;
-
-        if (leftButtonStillDown)
-        {
-            leftButtonPressed = true;
-            leftButtonStillDown = true;
-        }
+        leftButtonPressed = false;
     }
 }

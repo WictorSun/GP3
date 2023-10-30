@@ -7,17 +7,31 @@ public class ScoreCounter : MonoBehaviour
     public static ScoreCounter Instance;
 
     [Header("Scores")]
+    [Tooltip("Dont do anything here its only for debugging purposes")]
     [SerializeField] private float metersTraveled;
+    [Tooltip("Dont do anything here its only for debugging purposes")]
     [SerializeField] private int killScore;
-    [SerializeField] private float multiplier;
+    [Tooltip("Dont do anything here its only for debugging purposes")]
+    [SerializeField] private float multiplier = 1;
+
     private float addedScore;
     private float coins;
     private float multipliermeter;
+
+    [Tooltip("Dont do anything here its only for debugging purposes")]
     [SerializeField] private float multiplierComboLimit;
+    [Tooltip("Dont do anything here its only for debugging purposes")]
     [SerializeField] private float finalScore;
+    [Tooltip("Dont do anything here its only for debugging purposes")]
     [SerializeField] private int finalScoreWithMultiplier;
+    [Tooltip("Drag in the WinningScreen Canvas")]
     [SerializeField] private UIWinning WinningScreen;
+    [Tooltip("Drag in the GameController in the Scene")]
     [SerializeField] private GameController GC;
+
+    [Header("Combo Stuff")]
+    [Tooltip("Change howe much faster the combo//multiplier multiplies, its here for designers to mess around with")]
+    [SerializeField] float comboIncrease = 1.1f;
     float totalCoins;
 
     private void Awake()
@@ -37,15 +51,18 @@ public class ScoreCounter : MonoBehaviour
     {
 
     }
+    //GET THE DISTANCE REACHED
     public void GetDistance(float totalDist)
     {
         metersTraveled = Mathf.FloorToInt(totalDist);
     }
+    //ADDS TO THE KILLCOUNTER WHEN CALLED UPON
     public void AddKill(int killvalue)
     {
         killScore = killScore + killvalue;
     }
    
+    //CALUCULATES THE MULTIPLIER THAT GETS ADDED IN THE END
     public void KillMultiplier(float killMultiplieraddition)
     {
        
@@ -57,9 +74,10 @@ public class ScoreCounter : MonoBehaviour
         {
             multipliermeter = 0f;
             multiplier = multiplier + 1;
-            multiplierComboLimit = multiplierComboLimit * 1.1f;
+            multiplierComboLimit = multiplierComboLimit * comboIncrease;
         }
     }
+    //CALCULATES THE WHOLE SCORE IN THE END
     public void WinningScoreCounter()
     {
         addedScore = metersTraveled + killScore;

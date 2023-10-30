@@ -6,34 +6,48 @@ using UnityEngine.UI;
 
 public class UIWinning : MonoBehaviour
 {
-
-    public TextMeshProUGUI coins;
+    [Header("TextFields")]
+    [Tooltip("Coins Collected This round")]
+    public TextMeshProUGUI coins; //Coins Collected
+    [Tooltip("How far you reached this round")]
     public TextMeshProUGUI metersTravelled;
+    [Tooltip("KillScore this round")]
     public TextMeshProUGUI kills;
+    [Tooltip("Multiplier this round")]
     public TextMeshProUGUI combo;
+    [Tooltip("Total Score for this round")]
     public TextMeshProUGUI totalScore;
+    [Tooltip("Total coins you have collected")]
     public TextMeshProUGUI totalcoin;
+    float T = 0; //LerpTime
 
+    [Header("GameObjects")]
+    [Tooltip("Drag the player prefab")]
     [SerializeField] private GameObject player;
-    float T = 0;
+    [Tooltip("Drag the Start Transform for player when playing the game")]
     [SerializeField] private GameObject StartMovementPoint;
+    [Tooltip("Drag the player prefab")]
     [SerializeField] private float time = 2.0f;
+    [Tooltip("Drag the player prefab")]
     [SerializeField] private GameObject camera;
+    [Tooltip("Drag the Start Transform for camera when playing the game")]
     [SerializeField] private GameObject CamStartMovementPoint;
+    //[Tooltip("RetryButton")]
+    //[SerializeField] private GameObject RetryButton;
 
-    [SerializeField] private GameObject RetryButton;
-
+    //Event for pressing "RESTART" 
     public void PlayAgain()
     {
         StartCoroutine(StartGame(time));
     }
 
+    //Co routine for starting a new round
     IEnumerator StartGame(float time)
     {
         AudioManager.Instance.SFX("ButtonClick");
         Vector3 playerStartPosition = player.transform.position;
 
-        while (T < 1)
+        while (T < 1) //This lerps the Player from idle position in the beggining of game to the position for when playing
         {
             T += Time.deltaTime / 1f; // This is the speed for the player
 
@@ -54,7 +68,7 @@ public class UIWinning : MonoBehaviour
 
         float cameraT = 0; // This is the interpolation factor for the camera
 
-        while (cameraT < 1)
+        while (cameraT < 1) //This lerps the Camera from idle position in the beggining of game to the position for when playing
         {
             cameraT += Time.deltaTime / 1.01f; // This is the speed for the player
 
@@ -69,6 +83,6 @@ public class UIWinning : MonoBehaviour
 
         yield return new WaitForSeconds(0.2f);
         
-        this.gameObject.SetActive(false);
+        this.gameObject.SetActive(false); // sets the Winning Screen to disabled in order to play again
     }
 }

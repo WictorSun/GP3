@@ -18,6 +18,7 @@ public class AudioManager : MonoBehaviour
     [Tooltip("The AudioSource for SFX")]
     [SerializeField] public AudioSource sfxSource;
 
+    //Checks if the AudioManager already exists in the Scene, if it does it makes sure that one is the only one in the Scene
     private void Awake()
     {
         if(Instance == null)
@@ -65,11 +66,15 @@ public class AudioManager : MonoBehaviour
             sfxSource.PlayOneShot(s.clip);
         }
     }
+
+    //Controls the volume of background music
     public void MusicVolume(float volume)
     {
         musicSource.volume = volume;
 
     }
+
+    //Controls the volume of background music
     public void SFXVolume(float volume)
     {
         sfxSource.volume = volume;

@@ -9,7 +9,7 @@ public class ObjectSpawner : MonoBehaviour
     [Header("Enemy spawn behind of player.")]
     [SerializeField] private float enemySpawnBehind = -30f;
     [Header("Ground Switch Settings")]
-    [SerializeField] private int distance = 500;
+    [SerializeField] private int changeToDesert = 500;
     [SerializeField] private string forest = "forest";
     [SerializeField] private string desert = "desert";
     [SerializeField] private string forestToDesert = "forestToDesert";
@@ -63,22 +63,22 @@ public class ObjectSpawner : MonoBehaviour
         string prefabTypeToUse = forest;  // Default to the ground type before switch
 
         // Decide which prefab type to use based on player's distance
-        if (GameController.Distance >= distance)
+        if (GameController.Distance >= changeToDesert)
         {
             prefabTypeToUse = desert;
         }
-        else if (GameController.Distance < distance)
+        else if (GameController.Distance < changeToDesert)
         {
             prefabTypeToUse = forest;
         }
 
         // Special case for forestToDesert
-        if (GameController.Distance >= distance && !hasSpawnedForestDesert)
+        if (GameController.Distance >= changeToDesert && !hasSpawnedForestDesert)
         {
             prefabTypeToUse = forestToDesert;
             hasSpawnedForestDesert = true;
         }
-        else if (GameController.Distance < distance)
+        else if (GameController.Distance < changeToDesert)
         {
             hasSpawnedForestDesert = false;  // Reset the flag when distance is below the threshold
         }

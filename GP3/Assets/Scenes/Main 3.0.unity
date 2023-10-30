@@ -4267,6 +4267,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 560335702}
   m_CullTransparentMesh: 1
+--- !u!1 &564645979 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4229736618163770877, guid: ad6d6dab0be8fdb4d9c6a0bf285cb40e, type: 3}
+  m_PrefabInstance: {fileID: 610491921}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &570533020
 GameObject:
   m_ObjectHideFlags: 0
@@ -4668,6 +4673,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4229736617016962667, guid: ad6d6dab0be8fdb4d9c6a0bf285cb40e, type: 3}
+      propertyPath: uic
+      value: 
+      objectReference: {fileID: 1017877364}
+    - target: {fileID: 4229736617016962667, guid: ad6d6dab0be8fdb4d9c6a0bf285cb40e, type: 3}
       propertyPath: camera
       value: 
       objectReference: {fileID: 354070508}
@@ -4675,6 +4684,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 657551425}
+    - target: {fileID: 4229736617016962667, guid: ad6d6dab0be8fdb4d9c6a0bf285cb40e, type: 3}
+      propertyPath: SafeArea
+      value: 
+      objectReference: {fileID: 564645979}
     - target: {fileID: 4229736617016962667, guid: ad6d6dab0be8fdb4d9c6a0bf285cb40e, type: 3}
       propertyPath: RetryButton
       value: 
@@ -4961,7 +4974,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 228, y: 226}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &622550536
 MonoBehaviour:
@@ -5039,7 +5052,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: acef6f3987bca0449afbdab9fa2c9c0e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6655,12 +6668,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settingsMenu: {fileID: 1073050513}
   mainPauseMenu: {fileID: 431104371}
-  sfxSlider: {fileID: 637654116}
-  musicSlider: {fileID: 2031989955}
   pauseButton: {fileID: 1532154045}
   StartMenu: {fileID: 0}
   LeftTouch: {fileID: 1259615834077781011}
   RightTouch: {fileID: 1259615833524900786}
+  sfxSlider: {fileID: 637654116}
+  musicSlider: {fileID: 2031989955}
   settings: {fileID: 1073050515}
   pauseMenu: {fileID: 431104372}
   CountDown: {fileID: 2112855094}
@@ -8540,12 +8553,8 @@ MonoBehaviour:
   camera: {fileID: 354070508}
   CamStartMovementPoint: {fileID: 1772522712}
   time: 2
-  returnSequence:
-  - {fileID: 511083493}
-  - {fileID: 1411812725}
-  - {fileID: 2021134502}
-  - {fileID: 1736829085}
   endGame: 1
+  takeDist: 0
 --- !u!4 &1017877365
 Transform:
   m_ObjectHideFlags: 0
@@ -15396,19 +15405,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 354070508}
-  time: 0.0001
   Ballista: {fileID: 2019230533}
   StartMovementPoint: {fileID: 636839028}
   CamBallista: {fileID: 1772522712}
   CamStartMovementPoint: {fileID: 687828485}
   player: {fileID: 657551425}
+  sfxSlider: {fileID: 1516853436}
+  musicSlider: {fileID: 1309978199}
   startMenu: {fileID: 1791144980}
   settingsMenu: {fileID: 991050686}
   UpgradeMenu: {fileID: 551549627}
   inGameMenu: {fileID: 1259615833581246500}
-  sfxSlider: {fileID: 1516853436}
-  musicSlider: {fileID: 1309978199}
+  uic: {fileID: 1017877364}
   totalCoins: 0
+  time: 0.0001
   settings: {fileID: 991050687}
   Shop: {fileID: 551549628}
 --- !u!114 &1791144982

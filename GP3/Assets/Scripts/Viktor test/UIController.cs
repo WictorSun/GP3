@@ -16,6 +16,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject camera;
     [SerializeField] private GameObject CamStartMovementPoint; // where game Beins
     [SerializeField] private float time = 2.0f;
+    [SerializeField] private ReturnSequence[] returnSequence;
     public bool endGame = true;
     float T = 0;
 
@@ -54,6 +55,11 @@ public class UIController : MonoBehaviour
         endGame = false;
         ScoreCounter.Instance.WinningScoreCounter();
 
+        for (int i = 0; i < returnSequence.Length; i++)
+        {
+            returnSequence[i].ReturnToStart();
+        }
+        GameController.IsReturning = false;
         StartCoroutine(StartGame(time));
     }
 
@@ -71,7 +77,6 @@ public class UIController : MonoBehaviour
             {
                 T = 1;
             }
-            Debug.Log("Lerping");
             player.transform.position = Vector3.Lerp(playerStartPosition, StartMovementPoint.transform.position, T);
             yield return null;
         }

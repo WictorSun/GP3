@@ -33,15 +33,13 @@ public class ArrowMovement : MonoBehaviour
     {
         MoveArrow();
 
-        if (leftButtonPressed)
+        if (leftButtonPressed && leftButtonStillDown)
         {
-            Debug.Log("Move Left");
             transform.position += new Vector3(-1 * horizontalSpeed, 0, 0) * Time.deltaTime;
         }
 
-        if (rightButtonPressed)
+        if (rightButtonPressed && rightButtonStillDown)
         {
-            Debug.Log("Move Right");
             transform.position += new Vector3(1 * horizontalSpeed, 0, 0) * Time.deltaTime;
         }
     }
@@ -83,22 +81,42 @@ public class ArrowMovement : MonoBehaviour
     static bool leftButtonPressed;
     static bool rightButtonPressed;
 
-    public void LeftTouchMovement()
+    static bool leftButtonStillDown;
+    static bool rightButtonStillDown;
+
+    public void LeftTouchMovement() // Call when pressing left side of screen.
     {
-        Debug.Log("Touch Left");
+        leftButtonStillDown = true;
         leftButtonPressed = true;
     }
 
-    public void RightTouchMovement()
+    public void RightTouchMovement() // Call when pressing right side of screen.
     {
-        Debug.Log("Touch Right");
+        rightButtonStillDown = true;
         rightButtonPressed = true;
     }
 
-    public void OnPointerUp() // When Releasing touch/mouse.
+    public void LeftPointerUp() // Lift left finger & check if still holding down right finger.
     {
-        Debug.Log("Lift Finger");
-        rightButtonPressed = false;
+        leftButtonStillDown = false;
         leftButtonPressed = false;
+
+        if (rightButtonStillDown)
+        {
+            rightButtonPressed = true;
+            rightButtonStillDown = true;
+        }
+    }
+
+    public void RightPointerUp() // Lift right finger & check if still holding down left finger.
+    {
+        rightButtonStillDown = false;
+        rightButtonPressed = false;
+
+        if (leftButtonStillDown)
+        {
+            leftButtonPressed = true;
+            leftButtonStillDown = true;
+        }
     }
 }

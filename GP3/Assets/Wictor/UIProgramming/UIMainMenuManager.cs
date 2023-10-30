@@ -35,7 +35,7 @@ public class UIMainMenuManager : MonoBehaviour
     [Tooltip("Pause menu Ref.")]
     [SerializeField] private GameObject inGameMenu;
 
-
+    [SerializeField] private UIController uic;
 
 
 
@@ -126,6 +126,7 @@ public class UIMainMenuManager : MonoBehaviour
         AudioManager.Instance.SFX("ButtonClick");
         Vector3 playerStartPosition = player.transform.position;
 
+
         while (T < 1) //LERP THE PLAYER TO STARTPOSITION
         {
             T += Time.deltaTime / 1f; // This is the speed for the player
@@ -161,6 +162,7 @@ public class UIMainMenuManager : MonoBehaviour
         }
 
         yield return new WaitForSeconds(0.2f);
+        uic.takeDist = true;
         inGameMenu.SetActive(true);
         this.gameObject.SetActive(false);
     }

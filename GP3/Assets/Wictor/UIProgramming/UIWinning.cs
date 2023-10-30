@@ -32,6 +32,8 @@ public class UIWinning : MonoBehaviour
     [SerializeField] private GameObject camera;
     [Tooltip("Drag the Start Transform for camera when playing the game")]
     [SerializeField] private GameObject CamStartMovementPoint;
+    [SerializeField] private GameObject SafeArea;
+    [SerializeField] private UIController uic;
     //[Tooltip("RetryButton")]
     //[SerializeField] private GameObject RetryButton;
 
@@ -46,6 +48,7 @@ public class UIWinning : MonoBehaviour
     {
         AudioManager.Instance.SFX("ButtonClick");
         Vector3 playerStartPosition = player.transform.position;
+        SafeArea.SetActive(false);
 
         while (T < 1) //This lerps the Player from idle position in the beggining of game to the position for when playing
         {
@@ -82,7 +85,9 @@ public class UIWinning : MonoBehaviour
         }
 
         yield return new WaitForSeconds(0.2f);
-        
+        uic.takeDist = true;
+        GameController.IncreaseDistance = true;
+        GameController.IsReturning = false;
         this.gameObject.SetActive(false); // sets the Winning Screen to disabled in order to play again
     }
 }

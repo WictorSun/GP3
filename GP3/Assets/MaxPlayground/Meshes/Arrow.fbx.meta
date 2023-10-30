@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Feathers
+    second: {fileID: 2100000, guid: 301ec23e7d3845548a25b5843fff9682, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: wood
     second: {fileID: 2100000, guid: 9428e603b937acf4e8e52f98e69ca69a, type: 2}
   materials:

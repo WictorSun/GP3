@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 6422040953107617206}
   - component: {fileID: 6179632721318212294}
   m_Layer: 0
-  m_Name: ForestGround
+  m_Name: forest
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,7 +155,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   objectDistance: -40
-  despawnDistance: -110
+  despawnDistance: -50
+  ForestToDesert: {fileID: 835880583568151411, guid: c518fb9c317b8794a86901974cc4d19e, type: 3}
+  Desert: {fileID: 7928440760669165202, guid: 18d3103d652a3b143ad852ea84a70023, type: 3}
 --- !u!1001 &642269353703205559
 PrefabInstance:
   m_ObjectHideFlags: 0

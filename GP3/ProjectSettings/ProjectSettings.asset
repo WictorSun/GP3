@@ -809,6 +809,7 @@ PlayerSettings:
   scriptingDefineSymbols:
     Android: AMPLIFY_SHADER_EDITOR
     Standalone: AMPLIFY_SHADER_EDITOR
+    iPhone: AMPLIFY_SHADER_EDITOR
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}

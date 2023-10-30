@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settings:
   - {fileID: 1498967969675776445}
+  - {fileID: 8846556535961455553}
 --- !u!114 &1498967969675776445
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -57,4 +58,48 @@ MonoBehaviour:
     defaultState: 1
   opacity:
     overrideState: 0
+    value: 1
+--- !u!114 &8846556535961455553
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5557720b473eaa3459439ba59a8f06c2, type: 3}
+  m_Name: SH_PostProcessPPSSettings
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  _TextureSample1:
+    overrideState: 0
+    value: {fileID: 0}
+    defaultState: 1
+  _Tile_U:
+    overrideState: 1
+    value: 2
+  _Tile_V:
+    overrideState: 1
+    value: 0.25
+  _Pan_V:
+    overrideState: 1
+    value: 0.5
+  _Pan_U:
+    overrideState: 1
+    value: 0.1
+  _Fraction:
+    overrideState: 1
+    value: 2
+  _Gradient:
+    overrideState: 1
+    value: 1.33
+  _Contrast:
+    overrideState: 1
+    value: 1.8
+  _Switch:
+    overrideState: 1
     value: 1

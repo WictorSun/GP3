@@ -8,6 +8,11 @@ public class ObjectSpawner : MonoBehaviour
     [SerializeField] private float enemySpawnInFront = 30f;
     [Header("Enemy spawn behind of player.")]
     [SerializeField] private float enemySpawnBehind = -30f;
+    [Header("Ground Switch Settings")]
+    [SerializeField] private int distance = 500;
+    [SerializeField] private string forest = "forest";
+    [SerializeField] private string desert = "desert";
+    [SerializeField] private string forestToDesert = "forestToDesert";
 
     [System.Serializable]
     public struct Spawnable // struct for enemies that can be spawned
@@ -33,11 +38,12 @@ public class ObjectSpawner : MonoBehaviour
     private float totalWeight; 
     private bool spawningObject = false;
     [Header("In front of player where ground will spawn.")]
-    [SerializeField] private float groundSpawnDistance = 10f;
+    [SerializeField] private float groundSpawnDistance = 120f;
     public List<Spawnable> spawnableObjects = new(); // list of spawnable objects that can be spawned
     public List<Spawnsettings> spawnSettings = new(); // list of spawn settings for different objects
     public Transform playerTransform; // reference to player position
     public static ObjectSpawner instance;
+    private bool hasSpawnedForestDesert = false; // Prevents the forest to desert prefab from being spawned again
 
     private void Awake() // sets instance to this object
     {
@@ -54,13 +60,43 @@ public class ObjectSpawner : MonoBehaviour
     // Ground Isn't pooled any more, 
     public void MoveGroundBack(GameObject ground) // spawns ground at set distance
     {
+        string prefabTypeToUse = forest;  // Default to the ground type before switch
+
+        // Decide which prefab type to use based on player's distance
+        if (GameController.Distance >= distance)
+        {
+            prefabTypeToUse = desert;
+        }
+        else if (GameController.Distance < distance)
+        {
+            prefabTypeToUse = forest;
+        }
+
+        // Special case for forestToDesert
+        if (GameController.Distance >= distance && !hasSpawnedForestDesert)
+        {
+            prefabTypeToUse = forestToDesert;
+            hasSpawnedForestDesert = true;
+        }
+        else if (GameController.Distance < distance)
+        {
+            hasSpawnedForestDesert = false;  // Reset the flag when distance is below the threshold
+        }
+
+        // Deactivate the current ground
+        ground.SetActive(false);
+
+        // Pull the new ground tile from the pool and activate it
+        GameObject newGround = ObjectPooler.instance.SpawnFromPool(prefabTypeToUse, ground.transform.position, Quaternion.identity);
+
+        // Position the new ground tile
         if(GameController.IsReturning == false)
         {
-            ground.transform.position = ground.transform.position + Vector3.forward * groundSpawnDistance;
+            newGround.transform.position = ground.transform.position + Vector3.forward * groundSpawnDistance;
         }
         else
         {
-            ground.transform.position = ground.transform.position - Vector3.forward * groundSpawnDistance;
+            newGround.transform.position = ground.transform.position - Vector3.forward * groundSpawnDistance;
         }
     }
 

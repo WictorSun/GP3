@@ -51,7 +51,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Albedo: 0
-    - _AnchorsPointsStrength: 1
+    - _AnchorsPointsStrength: 0
     - _BakeSwitch: 0
     - _BakeSwitch1: 0
     - _BakeSwitch2: 0
@@ -60,6 +60,8 @@ Material:
     - _Cutoff: 0.5
     - _Float0: 1
     - _Float1: 1
+    - _Float2: 0.68
+    - _Float3: 1.2
     - _Keyword0: 0
     - _Mask: 0
     - _MaskOnOff: 0
@@ -79,7 +81,7 @@ Material:
     - _TimeOfset: 0
     - _TimeSpeed: 1
     - _WaveAmount: 10.85
-    - _WaveIntensity: 1.55
+    - _WaveIntensity: 0
     - __dirty: 0
     m_Colors:
     - _AlbedoMapTint: {r: 1, g: 1, b: 1, a: 0}

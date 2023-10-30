@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3547088690014569012}
   - component: {fileID: 3547088690014569013}
   - component: {fileID: 3547088690014569014}
-  - component: {fileID: 393522993}
   m_Layer: 0
   m_Name: Troll_Walk Point Cache Player
   m_TagString: Untagged
@@ -26,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3547088690014569015}
-  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.00000058114523}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -79,46 +78,9 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: -2513488527450513342, guid: e0d1a248582165b46ac1c0200be0e65f, type: 2}
+  m_Mesh: {fileID: -3695762397711097340, guid: e0d1a248582165b46ac1c0200be0e65f, type: 2}
   m_Bones: []
   m_BlendShapeWeights:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
   - 100
   - 0
   - 0
@@ -159,113 +121,10 @@ SkinnedMeshRenderer:
   - 0
   - 0
   - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 100
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: -0.036489725, y: 2.0252545, z: 0.19717407}
-    m_Extent: {x: 2.6555452, y: 2.0247996, z: 2.281402}
+    m_Center: {x: 0.21688187, y: 1.6015897, z: -0.076354384}
+    m_Extent: {x: 1.6679549, y: 1.6029577, z: 1.9861706}
   m_DirtyAABB: 0
 --- !u!114 &3547088690014569014
 MonoBehaviour:
@@ -333,10 +192,10 @@ MonoBehaviour:
     DurationInSeconds: 1
     DrawMotionPath: 0
     MotionPathIconSize: 0.1
-  Clip0NormalizedTime: 1
+  Clip0NormalizedTime: 0
   Clip0Weight: 1
-  Clip1NormalizedTime: 1
-  Clip1Weight: 1
+  Clip1NormalizedTime: 0
+  Clip1Weight: 0
   Clip2NormalizedTime: 0
   Clip2Weight: 0
   Clip3NormalizedTime: 0
@@ -353,23 +212,3 @@ MonoBehaviour:
   smr: {fileID: 3547088690014569013}
   Constraints: []
   DrawMeshGizmo: 0
---- !u!95 &393522993
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3547088690014569015}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9c4abe39a4722ae4894e0b2b7af3163a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0

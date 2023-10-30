@@ -60,15 +60,12 @@ Material:
     - _Cutoff: 0.5
     - _Float0: 1
     - _Float1: 1
-    - _Float2: 1
-    - _Float3: 0
     - _Keyword0: 0
     - _Mask: 0
     - _MaskOnOff: 0
     - _Max: 3.97
     - _Min: -8.62
     - _NormalStrength: 1
-    - _OscillationIntensity: 0
     - _OscillationWave: 0
     - _RimPower: 0.5
     - _Rim_Offset: 0.75
@@ -77,17 +74,15 @@ Material:
     - _SpecArea: 0.16
     - _SpecOpacity: 0
     - _SpecTransition: 0.3
-    - _TimeAdj: -2
-    - _TimeOfset: 0.6
-    - _TimeSpeed: 1
-    - _WaveAmount: 5
-    - _WaveIntensity: 0.5
+    - _TimeAdj: 1.8
+    - _WaveAmount: 3.59
+    - _WaveIntensity: 0.2
     - __dirty: 0
     m_Colors:
     - _AlbedoMapTint: {r: 1, g: 1, b: 1, a: 0}
     - _Anchorcoord: {r: 0, g: 0, b: 0, a: 0}
     - _AnchorcoordL: {r: 0, g: 0, b: 0, a: 0}
-    - _AnchorcoordR: {r: 0, g: 0, b: 0, a: 0}
+    - _AnchorcoordR: {r: 0, g: -0.9, b: 0, a: 0}
     - _ColorMain: {r: 0.9433962, g: 0.8810965, b: 0.752047, a: 0}
     - _ColorVar: {r: 0.7264151, g: 0.67094886, b: 0.34607512, a: 1}
     - _RimColor: {r: 1, g: 0.38207546, b: 0.38207546, a: 1}

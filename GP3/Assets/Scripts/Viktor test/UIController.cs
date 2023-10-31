@@ -75,8 +75,14 @@ public class UIController : MonoBehaviour
     }
 
     IEnumerator StartGame(float time)
-    {
-        SpeedModifier.GameEnded();
+    {  SpeedModifier.GameEnded();
+        GameObject[] enemies;
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach(GameObject enem in enemies)
+        {
+            enem.SetActive(false);
+        }
+      
         takeDist = false;
         Vector3 cameraStartPosition = camera.transform.position;
         
@@ -116,7 +122,8 @@ public class UIController : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         winningScreen.SetActive(true);
         SafeArea.SetActive(true);
-        endGame = true;
+
         SpeedModifier.ResetHit();
+        Debug.Log(SpeedModifier.speed + "speeeeeeeeeeeeed");
     }
 }

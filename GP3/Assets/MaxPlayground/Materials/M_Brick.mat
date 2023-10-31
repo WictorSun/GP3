@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Pot
+  m_Name: M_Brick
   m_Shader: {fileID: 4800000, guid: 3313f251e4e925946894be15c50e409c, type: 3}
   m_ValidKeywords:
   - _BAKESWITCH_ON
@@ -24,7 +24,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AlbedoTexture:
-        m_Texture: {fileID: 2800000, guid: 7cc3c654cf391a74da218d6c778164be, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5284de5dfa0fe394ab87bd17b726b3b0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Alpha:
@@ -32,7 +32,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BakedNormalMap:
-        m_Texture: {fileID: 2800000, guid: 3b97b9c75905eee4bbf0610e0dc5bcc5, type: 3}
+        m_Texture: {fileID: 2800000, guid: 062af4db70bac274a9a41e80adbbdd7b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ColorRamp:
@@ -74,10 +74,10 @@ Material:
     - __dirty: 0
     m_Colors:
     - _AlbedoMapTint: {r: 1, g: 1, b: 1, a: 0}
-    - _ColorMain: {r: 0.8396226, g: 0.003960493, b: 0.003960493, a: 0}
-    - _ColorVar: {r: 0.6132076, g: 0.13016197, b: 0.13016197, a: 1}
-    - _RimColor: {r: 0.6822723, g: 1, b: 0.3803922, a: 1}
-    - _ShadowColor: {r: 0.6272166, g: 0, b: 0.6320754, a: 0}
+    - _ColorMain: {r: 0.5294118, g: 0.544038, b: 0.77254903, a: 0}
+    - _ColorVar: {r: 0.6544144, g: 0.6634666, b: 0.8113208, a: 1}
+    - _RimColor: {r: 0.64413494, g: 0.7075472, b: 0.7022628, a: 1}
+    - _ShadowColor: {r: 0.027812388, g: 0.05373444, b: 0.23584908, a: 0}
     - _Tile: {r: 1, g: 1, b: 0, a: 0}
-    - _TotalynotSpeccolor: {r: 0, g: 1, b: 0.91059804, a: 1}
+    - _TotalynotSpeccolor: {r: 0.32217872, g: 0.3773585, b: 0.37238148, a: 1}
   m_BuildTextureStacks: []

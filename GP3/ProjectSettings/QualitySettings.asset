@@ -226,8 +226,8 @@ QualitySettings:
     name: Build Test
     pixelLightCount: 4
     shadows: 2
-    shadowResolution: 2
-    shadowProjection: 1
+    shadowResolution: 3
+    shadowProjection: 0
     shadowCascades: 4
     shadowDistance: 150
     shadowNearPlaneOffset: 3
@@ -237,7 +237,7 @@ QualitySettings:
     skinWeights: 255
     textureQuality: 0
     anisotropicTextures: 2
-    antiAliasing: 2
+    antiAliasing: 4
     softParticles: 1
     softVegetation: 1
     realtimeReflectionProbes: 1

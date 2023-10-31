@@ -16,6 +16,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject camera;
     [SerializeField] private GameObject CamStartMovementPoint; // where game Beins
     [SerializeField] private float time = 2.0f;
+    [SerializeField] private ReturnSequence[] listReturnsequence;
 
     public GameObject SafeArea;
     public bool endGame = true;
@@ -66,6 +67,10 @@ public class UIController : MonoBehaviour
         endGame = false;
         ScoreCounter.Instance.WinningScoreCounter();
         
+        foreach(ReturnSequence obj in listReturnsequence)
+        {
+            obj.ReturnToStart();
+        }
         StartCoroutine(StartGame(time));
     }
 

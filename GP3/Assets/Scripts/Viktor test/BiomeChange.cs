@@ -9,6 +9,16 @@ public class BiomeChange : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (GameController.Distance >= 500 && !past500)
+        {
+            past500 = true;
+            BiomeForest();
+        }
+    }
+
+    private void BiomeForest()
+    {
+        // Change biome
+
     }
 }

@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_RopeReturn
+  m_Shader: {fileID: 4800000, guid: aa239311baea6bb49990496751e6333b, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlbedoTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Alpha:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BakedNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ColorRamp:
+        m_Texture: {fileID: 2800000, guid: 4378651f2ed612e4abe5216810ad3d61, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask:
+        m_Texture: {fileID: 2800000, guid: 4bb2ed5cf0c9cfa4c9deb0ca14b1e966, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normalmap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Albedo: 0
+    - _AnchorsPointsStrength: 0
+    - _BakeSwitch: 0
+    - _BakeSwitch1: 0
+    - _BakeSwitch2: 0
+    - _ColorMask: 0.75
+    - _ColorPower: 0.6
+    - _Cutoff: 0.5
+    - _Float0: 1
+    - _Float1: 1
+    - _Float2: 0.68
+    - _Float3: 1.2
+    - _Keyword0: 0
+    - _Mask: 0
+    - _MaskOnOff: 0
+    - _Max: 3.97
+    - _Min: -8.62
+    - _NormalStrength: 1
+    - _OscillationIntensity: 0.5
+    - _OscillationWave: 0
+    - _RimPower: 0.5
+    - _Rim_Offset: 0.75
+    - _SineAnchor: 1
+    - _SineAnchors: 0
+    - _SpecArea: 0.16
+    - _SpecOpacity: 0
+    - _SpecTransition: 0.3
+    - _TimeAdj: 1
+    - _TimeOfset: 0
+    - _TimeSpeed: 1
+    - _WaveAmount: 10.85
+    - _WaveIntensity: 0
+    - __dirty: 0
+    m_Colors:
+    - _AlbedoMapTint: {r: 1, g: 1, b: 1, a: 0}
+    - _Anchorcoord: {r: 0, g: 0, b: 0, a: 0}
+    - _AnchorcoordL: {r: 0, g: 0, b: 0, a: 0}
+    - _AnchorcoordR: {r: 0, g: -0.9, b: 0, a: 0}
+    - _ColorMain: {r: 0.9433962, g: 0.8810965, b: 0.752047, a: 0}
+    - _ColorVar: {r: 0.7264151, g: 0.67094886, b: 0.34607512, a: 1}
+    - _RimColor: {r: 1, g: 0.38207546, b: 0.38207546, a: 1}
+    - _ShadowColor: {r: 0.3861829, g: 0, b: 0.49056602, a: 0}
+    - _Tile: {r: 1, g: 2, b: 0, a: 0}
+    - _TotalynotSpeccolor: {r: 0.57647055, g: 1, b: 0, a: 1}
+    - _Vector0: {r: 0, g: 0, b: 0, a: 0}
+    - _WaveDirection: {r: 0.2, g: 0, b: 0, a: 0}
+    - _WaveDirection2: {r: 0, g: 0.2, b: 0, a: 0}
+  m_BuildTextureStacks: []

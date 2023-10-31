@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_Arrow Bounce
+  m_Shader: {fileID: 4800000, guid: aa239311baea6bb49990496751e6333b, type: 3}
+  m_ValidKeywords:
+  - _ALBEDO_ON
+  m_InvalidKeywords:
+  - _OSCILLATIONWAVE_ON
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlbedoTexture:
+        m_Texture: {fileID: 2800000, guid: f19eb64044b7dc54f9a3aea87d11a8d9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ColorRamp:
+        m_Texture: {fileID: 2800000, guid: 4378651f2ed612e4abe5216810ad3d61, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask:
+        m_Texture: {fileID: 2800000, guid: 4bb2ed5cf0c9cfa4c9deb0ca14b1e966, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Albedo: 1
+    - _AnchorsPointsStrength: 1
+    - _Cutoff: 0.5
+    - _Float0: -3.72
+    - _Float1: 0.5
+    - _Float2: 1
+    - _Float3: 0
+    - _Keyword0: 0
+    - _Mask: 0
+    - _MaskOnOff: 0
+    - _OscillationIntensity: 0
+    - _OscillationWave: 1
+    - _TimeAdj: 5
+    - _TimeOfset: 0
+    - _TimeSpeed: -5
+    - _WaveAmount: 2
+    - _WaveIntensity: 0.5
+    - __dirty: 0
+    m_Colors:
+    - _AlbedoMapTint: {r: 0.8867924, g: 0.8105597, b: 0.6901922, a: 0}
+    - _AnchorcoordL: {r: 0, g: 0, b: 0, a: 0}
+    - _AnchorcoordR: {r: 0, g: 0, b: 0, a: 0}
+    - _ColorMain: {r: 0.4811321, g: 0.44049236, b: 0.3563101, a: 0}
+    - _ColorVar: {r: 0.5566037, g: 0.5307932, b: 0.370194, a: 1}
+    - _ShadowColor: {r: 0.3861829, g: 0, b: 0.490566, a: 0}
+    - _Tile: {r: 4.69, g: 2, b: 0, a: 0}
+    - _Vector0: {r: -1.37, g: 0.82, b: 0, a: 0}
+  m_BuildTextureStacks: []

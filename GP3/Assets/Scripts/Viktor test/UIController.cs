@@ -16,8 +16,10 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject camera;
     [SerializeField] private GameObject CamStartMovementPoint; // where game Beins
     [SerializeField] private float time = 2.0f;
+
+    public GameObject SafeArea;
     public bool endGame = true;
-    float T = 0;
+    
     public bool takeDist; 
     // Start is called before the first frame update
     void Start()
@@ -56,14 +58,14 @@ public class UIController : MonoBehaviour
             Winning();
 
         }
+        
     }
     public void Winning()
     {
         
         endGame = false;
         ScoreCounter.Instance.WinningScoreCounter();
-        GameController.Distance = 0;
-        timeMod = 0;
+        
         StartCoroutine(StartGame(time));
     }
 
@@ -72,6 +74,7 @@ public class UIController : MonoBehaviour
         SpeedModifier.GameEnded();
         takeDist = false;
         Vector3 cameraStartPosition = camera.transform.position;
+        
 
         float cameraT = 0; // This is the interpolation factor for the camera
 
@@ -91,7 +94,7 @@ public class UIController : MonoBehaviour
 
        
         Vector3 playerStartPosition = player.transform.position;
-
+        float T = 0;
         while (T < 1)
         {
             T += Time.deltaTime / 1f; // This is the speed for the player
@@ -100,12 +103,15 @@ public class UIController : MonoBehaviour
             {
                 T = 1;
             }
-            Debug.Log("Lerping");
+            
             player.transform.position = Vector3.Lerp(playerStartPosition, StartMovementPoint.transform.position, T);
             yield return null;
         }
 
         yield return new WaitForSeconds(0.2f);
         winningScreen.SetActive(true);
+        SafeArea.SetActive(true);
+        endGame = true;
+        SpeedModifier.ResetHit();
     }
 }

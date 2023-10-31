@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
+
 public class UIWinning : MonoBehaviour
 {
     [Header("TextFields")]
@@ -19,7 +20,7 @@ public class UIWinning : MonoBehaviour
     public TextMeshProUGUI totalScore;
     [Tooltip("Total coins you have collected")]
     public TextMeshProUGUI totalcoin;
-    float T = 0; //LerpTime
+    
 
     [Header("GameObjects")]
     [Tooltip("Drag the player prefab")]
@@ -49,7 +50,7 @@ public class UIWinning : MonoBehaviour
         AudioManager.Instance.SFX("ButtonClick");
         Vector3 playerStartPosition = player.transform.position;
         SafeArea.SetActive(false);
-
+        float T = 0; //LerpTime
         while (T < 1) //This lerps the Player from idle position in the beggining of game to the position for when playing
         {
             T += Time.deltaTime / 1f; // This is the speed for the player
@@ -66,7 +67,8 @@ public class UIWinning : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(time);
         SpeedModifier.GameStarted();
-
+        GameController.IncreaseDistance = true;
+        GameController.IsReturning = false;
         Vector3 cameraStartPosition = camera.transform.position;
 
         float cameraT = 0; // This is the interpolation factor for the camera
@@ -86,8 +88,7 @@ public class UIWinning : MonoBehaviour
 
         yield return new WaitForSeconds(0.2f);
         uic.takeDist = true;
-        GameController.IncreaseDistance = true;
-        GameController.IsReturning = false;
+        
         this.gameObject.SetActive(false); // sets the Winning Screen to disabled in order to play again
     }
 }

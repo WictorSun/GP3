@@ -50,6 +50,7 @@ public class UIWinning : MonoBehaviour
         AudioManager.Instance.SFX("ButtonClick");
         Vector3 playerStartPosition = player.transform.position;
         SafeArea.SetActive(false);
+
         float T = 0; //LerpTime
         while (T < 1) //This lerps the Player from idle position in the beggining of game to the position for when playing
         {
@@ -86,9 +87,11 @@ public class UIWinning : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.0001f);
         uic.takeDist = true;
-        
+        uic.endGame = true;
+        SpeedModifier.speed = 1f;
+        Debug.Log(SpeedModifier.speed + "speeeeeeeeeeeeed");
         this.gameObject.SetActive(false); // sets the Winning Screen to disabled in order to play again
     }
 }

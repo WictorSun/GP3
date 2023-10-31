@@ -1,5 +1,56 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8468233022099229886
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5557720b473eaa3459439ba59a8f06c2, type: 3}
+  m_Name: SH_PostProcessPPSSettings
+  m_EditorClassIdentifier: 
+  active: 0
+  enabled:
+    overrideState: 1
+    value: 1
+  _TextureSample1:
+    overrideState: 0
+    value: {fileID: 0}
+    defaultState: 1
+  _TextureSample2:
+    overrideState: 0
+    value: {fileID: 0}
+    defaultState: 1
+  _Tile_U:
+    overrideState: 0
+    value: 2
+  _Tile_V:
+    overrideState: 0
+    value: 0.25
+  _Pan_V:
+    overrideState: 0
+    value: 0.5
+  _Pan_U:
+    overrideState: 0
+    value: 0.12
+  _Fraction:
+    overrideState: 1
+    value: 1
+  _Brightness:
+    overrideState: 1
+    value: 2
+  _Gradient:
+    overrideState: 1
+    value: 0.6
+  _Contrast:
+    overrideState: 1
+    value: 3.5
+  _Switch:
+    overrideState: 1
+    value: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14,7 +65,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settings:
   - {fileID: 1498967969675776445}
-  - {fileID: 8846556535961455553}
+  - {fileID: -8468233022099229886}
 --- !u!114 &1498967969675776445
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -58,48 +109,4 @@ MonoBehaviour:
     defaultState: 1
   opacity:
     overrideState: 0
-    value: 1
---- !u!114 &8846556535961455553
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5557720b473eaa3459439ba59a8f06c2, type: 3}
-  m_Name: SH_PostProcessPPSSettings
-  m_EditorClassIdentifier: 
-  active: 1
-  enabled:
-    overrideState: 1
-    value: 1
-  _TextureSample1:
-    overrideState: 0
-    value: {fileID: 0}
-    defaultState: 1
-  _Tile_U:
-    overrideState: 1
-    value: 2
-  _Tile_V:
-    overrideState: 1
-    value: 0.25
-  _Pan_V:
-    overrideState: 1
-    value: 0.5
-  _Pan_U:
-    overrideState: 1
-    value: 0.1
-  _Fraction:
-    overrideState: 1
-    value: 2
-  _Gradient:
-    overrideState: 1
-    value: 1.33
-  _Contrast:
-    overrideState: 1
-    value: 1.8
-  _Switch:
-    overrideState: 1
     value: 1

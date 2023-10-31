@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class HealthComponent : MonoBehaviour
 {
+
     public float maxHealth;
     public float currentHealth;
     private static bool hasMovedBackward = false;
@@ -57,11 +58,11 @@ public class HealthComponent : MonoBehaviour
                 SpeedModifier.IncreaseSpeed(1f);
 
                 // Move the player 20 units forward
-                if (playerTransform != null && !hasMovedBackward)
+                if (playerTransform != null && !SpeedModifier.hasHitEnemy)
                 {
                     GameController.CanDespawnEnemies = false; // Disable enemy despawn
                     playerTransform.gameObject.GetComponent<MonoBehaviour>().StartCoroutine(MovePlayerSmoothly(playerTransform));
-                    hasMovedBackward = true;
+                    SpeedModifier.hasHitEnemy = true;
                 }
             }
         }

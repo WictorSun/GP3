@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// makes the ground snap back to its original position
 public class ReturnSequence : MonoBehaviour
 {
     public Vector3 startPosition;

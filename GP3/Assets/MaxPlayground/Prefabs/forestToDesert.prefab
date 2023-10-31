@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8252994560625845137}
+  - component: {fileID: 45799335476268254}
   m_Layer: 0
-  m_Name: F&DTransGround
-  m_TagString: Untagged
+  m_Name: forestToDesert
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,6 +52,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &45799335476268254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835880583568151411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0716cc13c3817994ead3022506825be6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 15
+  objectDistance: -40
+  despawnDistance: -50
+  ForestToDesert: {fileID: 835880583568151411}
+  Desert: {fileID: 7928440760669165202, guid: 18d3103d652a3b143ad852ea84a70023, type: 3}
 --- !u!1001 &134648820275990587
 PrefabInstance:
   m_ObjectHideFlags: 0

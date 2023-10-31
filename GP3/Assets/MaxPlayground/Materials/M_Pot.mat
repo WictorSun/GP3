@@ -73,6 +73,7 @@ Material:
     - _Tile1: 1
     - __dirty: 0
     m_Colors:
+    - _AlbedoMapTint: {r: 1, g: 1, b: 1, a: 0}
     - _ColorMain: {r: 0.8396226, g: 0.003960493, b: 0.003960493, a: 0}
     - _ColorVar: {r: 0.6132076, g: 0.13016197, b: 0.13016197, a: 1}
     - _RimColor: {r: 0.6822723, g: 1, b: 0.3803922, a: 1}

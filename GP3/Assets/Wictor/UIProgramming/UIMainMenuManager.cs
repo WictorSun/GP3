@@ -21,7 +21,7 @@ public class UIMainMenuManager : MonoBehaviour
     [Tooltip("Player ref.")]
     [SerializeField] private GameObject player;
 
-
+    [SerializeField] private ObjectSpawner objectSpawner;
 
     [Header("UI Elements")]
     [SerializeField] private Slider sfxSlider;
@@ -162,6 +162,7 @@ public class UIMainMenuManager : MonoBehaviour
         }
 
         yield return new WaitForSeconds(0.2f);
+        objectSpawner.canSpawnEnemy = true;
         uic.takeDist = true;
         inGameMenu.SetActive(true);
         this.gameObject.SetActive(false);

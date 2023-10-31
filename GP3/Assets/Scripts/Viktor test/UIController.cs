@@ -18,6 +18,8 @@ public class UIController : MonoBehaviour
     [SerializeField] private float time = 2.0f;
     [SerializeField] private ReturnSequence[] listReturnsequence;
 
+    [SerializeField] private ObjectSpawner objectSpawner;
+
     public GameObject SafeArea;
     public bool endGame = true;
     
@@ -77,6 +79,7 @@ public class UIController : MonoBehaviour
     IEnumerator StartGame(float time)
     {  SpeedModifier.GameEnded();
         GameObject[] enemies;
+        objectSpawner.canSpawnEnemy = false;
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach(GameObject enem in enemies)
         {
@@ -123,6 +126,12 @@ public class UIController : MonoBehaviour
         winningScreen.SetActive(true);
         SafeArea.SetActive(true);
 
+        objectSpawner.canSpawnEnemy = false;
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enem in enemies)
+        {
+            enem.SetActive(false);
+        }
         SpeedModifier.ResetHit();
         Debug.Log(SpeedModifier.speed + "speeeeeeeeeeeeed");
     }

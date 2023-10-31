@@ -118,6 +118,7 @@ public class ObjectSpawner : MonoBehaviour
         if (canSpawnEnemy)
         {
             ChooseEnemy();
+            Debug.Log("spawningObject");
         }
     }
 }

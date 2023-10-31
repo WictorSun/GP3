@@ -20,8 +20,8 @@ public class UIWinning : MonoBehaviour
     public TextMeshProUGUI totalScore;
     [Tooltip("Total coins you have collected")]
     public TextMeshProUGUI totalcoin;
-    
 
+    [SerializeField] private ObjectSpawner objectSpawner;
     [Header("GameObjects")]
     [Tooltip("Drag the player prefab")]
     [SerializeField] private GameObject player;
@@ -92,6 +92,7 @@ public class UIWinning : MonoBehaviour
         uic.endGame = true;
         SpeedModifier.speed = 1f;
         Debug.Log(SpeedModifier.speed + "speeeeeeeeeeeeed");
+        objectSpawner.canSpawnEnemy = true;
         this.gameObject.SetActive(false); // sets the Winning Screen to disabled in order to play again
     }
 }

@@ -39,6 +39,8 @@ public class ObjectSpawner : MonoBehaviour
     public Transform playerTransform; // reference to player position
     public static ObjectSpawner instance;
 
+    public bool canSpawnEnemy = false;
+
     private void Awake() // sets instance to this object
     {
         instance = this;
@@ -62,6 +64,7 @@ public class ObjectSpawner : MonoBehaviour
         {
             ground.transform.position = ground.transform.position - Vector3.forward * groundSpawnDistance;
         }
+        Debug.Log("Triggered ground spawn");
     }
 
     private IEnumerator SpawnObject(string type, float time) // spawns object after set time
@@ -90,26 +93,31 @@ public class ObjectSpawner : MonoBehaviour
         GameController.EnemyCount++;
     }
 
+    public void ChooseEnemy()
+    {
+        if(!spawningObject && GameController.EnemyCount < spawnSettings[0].maxObjects) // if not spawning object and enemy count is less than max objects, spawn object
+        {
+            spawningObject = true;
+            float pick = Random.value * totalWeight; // picks random enemy to spawn
+            int chosenIndex = 0;
+            float cumulativeWeight = spawnableObjects[0].weight; 
+
+            while(pick > cumulativeWeight && chosenIndex < spawnableObjects.Count - 1) // loops through enemies and picks one to spawn
+            {
+                chosenIndex++;
+                cumulativeWeight += spawnableObjects[chosenIndex].weight;
+            }
+
+            // spawns enemy
+            StartCoroutine(SpawnObject(spawnableObjects[chosenIndex].type, Random.Range(spawnSettings[0].minWait / GameController.DifficultyMultiplier, spawnSettings[0].maxWait / GameController.DifficultyMultiplier)));
+        }
+    }
+
     void Update()
     {
-        if(SpeedModifier.GameHasStarted)
+        if (canSpawnEnemy)
         {
-            if(!spawningObject && GameController.EnemyCount < spawnSettings[0].maxObjects) // if not spawning object and enemy count is less than max objects, spawn object
-            {
-                spawningObject = true;
-                float pick = Random.value * totalWeight; // picks random enemy to spawn
-                int chosenIndex = 0;
-                float cumulativeWeight = spawnableObjects[0].weight; 
-
-                while(pick > cumulativeWeight && chosenIndex < spawnableObjects.Count - 1) // loops through enemies and picks one to spawn
-                {
-                    chosenIndex++;
-                    cumulativeWeight += spawnableObjects[chosenIndex].weight;
-                }
-
-                // spawns enemy
-                StartCoroutine(SpawnObject(spawnableObjects[chosenIndex].type, Random.Range(spawnSettings[0].minWait / GameController.DifficultyMultiplier, spawnSettings[0].maxWait / GameController.DifficultyMultiplier)));
-            }
+            ChooseEnemy();
         }
     }
 }

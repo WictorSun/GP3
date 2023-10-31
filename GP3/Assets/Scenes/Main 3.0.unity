@@ -2905,6 +2905,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 418479805}
   m_CullTransparentMesh: 1
+--- !u!1 &425555909 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4229736618163770877, guid: ad6d6dab0be8fdb4d9c6a0bf285cb40e, type: 3}
+  m_PrefabInstance: {fileID: 610491921}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &429992374
 GameObject:
   m_ObjectHideFlags: 0
@@ -4668,6 +4673,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4229736617016962667, guid: ad6d6dab0be8fdb4d9c6a0bf285cb40e, type: 3}
+      propertyPath: uic
+      value: 
+      objectReference: {fileID: 1017877364}
+    - target: {fileID: 4229736617016962667, guid: ad6d6dab0be8fdb4d9c6a0bf285cb40e, type: 3}
       propertyPath: camera
       value: 
       objectReference: {fileID: 354070508}
@@ -4675,6 +4684,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 657551425}
+    - target: {fileID: 4229736617016962667, guid: ad6d6dab0be8fdb4d9c6a0bf285cb40e, type: 3}
+      propertyPath: SafeArea
+      value: 
+      objectReference: {fileID: 425555909}
+    - target: {fileID: 4229736617016962667, guid: ad6d6dab0be8fdb4d9c6a0bf285cb40e, type: 3}
+      propertyPath: totalcoin
+      value: 
+      objectReference: {fileID: 616030209}
     - target: {fileID: 4229736617016962667, guid: ad6d6dab0be8fdb4d9c6a0bf285cb40e, type: 3}
       propertyPath: RetryButton
       value: 
@@ -4922,6 +4939,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef951d9b419b1cf428cc8bb006d0b74d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &616030209 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4229736616937204741, guid: ad6d6dab0be8fdb4d9c6a0bf285cb40e, type: 3}
+  m_PrefabInstance: {fileID: 610491921}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &622550534
@@ -6655,12 +6683,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settingsMenu: {fileID: 1073050513}
   mainPauseMenu: {fileID: 431104371}
-  sfxSlider: {fileID: 637654116}
-  musicSlider: {fileID: 2031989955}
   pauseButton: {fileID: 1532154045}
   StartMenu: {fileID: 0}
   LeftTouch: {fileID: 1259615834077781011}
   RightTouch: {fileID: 1259615833524900786}
+  sfxSlider: {fileID: 637654116}
+  musicSlider: {fileID: 2031989955}
   settings: {fileID: 1073050515}
   pauseMenu: {fileID: 431104372}
   CountDown: {fileID: 2112855094}
@@ -8540,12 +8568,9 @@ MonoBehaviour:
   camera: {fileID: 354070508}
   CamStartMovementPoint: {fileID: 1772522712}
   time: 2
-  returnSequence:
-  - {fileID: 511083493}
-  - {fileID: 1411812725}
-  - {fileID: 2021134502}
-  - {fileID: 1736829085}
+  SafeArea: {fileID: 425555909}
   endGame: 1
+  takeDist: 0
 --- !u!4 &1017877365
 Transform:
   m_ObjectHideFlags: 0
@@ -15396,19 +15421,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 354070508}
-  time: 0.0001
   Ballista: {fileID: 2019230533}
   StartMovementPoint: {fileID: 636839028}
   CamBallista: {fileID: 1772522712}
   CamStartMovementPoint: {fileID: 687828485}
   player: {fileID: 657551425}
+  sfxSlider: {fileID: 1516853436}
+  musicSlider: {fileID: 1309978199}
   startMenu: {fileID: 1791144980}
   settingsMenu: {fileID: 991050686}
   UpgradeMenu: {fileID: 551549627}
   inGameMenu: {fileID: 1259615833581246500}
-  sfxSlider: {fileID: 1516853436}
-  musicSlider: {fileID: 1309978199}
+  uic: {fileID: 1017877364}
   totalCoins: 0
+  time: 0.0001
   settings: {fileID: 991050687}
   Shop: {fileID: 551549628}
 --- !u!114 &1791144982

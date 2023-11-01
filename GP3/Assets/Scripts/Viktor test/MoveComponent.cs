@@ -13,7 +13,7 @@ public class MoveComponent : MonoBehaviour
     // Distance between the player and the object that will spawn. 
     // This sets how far ahead the object will appear in relation to the player.
     
-    [SerializeField] private float despawnDistance = -50f;
+    [SerializeField] public float despawnDistance = -50f;
     // Distance at which the object will be despawned. 
     // Objects behind the player beyond this distance will be removed to save resources.
 

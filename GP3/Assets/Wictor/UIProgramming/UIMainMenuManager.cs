@@ -51,8 +51,9 @@ public class UIMainMenuManager : MonoBehaviour
     [SerializeField] private Animator settings;
     [Tooltip("The animator controler for the Shop TAB")]
     [SerializeField] private Animator Shop;
+    [SerializeField] private Animator StartMenu;
 
-    float T = 0; //time for "While loop" in co-routine
+
 
     private void Awake()
     {
@@ -74,6 +75,7 @@ public class UIMainMenuManager : MonoBehaviour
     // PRESSING PLAY
     public void PlayButton()
     {
+        StartMenu.SetBool("On", true);
         StartCoroutine(StartGame(time));
     }
 
@@ -126,7 +128,7 @@ public class UIMainMenuManager : MonoBehaviour
         AudioManager.Instance.SFX("ButtonClick");
         Vector3 playerStartPosition = player.transform.position;
 
-
+        float T = 0; //time for "While loop" in co-routine
         while (T < 1) //LERP THE PLAYER TO STARTPOSITION
         {
             T += Time.deltaTime / 1f; // This is the speed for the player
@@ -164,6 +166,7 @@ public class UIMainMenuManager : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         objectSpawner.canSpawnEnemy = true;
         uic.takeDist = true;
+        StartMenu.SetBool("On", false);
         inGameMenu.SetActive(true);
         this.gameObject.SetActive(false);
     }

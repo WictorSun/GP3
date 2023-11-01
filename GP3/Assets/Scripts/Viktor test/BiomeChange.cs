@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BiomeChange : MonoBehaviour
 {
-    private bool past500;
+    private bool past500 = false;
 
     // Update is called once per frame
     void Update()
@@ -12,13 +12,13 @@ public class BiomeChange : MonoBehaviour
         if (GameController.Distance >= 500 && !past500)
         {
             past500 = true;
-            BiomeForest();
+            BiomeForestToDesert();
         }
     }
 
-    private void BiomeForest()
+    private void BiomeForestToDesert()
     {
-        // Change biome
-
+        // enable forestToDesert once
+        past500 = true;
     }
 }

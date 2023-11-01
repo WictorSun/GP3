@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 4298153954637476431}
   - component: {fileID: 7759421368175982102}
   - component: {fileID: 250166224479209457}
-  - component: {fileID: 277559111832683553}
   - component: {fileID: -7849446550132011355}
   - component: {fileID: 7620315062599006182}
   - component: {fileID: 5967005249329811176}
   - component: {fileID: 2160916547139492789}
+  - component: {fileID: 554733888073369454}
   m_Layer: 0
   m_Name: Catapult
   m_TagString: Enemy
@@ -89,19 +89,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &277559111832683553
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1708698447510989807}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.3
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &-7849446550132011355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b13f6e8d78d6624087cdb3471c98f4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 0
   killAddition: 0.2
 --- !u!114 &7620315062599006182
 MonoBehaviour:
@@ -161,6 +148,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
+--- !u!65 &554733888073369454
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708698447510989807}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.7, y: 3, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &7114038731881146969
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,14 +187,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7114038731881146969}
-  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
+  m_LocalRotation: {x: -0, y: -0.7082733, z: -0, w: -0.70593846}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4298153954637476431}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -269.811, z: 0}
 --- !u!137 &7114038731881146971
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0

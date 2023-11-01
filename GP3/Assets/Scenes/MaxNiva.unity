@@ -770,7 +770,6 @@ GameObject:
   - component: {fileID: 418517525}
   - component: {fileID: 418517524}
   - component: {fileID: 418517527}
-  - component: {fileID: 418517528}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -906,20 +905,6 @@ MonoBehaviour:
   m_AfterStackBundles:
   - assemblyQualifiedName: SH_PostProcessPPSSettings, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &418517528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 418517523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4841dc73768603e4c985744f1ba3bc6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PostProcessingMaterial: {fileID: 2100000, guid: f6005225ba3ab8b48a83646de0c34380, type: 2}
-  usePostProcessing: 1
 --- !u!1001 &463941219
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7499,7 +7484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8252994560625845137, guid: c518fb9c317b8794a86901974cc4d19e, type: 3}
       propertyPath: m_LocalScale.z
-      value: -1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8252994560625845137, guid: c518fb9c317b8794a86901974cc4d19e, type: 3}
       propertyPath: m_LocalPosition.x

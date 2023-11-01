@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 1211075282716312668}
   - component: {fileID: 5251057831430686464}
   m_Layer: 0
-  m_Name: Red Enemy
+  m_Name: Orc
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -327,6 +327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.8
+  killAddition: 0.2
 --- !u!114 &2203227902895827146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,7 +357,6 @@ MonoBehaviour:
   speed: 20
   objectDistance: -60
   despawnDistance: -110
-  enemySpeedDiff: 5
 --- !u!54 &5251057831430686464
 Rigidbody:
   m_ObjectHideFlags: 0

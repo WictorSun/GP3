@@ -64,11 +64,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb9fc174510aed4388b573ac8232e95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemySpawnInFront: 30
+  enemySpawnBehind: -30
   groundSpawnDistance: 40
   spawnableObjects: []
   spawnSettings:
   - type: enemy
     minWait: 0.5
     maxWait: 5
-    maxObjects: 100
+    maxObjects: 5000
   playerTransform: {fileID: 0}
+  canSpawnEnemy: 0

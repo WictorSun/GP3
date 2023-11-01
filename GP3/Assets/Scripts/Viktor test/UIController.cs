@@ -20,6 +20,8 @@ public class UIController : MonoBehaviour
 
     [SerializeField] private ObjectSpawner objectSpawner;
 
+    [SerializeField] private Animator winningAnim;
+
     public GameObject SafeArea;
     public bool endGame = true;
     
@@ -85,7 +87,7 @@ public class UIController : MonoBehaviour
         {
             enem.SetActive(false);
         }
-      
+
         takeDist = false;
         Vector3 cameraStartPosition = camera.transform.position;
         
@@ -124,8 +126,9 @@ public class UIController : MonoBehaviour
 
         yield return new WaitForSeconds(0.2f);
         winningScreen.SetActive(true);
+     
         SafeArea.SetActive(true);
-
+        winningAnim.SetBool("On", true);
         objectSpawner.canSpawnEnemy = false;
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enem in enemies)

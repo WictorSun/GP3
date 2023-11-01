@@ -59,11 +59,11 @@ Material:
     - _SpecTransition: 0.3
     - __dirty: 0
     m_Colors:
-    - _AlbedoMapTint: {r: 0.81908214, g: 0.8962264, b: 0.68907976, a: 0}
+    - _AlbedoMapTint: {r: 0.8980392, g: 0.84273744, b: 0.6901961, a: 0}
     - _ColorMain: {r: 0.8396226, g: 0.003960493, b: 0.003960493, a: 0}
     - _ColorVar: {r: 0.6132076, g: 0.13016197, b: 0.13016197, a: 1}
-    - _RimColor: {r: 0.4654116, g: 1, b: 0.3803922, a: 1}
-    - _ShadowColor: {r: 0.36960503, g: 0.54901963, b: 0.062745094, a: 0}
+    - _RimColor: {r: 1, g: 0.85540503, b: 0.3803922, a: 1}
+    - _ShadowColor: {r: 0.6981132, g: 0.5779457, b: 0.10208259, a: 0}
     - _Tile: {r: 5, g: 2, b: 0, a: 0}
     - _TotalynotSpeccolor: {r: 1, g: 0.8455283, b: 0, a: 1}
   m_BuildTextureStacks: []

@@ -33,6 +33,8 @@ public class ArrowMovement : MonoBehaviour
     {
         MoveArrow();
 
+        TiltArrow();
+
         if (leftButtonPressed && leftButtonStillDown)
         {
             transform.position += new Vector3(-1 * horizontalSpeed, 0, 0) * Time.deltaTime;
@@ -44,16 +46,18 @@ public class ArrowMovement : MonoBehaviour
         }
     }
 
-    void MoveArrow() // Handles the movement through input actions.
+    void TiltArrow()
     {
-        
-
         float z = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Horizontal");
         Vector3 euler = transform.localEulerAngles;
         euler.z = Mathf.Lerp(euler.z, z, spinSpeed * Time.deltaTime);
         euler.y = Mathf.Lerp(euler.y, y, tiltSpeed);
         transform.localEulerAngles = euler;
+    }
+
+    void MoveArrow() // Handles the movement through input actions.
+    {
 
         float groundWidth = 10f;  // Replace with the actual width of your ground
         float halfGroundWidth = groundWidth / 2f;
@@ -66,7 +70,7 @@ public class ArrowMovement : MonoBehaviour
             transform.position += new Vector3(direction.x, 0, 0) * horizontalSpeed * Time.deltaTime;
         }
 
-        if (Mathf.Abs(newPosition.x) > halfGroundWidth)
+        if (Mathf.Abs(newPosition.x) > halfGroundWidth) // Keeps arrow within ground limit.
         {
             // Reverse the direction
             lateralDirection *= -1;

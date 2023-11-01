@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     private Transform player;
+    [Header("Movement To the left and Right")]
     [SerializeField] public float moveSpeed = 2f;
     [SerializeField] private float killAddition = 0.2f;
 

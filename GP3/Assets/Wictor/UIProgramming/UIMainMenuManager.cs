@@ -21,7 +21,7 @@ public class UIMainMenuManager : MonoBehaviour
     [Tooltip("Player ref.")]
     [SerializeField] private GameObject player;
 
-
+    [SerializeField] private ObjectSpawner objectSpawner;
 
     [Header("UI Elements")]
     [SerializeField] private Slider sfxSlider;
@@ -37,12 +37,23 @@ public class UIMainMenuManager : MonoBehaviour
 
     [SerializeField] private UIController uic;
 
+    [Header("totalcoin and Highscore")]
+    [SerializeField] private float totalCoins;
+    [SerializeField] private float higscore;
+
+    [Header("Upgrade1")]
+    [SerializeField] private float upgrade1Tier;
+    [SerializeField] private ScoreCounter SC;
+    [SerializeField] private float comboIncrease1;
+    [SerializeField] private float comboIncrease2;
+    [SerializeField] private float comboIncrease3;
+    [SerializeField] private float priceUpgrade1;
+    [SerializeField] private float priceUpgrade2;
+    [SerializeField] private float priceUpgrade3;
 
 
 
     [Header("Floats")]
-    [Tooltip("Total of coins collected")]
-    [SerializeField] private float totalCoins;
     [Tooltip("Time for WaitSec in Co-routine startgame")]
     [SerializeField] private float time = 2.0f;
 
@@ -51,16 +62,19 @@ public class UIMainMenuManager : MonoBehaviour
     [SerializeField] private Animator settings;
     [Tooltip("The animator controler for the Shop TAB")]
     [SerializeField] private Animator Shop;
+    [SerializeField] private Animator StartMenu;
 
-    float T = 0; //time for "While loop" in co-routine
+
 
     private void Awake()
     {
         startMenu.SetActive(true);
         settingsMenu.SetActive(false);
         UpgradeMenu.SetActive(false);
-      
-       
+
+
+        upgrade1Tier = PlayerPrefs.GetFloat("Upgrade1");
+        totalCoins = PlayerPrefs.GetFloat("TotalCoins");
     }
 
     private void Start()
@@ -68,12 +82,13 @@ public class UIMainMenuManager : MonoBehaviour
         sfxSlider.value = AudioManager.Instance.sfxSource.volume;
         musicSlider.value = AudioManager.Instance.musicSource.volume;
         totalCoins = PlayerPrefs.GetFloat("TotalCoins");
-        
+        //Debug.Log(upgrade1Tier);
     }
 
     // PRESSING PLAY
     public void PlayButton()
     {
+        StartMenu.SetBool("On", true);
         StartCoroutine(StartGame(time));
     }
 
@@ -120,13 +135,35 @@ public class UIMainMenuManager : MonoBehaviour
         AudioManager.Instance.MusicVolume(musicSlider.value);
     }
 
+    public void Upgrade1()
+    {
+        if((priceUpgrade1 < totalCoins) && upgrade1Tier == 0f)
+        {
+            PlayerPrefs.SetFloat("Upgrade1", 1f);
+            upgrade1Tier = PlayerPrefs.GetFloat("Upgrade1");
+            SC.comboIncrease = comboIncrease1;
+        }
+        else if ((priceUpgrade2 < totalCoins) && upgrade1Tier == 1f)
+        {
+            PlayerPrefs.SetFloat("Upgrade1", 2f);
+            upgrade1Tier = PlayerPrefs.GetFloat("Upgrade1");
+            SC.comboIncrease = comboIncrease2;
+        }
+        else if ((priceUpgrade3 < totalCoins) && upgrade1Tier == 2f)
+        {
+            PlayerPrefs.SetFloat("Upgrade1", 3f);
+            upgrade1Tier = PlayerPrefs.GetFloat("Upgrade1");
+            SC.comboIncrease = comboIncrease3;
+        }
+    }
+
     //CO-ROUTINE FOR STARTING THE GAME
     IEnumerator StartGame(float time)
     {
         AudioManager.Instance.SFX("ButtonClick");
         Vector3 playerStartPosition = player.transform.position;
 
-
+        float T = 0; //time for "While loop" in co-routine
         while (T < 1) //LERP THE PLAYER TO STARTPOSITION
         {
             T += Time.deltaTime / 1f; // This is the speed for the player
@@ -162,7 +199,9 @@ public class UIMainMenuManager : MonoBehaviour
         }
 
         yield return new WaitForSeconds(0.2f);
+        objectSpawner.canSpawnEnemy = true;
         uic.takeDist = true;
+        StartMenu.SetBool("On", false);
         inGameMenu.SetActive(true);
         this.gameObject.SetActive(false);
     }

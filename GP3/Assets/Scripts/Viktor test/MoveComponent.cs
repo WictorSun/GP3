@@ -9,11 +9,11 @@ public class MoveComponent : MonoBehaviour
     // Speed at which the object will move. The higher the value, the faster the object moves.
     
     [Header("Ground spawn settings")]
-    [SerializeField] private float objectDistance = 50f; 
+    [SerializeField] private float objectDistance = -30f; 
     // Distance between the player and the object that will spawn. 
     // This sets how far ahead the object will appear in relation to the player.
     
-    [SerializeField] private float despawnDistance = -30f;
+    [SerializeField] public float despawnDistance = -50f;
     // Distance at which the object will be despawned. 
     // Objects behind the player beyond this distance will be removed to save resources.
 

@@ -46,6 +46,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _ASEOutlineWidth: 0
     - _AlbedoTextureStrokes: 0.6
     - _BakeSwitch: 0
     - _ColorMask: 0.75
@@ -58,6 +59,8 @@ Material:
     - _SpecTransition: 0.3
     - __dirty: 0
     m_Colors:
+    - _ASEOutlineColor: {r: 0, g: 0, b: 0, a: 0}
+    - _AlbedoMapTint: {r: 1, g: 1, b: 1, a: 0}
     - _ColorMain: {r: 0.46226418, g: 0.37557238, b: 0.27256143, a: 0}
     - _ColorVar: {r: 0.3301887, g: 0.21525863, b: 0.079432175, a: 1}
     - _RimColor: {r: 0.9716981, g: 0.7175183, b: 0.18792273, a: 1}

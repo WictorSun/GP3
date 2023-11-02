@@ -25,6 +25,7 @@ public class UIWinning : MonoBehaviour
     [Header("GameObjects")]
     [Tooltip("Drag the player prefab")]
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject player2;
     [Tooltip("Drag the Start Transform for player when playing the game")]
     [SerializeField] private GameObject StartMovementPoint;
     [Tooltip("Drag the player prefab")]
@@ -40,6 +41,7 @@ public class UIWinning : MonoBehaviour
     //Event for pressing "RESTART" 
     public void PlayAgain()
     {
+        GameController.Distance = PlayerPrefs.GetFloat("DistBost");
         StartCoroutine(StartGame(time));
     }
 
@@ -61,6 +63,7 @@ public class UIWinning : MonoBehaviour
             }
 
             player.transform.position = Vector3.Lerp(playerStartPosition, StartMovementPoint.transform.position, T);
+            player2.transform.position = Vector3.Lerp(playerStartPosition, StartMovementPoint.transform.position, T);
             yield return null;
         }
 
@@ -68,6 +71,7 @@ public class UIWinning : MonoBehaviour
         yield return new WaitForSecondsRealtime(time);        
         SafeArea.SetActive(false);
         SpeedModifier.GameStarted();
+        
         GameController.IncreaseDistance = true;
         GameController.IsReturning = false;
         Vector3 cameraStartPosition = camera.transform.position;
@@ -91,7 +95,6 @@ public class UIWinning : MonoBehaviour
         uic.takeDist = true;
         uic.endGame = true;
         SpeedModifier.speed = 1f;
-        Debug.Log(SpeedModifier.speed + "speeeeeeeeeeeeed");
         objectSpawner.canSpawnEnemy = true;
         this.gameObject.SetActive(false); // sets the Winning Screen to disabled in order to play again
     }

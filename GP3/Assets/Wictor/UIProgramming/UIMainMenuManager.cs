@@ -82,7 +82,7 @@ public class UIMainMenuManager : MonoBehaviour
         sfxSlider.value = AudioManager.Instance.sfxSource.volume;
         musicSlider.value = AudioManager.Instance.musicSource.volume;
         totalCoins = PlayerPrefs.GetFloat("TotalCoins");
-        Debug.Log(upgrade1Tier);
+        //Debug.Log(upgrade1Tier);
     }
 
     // PRESSING PLAY

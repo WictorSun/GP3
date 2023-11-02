@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 707310560893808766}
   - component: {fileID: 707310560893808767}
   - component: {fileID: 707310560893808752}
+  - component: {fileID: 7739288335397538886}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -262,3 +263,23 @@ MonoBehaviour:
   smr: {fileID: 707310560893808767}
   Constraints: []
   DrawMeshGizmo: 0
+--- !u!95 &7739288335397538886
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707310560893808753}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9ce236e6755009b4a969da17f5a1fd9a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

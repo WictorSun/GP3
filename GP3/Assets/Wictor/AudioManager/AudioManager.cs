@@ -33,7 +33,7 @@ public class AudioManager : MonoBehaviour
     }
     private void Start()
     {
-        PlayBackGroundMusic("BGSounds");
+        PlayBackGroundMusic("Startscreen");
     }
 
     // Call on this where we want to play BGSounds/Music with the name of the sound/Music in the musicSounds list in inspector
@@ -58,7 +58,7 @@ public class AudioManager : MonoBehaviour
         Sound s = Array.Find(sfxSounds, x => x.name == name);
         if (s == null)
         {
-            Debug.Log("Sound Not Found");
+            //Debug.Log("Sound Not Found");
         }
 
         else

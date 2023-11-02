@@ -53,7 +53,7 @@ public class HealthComponent : MonoBehaviour
                 GameObject player = MoveComponent.player;
                 Transform playerTransform = player.transform;
 
-                AudioManager.Instance.SFX("HitEnemy");
+                AudioManager.Instance.SFX("ArrowHit");
 
                 SpeedModifier.IncreaseSpeed(1f);
 

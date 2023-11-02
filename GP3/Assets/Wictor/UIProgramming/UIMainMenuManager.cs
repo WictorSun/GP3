@@ -41,6 +41,8 @@ public class UIMainMenuManager : MonoBehaviour
     [Header("totalcoin and Highscore")]
     [SerializeField] private float totalCoins;
     [SerializeField] private float higscore;
+    [SerializeField] private TextMeshProUGUI totCoinUpgrade;
+    [SerializeField] private TextMeshProUGUI totCoinMain;
 
     [Header("Upgrade1")]
     [SerializeField] private float upgrade1Tier;
@@ -77,7 +79,7 @@ public class UIMainMenuManager : MonoBehaviour
     [SerializeField] private Animator Shop;
     [SerializeField] private Animator StartMenu;
 
-
+    public bool Debug;
 
     private void Awake()
     {
@@ -85,9 +87,14 @@ public class UIMainMenuManager : MonoBehaviour
         settingsMenu.SetActive(false);
         UpgradeMenu.SetActive(false);
 
-
+        if (Debug)
+        {
+            PlayerPrefs.SetFloat("Upgrade1", 0f);
+        }
         upgrade1Tier = PlayerPrefs.GetFloat("Upgrade1");
         totalCoins = PlayerPrefs.GetFloat("TotalCoins");
+        totCoinMain.text = "" + totalCoins;
+        totCoinUpgrade.text = "" + totalCoins;
     }
 
     private void Start()
@@ -147,10 +154,15 @@ public class UIMainMenuManager : MonoBehaviour
     {
         AudioManager.Instance.MusicVolume(musicSlider.value);
     }
+     public void UpdateCoins()
+    {
+        totCoinMain.text = "" + totalCoins;
+        totCoinUpgrade.text = "" + totalCoins;
+    }
 
     public void Upgrade1()
     {
-        if((priceUpgrade1 < totalCoins) && upgrade1Tier == 0f)
+        if((priceUpgrade1 <= totalCoins) && upgrade1Tier == 0f)
         {
             PlayerPrefs.SetFloat("Upgrade1", 1f);
             upgrade1Tier = PlayerPrefs.GetFloat("Upgrade1");
@@ -159,8 +171,12 @@ public class UIMainMenuManager : MonoBehaviour
             levelUpgrade1.text = "Level 1 / 3";
             upgradeDescription1.text = itemDescription1;
             priceTextFieldUpgrade1.text = "" + priceUpgrade1;
+            totalCoins = totalCoins - priceUpgrade1;
+            PlayerPrefs.SetFloat("TotalCoins", totalCoins);
+            UpdateCoins();
+
         }
-        else if ((priceUpgrade2 < totalCoins) && upgrade1Tier == 1f)
+        else if ((priceUpgrade2 <= totalCoins) && upgrade1Tier == 1f)
         {
             PlayerPrefs.SetFloat("Upgrade1", 2f);
             upgrade1Tier = PlayerPrefs.GetFloat("Upgrade1");
@@ -169,8 +185,11 @@ public class UIMainMenuManager : MonoBehaviour
             levelUpgrade1.text = "Level 2 / 3";
             upgradeDescription1.text = itemDescription2;
             priceTextFieldUpgrade1.text = "" + priceUpgrade2;
+            totalCoins = totalCoins - priceUpgrade2;
+            PlayerPrefs.SetFloat("TotalCoins", totalCoins);
+            UpdateCoins();
         }
-        else if ((priceUpgrade3 < totalCoins) && upgrade1Tier == 2f)
+        else if ((priceUpgrade3 <= totalCoins) && upgrade1Tier == 2f)
         {
             PlayerPrefs.SetFloat("Upgrade1", 3f);
             upgrade1Tier = PlayerPrefs.GetFloat("Upgrade1");
@@ -180,6 +199,9 @@ public class UIMainMenuManager : MonoBehaviour
             upgradeDescription1.text = itemDescription3;
             priceTextFieldUpgrade1.text = "";
             priceButton.SetActive(false);
+            totalCoins = totalCoins - priceUpgrade3;
+            PlayerPrefs.SetFloat("TotalCoins", totalCoins);
+            UpdateCoins();
         }
     }
 

@@ -79,8 +79,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forest: {fileID: 5091822857659959479}
   desert: {fileID: 769440506317957737}
-  forestToDesert: {fileID: 0}
-  player: {fileID: 0}
+  forestToDesert: {fileID: 1296500260728046301}
+  player: {fileID: 7930161530227528620, guid: a615035447253a2489c3ecb65d0ad463, type: 3}
   moveComponent: {fileID: 1594526900229358131}
 --- !u!1001 &1566203385591717024
 PrefabInstance:
@@ -216,6 +216,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 45799335476268254, guid: c518fb9c317b8794a86901974cc4d19e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c518fb9c317b8794a86901974cc4d19e, type: 3}
+--- !u!1 &1296500260728046301 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 835880583568151411, guid: c518fb9c317b8794a86901974cc4d19e, type: 3}
+  m_PrefabInstance: {fileID: 1902697074250240430}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7561326328323633727 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8252994560625845137, guid: c518fb9c317b8794a86901974cc4d19e, type: 3}

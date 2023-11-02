@@ -33,7 +33,7 @@ public class AudioManager : MonoBehaviour
     }
     private void Start()
     {
-        PlayBackGroundMusic("BGSounds");
+        PlayBackGroundMusic("Startscreen");
     }
 
     // Call on this where we want to play BGSounds/Music with the name of the sound/Music in the musicSounds list in inspector

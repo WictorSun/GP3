@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_A&DGround
+  m_Shader: {fileID: 4800000, guid: 3313f251e4e925946894be15c50e409c, type: 3}
+  m_ValidKeywords:
+  - _BAKESWITCH_ON
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlbedoTexture:
+        m_Texture: {fileID: 2800000, guid: 940405ec531e9c84dac899be526270d9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Alpha:
+        m_Texture: {fileID: 2800000, guid: 4bb2ed5cf0c9cfa4c9deb0ca14b1e966, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BakedNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ColorRamp:
+        m_Texture: {fileID: 2800000, guid: 4378651f2ed612e4abe5216810ad3d61, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normalmap:
+        m_Texture: {fileID: 2800000, guid: 2af9872b76b86d64b9c7aa2a800bf08c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BakeSwitch: 1
+    - _ColorMask: 0.75
+    - _ColorPower: 0.6
+    - _NormalStrength: 0.2
+    - _RimPower: 0.853
+    - _Rim_Offset: 0.75
+    - _SpecArea: 0.177
+    - _SpecOpacity: 0.253
+    - _SpecTransition: 0.3
+    - __dirty: 0
+    m_Colors:
+    - _AlbedoMapTint: {r: 0.9150943, g: 0.8756031, b: 0.7294856, a: 0}
+    - _ColorMain: {r: 0.8396226, g: 0.003960493, b: 0.003960493, a: 0}
+    - _ColorVar: {r: 0.6132076, g: 0.1301619, b: 0.1301619, a: 1}
+    - _RimColor: {r: 1, g: 0.9611003, b: 0.3803922, a: 1}
+    - _ShadowColor: {r: 0.7019608, g: 0.5803922, b: 0.105882354, a: 0}
+    - _Tile: {r: 5, g: 2, b: 0, a: 0}
+    - _TotalynotSpeccolor: {r: 1, g: 0.84705883, b: 0, a: 1}
+  m_BuildTextureStacks: []

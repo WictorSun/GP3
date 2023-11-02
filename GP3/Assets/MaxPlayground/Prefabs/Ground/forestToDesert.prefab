@@ -67,8 +67,6 @@ MonoBehaviour:
   speed: 15
   objectDistance: -40
   despawnDistance: -50
-  ForestToDesert: {fileID: 835880583568151411}
-  Desert: {fileID: 7928440760669165202, guid: 18d3103d652a3b143ad852ea84a70023, type: 3}
 --- !u!1001 &134648820275990587
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -120,6 +118,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 2ba9a2c8e2fec6b45a8dd0a1627d4ec6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b3a0370f20afd8c41b1971beafcab6c9, type: 2}
     - target: {fileID: 919132149155446097, guid: 2ba9a2c8e2fec6b45a8dd0a1627d4ec6, type: 3}
       propertyPath: m_Name
       value: FernV1 (1)
@@ -186,6 +188,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TreeV1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1052450343002378335, guid: 58d76641f50a8dc45b803055208ab0f4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b3a0370f20afd8c41b1971beafcab6c9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58d76641f50a8dc45b803055208ab0f4, type: 3}
 --- !u!4 &1065479387942158941 stripped
@@ -321,7 +327,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: c2c05d08f8716674a882ab249c5812ab, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ff06cd7ab068a4e4cb9fc83170a12da6, type: 2}
+      objectReference: {fileID: 2100000, guid: 64d32128382ede242b80100da3797ad0, type: 2}
     - target: {fileID: 919132149155446097, guid: c2c05d08f8716674a882ab249c5812ab, type: 3}
       propertyPath: m_Name
       value: Ground
@@ -400,6 +406,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TreeV1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1052450343002378335, guid: 58d76641f50a8dc45b803055208ab0f4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b3a0370f20afd8c41b1971beafcab6c9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58d76641f50a8dc45b803055208ab0f4, type: 3}
 --- !u!4 &1283661916538531066 stripped
@@ -462,6 +472,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TreeV1
       objectReference: {fileID: 0}
+    - target: {fileID: 1052450343002378335, guid: 58d76641f50a8dc45b803055208ab0f4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b3a0370f20afd8c41b1971beafcab6c9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58d76641f50a8dc45b803055208ab0f4, type: 3}
 --- !u!4 &2269552059533493818 stripped
@@ -656,6 +670,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 2ba9a2c8e2fec6b45a8dd0a1627d4ec6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b3a0370f20afd8c41b1971beafcab6c9, type: 2}
     - target: {fileID: 919132149155446097, guid: 2ba9a2c8e2fec6b45a8dd0a1627d4ec6, type: 3}
       propertyPath: m_Name
       value: FernV1 (2)
@@ -718,6 +736,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 650188eae6346e545a4510213118e588, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b3a0370f20afd8c41b1971beafcab6c9, type: 2}
     - target: {fileID: 919132149155446097, guid: 650188eae6346e545a4510213118e588, type: 3}
       propertyPath: m_Name
       value: BushV1 (1)
@@ -780,6 +802,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 650188eae6346e545a4510213118e588, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b3a0370f20afd8c41b1971beafcab6c9, type: 2}
     - target: {fileID: 919132149155446097, guid: 650188eae6346e545a4510213118e588, type: 3}
       propertyPath: m_Name
       value: BushV1
@@ -1410,6 +1436,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 2ba9a2c8e2fec6b45a8dd0a1627d4ec6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b3a0370f20afd8c41b1971beafcab6c9, type: 2}
     - target: {fileID: 919132149155446097, guid: 2ba9a2c8e2fec6b45a8dd0a1627d4ec6, type: 3}
       propertyPath: m_Name
       value: FernV1

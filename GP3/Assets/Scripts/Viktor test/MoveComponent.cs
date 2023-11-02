@@ -39,12 +39,23 @@ public class MoveComponent : MonoBehaviour
         
         speedModifier = GetComponent<SpeedModifier>();
         // Initialize lateral direction for enemies
+        // Randomize lateral direction for enemies
+        RandomizeLateralDirection();
+    } 
+
+    private void OnEnable()
+    {
+        // Randomize lateral direction for enemies every time the GameObject is activated
+        RandomizeLateralDirection();
+    }
+
+    private void RandomizeLateralDirection()
+    {
         if (enemy != null)
         {
             lateralDirection = Random.Range(0, 2) == 0 ? -1f : 1f;
         }
-    } 
-
+    }
 
     private void Update()
     {

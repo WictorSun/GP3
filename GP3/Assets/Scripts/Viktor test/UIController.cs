@@ -11,6 +11,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI distanceText = null; // Text for distance
     [SerializeField] private GameObject winningScreen;
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject player2;
     [SerializeField] private GameObject StartMovementPoint; // where game Beins
     [SerializeField] private GameObject camera;
     [SerializeField] private GameObject CamStartMovementPoint; // where game Beins
@@ -120,6 +121,7 @@ public class UIController : MonoBehaviour
             }
             
             player.transform.position = Vector3.Lerp(playerStartPosition, StartMovementPoint.transform.position, T);
+            player2.transform.position = Vector3.Lerp(playerStartPosition, StartMovementPoint.transform.position, T);
             yield return null;
         }
 

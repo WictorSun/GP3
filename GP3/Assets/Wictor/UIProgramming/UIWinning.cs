@@ -25,6 +25,7 @@ public class UIWinning : MonoBehaviour
     [Header("GameObjects")]
     [Tooltip("Drag the player prefab")]
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject player2;
     [Tooltip("Drag the Start Transform for player when playing the game")]
     [SerializeField] private GameObject StartMovementPoint;
     [Tooltip("Drag the player prefab")]
@@ -62,6 +63,7 @@ public class UIWinning : MonoBehaviour
             }
 
             player.transform.position = Vector3.Lerp(playerStartPosition, StartMovementPoint.transform.position, T);
+            player2.transform.position = Vector3.Lerp(playerStartPosition, StartMovementPoint.transform.position, T);
             yield return null;
         }
 

@@ -21,6 +21,7 @@ public class UIMainMenuManager : MonoBehaviour
     [SerializeField] private GameObject CamStartMovementPoint; // where game Beins
     [Tooltip("Player ref.")]
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject player2;
 
     [SerializeField] private ObjectSpawner objectSpawner;
 
@@ -309,6 +310,7 @@ public class UIMainMenuManager : MonoBehaviour
             }
 
             player.transform.position = Vector3.Lerp(playerStartPosition, StartMovementPoint.transform.position, T);
+            player2.transform.position = Vector3.Lerp(playerStartPosition, StartMovementPoint.transform.position, T);
             yield return null;
         }
 

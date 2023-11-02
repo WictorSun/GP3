@@ -37,12 +37,23 @@ public class UIMainMenuManager : MonoBehaviour
 
     [SerializeField] private UIController uic;
 
+    [Header("totalcoin and Highscore")]
+    [SerializeField] private float totalCoins;
+    [SerializeField] private float higscore;
+
+    [Header("Upgrade1")]
+    [SerializeField] private float upgrade1Tier;
+    [SerializeField] private ScoreCounter SC;
+    [SerializeField] private float comboIncrease1;
+    [SerializeField] private float comboIncrease2;
+    [SerializeField] private float comboIncrease3;
+    [SerializeField] private float priceUpgrade1;
+    [SerializeField] private float priceUpgrade2;
+    [SerializeField] private float priceUpgrade3;
 
 
 
     [Header("Floats")]
-    [Tooltip("Total of coins collected")]
-    [SerializeField] private float totalCoins;
     [Tooltip("Time for WaitSec in Co-routine startgame")]
     [SerializeField] private float time = 2.0f;
 
@@ -60,8 +71,10 @@ public class UIMainMenuManager : MonoBehaviour
         startMenu.SetActive(true);
         settingsMenu.SetActive(false);
         UpgradeMenu.SetActive(false);
-      
-       
+
+
+        upgrade1Tier = PlayerPrefs.GetFloat("Upgrade1");
+        totalCoins = PlayerPrefs.GetFloat("TotalCoins");
     }
 
     private void Start()
@@ -69,7 +82,7 @@ public class UIMainMenuManager : MonoBehaviour
         sfxSlider.value = AudioManager.Instance.sfxSource.volume;
         musicSlider.value = AudioManager.Instance.musicSource.volume;
         totalCoins = PlayerPrefs.GetFloat("TotalCoins");
-        
+        Debug.Log(upgrade1Tier);
     }
 
     // PRESSING PLAY
@@ -120,6 +133,28 @@ public class UIMainMenuManager : MonoBehaviour
     public void MusicSlider()
     {
         AudioManager.Instance.MusicVolume(musicSlider.value);
+    }
+
+    public void Upgrade1()
+    {
+        if((priceUpgrade1 < totalCoins) && upgrade1Tier == 0f)
+        {
+            PlayerPrefs.SetFloat("Upgrade1", 1f);
+            upgrade1Tier = PlayerPrefs.GetFloat("Upgrade1");
+            SC.comboIncrease = comboIncrease1;
+        }
+        else if ((priceUpgrade2 < totalCoins) && upgrade1Tier == 1f)
+        {
+            PlayerPrefs.SetFloat("Upgrade1", 2f);
+            upgrade1Tier = PlayerPrefs.GetFloat("Upgrade1");
+            SC.comboIncrease = comboIncrease2;
+        }
+        else if ((priceUpgrade3 < totalCoins) && upgrade1Tier == 2f)
+        {
+            PlayerPrefs.SetFloat("Upgrade1", 3f);
+            upgrade1Tier = PlayerPrefs.GetFloat("Upgrade1");
+            SC.comboIncrease = comboIncrease3;
+        }
     }
 
     //CO-ROUTINE FOR STARTING THE GAME

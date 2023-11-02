@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BiomeChange : MonoBehaviour
@@ -32,7 +30,7 @@ public class BiomeChange : MonoBehaviour
         {
             Switch = ((distance >= 500) && (distance <= 510));
         }
-        Debug.Log($"Current Distance: {distance}, Past 500: {past500}");
+        //Debug.Log($"Current Distance: {distance}, Past 500: {past500}");
 
         // Check if this tile is near the despawn distance
         float tileDistanceFromDespawn = transform.position.z - player.transform.position.z;//Mathf.Abs(transform.position.z - moveComponent.despawnDistance);
@@ -64,7 +62,7 @@ public class BiomeChange : MonoBehaviour
 
     private void EnableForest()
     {
-        Debug.Log("Forest Enabled");
+        //Debug.Log("Forest Enabled");
         // Enable forest and disable other biomes
         forest.SetActive(true);
         desert.SetActive(false);
@@ -78,3 +76,4 @@ public class BiomeChange : MonoBehaviour
         forestToDesert.SetActive(true);
     }
 }
+

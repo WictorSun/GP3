@@ -8,14 +8,30 @@ public class AttachEnemies : MonoBehaviour
     Transform myTransform;
     private bool attached = false;
 
-    private void OnCollisionEnter(Collision collision)
+    [SerializeField] private MoveComponent moveComponent;
+
+    [SerializeField] private EnemyController enemyController;
+
+    [SerializeField] private HealthComponent healthComponent;
+
+    private void OnTriggerEnter(Collider other)
     {
-        if (gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
-            myTransform.parent = collision.transform;
+            GameObject newParent = other.gameObject;
+
+            this.transform.SetParent(newParent.transform, true);
+
+            moveComponent.enabled = false;
+            enemyController.enabled = false;
+            healthComponent.enabled = false;
+
+
+            //myTransform.parent = collision.transform;
             Debug.Log("I attached");
         }
     }
+
 
     private void Update()
     {

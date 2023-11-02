@@ -74,7 +74,7 @@ MonoBehaviour:
   active: 1
   enabled:
     overrideState: 1
-    value: 1
+    value: 0
   _TextureSample1:
     overrideState: 0
     value: {fileID: 0}

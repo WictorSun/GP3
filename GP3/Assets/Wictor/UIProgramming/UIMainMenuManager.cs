@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
+using static Cinemachine.DocumentationSortingAttribute;
 
 public class UIMainMenuManager : MonoBehaviour
 {
@@ -50,6 +51,18 @@ public class UIMainMenuManager : MonoBehaviour
     [SerializeField] private float priceUpgrade1;
     [SerializeField] private float priceUpgrade2;
     [SerializeField] private float priceUpgrade3;
+    [SerializeField] private GameObject gemUpgrade1One;
+    [SerializeField] private GameObject gemUpgrade1Two;
+    [SerializeField] private GameObject gemUpgrade1Three;
+    [SerializeField] private GameObject MaxUpgrade1;
+    [SerializeField] private GameObject priceButton;
+    [SerializeField] private TextMeshProUGUI levelUpgrade1;
+    [SerializeField] private TextMeshProUGUI upgradeDescription1;
+    [SerializeField] private TextMeshProUGUI priceTextFieldUpgrade1;
+    [SerializeField] private string itemDescription1;
+    [SerializeField] private string itemDescription2;
+    [SerializeField] private string itemDescription3;
+
 
 
 
@@ -142,18 +155,31 @@ public class UIMainMenuManager : MonoBehaviour
             PlayerPrefs.SetFloat("Upgrade1", 1f);
             upgrade1Tier = PlayerPrefs.GetFloat("Upgrade1");
             SC.comboIncrease = comboIncrease1;
+            gemUpgrade1One.SetActive(true);
+            levelUpgrade1.text = "Level 1 / 3";
+            upgradeDescription1.text = itemDescription1;
+            priceTextFieldUpgrade1.text = "" + priceUpgrade1;
         }
         else if ((priceUpgrade2 < totalCoins) && upgrade1Tier == 1f)
         {
             PlayerPrefs.SetFloat("Upgrade1", 2f);
             upgrade1Tier = PlayerPrefs.GetFloat("Upgrade1");
             SC.comboIncrease = comboIncrease2;
+            gemUpgrade1Two.SetActive(true);
+            levelUpgrade1.text = "Level 2 / 3";
+            upgradeDescription1.text = itemDescription2;
+            priceTextFieldUpgrade1.text = "" + priceUpgrade2;
         }
         else if ((priceUpgrade3 < totalCoins) && upgrade1Tier == 2f)
         {
             PlayerPrefs.SetFloat("Upgrade1", 3f);
             upgrade1Tier = PlayerPrefs.GetFloat("Upgrade1");
             SC.comboIncrease = comboIncrease3;
+            gemUpgrade1Three.SetActive(true);
+            levelUpgrade1.text = "Level 3 / 3";
+            upgradeDescription1.text = itemDescription3;
+            priceTextFieldUpgrade1.text = "";
+            priceButton.SetActive(false);
         }
     }
 

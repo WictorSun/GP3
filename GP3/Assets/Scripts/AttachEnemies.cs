@@ -4,15 +4,32 @@ using UnityEngine;
 
 public class AttachEnemies : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject player;
+    Transform myTransform;
+    private bool attached = false;
+
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        if (gameObject.tag == "Player")
+        {
+            myTransform.parent = collision.transform;
+            Debug.Log("I attached");
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if(attached == true)
+        {
+
+        }
     }
+
+    void RemoveEnemies()
+    {
+        transform.parent = null;
+        
+        Debug.Log("Remove enemies");
+    }
+
 }

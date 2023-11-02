@@ -65,6 +65,28 @@ public class UIMainMenuManager : MonoBehaviour
     [SerializeField] private string itemDescription2;
     [SerializeField] private string itemDescription3;
 
+    [Header("Upgrade2")]
+    [SerializeField] private float upgrade2Tier;
+    [SerializeField] private float DistanceIncrease1;
+    [SerializeField] private float DistanceIncrease2;
+    [SerializeField] private float DistanceIncrease3;
+    [SerializeField] private float priceUpgrade2_1;
+    [SerializeField] private float priceUpgrade2_2;
+    [SerializeField] private float priceUpgrade2_3;
+    [SerializeField] private GameObject gemUpgrade2One;
+    [SerializeField] private GameObject gemUpgrade2Two;
+    [SerializeField] private GameObject gemUpgrade2Three;
+    [SerializeField] private GameObject MaxUpgrade2;
+    [SerializeField] private GameObject priceButton2;
+    [SerializeField] private TextMeshProUGUI levelUpgrade2;
+    [SerializeField] private TextMeshProUGUI upgradeDescription2;
+    [SerializeField] private TextMeshProUGUI priceTextFieldUpgrade2;
+    [SerializeField] private string itemDescription2_1;
+    [SerializeField] private string itemDescription2_2;
+    [SerializeField] private string itemDescription2_3;
+
+
+
     private bool waitUntilDoneClicking = true;
 
 
@@ -90,9 +112,12 @@ public class UIMainMenuManager : MonoBehaviour
         if (debug)
         {
             PlayerPrefs.SetFloat("Upgrade1", 0f);
-            PlayerPrefs.SetFloat("TotalCoins", 15f);
+            PlayerPrefs.SetFloat("Upgrade2", 0f);
+            PlayerPrefs.SetFloat("TotalCoins", 40f);
+            PlayerPrefs.SetFloat("DistBost", 0f);
         }
         upgrade1Tier = PlayerPrefs.GetFloat("Upgrade1");
+        upgrade2Tier = PlayerPrefs.GetFloat("Upgrade2");
         totalCoins = PlayerPrefs.GetFloat("TotalCoins");
         totCoinMain.text = "" + totalCoins;
         totCoinUpgrade.text = "" + totalCoins;
@@ -110,6 +135,7 @@ public class UIMainMenuManager : MonoBehaviour
     public void PlayButton()
     {
         StartMenu.SetBool("On", true);
+        GameController.Distance = PlayerPrefs.GetFloat("DistBost");
         StartCoroutine(StartGame(time));
     }
 
@@ -209,6 +235,60 @@ public class UIMainMenuManager : MonoBehaviour
             UpdateCoins();
             StartCoroutine(ClickedUpgrade(.2f));
             Debug.Log(SC.comboIncrease);
+        }
+    }
+
+    public void Upgrade2()
+    {
+        if ((priceUpgrade2_1 <= totalCoins) && upgrade2Tier == 0f && waitUntilDoneClicking)
+        {
+            PlayerPrefs.SetFloat("Upgrade2", 1f);
+            upgrade2Tier = PlayerPrefs.GetFloat("Upgrade2");
+            PlayerPrefs.SetFloat("DistBost", DistanceIncrease1);
+            //GameController.Distance = DistanceIncrease1;
+            gemUpgrade2One.SetActive(true);
+            levelUpgrade2.text = "Level 1 / 3";
+            upgradeDescription2.text = itemDescription2_1;
+            priceTextFieldUpgrade2.text = "" + priceUpgrade2_1;
+            totalCoins = totalCoins - priceUpgrade2_1;
+            PlayerPrefs.SetFloat("TotalCoins", totalCoins);
+            UpdateCoins();
+            StartCoroutine(ClickedUpgrade(.2f));
+            
+        }
+        else if ((priceUpgrade2_2 <= totalCoins) && upgrade2Tier == 1f && waitUntilDoneClicking)
+        {
+            PlayerPrefs.SetFloat("Upgrade2", 2f);
+            upgrade2Tier = PlayerPrefs.GetFloat("Upgrade2");
+            PlayerPrefs.SetFloat("DistBost", DistanceIncrease2);
+            //GameController.Distance = DistanceIncrease2;
+            gemUpgrade2Two.SetActive(true);
+            levelUpgrade2.text = "Level 2 / 3";
+            upgradeDescription2.text = itemDescription2_2;
+            priceTextFieldUpgrade2.text = "" + priceUpgrade2_2;
+            totalCoins = totalCoins - priceUpgrade2_2;
+            PlayerPrefs.SetFloat("TotalCoins", totalCoins);
+            UpdateCoins();
+            StartCoroutine(ClickedUpgrade(.2f));
+            
+
+        }
+        else if ((priceUpgrade2_3 <= totalCoins) && upgrade2Tier == 2f && waitUntilDoneClicking)
+        {
+            PlayerPrefs.SetFloat("Upgrade2", 3f);
+            upgrade2Tier = PlayerPrefs.GetFloat("Upgrade2");
+            PlayerPrefs.SetFloat("DistBost", DistanceIncrease3);
+            //GameController.Distance = DistanceIncrease3;
+            gemUpgrade2Three.SetActive(true);
+            levelUpgrade2.text = "Level 3 / 3";
+            upgradeDescription2.text = itemDescription2_3;
+            priceTextFieldUpgrade2.text = "";
+            priceButton2.SetActive(false);
+            totalCoins = totalCoins - priceUpgrade2_3;
+            PlayerPrefs.SetFloat("TotalCoins", totalCoins);
+            UpdateCoins();
+            StartCoroutine(ClickedUpgrade(.2f));
+            
         }
     }
 

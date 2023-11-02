@@ -40,6 +40,7 @@ public class UIWinning : MonoBehaviour
     //Event for pressing "RESTART" 
     public void PlayAgain()
     {
+        GameController.Distance = PlayerPrefs.GetFloat("DistBost");
         StartCoroutine(StartGame(time));
     }
 
@@ -68,6 +69,7 @@ public class UIWinning : MonoBehaviour
         yield return new WaitForSecondsRealtime(time);        
         SafeArea.SetActive(false);
         SpeedModifier.GameStarted();
+        
         GameController.IncreaseDistance = true;
         GameController.IsReturning = false;
         Vector3 cameraStartPosition = camera.transform.position;

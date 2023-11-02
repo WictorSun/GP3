@@ -31,7 +31,7 @@ public class ScoreCounter : MonoBehaviour
 
     [Header("Combo Stuff")]
     [Tooltip("Change howe much faster the combo//multiplier multiplies, its here for designers to mess around with")]
-    [SerializeField] float comboIncrease = 1.1f;
+    public float comboIncrease = 1.2f;
     float totalCoins;
 
     private void Awake()

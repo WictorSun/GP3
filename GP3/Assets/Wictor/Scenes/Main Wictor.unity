@@ -2677,6 +2677,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3591346492959840445}
     - target: {fileID: 4419326215403664282, guid: 1349f17691d0db14d8155a40ef1a96de, type: 3}
+      propertyPath: comboIncrease
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419326215403664282, guid: 1349f17691d0db14d8155a40ef1a96de, type: 3}
       propertyPath: multiplierComboLimit
       value: 1
       objectReference: {fileID: 0}
@@ -3183,6 +3187,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 881754001303684471, guid: b3bd3ed38b7532f4b985d87890c649dd, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 881754001303684471, guid: b3bd3ed38b7532f4b985d87890c649dd, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 881754001303684471, guid: b3bd3ed38b7532f4b985d87890c649dd, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1523827174622544299, guid: b3bd3ed38b7532f4b985d87890c649dd, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1523827174622544299, guid: b3bd3ed38b7532f4b985d87890c649dd, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5851395524900422237, guid: b3bd3ed38b7532f4b985d87890c649dd, type: 3}
       propertyPath: StartMenu
       value: 

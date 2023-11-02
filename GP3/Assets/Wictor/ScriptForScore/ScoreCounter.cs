@@ -97,7 +97,7 @@ public class ScoreCounter : MonoBehaviour
         WinningScreen.coins.text = "" + coins;
         WinningScreen.totalcoin.text = "" + totalCoins;
         
-        Debug.Log(finalScore);
+        //Debug.Log(finalScore);
     }
   
 }

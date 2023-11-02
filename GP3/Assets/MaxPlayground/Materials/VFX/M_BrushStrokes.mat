@@ -35,9 +35,11 @@ Material:
     m_Ints: []
     m_Floats:
     - _Cutoff: 0.5
+    - _Keyword0: 0
     - _Rotate: 1.5
     - _RowsColumns: 2
     - _Segment: 1
+    - _TimeScale: 1
     - __dirty: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

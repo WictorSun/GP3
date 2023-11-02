@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using Unity.VisualScripting;
-using static Cinemachine.DocumentationSortingAttribute;
+
+
 
 public class UIMainMenuManager : MonoBehaviour
 {
@@ -65,7 +65,7 @@ public class UIMainMenuManager : MonoBehaviour
     [SerializeField] private string itemDescription2;
     [SerializeField] private string itemDescription3;
 
-
+    private bool waitUntilDoneClicking = true;
 
 
     [Header("Floats")]
@@ -79,7 +79,7 @@ public class UIMainMenuManager : MonoBehaviour
     [SerializeField] private Animator Shop;
     [SerializeField] private Animator StartMenu;
 
-    public bool Debug;
+    public bool debug;
 
     private void Awake()
     {
@@ -87,9 +87,10 @@ public class UIMainMenuManager : MonoBehaviour
         settingsMenu.SetActive(false);
         UpgradeMenu.SetActive(false);
 
-        if (Debug)
+        if (debug)
         {
             PlayerPrefs.SetFloat("Upgrade1", 0f);
+            PlayerPrefs.SetFloat("TotalCoins", 15f);
         }
         upgrade1Tier = PlayerPrefs.GetFloat("Upgrade1");
         totalCoins = PlayerPrefs.GetFloat("TotalCoins");
@@ -162,7 +163,7 @@ public class UIMainMenuManager : MonoBehaviour
 
     public void Upgrade1()
     {
-        if((priceUpgrade1 <= totalCoins) && upgrade1Tier == 0f)
+        if((priceUpgrade1 <= totalCoins) && upgrade1Tier == 0f && waitUntilDoneClicking)
         {
             PlayerPrefs.SetFloat("Upgrade1", 1f);
             upgrade1Tier = PlayerPrefs.GetFloat("Upgrade1");
@@ -174,9 +175,10 @@ public class UIMainMenuManager : MonoBehaviour
             totalCoins = totalCoins - priceUpgrade1;
             PlayerPrefs.SetFloat("TotalCoins", totalCoins);
             UpdateCoins();
-
+            StartCoroutine(ClickedUpgrade(.2f));
+            Debug.Log(SC.comboIncrease);
         }
-        else if ((priceUpgrade2 <= totalCoins) && upgrade1Tier == 1f)
+        else if ((priceUpgrade2 <= totalCoins) && upgrade1Tier == 1f && waitUntilDoneClicking)
         {
             PlayerPrefs.SetFloat("Upgrade1", 2f);
             upgrade1Tier = PlayerPrefs.GetFloat("Upgrade1");
@@ -188,8 +190,11 @@ public class UIMainMenuManager : MonoBehaviour
             totalCoins = totalCoins - priceUpgrade2;
             PlayerPrefs.SetFloat("TotalCoins", totalCoins);
             UpdateCoins();
+            StartCoroutine(ClickedUpgrade(.2f));
+            Debug.Log(SC.comboIncrease);
+
         }
-        else if ((priceUpgrade3 <= totalCoins) && upgrade1Tier == 2f)
+        else if ((priceUpgrade3 <= totalCoins) && upgrade1Tier == 2f && waitUntilDoneClicking)
         {
             PlayerPrefs.SetFloat("Upgrade1", 3f);
             upgrade1Tier = PlayerPrefs.GetFloat("Upgrade1");
@@ -202,6 +207,8 @@ public class UIMainMenuManager : MonoBehaviour
             totalCoins = totalCoins - priceUpgrade3;
             PlayerPrefs.SetFloat("TotalCoins", totalCoins);
             UpdateCoins();
+            StartCoroutine(ClickedUpgrade(.2f));
+            Debug.Log(SC.comboIncrease);
         }
     }
 
@@ -252,5 +259,11 @@ public class UIMainMenuManager : MonoBehaviour
         StartMenu.SetBool("On", false);
         inGameMenu.SetActive(true);
         this.gameObject.SetActive(false);
+    }
+    IEnumerator ClickedUpgrade(float sec)
+    {
+        waitUntilDoneClicking = false;
+        yield return new WaitForSeconds(sec);
+        waitUntilDoneClicking = true;
     }
 }

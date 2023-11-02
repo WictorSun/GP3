@@ -9,7 +9,6 @@ public class UIController : MonoBehaviour
 {
     [SerializeField] private float timeMod = 2.0f; // Time modifier for distance
     [SerializeField] private TextMeshProUGUI distanceText = null; // Text for distance
-    [SerializeField] private GameObject ReplayButton;
     [SerializeField] private GameObject winningScreen;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject StartMovementPoint; // where game Beins

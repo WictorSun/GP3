@@ -35,8 +35,7 @@ public class UIWinning : MonoBehaviour
     [SerializeField] private GameObject CamStartMovementPoint;
     [SerializeField] private GameObject SafeArea;
     [SerializeField] private UIController uic;
-    //[Tooltip("RetryButton")]
-    //[SerializeField] private GameObject RetryButton;
+    [SerializeField] private Animator winningAnim;
 
     //Event for pressing "RESTART" 
     public void PlayAgain()
@@ -49,7 +48,7 @@ public class UIWinning : MonoBehaviour
     {
         AudioManager.Instance.SFX("ButtonClick");
         Vector3 playerStartPosition = player.transform.position;
-        SafeArea.SetActive(false);
+        winningAnim.SetBool("On", false);
 
         float T = 0; //LerpTime
         while (T < 1) //This lerps the Player from idle position in the beggining of game to the position for when playing
@@ -66,7 +65,8 @@ public class UIWinning : MonoBehaviour
         }
 
 
-        yield return new WaitForSecondsRealtime(time);
+        yield return new WaitForSecondsRealtime(time);        
+        SafeArea.SetActive(false);
         SpeedModifier.GameStarted();
         GameController.IncreaseDistance = true;
         GameController.IsReturning = false;
@@ -91,7 +91,6 @@ public class UIWinning : MonoBehaviour
         uic.takeDist = true;
         uic.endGame = true;
         SpeedModifier.speed = 1f;
-        Debug.Log(SpeedModifier.speed + "speeeeeeeeeeeeed");
         objectSpawner.canSpawnEnemy = true;
         this.gameObject.SetActive(false); // sets the Winning Screen to disabled in order to play again
     }

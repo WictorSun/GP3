@@ -13,7 +13,7 @@ public class MoveComponent : MonoBehaviour
     // Distance between the player and the object that will spawn. 
     // This sets how far ahead the object will appear in relation to the player.
     
-    [SerializeField] private float despawnDistance = -50f;
+    [SerializeField] public float despawnDistance = -50f;
     // Distance at which the object will be despawned. 
     // Objects behind the player beyond this distance will be removed to save resources.
 
@@ -39,12 +39,23 @@ public class MoveComponent : MonoBehaviour
         
         speedModifier = GetComponent<SpeedModifier>();
         // Initialize lateral direction for enemies
+        // Randomize lateral direction for enemies
+        RandomizeLateralDirection();
+    } 
+
+    private void OnEnable()
+    {
+        // Randomize lateral direction for enemies every time the GameObject is activated
+        RandomizeLateralDirection();
+    }
+
+    private void RandomizeLateralDirection()
+    {
         if (enemy != null)
         {
             lateralDirection = Random.Range(0, 2) == 0 ? -1f : 1f;
         }
-    } 
-
+    }
 
     private void Update()
     {

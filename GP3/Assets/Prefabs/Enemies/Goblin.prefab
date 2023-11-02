@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
+  killAddition: 0.2
 --- !u!114 &1006886029716126279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,7 +145,6 @@ MonoBehaviour:
   speed: 20
   objectDistance: -60
   despawnDistance: -110
-  enemySpeedDiff: 5
 --- !u!54 &1905975224
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -172,6 +172,7 @@ GameObject:
   - component: {fileID: 7964073974699327391}
   - component: {fileID: 7964073974699327390}
   - component: {fileID: 7964073974699327389}
+  - component: {fileID: 7978568292322907804}
   m_Layer: 0
   m_Name: Goblin_Walk Point Cache Player
   m_TagString: Untagged
@@ -239,7 +240,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 8821326490961020513, guid: 37e6b1fedbecc444593aef80e4bf73b9, type: 2}
+  m_Mesh: {fileID: 5461699044598228687, guid: 37e6b1fedbecc444593aef80e4bf73b9, type: 2}
   m_Bones: []
   m_BlendShapeWeights:
   - 100
@@ -513,3 +514,23 @@ MonoBehaviour:
   smr: {fileID: 7964073974699327390}
   Constraints: []
   DrawMeshGizmo: 0
+--- !u!95 &7978568292322907804
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7964073974699327388}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7ef0d9eb2209cc245861cf70a5caa617, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

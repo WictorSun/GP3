@@ -135,6 +135,6 @@ public class UIController : MonoBehaviour
             enem.SetActive(false);
         }
         SpeedModifier.ResetHit();
-        Debug.Log(SpeedModifier.speed + "speeeeeeeeeeeeed");
+        //Debug.Log(SpeedModifier.speed + "speeeeeeeeeeeeed");
     }
 }

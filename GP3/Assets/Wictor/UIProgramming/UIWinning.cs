@@ -91,7 +91,6 @@ public class UIWinning : MonoBehaviour
         uic.takeDist = true;
         uic.endGame = true;
         SpeedModifier.speed = 1f;
-        Debug.Log(SpeedModifier.speed + "speeeeeeeeeeeeed");
         objectSpawner.canSpawnEnemy = true;
         this.gameObject.SetActive(false); // sets the Winning Screen to disabled in order to play again
     }

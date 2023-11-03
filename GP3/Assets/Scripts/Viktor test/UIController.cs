@@ -110,24 +110,29 @@ public class UIController : MonoBehaviour
 
        
         Vector3 playerStartPosition = player.transform.position;
+        Vector3 player2StartPosition = player2.transform.position;
         float T = 0;
-        while (T < 1)
+
+        while (T < 1 )
         {
             T += Time.deltaTime / 1f; // This is the speed for the player
-
-            if (T > 1)
+         
+           if (T > 1)
             {
                 T = 1;
             }
             
+
             player.transform.position = Vector3.Lerp(playerStartPosition, StartMovementPoint.transform.position, T);
-            player2.transform.position = Vector3.Lerp(playerStartPosition, StartMovementPoint.transform.position, T);
+            player2.transform.position = Vector3.Lerp(player2StartPosition, StartMovementPoint.transform.position, T);
             yield return null;
         }
 
+       
+
         yield return new WaitForSeconds(0.2f);
         winningScreen.SetActive(true);
-     
+
         SafeArea.SetActive(true);
         winningAnim.SetBool("On", true);
         objectSpawner.canSpawnEnemy = false;
@@ -137,6 +142,9 @@ public class UIController : MonoBehaviour
             enem.SetActive(false);
         }
         SpeedModifier.ResetHit();
-        //Debug.Log(SpeedModifier.speed + "speeeeeeeeeeeeed");
+
+        yield return new WaitForSecondsRealtime(2f);
+        player2.SetActive(false);
+
     }
 }

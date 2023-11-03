@@ -81,11 +81,11 @@ public class ObjectSpawner : MonoBehaviour
         // if player is returning, spawn enemy behind player
         if(GameController.IsReturning == false)
         {
-            spawnPosition = playerTransform.position + new Vector3(Random.Range(-4.4f, 4.4f), 0.5f, enemySpawnInFront);
+            spawnPosition = new Vector3(Random.Range(-4.4f, 4.4f), 0, enemySpawnInFront);
         }
         else
         {
-            spawnPosition = playerTransform.position + new Vector3(Random.Range(-4.4f, 4.4f), 0.5f, enemySpawnBehind);
+            spawnPosition = new Vector3(Random.Range(-4.4f, 4.4f), 0, enemySpawnBehind);
         }
         
         ObjectPooler.instance.SpawnFromPool(type, spawnPosition, Quaternion.identity);

@@ -7,12 +7,15 @@ public class AttachEnemies : MonoBehaviour
     public GameObject player;
     Transform myTransform;
     private bool attached = false;
+    public Rigidbody rb;
 
     [SerializeField] private MoveComponent moveComponent;
 
     [SerializeField] private EnemyController enemyController;
 
     [SerializeField] private HealthComponent healthComponent;
+
+    [SerializeField] private Animator animation;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -22,22 +25,12 @@ public class AttachEnemies : MonoBehaviour
 
             this.transform.SetParent(newParent.transform, true);
 
+            GameController.IsReturning = true;
+            GameController.IncreaseDistance = false;
+
             moveComponent.enabled = false;
-            enemyController.enabled = false;
-            healthComponent.enabled = false;
 
-
-            //myTransform.parent = collision.transform;
-            Debug.Log("I attached");
-        }
-    }
-
-
-    private void Update()
-    {
-        if(attached == true)
-        {
-
+            animation.SetBool("Is Walking",false);
         }
     }
 

@@ -111,6 +111,7 @@ public class UIMainMenuManager : MonoBehaviour
     [Tooltip("The animator controler for the Shop TAB")]
     [SerializeField] private Animator Shop;
     [SerializeField] private Animator StartMenu;
+    [SerializeField] private GameObject camAnim;
 
     public bool debug;
 
@@ -153,7 +154,9 @@ public class UIMainMenuManager : MonoBehaviour
         StartMenu.SetBool("On", true);
         GameController.Distance = PlayerPrefs.GetFloat("DistBost");
         arrow2.SetActive(false);
-        StartCoroutine(StartGame(time));
+        StartCoroutine(PlayfirstAnim(2f));
+
+
     }
 
     //GOING INTO SETTINGS
@@ -408,6 +411,13 @@ public class UIMainMenuManager : MonoBehaviour
             StartCoroutine(ClickedUpgrade(.2f));
         }
        
+    }
+    IEnumerator PlayfirstAnim(float sec)
+    {
+        camAnim.SetActive(false);
+        //camAnim.SetBool("On", true);
+        yield return new WaitForSecondsRealtime(sec);
+        StartCoroutine(StartGame(time));
     }
     //CO-ROUTINE FOR STARTING THE GAME
     IEnumerator StartGame(float time)

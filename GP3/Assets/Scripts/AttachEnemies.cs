@@ -65,7 +65,7 @@ public class AttachEnemies : MonoBehaviour
             SpeedModifier.IncreaseSpeed(1f);
             AudioManager.Instance.SFX("ArrowHit");
 
-            Debug.Log("I am Hit");
+            //Debug.Log("I am Hit");
 
             animation.SetBool("Is Walking",false);
 
@@ -84,7 +84,7 @@ public class AttachEnemies : MonoBehaviour
     {
         transform.parent = null;
         
-        Debug.Log("Remove enemies");
+        //Debug.Log("Remove enemies");
     }
 
     

@@ -46,12 +46,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pools:
-  - type: ground
-    prefab: {fileID: 5986845516468327447, guid: 3eb51cf84bb4d5a47ad656a99130a467, type: 3}
-    size: 5
-  - type: enemy
+  - type: goblin
     prefab: {fileID: 1006886029716126277, guid: f57040f2bbff22246a5a113e4a46e749, type: 3}
-    size: 10
+    size: 20
+  - type: orc
+    prefab: {fileID: 5048665178540273728, guid: 66847866a1596d445897999ffd75a1b4, type: 3}
+    size: 20
+  - type: troll
+    prefab: {fileID: 1708698447510989807, guid: 5ce376dc3dfbfb849a6805bb6c73a896, type: 3}
+    size: 20
+  - type: tower
+    prefab: {fileID: 1708698447510989807, guid: bfe3e9ec9c7167b4aad0479d3436e0eb, type: 3}
+    size: 50
+  - type: catapult
+    prefab: {fileID: 1708698447510989807, guid: d93b387e943f4aa4cb831d58304ecf44, type: 3}
+    size: 20
 --- !u!114 &8473077275504563640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,14 +73,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb9fc174510aed4388b573ac8232e95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpawnInFront: 30
-  enemySpawnBehind: -30
-  groundSpawnDistance: 40
-  spawnableObjects: []
+  enemySpawnInFront: 50
+  enemySpawnBehind: -40
+  groundSpawnDistance: 120
+  spawnableObjects:
+  - type: goblin
+    weight: 0.75
+  - type: orc
+    weight: 0.5
+  - type: troll
+    weight: 0.25
+  - type: catapult
+    weight: 0.1
+  - type: tower
+    weight: 0.3
   spawnSettings:
   - type: enemy
     minWait: 0.5
-    maxWait: 5
-    maxObjects: 5000
+    maxWait: 4
+    maxObjects: 1000
   playerTransform: {fileID: 0}
   canSpawnEnemy: 0

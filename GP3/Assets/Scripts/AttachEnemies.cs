@@ -43,11 +43,20 @@ public class AttachEnemies : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player") // If Player touches enemy.
         {
-            GameObject newParent = other.gameObject;
+            if (gameObject.tag == "Enemy") // If regular Enemy, parent it to player.
+            {
+                GameObject newParent = other.gameObject;
 
-            this.transform.SetParent(newParent.transform, true);
+                this.transform.SetParent(newParent.transform, true);
+                moveComponent.enabled = false;
+            }
+
+            if (gameObject.tag == "ExplodingEnemy")
+            {
+                
+            }
 
             GameController.IsReturning = true;
             GameController.IncreaseDistance = false;
@@ -56,10 +65,10 @@ public class AttachEnemies : MonoBehaviour
             SpeedModifier.IncreaseSpeed(1f);
             AudioManager.Instance.SFX("ArrowHit");
 
-
-            moveComponent.enabled = false;
+            Debug.Log("I am Hit");
 
             animation.SetBool("Is Walking",false);
+
             if (playerTransform != null && !SpeedModifier.hasHitEnemy)
             {
                 GameController.CanDespawnEnemies = false; // Disable enemy despawn

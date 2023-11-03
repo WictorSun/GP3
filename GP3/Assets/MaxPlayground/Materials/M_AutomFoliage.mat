@@ -44,7 +44,7 @@ Material:
     m_Floats:
     - _ColorMask: 1
     - _ColorPower: 1
-    - _Cutoff: 0.24
+    - _Cutoff: 0.39
     - _NoiseTile: 0.15
     - _RimPower: 0
     - _Rim_Offset: 1
@@ -53,7 +53,7 @@ Material:
     - _WindTile: 0.15
     - __dirty: 0
     m_Colors:
-    - _ColorMain: {r: 0.9433962, g: 0.72784096, b: 0.24474904, a: 0}
+    - _ColorMain: {r: 0.94509804, g: 0.60687697, b: 0.24313724, a: 0}
     - _ColorVar: {r: 0.5283019, g: 0.33119857, b: 0.08721964, a: 0}
     - _RimColor: {r: 0.1528542, g: 0.754717, b: 0, a: 1}
     - _ShadowColor: {r: 0.8679245, g: 0.4730454, b: 0.27429688, a: 0}

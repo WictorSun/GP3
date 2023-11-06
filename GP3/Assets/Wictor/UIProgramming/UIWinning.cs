@@ -37,12 +37,18 @@ public class UIWinning : MonoBehaviour
     [SerializeField] private GameObject SafeArea;
     [SerializeField] private UIController uic;
     [SerializeField] private Animator winningAnim;
+    [SerializeField] private ScoreCounter SC;
+    [SerializeField] private Slider comboSlider;
 
     //Event for pressing "RESTART" 
     public void PlayAgain()
     {
         GameController.Distance = PlayerPrefs.GetFloat("DistBost");
+        SC.multiplier = PlayerPrefs.GetFloat("Multip");
         StartCoroutine(StartGame(time));
+        SC.multipliermeter = 0f;
+        GameController.ArrowFront.SetActive(true);
+        GameController.ArrowBack.SetActive(false);
     }
 
     //Co routine for starting a new round
@@ -50,12 +56,23 @@ public class UIWinning : MonoBehaviour
     {
         AudioManager.Instance.SFX("ButtonClick");
         Vector3 playerStartPosition = player.transform.position;
+        GameObject[] enemies;
+        GameObject[] eEnemies;
         winningAnim.SetBool("On", false);
-
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        eEnemies = GameObject.FindGameObjectsWithTag("ExplodingEnemy");
+        foreach (GameObject enem in enemies)
+        {
+            enem.SetActive(false);
+        }
+        foreach (GameObject enem in eEnemies)
+        {
+            enem.SetActive(false);
+        }
         float T = 0; //LerpTime
         while (T < 1) //This lerps the Player from idle position in the beggining of game to the position for when playing
         {
-            T += Time.deltaTime / 1f; // This is the speed for the player
+            T += Time.deltaTime / .5f; // This is the speed for the player
 
             if (T > 1)
             {
@@ -80,7 +97,7 @@ public class UIWinning : MonoBehaviour
 
         while (cameraT < 1) //This lerps the Camera from idle position in the beggining of game to the position for when playing
         {
-            cameraT += Time.deltaTime / 1.01f; // This is the speed for the player
+            cameraT += Time.deltaTime / .5f; // This is the speed for the player
 
             if (cameraT > 1)
             {
@@ -96,6 +113,7 @@ public class UIWinning : MonoBehaviour
         uic.endGame = true;
         SpeedModifier.speed = 1f;
         objectSpawner.canSpawnEnemy = true;
+        comboSlider.value = 0f;
         this.gameObject.SetActive(false); // sets the Winning Screen to disabled in order to play again
     }
 }

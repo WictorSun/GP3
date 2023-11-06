@@ -348,6 +348,7 @@ GameObject:
   m_Component:
   - component: {fileID: 354070510}
   - component: {fileID: 354070509}
+  - component: {fileID: 354070511}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -409,6 +410,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 61.943, y: 0, z: 0}
+--- !u!114 &354070511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354070508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ce4380672c74284bb6bfedd617fd87f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 327886186}
+  center: {fileID: 636839029}
+  minY: 0
+  maxY: 180
 --- !u!1 &391860662 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1296500260728046301, guid: 290399fed37ff8b45a8cbf63565704df, type: 3}
@@ -1254,7 +1271,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3033822579991294739, guid: e270a588828a78f479f45ab606b97ba4, type: 3}
       propertyPath: m_Volume
-      value: 0.616
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3033822581776346306, guid: e270a588828a78f479f45ab606b97ba4, type: 3}
       propertyPath: m_RootOrder
@@ -3006,7 +3023,7 @@ PrefabInstance:
       objectReference: {fileID: 1017877364}
     - target: {fileID: 4793672436496594553, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
       propertyPath: debug
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4793672436496594553, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
       propertyPath: arrow2

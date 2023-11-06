@@ -264,7 +264,11 @@ public class UIMainMenuManager : MonoBehaviour
         }
     }
     public void Upgradesave1()
-    {
+    {   
+        if(upgrade1Tier == 0f)
+        {
+            SC.multiplier = 1f;
+        }
         if(upgrade1Tier == 1f)
         {
             SC.multiplier = comboIncrease1;

@@ -22,14 +22,24 @@ public class GameController : MonoBehaviour
     public static GameController instance;
     [SerializeField] private static GameObject Arrow2;
     [SerializeField] private static GameObject player;
+
+    [SerializeField] public static GameObject ArrowFront;
+    [SerializeField] public static GameObject ArrowBack;
     public GameObject fakeArrow;
     public GameObject fakePlayer;
+
+    public GameObject FakePlayer1;
+
+    public GameObject ArrowBack1;
+
 
     void Awake()
     {
         instance = this;
         Arrow2 = fakeArrow;
-        player = fakePlayer; 
+        player = fakePlayer;
+        ArrowFront = FakePlayer1;
+        ArrowBack = ArrowBack1;
     }
 
     void Update()
@@ -42,7 +52,8 @@ public class GameController : MonoBehaviour
     }
     public static void AddArrow2()
     {
-
+        ArrowFront.SetActive(false);
+        ArrowBack.SetActive(true);
         float arrow2 = PlayerPrefs.GetFloat("Arrow2");
         if(arrow2 == 1f)
         {

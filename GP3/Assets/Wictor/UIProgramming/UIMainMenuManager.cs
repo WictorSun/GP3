@@ -128,6 +128,7 @@ public class UIMainMenuManager : MonoBehaviour
             PlayerPrefs.SetFloat("TotalCoins", 3000f);
             PlayerPrefs.SetFloat("DistBost", 0f);
             PlayerPrefs.SetFloat("Arrow2", 0f);
+            PlayerPrefs.SetFloat("Multip", 1f);
         }
         upgrade1Tier = PlayerPrefs.GetFloat("Upgrade1");
         upgrade2Tier = PlayerPrefs.GetFloat("Upgrade2");
@@ -145,6 +146,7 @@ public class UIMainMenuManager : MonoBehaviour
         sfxSlider.value = AudioManager.Instance.sfxSource.volume;
         musicSlider.value = AudioManager.Instance.musicSource.volume;
         totalCoins = PlayerPrefs.GetFloat("TotalCoins");
+        SC.multipliermeter = 0f;
         //Debug.Log(upgrade1Tier);
     }
 
@@ -153,6 +155,7 @@ public class UIMainMenuManager : MonoBehaviour
     {
         StartMenu.SetBool("On", true);
         GameController.Distance = PlayerPrefs.GetFloat("DistBost");
+        SC.multiplier = PlayerPrefs.GetFloat("Multip");
         arrow2.SetActive(false);
         StartCoroutine(PlayfirstAnim(2f));
 
@@ -213,7 +216,8 @@ public class UIMainMenuManager : MonoBehaviour
         {
             PlayerPrefs.SetFloat("Upgrade1", 1f);
             upgrade1Tier = PlayerPrefs.GetFloat("Upgrade1");
-            SC.comboIncrease = comboIncrease1;
+            SC.multiplier = comboIncrease1;
+            PlayerPrefs.SetFloat("Multip", comboIncrease1);
             gemUpgrade1One.SetActive(true);
             levelUpgrade1.text = "Level 1 / 3";
             upgradeDescription1.text = itemDescription1;
@@ -228,7 +232,8 @@ public class UIMainMenuManager : MonoBehaviour
         {
             PlayerPrefs.SetFloat("Upgrade1", 2f);
             upgrade1Tier = PlayerPrefs.GetFloat("Upgrade1");
-            SC.comboIncrease = comboIncrease2;
+            SC.multiplier = comboIncrease2;
+            PlayerPrefs.SetFloat("Multip", comboIncrease2);
             gemUpgrade1Two.SetActive(true);
             levelUpgrade1.text = "Level 2 / 3";
             upgradeDescription1.text = itemDescription2;
@@ -244,7 +249,8 @@ public class UIMainMenuManager : MonoBehaviour
         {
             PlayerPrefs.SetFloat("Upgrade1", 3f);
             upgrade1Tier = PlayerPrefs.GetFloat("Upgrade1");
-            SC.comboIncrease = comboIncrease3;
+            SC.multiplier = comboIncrease3;
+            PlayerPrefs.SetFloat("Multip", comboIncrease3);
             gemUpgrade1Three.SetActive(true);
             levelUpgrade1.text = "Level 3 / 3";
             upgradeDescription1.text = itemDescription3;
@@ -261,7 +267,7 @@ public class UIMainMenuManager : MonoBehaviour
     {
         if(upgrade1Tier == 1f)
         {
-            SC.comboIncrease = comboIncrease1;
+            SC.multiplier = comboIncrease1;
             gemUpgrade1One.SetActive(true);
             levelUpgrade1.text = "Level 1 / 3";
             upgradeDescription1.text = itemDescription1;
@@ -271,7 +277,7 @@ public class UIMainMenuManager : MonoBehaviour
         }
         if (upgrade1Tier == 2f)
         {
-            SC.comboIncrease = comboIncrease2;
+            SC.multiplier = comboIncrease2;
             gemUpgrade1Two.SetActive(true);
             gemUpgrade1One.SetActive(true);
             levelUpgrade1.text = "Level 2 / 3";
@@ -282,7 +288,7 @@ public class UIMainMenuManager : MonoBehaviour
         }
         if (upgrade1Tier == 3f)
         {
-            SC.comboIncrease = comboIncrease3;
+            SC.multiplier = comboIncrease3;
             gemUpgrade1Two.SetActive(true);
             gemUpgrade1One.SetActive(true);
             gemUpgrade1Three.SetActive(true);
@@ -424,11 +430,12 @@ public class UIMainMenuManager : MonoBehaviour
     {
         AudioManager.Instance.SFX("ButtonClick");
         Vector3 playerStartPosition = player.transform.position;
+        AudioManager.Instance.PlayBackGroundMusic("Shop");
 
         float T = 0; //time for "While loop" in co-routine
         while (T < 1) //LERP THE PLAYER TO STARTPOSITION
         {
-            T += Time.deltaTime / 1f; // This is the speed for the player
+            T += Time.deltaTime / .5f; // This is the speed for the player
 
             if(T > 1)
             {
@@ -450,7 +457,7 @@ public class UIMainMenuManager : MonoBehaviour
 
         while (cameraT < 1) //LERP THE PLAYER TO STARTPOSITION
         {
-            cameraT += Time.deltaTime / 1.01f; // This is the speed for the player
+            cameraT += Time.deltaTime / .5f; // This is the speed for the player
 
             if(cameraT > 1)
             {
@@ -466,6 +473,7 @@ public class UIMainMenuManager : MonoBehaviour
         uic.takeDist = true;
         StartMenu.SetBool("On", false);
         inGameMenu.SetActive(true);
+        AudioManager.Instance.PlayBackGroundMusic("Gameplay");
         this.gameObject.SetActive(false);
     }
     IEnumerator ClickedUpgrade(float sec)

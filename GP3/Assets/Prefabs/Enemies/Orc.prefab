@@ -117,6 +117,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.8
   killAddition: 0.2
+  Explode: {fileID: 5360798700580193594, guid: fffa54e346c37314d9667ad695a09407, type: 3}
+  HitSound: SmallExplosion
 --- !u!114 &2203227902895827146
 MonoBehaviour:
   m_ObjectHideFlags: 0

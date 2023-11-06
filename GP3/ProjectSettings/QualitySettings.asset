@@ -224,7 +224,7 @@ QualitySettings:
     excludedTargetPlatforms: []
   - serializedVersion: 2
     name: Build Test
-    pixelLightCount: 4
+    pixelLightCount: 1
     shadows: 2
     shadowResolution: 3
     shadowProjection: 0

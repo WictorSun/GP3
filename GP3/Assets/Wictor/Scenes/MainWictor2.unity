@@ -834,6 +834,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7930161530227528620, guid: a615035447253a2489c3ecb65d0ad463, type: 3}
   m_PrefabInstance: {fileID: 657551424}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &657551426 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 1835410670, guid: a615035447253a2489c3ecb65d0ad463, type: 3}
+  m_PrefabInstance: {fileID: 657551424}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &687828485
 GameObject:
   m_ObjectHideFlags: 0
@@ -1240,6 +1245,7 @@ MonoBehaviour:
   - {fileID: 1963817249}
   objectSpawner: {fileID: 695897638}
   winningAnim: {fileID: 1580579113}
+  FakeCol: {fileID: 657551426}
   SafeArea: {fileID: 1681960110}
   endGame: 1
   takeDist: 0
@@ -2122,6 +2128,10 @@ PrefabInstance:
       value: GameController
       objectReference: {fileID: 0}
     - target: {fileID: 5030830667759879437, guid: 0050e8b4dc4e94d4cb8977dfcd251e48, type: 3}
+      propertyPath: FakeCol
+      value: 
+      objectReference: {fileID: 657551426}
+    - target: {fileID: 5030830667759879437, guid: 0050e8b4dc4e94d4cb8977dfcd251e48, type: 3}
       propertyPath: fakeArrow
       value: 
       objectReference: {fileID: 8961509513356987263}
@@ -2226,6 +2236,14 @@ PrefabInstance:
     - target: {fileID: 8473077275504563640, guid: 0520c235fe9ac404ab984d437c0032b6, type: 3}
       propertyPath: enemySpawnInFront
       value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473077275504563640, guid: 0520c235fe9ac404ab984d437c0032b6, type: 3}
+      propertyPath: spawnableObjects.Array.data[3].weight
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473077275504563640, guid: 0520c235fe9ac404ab984d437c0032b6, type: 3}
+      propertyPath: spawnableObjects.Array.data[4].weight
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8473077275504563641, guid: 0520c235fe9ac404ab984d437c0032b6, type: 3}
       propertyPath: m_Name

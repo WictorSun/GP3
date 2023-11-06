@@ -32,6 +32,9 @@ public class GameController : MonoBehaviour
 
     public GameObject ArrowBack1;
 
+    public BoxCollider FakeCol;
+    [SerializeField] public static BoxCollider col;
+
 
     void Awake()
     {
@@ -40,6 +43,8 @@ public class GameController : MonoBehaviour
         player = fakePlayer;
         ArrowFront = FakePlayer1;
         ArrowBack = ArrowBack1;
+        col = FakeCol;
+
     }
 
     void Update()
@@ -53,6 +58,7 @@ public class GameController : MonoBehaviour
     public static void AddArrow2()
     {
         ArrowFront.SetActive(false);
+        col.size = new Vector3(2,2,4);
         ArrowBack.SetActive(true);
         float arrow2 = PlayerPrefs.GetFloat("Arrow2");
         if(arrow2 == 1f)

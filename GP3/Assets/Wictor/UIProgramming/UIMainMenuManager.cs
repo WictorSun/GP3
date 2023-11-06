@@ -430,6 +430,7 @@ public class UIMainMenuManager : MonoBehaviour
     {
         AudioManager.Instance.SFX("ButtonClick");
         Vector3 playerStartPosition = player.transform.position;
+        AudioManager.Instance.PlayBackGroundMusic("Shop");
 
         float T = 0; //time for "While loop" in co-routine
         while (T < 1) //LERP THE PLAYER TO STARTPOSITION
@@ -472,6 +473,7 @@ public class UIMainMenuManager : MonoBehaviour
         uic.takeDist = true;
         StartMenu.SetBool("On", false);
         inGameMenu.SetActive(true);
+        AudioManager.Instance.PlayBackGroundMusic("Gameplay");
         this.gameObject.SetActive(false);
     }
     IEnumerator ClickedUpgrade(float sec)

@@ -4,7 +4,7 @@ using System;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
-
+using Cinemachine;
 public class UIController : MonoBehaviour
 {
     [SerializeField] private float timeMod = 2.0f; // Time modifier for distance
@@ -23,7 +23,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private Animator winningAnim;
 
     public BoxCollider FakeCol;
-
+    
     public GameObject SafeArea;
     public bool endGame = true;
     
@@ -63,7 +63,7 @@ public class UIController : MonoBehaviour
         {
 
             Winning();
-
+            
         }
         
     }

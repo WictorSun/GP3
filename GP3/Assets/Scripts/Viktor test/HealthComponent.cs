@@ -44,7 +44,7 @@ public class HealthComponent : MonoBehaviour
             {
                 GameController.EnemyCount--;
                 currentHealth = maxHealth;
-                gameObject.SetActive(false);
+                //gameObject.SetActive(false);
 
                 GameController.IsReturning = true; // player start returning
 

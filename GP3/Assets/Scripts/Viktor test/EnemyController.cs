@@ -17,13 +17,19 @@ public class EnemyController : MonoBehaviour
         health = GetComponent<HealthComponent>();
     }
 
-    void OnTriggerStay(Collider other) // if enemy collides with player, enemy takes damage
+
+    private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            health.UpdateHealth(-1); // enemy takes 1 damage
+            //health.UpdateHealth(-1); // enemy takes 1 damage
             ScoreCounter.Instance.KillMultiplier(0.02f);
             ScoreCounter.Instance.AddKill(1);
+            if (!GameController.IsReturning)
+            {
+                GameController.AddArrow2();
+            }
+            
         }
     }
 }

@@ -7,22 +7,77 @@ public class AttachEnemies : MonoBehaviour
     public GameObject player;
     Transform myTransform;
     private bool attached = false;
+    public Rigidbody rb;
 
-    private void OnCollisionEnter(Collision collision)
+
+    [SerializeField] private MoveComponent moveComponent;
+
+    [SerializeField] private EnemyController enemyController;
+
+    [SerializeField] private HealthComponent healthComponent;
+
+    [SerializeField] private Animator animation;
+
+    private IEnumerator MovePlayerSmoothly(Transform playerTransform)
     {
-        if (gameObject.tag == "Player")
+        float distanceToMove = 20.0f; // Distance to move the player
+        float duration = 1.0f; // Duration of the movement in seconds
+        float elapsedTime = 0.0f; // Time elapsed since the movement started
+
+        Vector3 originalPosition = playerTransform.position;
+        Vector3 targetPosition = originalPosition + (playerTransform.forward * distanceToMove);
+
+        while (elapsedTime < duration)
         {
-            myTransform.parent = collision.transform;
-            Debug.Log("I attached");
+            float t = elapsedTime / duration;
+            playerTransform.position = Vector3.Lerp(originalPosition, targetPosition, t);
+            elapsedTime += Time.deltaTime;
+            yield return null; // Wait for the next frame
         }
+
+        // Ensure the player reaches the target position
+        playerTransform.position = targetPosition;
+
+        GameController.CanDespawnEnemies = true; // Re-enable enemy despawn, Why i do this is cause enemies in front of player got disabled during the lerp
     }
 
-    private void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        if(attached == true)
+        if (other.gameObject.tag == "Player") // If Player touches enemy.
         {
+            if (gameObject.tag == "Enemy") // If regular Enemy, parent it to player.
+            {
+                GameObject newParent = other.gameObject;
 
+                this.transform.SetParent(newParent.transform, true);
+                moveComponent.enabled = false;
+            }
+
+            if (gameObject.tag == "ExplodingEnemy")
+            {
+                
+            }
+
+            GameController.IsReturning = true;
+            GameController.IncreaseDistance = false;
+            GameObject player = MoveComponent.player;
+            Transform playerTransform = player.transform;
+            SpeedModifier.IncreaseSpeed(1f);
+            AudioManager.Instance.SFX("ArrowHit");
+
+            Debug.Log("I am Hit");
+
+            animation.SetBool("Is Walking",false);
+
+            if (playerTransform != null && !SpeedModifier.hasHitEnemy)
+            {
+                GameController.CanDespawnEnemies = false; // Disable enemy despawn
+                playerTransform.gameObject.GetComponent<MonoBehaviour>().StartCoroutine(MovePlayerSmoothly(playerTransform));
+                SpeedModifier.hasHitEnemy = true;
+            }
         }
+
+
     }
 
     void RemoveEnemies()
@@ -31,5 +86,7 @@ public class AttachEnemies : MonoBehaviour
         
         Debug.Log("Remove enemies");
     }
+
+    
 
 }

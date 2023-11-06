@@ -21,6 +21,7 @@ public class UIInGameMenu : MonoBehaviour
     [SerializeField] private GameObject LeftTouch;
     [Tooltip("drag in the Right touch Button")]
     [SerializeField] private GameObject RightTouch;
+    [SerializeField] private GameObject arrow2GO;
 
     [Tooltip("drag in the SfX Slider")]
     [SerializeField] private Slider sfxSlider;
@@ -36,14 +37,28 @@ public class UIInGameMenu : MonoBehaviour
     [SerializeField] private Animator pauseMenu;
     [Tooltip("drag in the CountDown Animator")]
     [SerializeField] private Animator CountDown;
+
+    public bool arrow2;
+    private float arrow2Tier;
     private void Awake()
     {
         muted = false;
         settingsMenu.SetActive(false);
         //this.gameObject.SetActive(false);
+        arrow2Tier = PlayerPrefs.GetFloat("Arrow2");
       
     }
-
+    public void updateArrowTier()
+    {
+        arrow2Tier = PlayerPrefs.GetFloat("Arrow2");
+    }
+    private void Update()
+    {
+        if(arrow2 && (arrow2Tier == 1f) && GameController.IsReturning)
+        {
+            
+        }
+    }
     public void PauseTheGame()
     {
         AudioManager.Instance.SFX("ButtonClick");
@@ -121,6 +136,12 @@ public class UIInGameMenu : MonoBehaviour
        
         StartCoroutine(QuitGame(1f));
 
+    }
+    IEnumerator ActivateArrow2()
+    {
+        arrow2GO.SetActive(true);
+        yield return new WaitForSeconds(0.01f);
+        arrow2 = false;
     }
     //CO-ROUTINE FOR CONTINUE THE GAME WITH A COUNTDOWN UNTIL THE TOUCH INPUT WORKS AGAIN
     IEnumerator ContinuePlayGame(float WaitForSecs, float OtherSec)

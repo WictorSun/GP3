@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+[System.Serializable]
 public class GameController : MonoBehaviour
 {
     private static float distance = 0;
@@ -19,10 +20,16 @@ public class GameController : MonoBehaviour
     public static int EnemyCount { get => enemyCount; set => enemyCount = value; }
 
     public static GameController instance;
+    [SerializeField] private static GameObject Arrow2;
+    [SerializeField] private static GameObject player;
+    public GameObject fakeArrow;
+    public GameObject fakePlayer;
 
     void Awake()
     {
         instance = this;
+        Arrow2 = fakeArrow;
+        player = fakePlayer; 
     }
 
     void Update()
@@ -31,6 +38,16 @@ public class GameController : MonoBehaviour
         if (IsReturning && !getDist)
         {
             GetDistance();
+        }
+    }
+    public static void AddArrow2()
+    {
+
+        float arrow2 = PlayerPrefs.GetFloat("Arrow2");
+        if(arrow2 == 1f)
+        {
+            Arrow2.SetActive(true);
+            Arrow2.transform.position = player.transform.position;
         }
     }
     public void GetDistance()

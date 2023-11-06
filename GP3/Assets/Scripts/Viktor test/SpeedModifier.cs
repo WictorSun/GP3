@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+[System.Serializable]
 public class SpeedModifier : MonoBehaviour
 {
  
@@ -10,6 +11,15 @@ public class SpeedModifier : MonoBehaviour
     public static float speed;
     public static bool GameHasStarted = false;
     public static bool hasHitEnemy;
+
+    [SerializeField] private static float speedCap;
+    public float number;
+
+    private void Awake()
+    {
+        instance = this;
+        speedCap = number;
+    }
 
     private void Start()
     {
@@ -32,6 +42,10 @@ public class SpeedModifier : MonoBehaviour
     }
     public static void IncreaseSpeed(float increment)
     {
-        speed += increment;
+
+        if(speed<= speedCap)
+        {
+            speed += increment;
+        }
     }
 }

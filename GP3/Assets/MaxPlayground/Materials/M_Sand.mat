@@ -53,13 +53,16 @@ Material:
     - _NormalStrength: 0.25
     - _RimPower: 0.5
     - _Rim_Offset: 0.75
+    - _Roughness: 0
     - _SpecArea: 0.16
     - _SpecOpacity: 0
     - _SpecTransition: 0.3
     - __dirty: 0
     m_Colors:
+    - _AlbedoMapTint: {r: 1, g: 1, b: 1, a: 0}
     - _ColorMain: {r: 1, g: 0.94759905, b: 0.8066038, a: 0}
     - _ColorVar: {r: 1, g: 0.91641974, b: 0.6839622, a: 1}
+    - _ReflectionColor: {r: 0.57647055, g: 1, b: 0, a: 1}
     - _RimColor: {r: 1, g: 0.7256979, b: 0, a: 1}
     - _ShadowColor: {r: 0.6509434, g: 0.52832687, b: 0.18729973, a: 0}
     - _Tile: {r: 4, g: 2, b: 0, a: 0}

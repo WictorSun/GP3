@@ -22,6 +22,8 @@ public class UIController : MonoBehaviour
 
     [SerializeField] private Animator winningAnim;
 
+    public BoxCollider FakeCol;
+
     public GameObject SafeArea;
     public bool endGame = true;
     
@@ -67,7 +69,7 @@ public class UIController : MonoBehaviour
     }
     public void Winning()
     {
-        
+        FakeCol.size = new Vector3(1.21f , 1 , 2.41f);
         endGame = false;
         ScoreCounter.Instance.WinningScoreCounter();
         

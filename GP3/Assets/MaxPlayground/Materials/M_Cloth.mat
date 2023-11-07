@@ -25,7 +25,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Alpha:
-        m_Texture: {fileID: 2800000, guid: 4bb2ed5cf0c9cfa4c9deb0ca14b1e966, type: 3}
+        m_Texture: {fileID: 2800000, guid: 66cc97fea0c6bd24180d89d64d34cf4d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BakedNormalMap:
@@ -37,7 +37,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normalmap:
-        m_Texture: {fileID: 2800000, guid: 2af9872b76b86d64b9c7aa2a800bf08c, type: 3}
+        m_Texture: {fileID: 2800000, guid: c44503f9aa117654ab2ab75e404063ae, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _texcoord:
@@ -63,7 +63,7 @@ Material:
     - _ColorVar: {r: 0.9433962, g: 0.7538187, b: 0.4672481, a: 1}
     - _ReflectionColor: {r: 1, g: 0.9325765, b: 0.5990566, a: 1}
     - _RimColor: {r: 0.990566, g: 0.9644001, b: 0.82702917, a: 1}
-    - _ShadowColor: {r: 0.3214018, g: 0.062745094, b: 0.32941177, a: 0}
-    - _Tile: {r: 5, g: 2, b: 0, a: 0}
+    - _ShadowColor: {r: 0.8396226, g: 0.37866965, b: 0.1544589, a: 0}
+    - _Tile: {r: 2, g: 2, b: 0, a: 0}
     - _TotalynotSpeccolor: {r: 1, g: 0.9434887, b: 0.7783019, a: 1}
   m_BuildTextureStacks: []

@@ -65,7 +65,7 @@ public class AttachEnemies : MonoBehaviour
                 //this.transform.SetParent(newParent.transform, true);
                 //moveComponent.enabled = false;
                 //uic.aE.Add(this);
-                StartCoroutine(ShootAway(2f));
+                StartCoroutine(ShootAway(3f));
             }
 
             if (gameObject.tag == "ExplodingEnemy")
@@ -102,7 +102,7 @@ public class AttachEnemies : MonoBehaviour
 
         while (T < 1) //LERP THE PLAYER TO STARTPOSITION
         {
-            T += Time.deltaTime / .5f; // This is the speed for the player
+            T += Time.deltaTime / 1f; // This is the speed for the player
 
             if (T > 1)
             {
@@ -117,7 +117,7 @@ public class AttachEnemies : MonoBehaviour
 
         while (T < 1) //LERP THE PLAYER TO STARTPOSITION
         {
-            T += Time.deltaTime / .5f; // This is the speed for the player
+            T += Time.deltaTime / 1f; // This is the speed for the player
 
             if (T > 1)
             {

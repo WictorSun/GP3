@@ -25,7 +25,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Alpha:
-        m_Texture: {fileID: 2800000, guid: 4bb2ed5cf0c9cfa4c9deb0ca14b1e966, type: 3}
+        m_Texture: {fileID: 2800000, guid: 66cc97fea0c6bd24180d89d64d34cf4d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BakedNormalMap:
@@ -37,7 +37,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normalmap:
-        m_Texture: {fileID: 2800000, guid: 2af9872b76b86d64b9c7aa2a800bf08c, type: 3}
+        m_Texture: {fileID: 2800000, guid: c44503f9aa117654ab2ab75e404063ae, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _texcoord:
@@ -50,20 +50,20 @@ Material:
     - _ColorMask: 0.75
     - _ColorPower: 0.6
     - _NormalStrength: 1
-    - _RimPower: 0.5
+    - _RimPower: 0.808
     - _Rim_Offset: 0.75
-    - _Roughness: 0.1
+    - _Roughness: 0.678
     - _SpecArea: 0.16
     - _SpecOpacity: 0.2
     - _SpecTransition: 0.3
     - __dirty: 0
     m_Colors:
     - _AlbedoMapTint: {r: 1, g: 1, b: 1, a: 0}
-    - _ColorMain: {r: 0.5849056, g: 0.480294, b: 0.29521182, a: 0}
-    - _ColorVar: {r: 0.5188679, g: 0.3495016, b: 0.09545213, a: 1}
-    - _ReflectionColor: {r: 1, g: 0.84843576, b: 0, a: 1}
-    - _RimColor: {r: 1, g: 0.9354924, b: 0.6084906, a: 1}
-    - _ShadowColor: {r: 0.13866949, g: 0.06385724, b: 0.3301887, a: 0}
-    - _Tile: {r: 5, g: 2, b: 0, a: 0}
+    - _ColorMain: {r: 0.3301887, g: 0.3301887, b: 0.3301887, a: 0}
+    - _ColorVar: {r: 0.1792453, g: 0.1792453, b: 0.1792453, a: 1}
+    - _ReflectionColor: {r: 0.7028302, g: 0.9091361, b: 1, a: 1}
+    - _RimColor: {r: 0.7311321, g: 0.9339623, b: 1, a: 1}
+    - _ShadowColor: {r: 0.062745094, g: 0.25830218, b: 0.32941177, a: 0}
+    - _Tile: {r: 1, g: 1, b: 0, a: 0}
     - _TotalynotSpeccolor: {r: 1, g: 0.746741, b: 0, a: 1}
   m_BuildTextureStacks: []

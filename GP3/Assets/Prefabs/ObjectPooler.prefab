@@ -61,6 +61,15 @@ MonoBehaviour:
   - type: catapult
     prefab: {fileID: 1708698447510989807, guid: d93b387e943f4aa4cb831d58304ecf44, type: 3}
     size: 20
+  - type: Goblin_Hood
+    prefab: {fileID: 1006886029716126277, guid: a12d1a46abf867648b2db242ce04b03e, type: 3}
+    size: 20
+  - type: Orc_Banner
+    prefab: {fileID: 5048665178540273728, guid: cc55cff976dcc504ea4afdcbad96424f, type: 3}
+    size: 20
+  - type: Troll_Catapult
+    prefab: {fileID: 1708698447510989807, guid: 178e67a1fccd48e479dec11b02b2565c, type: 3}
+    size: 20
 --- !u!114 &8473077275504563640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,6 +95,12 @@ MonoBehaviour:
   - type: catapult
     weight: 0.1
   - type: tower
+    weight: 0.3
+  - type: Goblin_Hood
+    weight: 0.3
+  - type: Orc_Banner
+    weight: 0.3
+  - type: Troll_Catapult
     weight: 0.3
   spawnSettings:
   - type: enemy

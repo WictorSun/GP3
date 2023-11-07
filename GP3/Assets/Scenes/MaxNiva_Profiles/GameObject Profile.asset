@@ -90,17 +90,17 @@ MonoBehaviour:
     overrideState: 0
     value: 0.1
   _Pan_V1:
-    overrideState: 0
-    value: -0.25
+    overrideState: 1
+    value: -0.15
   _Pan_U1:
     overrideState: 0
     value: 0.12
   _Fraction:
-    overrideState: 0
-    value: 1
+    overrideState: 1
+    value: 0.25
   _Brightness:
-    overrideState: 0
-    value: 2
+    overrideState: 1
+    value: 1.5
   _Gradient:
     overrideState: 0
     value: 1
@@ -108,11 +108,11 @@ MonoBehaviour:
     overrideState: 0
     value: 2
   _Switch:
-    overrideState: 0
+    overrideState: 1
     value: 1
   _PerspectiveCenter:
-    overrideState: 0
-    value: {x: 0.5, y: 0.77, z: 0, w: 0}
+    overrideState: 1
+    value: {x: 0.5, y: 1.5, z: 0, w: 0}
   _Desaturate_Edge:
     overrideState: 0
     value: 1

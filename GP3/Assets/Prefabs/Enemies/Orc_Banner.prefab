@@ -826,7 +826,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.8
   killAddition: 0.2
-  Explode: {fileID: 0}
+  Explode: {fileID: 5360798700580193594, guid: fffa54e346c37314d9667ad695a09407, type: 3}
   HitSound: 
 --- !u!114 &2203227902895827146
 MonoBehaviour:
@@ -890,4 +890,4 @@ MonoBehaviour:
   moveComponent: {fileID: 1211075282716312668}
   enemyController: {fileID: 4069152037495023108}
   healthComponent: {fileID: 2203227902895827146}
-  animation: {fileID: 0}
+  animation: {fileID: 8052646367132975125}

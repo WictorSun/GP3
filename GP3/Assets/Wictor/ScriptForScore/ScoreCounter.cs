@@ -20,6 +20,7 @@ public class ScoreCounter : MonoBehaviour
     private float addedScore;
     private float coins;
     public float multipliermeter;
+    [SerializeField]public UIMainMenuManager uim;
 
     [Tooltip("Dont do anything here its only for debugging purposes")]
     [SerializeField] private float multiplierComboLimit;
@@ -94,7 +95,7 @@ public class ScoreCounter : MonoBehaviour
     {
         addedScore = metersTraveled + killScore;
         finalScore = addedScore * multiplier;
-        coins = Mathf.FloorToInt(finalScore) / 100;
+        coins = Mathf.FloorToInt(finalScore) / 10;
         if (coins <= 5)
         {
             coins = 5;
@@ -108,7 +109,11 @@ public class ScoreCounter : MonoBehaviour
         WinningScreen.totalScore.text = "" + finalScore;
         WinningScreen.coins.text = "" + coins;
         WinningScreen.totalcoin.text = "" + totalCoins;
-        
+        if(finalScore > uim.higscore)
+        {
+            uim.higscore = finalScore;
+            PlayerPrefs.SetFloat("HighScore", finalScore);
+        }
         //Debug.Log(finalScore);
     }
   IEnumerator LerpCombo()

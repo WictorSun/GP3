@@ -49,6 +49,9 @@ public class UIWinning : MonoBehaviour
     public GameObject panelMM;
     public GameObject mmBG;
     public GameObject thisPanel;
+    public float newCoin;
+    public TextMeshProUGUI upgradeCoins;
+    public Animator ballista;
 
     [SerializeField] private PostProcessVolume pPv;
     private SH_PostProcessPPSSettings pP;
@@ -78,11 +81,16 @@ public class UIWinning : MonoBehaviour
         UpgradeMenu.SetActive(true);
         Shop.SetBool("On", true);
         winningAnim.SetBool("On", false);
+        newCoin = PlayerPrefs.GetFloat("TotalCoins");
+        upgradeCoins.text = "" + newCoin;
     }
     public void ExitButtonShop()
     {
-        if (MainMenu.active == false)
-        StartCoroutine(closeShop(.2f));
+        if (MainMenu.active == true)
+        {
+            StartCoroutine(closeShop(.5f));
+        }
+        
        
         //AudioManager.Instance.SFX("ButtonClick");
     }
@@ -90,10 +98,10 @@ public class UIWinning : MonoBehaviour
     IEnumerator closeShop(float sec)
     {
         Shop.SetBool("On", false);
-       
+       winningAnim.SetBool("On", true);
         yield return new WaitForSecondsRealtime(sec);
         
-        winningAnim.SetBool("On", true);
+        
         UpgradeMenu.SetActive(false);
         Startgameb.SetActive(true);
         panelMM.SetActive(true);
@@ -118,6 +126,7 @@ public class UIWinning : MonoBehaviour
         {
             enem.SetActive(false);
         }
+        ballista.SetBool("Is Walking", false);
         float T = 0; //LerpTime
         while (T < 1) //This lerps the Player from idle position in the beggining of game to the position for when playing
         {
@@ -180,6 +189,7 @@ public class UIWinning : MonoBehaviour
         SpeedModifier.speed = 1f;
         objectSpawner.canSpawnEnemy = true;
         comboSlider.value = 0f;
+        ballista.SetBool("Is Walking", false);
         this.gameObject.SetActive(false); // sets the Winning Screen to disabled in order to play again
     }
 }

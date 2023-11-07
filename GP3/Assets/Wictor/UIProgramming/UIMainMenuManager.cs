@@ -44,7 +44,8 @@ public class UIMainMenuManager : MonoBehaviour
 
     [Header("totalcoin and Highscore")]
     [SerializeField] private float totalCoins;
-    [SerializeField] private float higscore;
+    [SerializeField] public float higscore;
+    [SerializeField] private TextMeshProUGUI HSText;
     [SerializeField] private TextMeshProUGUI totCoinUpgrade;
     [SerializeField] private TextMeshProUGUI totCoinMain;
 
@@ -100,7 +101,7 @@ public class UIMainMenuManager : MonoBehaviour
     [SerializeField] private GameObject MaxUpgrade3;
     [SerializeField] private GameObject priceButton3;
     [SerializeField] private GameObject arrow2;
-
+    [SerializeField] private Animator balistaAnim;
     private bool waitUntilDoneClicking = true;
 
 
@@ -129,9 +130,10 @@ public class UIMainMenuManager : MonoBehaviour
 
         if (debug)
         {
+            PlayerPrefs.SetFloat("HighScore", 0f);
             PlayerPrefs.SetFloat("Upgrade1", 0f);
             PlayerPrefs.SetFloat("Upgrade2", 0f);
-            PlayerPrefs.SetFloat("TotalCoins", 3000f);
+            PlayerPrefs.SetFloat("TotalCoins", 0f);
             PlayerPrefs.SetFloat("DistBost", 0f);
             PlayerPrefs.SetFloat("Arrow2", 0f);
             PlayerPrefs.SetFloat("Multip", 1f);
@@ -142,6 +144,9 @@ public class UIMainMenuManager : MonoBehaviour
         totalCoins = PlayerPrefs.GetFloat("TotalCoins");
         totCoinMain.text = "" + totalCoins;
         totCoinUpgrade.text = "" + totalCoins;
+        higscore = PlayerPrefs.GetFloat("HighScore");
+        HSText.text = "Best Score:" + higscore;
+
         Upgradesave1();
         Upgradesave2();
         Upgradesave3();
@@ -439,6 +444,7 @@ public class UIMainMenuManager : MonoBehaviour
         //camAnim.SetBool("On", true);
         yield return new WaitForSecondsRealtime(sec);
         Rope.SetActive(true);
+        balistaAnim.SetBool("Is Walking", false);
         StartCoroutine(StartGame(time));
     }
     //CO-ROUTINE FOR STARTING THE GAME
@@ -508,6 +514,7 @@ public class UIMainMenuManager : MonoBehaviour
         StartMenu.SetBool("On", false);
         inGameMenu.SetActive(true);
         AudioManager.Instance.PlayBackGroundMusic("Gameplay");
+        balistaAnim.SetBool("Is Walking", true);
         this.gameObject.SetActive(false);
     }
     IEnumerator ClickedUpgrade(float sec)

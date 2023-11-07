@@ -8,6 +8,7 @@ public class BiomeChange : MonoBehaviour
     public GameObject player;
     public GameObject[] forrestPrefabs;
     public GameObject[] autumnPrefabs;
+    public GameObject[] desertPrefabs;
     public GameObject forestToAutmn;
     public GameObject autumnToDesert;
 
@@ -89,11 +90,16 @@ public class BiomeChange : MonoBehaviour
 
     private void EnableDesert()
     {
+        int RandomOption = Random.Range(0, desertPrefabs.Length);
         foreach (GameObject prefab in forrestPrefabs)
         {
             prefab.SetActive(false);
         }
         foreach (GameObject prefab in autumnPrefabs)
+        {
+            prefab.SetActive(false);
+        }
+        foreach (GameObject prefab in desertPrefabs)
         {
             prefab.SetActive(false);
         }
@@ -103,7 +109,7 @@ public class BiomeChange : MonoBehaviour
         forestToDesert.SetActive(false);
         forestToAutmn.SetActive(false);
         autumnToDesert.SetActive(false);
-
+        desertPrefabs[RandomOption].SetActive(true);
     }
 
     private void EnableForest()
@@ -116,6 +122,10 @@ public class BiomeChange : MonoBehaviour
             prefab.SetActive(false);
         }
         foreach (GameObject prefab in autumnPrefabs)
+        {
+            prefab.SetActive(false);
+        }
+        foreach (GameObject prefab in desertPrefabs)
         {
             prefab.SetActive(false);
         }
@@ -139,7 +149,11 @@ public class BiomeChange : MonoBehaviour
         {
             prefab.SetActive(false);
         }
-     forest.SetActive(false);
+        foreach (GameObject prefab in desertPrefabs)
+        {
+            prefab.SetActive(false);
+        }
+        forest.SetActive(false);
      desert.SetActive(false);
      forestToDesert.SetActive(false);
      forestToAutmn.SetActive(false);
@@ -157,6 +171,10 @@ public class BiomeChange : MonoBehaviour
         {
             prefab.SetActive(false);
         }
+        foreach (GameObject prefab in desertPrefabs)
+        {
+            prefab.SetActive(false);
+        }
         forest.SetActive(false);
         desert.SetActive(false);
         forestToDesert.SetActive(false);
@@ -171,6 +189,10 @@ public class BiomeChange : MonoBehaviour
         }
 
         foreach (GameObject prefab in forrestPrefabs)
+        {
+            prefab.SetActive(false);
+        }
+        foreach (GameObject prefab in desertPrefabs)
         {
             prefab.SetActive(false);
         }

@@ -4,7 +4,7 @@ using System;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
-
+using Cinemachine;
 public class UIController : MonoBehaviour
 {
     [SerializeField] private float timeMod = 2.0f; // Time modifier for distance
@@ -22,6 +22,8 @@ public class UIController : MonoBehaviour
 
     [SerializeField] private Animator winningAnim;
 
+    public BoxCollider FakeCol;
+    
     public GameObject SafeArea;
     public bool endGame = true;
     
@@ -61,13 +63,13 @@ public class UIController : MonoBehaviour
         {
 
             Winning();
-
+            
         }
         
     }
     public void Winning()
     {
-        
+        FakeCol.size = new Vector3(1.21f , 1 , 2.41f);
         endGame = false;
         ScoreCounter.Instance.WinningScoreCounter();
         
@@ -79,15 +81,9 @@ public class UIController : MonoBehaviour
     }
 
     IEnumerator StartGame(float time)
-    {  SpeedModifier.GameEnded();
-        GameObject[] enemies;
+    { 
+        SpeedModifier.GameEnded();
         objectSpawner.canSpawnEnemy = false;
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach(GameObject enem in enemies)
-        {
-            enem.SetActive(false);
-        }
-
         takeDist = false;
         Vector3 cameraStartPosition = camera.transform.position;
         
@@ -96,7 +92,7 @@ public class UIController : MonoBehaviour
 
         while (cameraT < 1)
         {
-            cameraT += Time.deltaTime / 1.01f; // This is the speed for the player
+            cameraT += Time.deltaTime / .5f; // This is the speed for the player
 
             if (cameraT > 1)
             {
@@ -115,7 +111,7 @@ public class UIController : MonoBehaviour
 
         while (T < 1 )
         {
-            T += Time.deltaTime / 1f; // This is the speed for the player
+            T += Time.deltaTime / .5f; // This is the speed for the player
          
            if (T > 1)
             {
@@ -136,11 +132,7 @@ public class UIController : MonoBehaviour
         SafeArea.SetActive(true);
         winningAnim.SetBool("On", true);
         objectSpawner.canSpawnEnemy = false;
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (GameObject enem in enemies)
-        {
-            enem.SetActive(false);
-        }
+       
         SpeedModifier.ResetHit();
 
         yield return new WaitForSecondsRealtime(2f);

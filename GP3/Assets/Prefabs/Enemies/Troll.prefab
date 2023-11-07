@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 1708698447510989807}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.71, y: 2.71, z: 2.71}
+  m_LocalScale: {x: 2.25, y: 2.25, z: 2.25}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7114038731881146970}
@@ -117,6 +117,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   killAddition: 0.2
+  Explode: {fileID: 5360798700580193594, guid: fffa54e346c37314d9667ad695a09407, type: 3}
+  HitSound: SmallExplosion
 --- !u!114 &7620315062599006182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,7 +182,6 @@ MonoBehaviour:
   enemyController: {fileID: -7849446550132011355}
   healthComponent: {fileID: 7620315062599006182}
   animation: {fileID: 6017916130797946719}
-  sphereCollider: {fileID: 277559111832683553}
 --- !u!1 &7114038731881146969
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,6 +274,8 @@ SkinnedMeshRenderer:
   - 0
   - 0
   - 0
+  - 43.301807
+  - 56.698193
   - 0
   - 0
   - 0
@@ -300,7 +303,6 @@ SkinnedMeshRenderer:
   - 0
   - 0
   - 0
-  - 100
   - 0
   - 0
   - 0
@@ -442,7 +444,6 @@ SkinnedMeshRenderer:
   - 0
   - 0
   - 0
-  - 100
   m_RootBone: {fileID: 0}
   m_AABB:
     m_Center: {x: -0.036489725, y: 2.0252545, z: 0.19717407}
@@ -514,10 +515,10 @@ MonoBehaviour:
     DurationInSeconds: 1
     DrawMotionPath: 0
     MotionPathIconSize: 0.1
-  Clip0NormalizedTime: 1
+  Clip0NormalizedTime: 0.2855941
   Clip0Weight: 1
-  Clip1NormalizedTime: 1
-  Clip1Weight: 1
+  Clip1NormalizedTime: 0.2855941
+  Clip1Weight: 0
   Clip2NormalizedTime: 0
   Clip2Weight: 0
   Clip3NormalizedTime: 0

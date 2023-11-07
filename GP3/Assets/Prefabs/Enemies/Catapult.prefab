@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 1708698447510989807}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.71, y: 2.71, z: 2.71}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7114038731881146970}
@@ -104,6 +104,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0
   killAddition: 0.2
+  Explode: {fileID: 5360798700580193594, guid: fffa54e346c37314d9667ad695a09407, type: 3}
+  HitSound: SmallExplosion
 --- !u!114 &7620315062599006182
 MonoBehaviour:
   m_ObjectHideFlags: 0

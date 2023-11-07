@@ -53,8 +53,9 @@ Material:
     - _WindTile: 0.15
     - __dirty: 0
     m_Colors:
-    - _ColorMain: {r: 0.774947, g: 0.8490566, b: 0.35644355, a: 0}
-    - _ColorVar: {r: 0.18356177, g: 0.2830189, b: 0.084104665, a: 0}
+    - _ColorMain: {r: 0.6063537, g: 0.8509804, b: 0.35686275, a: 0}
+    - _ColorVar: {r: 0.11770574, g: 0.28235295, b: 0.082352936, a: 0}
     - _RimColor: {r: 0.1528542, g: 0.754717, b: 0, a: 1}
     - _ShadowColor: {r: 0.37046102, g: 0.7075472, b: 0.48001406, a: 0}
+    - _Tiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

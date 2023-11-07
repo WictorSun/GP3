@@ -118,7 +118,7 @@ MonoBehaviour:
   moveSpeed: 1
   killAddition: 0.2
   Explode: {fileID: 5360798700580193594, guid: fffa54e346c37314d9667ad695a09407, type: 3}
-  HitSound: SmallExplosion
+  HitSound: Troll1
 --- !u!114 &7620315062599006182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,8 +146,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  objectDistance: -60
-  despawnDistance: -110
+  objectDistance: -170
+  despawnDistance: -170
 --- !u!54 &2160916547139492789
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -39,6 +39,7 @@ Transform:
   - {fileID: 3888589805570023939}
   - {fileID: 4187779893015146083}
   - {fileID: 5150576495527125628}
+  - {fileID: 8314552515355400120}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -92,6 +93,9 @@ MonoBehaviour:
   autumnPrefabs:
   - {fileID: 4610889615374902178}
   - {fileID: 3465480194887872450}
+  desertPrefabs:
+  - {fileID: 769440506317957737}
+  - {fileID: 687798423395941607}
   forestToAutmn: {fileID: 9062934091536110518}
   autumnToDesert: {fileID: 4497869167939195550}
   moveComponent: {fileID: 1594526900229358131}
@@ -105,10 +109,6 @@ PrefabInstance:
     - target: {fileID: 5986845516468327447, guid: 03adffd7f936c524296d7f34beac8767, type: 3}
       propertyPath: m_Name
       value: forest
-      objectReference: {fileID: 0}
-    - target: {fileID: 5986845516468327447, guid: 03adffd7f936c524296d7f34beac8767, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6422040953107617206, guid: 03adffd7f936c524296d7f34beac8767, type: 3}
       propertyPath: m_RootOrder
@@ -154,8 +154,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6179632721318212294, guid: 03adffd7f936c524296d7f34beac8767, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03adffd7f936c524296d7f34beac8767, type: 3}
 --- !u!1 &5091822857659959479 stripped
 GameObject:
@@ -177,10 +176,6 @@ PrefabInstance:
     - target: {fileID: 2880080782025578477, guid: f642604d3d84a9146b37671e5d308bf5, type: 3}
       propertyPath: m_Name
       value: AutomForestGround
-      objectReference: {fileID: 0}
-    - target: {fileID: 2880080782025578477, guid: f642604d3d84a9146b37671e5d308bf5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3310772765066384972, guid: f642604d3d84a9146b37671e5d308bf5, type: 3}
       propertyPath: m_RootOrder
@@ -226,8 +221,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2391377631940522300, guid: f642604d3d84a9146b37671e5d308bf5, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f642604d3d84a9146b37671e5d308bf5, type: 3}
 --- !u!4 &3888589805570023939 stripped
 Transform:
@@ -322,10 +316,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: F&ATransGround
       objectReference: {fileID: 0}
-    - target: {fileID: 5876082561118799425, guid: 6daa75e78023b6545bd04911e7de0d84, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6595004383431952352, guid: 6daa75e78023b6545bd04911e7de0d84, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -370,8 +360,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6294891586701222032, guid: 6daa75e78023b6545bd04911e7de0d84, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6daa75e78023b6545bd04911e7de0d84, type: 3}
 --- !u!4 &8632313026995294743 stripped
 Transform:
@@ -465,10 +454,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: forestToDesert (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 835880583568151411, guid: c518fb9c317b8794a86901974cc4d19e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8252994560625845137, guid: c518fb9c317b8794a86901974cc4d19e, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -513,8 +498,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 45799335476268254, guid: c518fb9c317b8794a86901974cc4d19e, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c518fb9c317b8794a86901974cc4d19e, type: 3}
 --- !u!1 &4497869167939195550 stripped
 GameObject:
@@ -536,10 +520,6 @@ PrefabInstance:
     - target: {fileID: 7105965990151917418, guid: d0341d00d7d8209419429536714dd902, type: 3}
       propertyPath: m_Name
       value: AutomForestGroundPumpkin
-      objectReference: {fileID: 0}
-    - target: {fileID: 7105965990151917418, guid: d0341d00d7d8209419429536714dd902, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7536587149181882059, guid: d0341d00d7d8209419429536714dd902, type: 3}
       propertyPath: m_RootOrder
@@ -585,8 +565,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7226743670311119291, guid: d0341d00d7d8209419429536714dd902, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0341d00d7d8209419429536714dd902, type: 3}
 --- !u!1 &3465480194887872450 stripped
 GameObject:
@@ -653,12 +632,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: desert
       objectReference: {fileID: 0}
-    - target: {fileID: 7928440760669165202, guid: 18d3103d652a3b143ad852ea84a70023, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7301050496188841656, guid: 18d3103d652a3b143ad852ea84a70023, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18d3103d652a3b143ad852ea84a70023, type: 3}
 --- !u!1 &769440506317957737 stripped
 GameObject:
@@ -669,4 +643,71 @@ GameObject:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1508651643655798221, guid: 18d3103d652a3b143ad852ea84a70023, type: 3}
   m_PrefabInstance: {fileID: 7253857321653714171}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8205733535975582817
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6699729890553738035}
+    m_Modifications:
+    - target: {fileID: 181171311429778393, guid: 433e0f0d9958fa94a910b45f47a68bb2, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 181171311429778393, guid: 433e0f0d9958fa94a910b45f47a68bb2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 181171311429778393, guid: 433e0f0d9958fa94a910b45f47a68bb2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 181171311429778393, guid: 433e0f0d9958fa94a910b45f47a68bb2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 181171311429778393, guid: 433e0f0d9958fa94a910b45f47a68bb2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 181171311429778393, guid: 433e0f0d9958fa94a910b45f47a68bb2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 181171311429778393, guid: 433e0f0d9958fa94a910b45f47a68bb2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 181171311429778393, guid: 433e0f0d9958fa94a910b45f47a68bb2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 181171311429778393, guid: 433e0f0d9958fa94a910b45f47a68bb2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 181171311429778393, guid: 433e0f0d9958fa94a910b45f47a68bb2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 181171311429778393, guid: 433e0f0d9958fa94a910b45f47a68bb2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8677049075616649350, guid: 433e0f0d9958fa94a910b45f47a68bb2, type: 3}
+      propertyPath: m_Name
+      value: DesertCamp
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 433e0f0d9958fa94a910b45f47a68bb2, type: 3}
+--- !u!1 &687798423395941607 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8677049075616649350, guid: 433e0f0d9958fa94a910b45f47a68bb2, type: 3}
+  m_PrefabInstance: {fileID: 8205733535975582817}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8314552515355400120 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 181171311429778393, guid: 433e0f0d9958fa94a910b45f47a68bb2, type: 3}
+  m_PrefabInstance: {fileID: 8205733535975582817}
   m_PrefabAsset: {fileID: 0}

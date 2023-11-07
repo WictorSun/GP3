@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.SceneManagement;
 using Cinemachine;
 public class UIController : MonoBehaviour
@@ -26,8 +27,16 @@ public class UIController : MonoBehaviour
     
     public GameObject SafeArea;
     public bool endGame = true;
+    public bool startPostProcess = true;
+    [SerializeField] private PostProcessVolume pPv;
+    private SH_PostProcessPPSSettings pP;
     
-    public bool takeDist; 
+    public bool takeDist;
+
+    private void Awake()
+    {
+        pPv.profile.TryGetSettings<SH_PostProcessPPSSettings>(out pP);
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +49,11 @@ public class UIController : MonoBehaviour
         if (takeDist)
         {
             TakeDist();
+        }
+        if(GameController.IsReturning && startPostProcess)
+        {
+            StartCoroutine(postprocess(.2f));
+            startPostProcess = false;
         }
     }
 
@@ -79,7 +93,26 @@ public class UIController : MonoBehaviour
         }
         StartCoroutine(StartGame(time));
     }
+    IEnumerator postprocess(float sec)
+    {
+        float f = 0; // This is the interpolation factor for the camera
 
+        while (f < 1) //LERP THE PLAYER TO STARTPOSITION
+        {
+            f += Time.deltaTime / 5f; // This is the speed for the player
+
+            if (f > 1)
+            {
+                f = 1;
+            }
+
+            pP._Switch.value = Mathf.Lerp(pP._Switch.value, pP._Switch.value = 0f, f);
+            
+            pP._Pan_V1.value = Mathf.Lerp(pP._Pan_V1.value, pP._Pan_V1.value = 0.15f, f);
+            yield return null;
+        }
+        yield return new WaitForSeconds(sec); 
+    }
     IEnumerator StartGame(float time)
     { 
         SpeedModifier.GameEnded();
@@ -127,6 +160,25 @@ public class UIController : MonoBehaviour
        
 
         yield return new WaitForSeconds(0.2f);
+        float f = 0; // This is the interpolation factor for the camera
+
+        while (f < 1) //LERP THE PLAYER TO STARTPOSITION
+        {
+            f += Time.deltaTime / 1f; // This is the speed for the player
+
+            if (f > 1)
+            {
+                f = 1;
+            }
+
+            pP._Fraction.value = Mathf.Lerp(pP._Fraction.value, pP._Fraction.value = 0f, f);
+            pP._Brightness.value = Mathf.Lerp(pP._Brightness.value, pP._Brightness.value = 1f, f);
+            pP._Desaturate_Edge.value = Mathf.Lerp(pP._Desaturate_Edge.value, pP._Desaturate_Edge.value = 0f, f);
+            pP._Switch.value = Mathf.Lerp(pP._Switch.value, pP._Switch.value = 1f, f);
+
+            pP._Pan_V1.value = Mathf.Lerp(pP._Pan_V1.value, pP._Pan_V1.value = -0.15f, f);
+            yield return null;
+        }
         winningScreen.SetActive(true);
 
         SafeArea.SetActive(true);
@@ -136,7 +188,9 @@ public class UIController : MonoBehaviour
         SpeedModifier.ResetHit();
 
         yield return new WaitForSecondsRealtime(2f);
+       
         player2.SetActive(false);
+        
 
     }
 }

@@ -133,14 +133,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7536587149181882059}
-  - component: {fileID: 7226743670311119291}
   m_Layer: 0
   m_Name: AutomForestGroundPumpkin
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7536587149181882059
 Transform:
   m_ObjectHideFlags: 0
@@ -222,21 +221,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7226743670311119291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7105965990151917418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0716cc13c3817994ead3022506825be6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 15
-  objectDistance: -40
-  despawnDistance: -50
 --- !u!1001 &146774178206818124
 PrefabInstance:
   m_ObjectHideFlags: 0

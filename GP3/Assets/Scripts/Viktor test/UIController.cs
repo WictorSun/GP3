@@ -22,6 +22,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private ObjectSpawner objectSpawner;
 
     [SerializeField] private Animator winningAnim;
+    [SerializeField] public List<AttachEnemies> aE;
 
     public BoxCollider FakeCol;
     
@@ -92,6 +93,7 @@ public class UIController : MonoBehaviour
             obj.ReturnToStart();
         }
         StartCoroutine(StartGame(time));
+
     }
     IEnumerator postprocess(float sec)
     {
@@ -186,7 +188,12 @@ public class UIController : MonoBehaviour
         objectSpawner.canSpawnEnemy = false;
        
         SpeedModifier.ResetHit();
+        foreach (AttachEnemies enem in aE)
+        {
+            enem.RemoveEnemies();
 
+        }
+        aE.Clear();
         yield return new WaitForSecondsRealtime(2f);
        
         player2.SetActive(false);

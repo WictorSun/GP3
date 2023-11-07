@@ -408,7 +408,7 @@ Transform:
   m_GameObject: {fileID: 1708698447510989807}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.71, y: 2.71, z: 2.71}
+  m_LocalScale: {x: 2.25, y: 2.25, z: 2.25}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1588558108008714731}
@@ -492,6 +492,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   killAddition: 0.2
+  Explode: {fileID: 0}
+  HitSound: 
 --- !u!114 &7620315062599006182
 MonoBehaviour:
   m_ObjectHideFlags: 0

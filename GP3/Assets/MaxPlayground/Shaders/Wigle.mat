@@ -21,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AlbedoTexture:
-        m_Texture: {fileID: 2800000, guid: f19eb64044b7dc54f9a3aea87d11a8d9, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ColorRamp:
@@ -39,14 +39,14 @@ Material:
     m_Ints: []
     m_Floats:
     - _Albedo: 0
-    - _AnchorsPointsStrength: 0
+    - _AnchorsPointsStrength: 1
     - _Cutoff: 0.5
     - _MaskOnOff: 0
     - _OscillationIntensity: 0.5
     - _TimeOfset: 0
     - _TimeSpeed: 1
     - _WaveAmount: 5
-    - _WaveIntensity: 0.5
+    - _WaveIntensity: 0.11
     - __dirty: 0
     m_Colors:
     - _AlbedoMapTint: {r: 1, g: 1, b: 1, a: 0}

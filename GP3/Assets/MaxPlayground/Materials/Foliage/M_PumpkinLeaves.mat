@@ -44,7 +44,7 @@ Material:
     m_Floats:
     - _ColorMask: 1
     - _ColorPower: 1
-    - _Cutoff: 0.71
+    - _Cutoff: 0.29
     - _NoiseTile: 0.15
     - _RimPower: 0
     - _Rim_Offset: 1

@@ -28,7 +28,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Alpha:
-        m_Texture: {fileID: 2800000, guid: 4bb2ed5cf0c9cfa4c9deb0ca14b1e966, type: 3}
+        m_Texture: {fileID: 2800000, guid: 66cc97fea0c6bd24180d89d64d34cf4d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BakedNormalMap:
@@ -44,7 +44,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normalmap:
-        m_Texture: {fileID: 2800000, guid: 2af9872b76b86d64b9c7aa2a800bf08c, type: 3}
+        m_Texture: {fileID: 2800000, guid: c44503f9aa117654ab2ab75e404063ae, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Pot_Low_DefaultMaterial_Albedo:
@@ -80,6 +80,6 @@ Material:
     - _ReflectionColor: {r: 1, g: 0.6135602, b: 0, a: 1}
     - _RimColor: {r: 0.745283, g: 0.5898674, b: 0.2988163, a: 1}
     - _ShadowColor: {r: 0.6320754, g: 0.3532509, b: 0.19975968, a: 0}
-    - _Tile: {r: 5, g: 3, b: 0, a: 0}
+    - _Tile: {r: 3, g: 3, b: 0, a: 0}
     - _TotalynotSpeccolor: {r: 1, g: 0.7963194, b: 0, a: 1}
   m_BuildTextureStacks: []

@@ -44,7 +44,7 @@ Material:
     m_Floats:
     - _ColorMask: 1
     - _ColorPower: 1
-    - _Cutoff: 0.39
+    - _Cutoff: 0.45
     - _NoiseTile: 0.15
     - _RimPower: 0
     - _Rim_Offset: 1
@@ -57,4 +57,5 @@ Material:
     - _ColorVar: {r: 0.5283019, g: 0.33119857, b: 0.08721964, a: 0}
     - _RimColor: {r: 0.1528542, g: 0.754717, b: 0, a: 1}
     - _ShadowColor: {r: 0.8679245, g: 0.4730454, b: 0.27429688, a: 0}
+    - _Tiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

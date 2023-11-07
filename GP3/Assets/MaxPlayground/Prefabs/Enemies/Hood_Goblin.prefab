@@ -53,7 +53,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8a5ac73bc3b2a4840bef4d4e290e02c1, type: 2}
+  - {fileID: 2100000, guid: 99c528d8af845c441803b3d722db6c3b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -302,9 +302,9 @@ MonoBehaviour:
     DurationInSeconds: 1
     DrawMotionPath: 0
     MotionPathIconSize: 0.1
-  Clip0NormalizedTime: 0
+  Clip0NormalizedTime: 0.06205205
   Clip0Weight: 0
-  Clip1NormalizedTime: 0
+  Clip1NormalizedTime: 0.06205205
   Clip1Weight: 0
   Clip2NormalizedTime: 0
   Clip2Weight: 0
@@ -688,9 +688,9 @@ MonoBehaviour:
     DurationInSeconds: 1
     DrawMotionPath: 0
     MotionPathIconSize: 0.1
-  Clip0NormalizedTime: 0
+  Clip0NormalizedTime: 0.06205205
   Clip0Weight: 0
-  Clip1NormalizedTime: 0
+  Clip1NormalizedTime: 0.06205205
   Clip1Weight: 0
   Clip2NormalizedTime: 0
   Clip2Weight: 0

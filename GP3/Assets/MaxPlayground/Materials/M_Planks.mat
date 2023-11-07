@@ -59,7 +59,7 @@ Material:
     - __dirty: 0
     m_Colors:
     - _AlbedoMapTint: {r: 1, g: 1, b: 1, a: 0}
-    - _ColorMain: {r: 0.5849056, g: 0.480294, b: 0.29521182, a: 0}
+    - _ColorMain: {r: 0.58431375, g: 0.39848098, b: 0.29411766, a: 0}
     - _ColorVar: {r: 0.5188679, g: 0.3495016, b: 0.09545213, a: 1}
     - _ReflectionColor: {r: 1, g: 0.84843576, b: 0, a: 1}
     - _RimColor: {r: 1, g: 0.9354924, b: 0.6084906, a: 1}

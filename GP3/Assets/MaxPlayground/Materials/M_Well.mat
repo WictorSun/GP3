@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_Well
+  m_Shader: {fileID: 4800000, guid: 3313f251e4e925946894be15c50e409c, type: 3}
+  m_ValidKeywords:
+  - _BAKESWITCH_ON
+  m_InvalidKeywords:
+  - _BAKESWITCH1_ON
+  - _NORMALSWITCH_ON
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlbedoTexture:
+        m_Texture: {fileID: 2800000, guid: 69fc7f96dcb3a854a9747eb378b9a8e2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Alpha:
+        m_Texture: {fileID: 2800000, guid: 4bb2ed5cf0c9cfa4c9deb0ca14b1e966, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BakedNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ColorRamp:
+        m_Texture: {fileID: 2800000, guid: 4378651f2ed612e4abe5216810ad3d61, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Nomralmap:
+        m_Texture: {fileID: 2800000, guid: 3b97b9c75905eee4bbf0610e0dc5bcc5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normalmap:
+        m_Texture: {fileID: 2800000, guid: 2af9872b76b86d64b9c7aa2a800bf08c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Pot_Low_DefaultMaterial_Albedo:
+        m_Texture: {fileID: 2800000, guid: 7cc3c654cf391a74da218d6c778164be, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlbedoTextureStrokes: 0.5
+    - _BakeSwitch: 1
+    - _BakeSwitch1: 1
+    - _ColorMask: 0.75
+    - _ColorPower: 0.6
+    - _Keyword0: 0
+    - _NormalStrength: 1
+    - _NormalSwitch: 1
+    - _RimPower: 0.5
+    - _Rim_Offset: 0.75
+    - _Roughness: 0.146
+    - _SpecArea: 0.16
+    - _SpecOpacity: 0.13
+    - _SpecTransition: 0.3
+    - _Tile1: 1
+    - __dirty: 0
+    m_Colors:
+    - _AlbedoMapTint: {r: 0.8509804, g: 0.8001063, b: 0.7176471, a: 0}
+    - _ColorMain: {r: 0.8396226, g: 0.003960493, b: 0.003960493, a: 0}
+    - _ColorVar: {r: 0.6132076, g: 0.13016197, b: 0.13016197, a: 1}
+    - _ReflectionColor: {r: 1, g: 0.6135602, b: 0, a: 1}
+    - _RimColor: {r: 0.745283, g: 0.5898674, b: 0.2988163, a: 1}
+    - _ShadowColor: {r: 0.6320754, g: 0.3532509, b: 0.19975968, a: 0}
+    - _Tile: {r: 5, g: 3, b: 0, a: 0}
+    - _TotalynotSpeccolor: {r: 1, g: 0.7963194, b: 0, a: 1}
+  m_BuildTextureStacks: []

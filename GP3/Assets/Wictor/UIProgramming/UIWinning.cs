@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-
+using UnityEngine.Rendering.PostProcessing;
 
 public class UIWinning : MonoBehaviour
 {
@@ -20,6 +20,9 @@ public class UIWinning : MonoBehaviour
     public TextMeshProUGUI totalScore;
     [Tooltip("Total coins you have collected")]
     public TextMeshProUGUI totalcoin;
+
+    public GameObject MainMenu;
+    public UIMainMenuManager UIM;
 
     [SerializeField] private ObjectSpawner objectSpawner;
     [Header("GameObjects")]
@@ -39,7 +42,22 @@ public class UIWinning : MonoBehaviour
     [SerializeField] private Animator winningAnim;
     [SerializeField] private ScoreCounter SC;
     [SerializeField] private Slider comboSlider;
+    [SerializeField] private GameObject UpgradeMenu;
 
+    [SerializeField] private Animator Shop;
+    public GameObject Startgameb;
+    public GameObject panelMM;
+    public GameObject mmBG;
+    public GameObject thisPanel;
+
+    [SerializeField] private PostProcessVolume pPv;
+    private SH_PostProcessPPSSettings pP;
+
+    private void Awake()
+    {
+        pPv.profile.TryGetSettings<SH_PostProcessPPSSettings>(out pP);
+       
+    }
     //Event for pressing "RESTART" 
     public void PlayAgain()
     {
@@ -49,9 +67,40 @@ public class UIWinning : MonoBehaviour
         SC.multipliermeter = 0f;
         GameController.ArrowFront.SetActive(true);
         GameController.ArrowBack.SetActive(false);
+        
     }
-
+    public void Upgrade()
+    {
+        MainMenu.SetActive(true);
+        Startgameb.SetActive(false);
+        panelMM.SetActive(false);
+        mmBG.SetActive(false);
+        UpgradeMenu.SetActive(true);
+        Shop.SetBool("On", true);
+        winningAnim.SetBool("On", false);
+    }
+    public void ExitButtonShop()
+    {
+        if (MainMenu.active == false)
+        StartCoroutine(closeShop(.2f));
+       
+        //AudioManager.Instance.SFX("ButtonClick");
+    }
     //Co routine for starting a new round
+    IEnumerator closeShop(float sec)
+    {
+        Shop.SetBool("On", false);
+       
+        yield return new WaitForSecondsRealtime(sec);
+        
+        winningAnim.SetBool("On", true);
+        UpgradeMenu.SetActive(false);
+        Startgameb.SetActive(true);
+        panelMM.SetActive(true);
+        mmBG.SetActive(true);
+        MainMenu.SetActive(false);
+        Debug.Log("fffffffffff");
+    }
     IEnumerator StartGame(float time)
     {
         AudioManager.Instance.SFX("ButtonClick");
@@ -109,8 +158,25 @@ public class UIWinning : MonoBehaviour
         }
 
         yield return new WaitForSeconds(0.0001f);
+        float f = 0; // This is the interpolation factor for the camera
+
+        while (f < 1) //LERP THE PLAYER TO STARTPOSITION
+        {
+            f += Time.deltaTime / 1f; // This is the speed for the player
+
+            if (f > 1)
+            {
+                f = 1;
+            }
+
+            pP._Fraction.value = Mathf.Lerp(pP._Fraction.value, pP._Fraction.value = .25f, f);
+            pP._Brightness.value = Mathf.Lerp(pP._Brightness.value, pP._Brightness.value = 1.5f, f);
+            pP._Desaturate_Edge.value = Mathf.Lerp(pP._Desaturate_Edge.value, pP._Desaturate_Edge.value = 1f, f);
+            yield return null;
+        }
         uic.takeDist = true;
         uic.endGame = true;
+        uic.startPostProcess = true;
         SpeedModifier.speed = 1f;
         objectSpawner.canSpawnEnemy = true;
         comboSlider.value = 0f;

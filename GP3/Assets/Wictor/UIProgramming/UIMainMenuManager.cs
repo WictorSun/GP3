@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Rendering.PostProcessing;
+
 
 
 
@@ -22,8 +24,9 @@ public class UIMainMenuManager : MonoBehaviour
     [Tooltip("Player ref.")]
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject player2;
-
+    [SerializeField] private GameObject Rope;
     [SerializeField] private ObjectSpawner objectSpawner;
+    public GameObject winning;
 
     [Header("UI Elements")]
     [SerializeField] private Slider sfxSlider;
@@ -113,6 +116,8 @@ public class UIMainMenuManager : MonoBehaviour
     [SerializeField] private Animator StartMenu;
     [SerializeField] private GameObject camAnim;
 
+    [SerializeField] private PostProcessVolume pPv;
+    private SH_PostProcessPPSSettings pP;
     public bool debug;
 
     private void Awake()
@@ -120,6 +125,7 @@ public class UIMainMenuManager : MonoBehaviour
         startMenu.SetActive(true);
         settingsMenu.SetActive(false);
         UpgradeMenu.SetActive(false);
+        pPv.profile.TryGetSettings<SH_PostProcessPPSSettings>(out pP);
 
         if (debug)
         {
@@ -165,6 +171,7 @@ public class UIMainMenuManager : MonoBehaviour
     //GOING INTO SETTINGS
     public void SettingsButton()
     {
+        
         settings.SetBool("On", true);
         AudioManager.Instance.SFX("ButtonClick"); 
         settingsMenu.SetActive(true);
@@ -187,9 +194,13 @@ public class UIMainMenuManager : MonoBehaviour
     // GO BACK TO MAINMENU FROM THE SHOP
     public void ExitButtonShop()
     {
-        Shop.SetBool("On", false);
-        UpgradeMenu.SetActive(true);
-        AudioManager.Instance.SFX("ButtonClick");
+        if (winning.active == false)
+        {
+            Shop.SetBool("On", false);
+            UpgradeMenu.SetActive(true);
+            AudioManager.Instance.SFX("ButtonClick");
+        }
+        
     }
 
     //SET VOLUME OF SFX
@@ -427,6 +438,7 @@ public class UIMainMenuManager : MonoBehaviour
         camAnim.SetActive(false);
         //camAnim.SetBool("On", true);
         yield return new WaitForSecondsRealtime(sec);
+        Rope.SetActive(true);
         StartCoroutine(StartGame(time));
     }
     //CO-ROUTINE FOR STARTING THE GAME
@@ -471,8 +483,26 @@ public class UIMainMenuManager : MonoBehaviour
             camera.transform.position = Vector3.Lerp(cameraStartPosition, CamStartMovementPoint.transform.position, cameraT);
             yield return null;
         }
-
+      
+       
         yield return new WaitForSeconds(0.2f);
+        float f = 0; // This is the interpolation factor for the camera
+
+        while (f < 1) //LERP THE PLAYER TO STARTPOSITION
+        {
+            f += Time.deltaTime / 1f; // This is the speed for the player
+
+            if (f > 1)
+            {
+                f = 1;
+            }
+
+            pP._Fraction.value = Mathf.Lerp(pP._Fraction.value, pP._Fraction.value = .25f, f);
+            pP._Brightness.value = Mathf.Lerp(pP._Brightness.value, pP._Brightness.value = 1.5f, f);
+            pP._Desaturate_Edge.value = Mathf.Lerp(pP._Desaturate_Edge.value, pP._Desaturate_Edge.value = 1f, f);
+            yield return null;
+        }
+       
         objectSpawner.canSpawnEnemy = true;
         uic.takeDist = true;
         StartMenu.SetBool("On", false);

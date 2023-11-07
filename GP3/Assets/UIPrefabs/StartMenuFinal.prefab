@@ -2960,7 +2960,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aac19848e83b8e64caadb7e6c9d68ebe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 553ed6b6eff3f4143aef4a6c9dc9557c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6058,6 +6058,7 @@ MonoBehaviour:
   CamStartMovementPoint: {fileID: 0}
   player: {fileID: 0}
   player2: {fileID: 0}
+  Rope: {fileID: 0}
   objectSpawner: {fileID: 0}
   sfxSlider: {fileID: 4793672436755077840}
   musicSlider: {fileID: 4793672437086809147}
@@ -6138,6 +6139,7 @@ MonoBehaviour:
   Shop: {fileID: 4793672435254212816}
   StartMenu: {fileID: 4793672436496594550}
   camAnim: {fileID: 0}
+  pPv: {fileID: 0}
   debug: 0
 --- !u!95 &4793672436496594550
 Animator:

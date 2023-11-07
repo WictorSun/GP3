@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2203227902895827146}
   - component: {fileID: 1211075282716312668}
   - component: {fileID: 5251057831430686464}
+  - component: {fileID: 400943601716719099}
   m_Layer: 0
   m_Name: Orc
   m_TagString: Enemy
@@ -31,8 +32,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5048665178540273728}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.93, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9091923894974254371}
@@ -97,11 +98,11 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5048665178540273728}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.6
+  m_Center: {x: 0, y: 0.55, z: 0}
 --- !u!114 &4069152037495023108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,6 +117,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.8
   killAddition: 0.2
+  Explode: {fileID: 5360798700580193594, guid: fffa54e346c37314d9667ad695a09407, type: 3}
+  HitSound: SmallExplosion
 --- !u!114 &2203227902895827146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,10 +160,28 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
+--- !u!114 &400943601716719099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5048665178540273728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fd1f687ef865e847b316937585a1947, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 7930161530227528620, guid: a615035447253a2489c3ecb65d0ad463, type: 3}
+  rb: {fileID: 5251057831430686464}
+  moveComponent: {fileID: 1211075282716312668}
+  enemyController: {fileID: 4069152037495023108}
+  healthComponent: {fileID: 2203227902895827146}
+  animation: {fileID: 6170434750798129609}
 --- !u!1 &9091923894974254374
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,8 +209,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9091923894974254374}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: -0.3, z: 0}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8053710630416358174}
@@ -282,7 +303,7 @@ SkinnedMeshRenderer:
   - 0
   - 0
   - 0
-  - 100
+  - 0
   - 0
   - 0
   - 0
@@ -489,7 +510,7 @@ MonoBehaviour:
   Clip0NormalizedTime: 0
   Clip0Weight: 1
   Clip1NormalizedTime: 0
-  Clip1Weight: 1
+  Clip1Weight: 0
   Clip2NormalizedTime: 0
   Clip2Weight: 0
   Clip3NormalizedTime: 0

@@ -4,13 +4,14 @@ using System;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
-
+using Cinemachine;
 public class UIController : MonoBehaviour
 {
     [SerializeField] private float timeMod = 2.0f; // Time modifier for distance
     [SerializeField] private TextMeshProUGUI distanceText = null; // Text for distance
     [SerializeField] private GameObject winningScreen;
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject player2;
     [SerializeField] private GameObject StartMovementPoint; // where game Beins
     [SerializeField] private GameObject camera;
     [SerializeField] private GameObject CamStartMovementPoint; // where game Beins
@@ -21,6 +22,8 @@ public class UIController : MonoBehaviour
 
     [SerializeField] private Animator winningAnim;
 
+    public BoxCollider FakeCol;
+    
     public GameObject SafeArea;
     public bool endGame = true;
     
@@ -60,13 +63,13 @@ public class UIController : MonoBehaviour
         {
 
             Winning();
-
+            
         }
         
     }
     public void Winning()
     {
-        
+        FakeCol.size = new Vector3(1.21f , 1 , 2.41f);
         endGame = false;
         ScoreCounter.Instance.WinningScoreCounter();
         
@@ -78,15 +81,9 @@ public class UIController : MonoBehaviour
     }
 
     IEnumerator StartGame(float time)
-    {  SpeedModifier.GameEnded();
-        GameObject[] enemies;
+    { 
+        SpeedModifier.GameEnded();
         objectSpawner.canSpawnEnemy = false;
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach(GameObject enem in enemies)
-        {
-            enem.SetActive(false);
-        }
-
         takeDist = false;
         Vector3 cameraStartPosition = camera.transform.position;
         
@@ -95,7 +92,7 @@ public class UIController : MonoBehaviour
 
         while (cameraT < 1)
         {
-            cameraT += Time.deltaTime / 1.01f; // This is the speed for the player
+            cameraT += Time.deltaTime / .5f; // This is the speed for the player
 
             if (cameraT > 1)
             {
@@ -109,32 +106,37 @@ public class UIController : MonoBehaviour
 
        
         Vector3 playerStartPosition = player.transform.position;
+        Vector3 player2StartPosition = player2.transform.position;
         float T = 0;
-        while (T < 1)
-        {
-            T += Time.deltaTime / 1f; // This is the speed for the player
 
-            if (T > 1)
+        while (T < 1 )
+        {
+            T += Time.deltaTime / .5f; // This is the speed for the player
+         
+           if (T > 1)
             {
                 T = 1;
             }
             
+
             player.transform.position = Vector3.Lerp(playerStartPosition, StartMovementPoint.transform.position, T);
+            player2.transform.position = Vector3.Lerp(player2StartPosition, StartMovementPoint.transform.position, T);
             yield return null;
         }
 
+       
+
         yield return new WaitForSeconds(0.2f);
         winningScreen.SetActive(true);
-     
+
         SafeArea.SetActive(true);
         winningAnim.SetBool("On", true);
         objectSpawner.canSpawnEnemy = false;
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (GameObject enem in enemies)
-        {
-            enem.SetActive(false);
-        }
+       
         SpeedModifier.ResetHit();
-        //Debug.Log(SpeedModifier.speed + "speeeeeeeeeeeeed");
+
+        yield return new WaitForSecondsRealtime(2f);
+        player2.SetActive(false);
+
     }
 }

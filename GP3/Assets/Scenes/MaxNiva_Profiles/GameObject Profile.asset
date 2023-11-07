@@ -74,7 +74,7 @@ MonoBehaviour:
   active: 1
   enabled:
     overrideState: 1
-    value: 0
+    value: 1
   _TextureSample1:
     overrideState: 0
     value: {fileID: 0}
@@ -93,14 +93,14 @@ MonoBehaviour:
     overrideState: 1
     value: -0.15
   _Pan_U1:
-    overrideState: 0
+    overrideState: 1
     value: 0.12
   _Fraction:
     overrideState: 1
-    value: 0.25
+    value: 0
   _Brightness:
     overrideState: 1
-    value: 1.5
+    value: 1
   _Gradient:
     overrideState: 0
     value: 1
@@ -114,8 +114,8 @@ MonoBehaviour:
     overrideState: 1
     value: {x: 0.5, y: 1.5, z: 0, w: 0}
   _Desaturate_Edge:
-    overrideState: 0
-    value: 1
+    overrideState: 1
+    value: 0
   _Brightness_Edge:
     overrideState: 0
     value: 0.7

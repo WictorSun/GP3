@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.38068357, g: 0.6045812, b: 0.5533325, a: 1}
+  m_IndirectSpecularColor: {r: 0.3806838, g: 0.604581, b: 0.5533329, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -689,6 +689,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1296500260728046301, guid: 290399fed37ff8b45a8cbf63565704df, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1594526900229358131, guid: 290399fed37ff8b45a8cbf63565704df, type: 3}
       propertyPath: objectDistance
       value: -30
@@ -698,6 +702,10 @@ PrefabInstance:
       value: ground (2)
       objectReference: {fileID: 0}
     - target: {fileID: 3465480194887872450, guid: 290399fed37ff8b45a8cbf63565704df, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743283259464572090, guid: 290399fed37ff8b45a8cbf63565704df, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -870,6 +878,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1296500260728046301, guid: 290399fed37ff8b45a8cbf63565704df, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1594526900229358131, guid: 290399fed37ff8b45a8cbf63565704df, type: 3}
       propertyPath: objectDistance
       value: -30
@@ -879,6 +891,10 @@ PrefabInstance:
       value: ground (3)
       objectReference: {fileID: 0}
     - target: {fileID: 3465480194887872450, guid: 290399fed37ff8b45a8cbf63565704df, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743283259464572090, guid: 290399fed37ff8b45a8cbf63565704df, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -2923,6 +2939,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1296500260728046301, guid: 290399fed37ff8b45a8cbf63565704df, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1594526900229358131, guid: 290399fed37ff8b45a8cbf63565704df, type: 3}
       propertyPath: objectDistance
       value: -30
@@ -2932,6 +2952,10 @@ PrefabInstance:
       value: ground (1)
       objectReference: {fileID: 0}
     - target: {fileID: 3465480194887872450, guid: 290399fed37ff8b45a8cbf63565704df, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743283259464572090, guid: 290399fed37ff8b45a8cbf63565704df, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -3574,7 +3598,7 @@ PrefabInstance:
       objectReference: {fileID: 230985431}
     - target: {fileID: 4793672436496594553, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
       propertyPath: debug
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4793672436496594553, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
       propertyPath: HSText
@@ -3781,6 +3805,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1296500260728046301, guid: 290399fed37ff8b45a8cbf63565704df, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1594526900229358131, guid: 290399fed37ff8b45a8cbf63565704df, type: 3}
       propertyPath: objectDistance
       value: -30
@@ -3790,6 +3818,10 @@ PrefabInstance:
       value: ground
       objectReference: {fileID: 0}
     - target: {fileID: 3465480194887872450, guid: 290399fed37ff8b45a8cbf63565704df, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743283259464572090, guid: 290399fed37ff8b45a8cbf63565704df, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}

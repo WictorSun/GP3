@@ -64,6 +64,7 @@ public class UIWinning : MonoBehaviour
     //Event for pressing "RESTART" 
     public void PlayAgain()
     {
+        AudioManager.Instance.SFX("UIclick");
         GameController.Distance = PlayerPrefs.GetFloat("DistBost");
         SC.multiplier = PlayerPrefs.GetFloat("Multip");
         StartCoroutine(StartGame(time));
@@ -74,6 +75,7 @@ public class UIWinning : MonoBehaviour
     }
     public void Upgrade()
     {
+        AudioManager.Instance.SFX("UIclick");
         MainMenu.SetActive(true);
         Startgameb.SetActive(false);
         panelMM.SetActive(false);
@@ -86,6 +88,7 @@ public class UIWinning : MonoBehaviour
     }
     public void ExitButtonShop()
     {
+        AudioManager.Instance.SFX("UIclick");
         if (MainMenu.active == true)
         {
             StartCoroutine(closeShop(.5f));

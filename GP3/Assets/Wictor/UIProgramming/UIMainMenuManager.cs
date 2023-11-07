@@ -159,6 +159,7 @@ public class UIMainMenuManager : MonoBehaviour
         totalCoins = PlayerPrefs.GetFloat("TotalCoins");
         SC.multipliermeter = 0f;
         //Debug.Log(upgrade1Tier);
+        
     }
 
     // PRESSING PLAY
@@ -169,7 +170,7 @@ public class UIMainMenuManager : MonoBehaviour
         SC.multiplier = PlayerPrefs.GetFloat("Multip");
         arrow2.SetActive(false);
         StartCoroutine(PlayfirstAnim(2f));
-
+        AudioManager.Instance.SFX("UIclick");
 
     }
 
@@ -178,7 +179,7 @@ public class UIMainMenuManager : MonoBehaviour
     {
         
         settings.SetBool("On", true);
-        AudioManager.Instance.SFX("ButtonClick"); 
+        AudioManager.Instance.SFX("UIclick");
         settingsMenu.SetActive(true);
     }
 
@@ -186,7 +187,7 @@ public class UIMainMenuManager : MonoBehaviour
     public void ExitButton()
     {
         settings.SetBool("On", false);
-        AudioManager.Instance.SFX("ButtonClick");
+        AudioManager.Instance.SFX("UIclick");
     }
 
     // GO INTO SHOP TAB
@@ -194,6 +195,7 @@ public class UIMainMenuManager : MonoBehaviour
     {
         UpgradeMenu.SetActive(true);
         Shop.SetBool("On", true);
+        AudioManager.Instance.SFX("UIclick");
     }
 
     // GO BACK TO MAINMENU FROM THE SHOP
@@ -203,7 +205,7 @@ public class UIMainMenuManager : MonoBehaviour
         {
             Shop.SetBool("On", false);
             UpgradeMenu.SetActive(true);
-            AudioManager.Instance.SFX("ButtonClick");
+            AudioManager.Instance.SFX("UIclick");
         }
         
     }
@@ -228,7 +230,8 @@ public class UIMainMenuManager : MonoBehaviour
 
     public void Upgrade1()
     {
-        if((priceUpgrade1 <= totalCoins) && upgrade1Tier == 0f && waitUntilDoneClicking)
+        AudioManager.Instance.SFX("UIclick");
+        if ((priceUpgrade1 <= totalCoins) && upgrade1Tier == 0f && waitUntilDoneClicking)
         {
             PlayerPrefs.SetFloat("Upgrade1", 1f);
             upgrade1Tier = PlayerPrefs.GetFloat("Upgrade1");
@@ -323,6 +326,7 @@ public class UIMainMenuManager : MonoBehaviour
 
     public void Upgrade2()
     {
+        AudioManager.Instance.SFX("UIclick");
         if ((priceUpgrade2_1 <= totalCoins) && upgrade2Tier == 0f && waitUntilDoneClicking)
         {
             PlayerPrefs.SetFloat("Upgrade2", 1f);
@@ -411,6 +415,7 @@ public class UIMainMenuManager : MonoBehaviour
     }
     public void upgrade3()
     {
+        AudioManager.Instance.SFX("UIclick");
         if ((priceUpgrade3_1 <= totalCoins) && upgrade3Tier == 0f && waitUntilDoneClicking)
         {
             PlayerPrefs.SetFloat("Arrow2", 1f);

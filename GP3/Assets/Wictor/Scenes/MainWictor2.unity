@@ -1578,6 +1578,66 @@ PrefabInstance:
       value: AudioManager
       objectReference: {fileID: 0}
     - target: {fileID: 3033822581776346309, guid: e270a588828a78f479f45ab606b97ba4, type: 3}
+      propertyPath: sfxSounds.Array.size
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 3033822581776346309, guid: e270a588828a78f479f45ab606b97ba4, type: 3}
+      propertyPath: sfxSounds.Array.data[16].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8498aa021fd54b2439f6db19827c1490, type: 3}
+    - target: {fileID: 3033822581776346309, guid: e270a588828a78f479f45ab606b97ba4, type: 3}
+      propertyPath: sfxSounds.Array.data[16].name
+      value: Troll1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3033822581776346309, guid: e270a588828a78f479f45ab606b97ba4, type: 3}
+      propertyPath: sfxSounds.Array.data[17].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3184b7d335ec26146ba274e29b6215ad, type: 3}
+    - target: {fileID: 3033822581776346309, guid: e270a588828a78f479f45ab606b97ba4, type: 3}
+      propertyPath: sfxSounds.Array.data[17].name
+      value: Troll2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3033822581776346309, guid: e270a588828a78f479f45ab606b97ba4, type: 3}
+      propertyPath: sfxSounds.Array.data[18].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: ce30f6569332bd940abe3d513a2c3666, type: 3}
+    - target: {fileID: 3033822581776346309, guid: e270a588828a78f479f45ab606b97ba4, type: 3}
+      propertyPath: sfxSounds.Array.data[18].name
+      value: Troll3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3033822581776346309, guid: e270a588828a78f479f45ab606b97ba4, type: 3}
+      propertyPath: sfxSounds.Array.data[19].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a2abedaa88189244a5b5a2a5c2479fd, type: 3}
+    - target: {fileID: 3033822581776346309, guid: e270a588828a78f479f45ab606b97ba4, type: 3}
+      propertyPath: sfxSounds.Array.data[19].name
+      value: Orc1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3033822581776346309, guid: e270a588828a78f479f45ab606b97ba4, type: 3}
+      propertyPath: sfxSounds.Array.data[20].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6876e5a7451b2d24886cae6ccbc14cdc, type: 3}
+    - target: {fileID: 3033822581776346309, guid: e270a588828a78f479f45ab606b97ba4, type: 3}
+      propertyPath: sfxSounds.Array.data[20].name
+      value: Orc2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3033822581776346309, guid: e270a588828a78f479f45ab606b97ba4, type: 3}
+      propertyPath: sfxSounds.Array.data[21].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6876e5a7451b2d24886cae6ccbc14cdc, type: 3}
+    - target: {fileID: 3033822581776346309, guid: e270a588828a78f479f45ab606b97ba4, type: 3}
+      propertyPath: sfxSounds.Array.data[21].name
+      value: Gobil1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3033822581776346309, guid: e270a588828a78f479f45ab606b97ba4, type: 3}
+      propertyPath: sfxSounds.Array.data[22].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 44e899867d22eba4aae855ffc821fe9c, type: 3}
+    - target: {fileID: 3033822581776346309, guid: e270a588828a78f479f45ab606b97ba4, type: 3}
+      propertyPath: sfxSounds.Array.data[22].name
+      value: Gobil2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3033822581776346309, guid: e270a588828a78f479f45ab606b97ba4, type: 3}
       propertyPath: musicSounds.Array.data[0].clip
       value: 
       objectReference: {fileID: 8300000, guid: 45c84edf8bbbbc049b39b1a86a264cdb, type: 3}

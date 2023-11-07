@@ -52,16 +52,10 @@ public class UIInGameMenu : MonoBehaviour
     {
         arrow2Tier = PlayerPrefs.GetFloat("Arrow2");
     }
-    private void Update()
-    {
-        if(arrow2 && (arrow2Tier == 1f) && GameController.IsReturning)
-        {
-            
-        }
-    }
+   
     public void PauseTheGame()
     {
-        AudioManager.Instance.SFX("ButtonClick");
+        AudioManager.Instance.SFX("UIclick");
         pauseMenu.SetBool("On", true);
         mainPauseMenu.SetActive(true);
         RightTouch.SetActive(false);
@@ -74,13 +68,15 @@ public class UIInGameMenu : MonoBehaviour
     }
     public void ResumeGame()
     {
+        AudioManager.Instance.SFX("UIclick");
         StartCoroutine(ContinuePlayGame(1f, 2f));
 
 
     }
     public void BackToGame()
     {
-        AudioManager.Instance.SFX("ButtonClick");
+        AudioManager.Instance.SFX("UIclick");
+
         mainPauseMenu.SetActive(false);
         pauseButton.SetActive(true);
         Time.timeScale = 1f;
@@ -88,6 +84,7 @@ public class UIInGameMenu : MonoBehaviour
     }
     public void Settings()
     {
+        AudioManager.Instance.SFX("UIclick");
         settings.SetBool("On", true);
         settingsMenu.SetActive(true);
         musicSlider.value = AudioManager.Instance.musicSource.volume;
@@ -96,6 +93,7 @@ public class UIInGameMenu : MonoBehaviour
     }
     public void Mute()
     {
+        AudioManager.Instance.SFX("UIclick");
         Debug.Log(muted);
         if (!muted)
         {
@@ -113,6 +111,7 @@ public class UIInGameMenu : MonoBehaviour
     }
     public void ExitSettings()
     {
+        AudioManager.Instance.SFX("UIclick");
         settings.SetBool("On", false);
     }
     public void SFXSlider()
@@ -132,8 +131,8 @@ public class UIInGameMenu : MonoBehaviour
     }
     public void QuitGame()
     {
-       
-       
+
+        AudioManager.Instance.SFX("UIclick");
         StartCoroutine(QuitGame(1f));
 
     }
@@ -161,6 +160,7 @@ public class UIInGameMenu : MonoBehaviour
     //CO-ROUTINE FOR RESETING THE GAME AND GOING BACK TO THE STARTSCREEN
     IEnumerator QuitGame(float sec)
     {
+
         pauseMenu.SetBool("On", false);
         yield return new WaitForSecondsRealtime(sec);
         Time.timeScale = 1f;

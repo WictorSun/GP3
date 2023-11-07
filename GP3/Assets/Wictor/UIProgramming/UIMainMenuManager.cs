@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Rendering.PostProcessing;
+
 
 
 
@@ -22,8 +24,9 @@ public class UIMainMenuManager : MonoBehaviour
     [Tooltip("Player ref.")]
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject player2;
-
+    [SerializeField] private GameObject Rope;
     [SerializeField] private ObjectSpawner objectSpawner;
+    public GameObject winning;
 
     [Header("UI Elements")]
     [SerializeField] private Slider sfxSlider;
@@ -41,7 +44,8 @@ public class UIMainMenuManager : MonoBehaviour
 
     [Header("totalcoin and Highscore")]
     [SerializeField] private float totalCoins;
-    [SerializeField] private float higscore;
+    [SerializeField] public float higscore;
+    [SerializeField] private TextMeshProUGUI HSText;
     [SerializeField] private TextMeshProUGUI totCoinUpgrade;
     [SerializeField] private TextMeshProUGUI totCoinMain;
 
@@ -97,7 +101,7 @@ public class UIMainMenuManager : MonoBehaviour
     [SerializeField] private GameObject MaxUpgrade3;
     [SerializeField] private GameObject priceButton3;
     [SerializeField] private GameObject arrow2;
-
+    [SerializeField] private Animator balistaAnim;
     private bool waitUntilDoneClicking = true;
 
 
@@ -113,6 +117,8 @@ public class UIMainMenuManager : MonoBehaviour
     [SerializeField] private Animator StartMenu;
     [SerializeField] private GameObject camAnim;
 
+    [SerializeField] private PostProcessVolume pPv;
+    private SH_PostProcessPPSSettings pP;
     public bool debug;
 
     private void Awake()
@@ -120,12 +126,14 @@ public class UIMainMenuManager : MonoBehaviour
         startMenu.SetActive(true);
         settingsMenu.SetActive(false);
         UpgradeMenu.SetActive(false);
+        pPv.profile.TryGetSettings<SH_PostProcessPPSSettings>(out pP);
 
         if (debug)
         {
+            PlayerPrefs.SetFloat("HighScore", 0f);
             PlayerPrefs.SetFloat("Upgrade1", 0f);
             PlayerPrefs.SetFloat("Upgrade2", 0f);
-            PlayerPrefs.SetFloat("TotalCoins", 3000f);
+            PlayerPrefs.SetFloat("TotalCoins", 0f);
             PlayerPrefs.SetFloat("DistBost", 0f);
             PlayerPrefs.SetFloat("Arrow2", 0f);
             PlayerPrefs.SetFloat("Multip", 1f);
@@ -136,6 +144,9 @@ public class UIMainMenuManager : MonoBehaviour
         totalCoins = PlayerPrefs.GetFloat("TotalCoins");
         totCoinMain.text = "" + totalCoins;
         totCoinUpgrade.text = "" + totalCoins;
+        higscore = PlayerPrefs.GetFloat("HighScore");
+        HSText.text = "Best Score:" + higscore;
+
         Upgradesave1();
         Upgradesave2();
         Upgradesave3();
@@ -148,6 +159,7 @@ public class UIMainMenuManager : MonoBehaviour
         totalCoins = PlayerPrefs.GetFloat("TotalCoins");
         SC.multipliermeter = 0f;
         //Debug.Log(upgrade1Tier);
+        
     }
 
     // PRESSING PLAY
@@ -158,15 +170,16 @@ public class UIMainMenuManager : MonoBehaviour
         SC.multiplier = PlayerPrefs.GetFloat("Multip");
         arrow2.SetActive(false);
         StartCoroutine(PlayfirstAnim(2f));
-
+        AudioManager.Instance.SFX("UIclick");
 
     }
 
     //GOING INTO SETTINGS
     public void SettingsButton()
     {
+        
         settings.SetBool("On", true);
-        AudioManager.Instance.SFX("ButtonClick"); 
+        AudioManager.Instance.SFX("UIclick");
         settingsMenu.SetActive(true);
     }
 
@@ -174,7 +187,7 @@ public class UIMainMenuManager : MonoBehaviour
     public void ExitButton()
     {
         settings.SetBool("On", false);
-        AudioManager.Instance.SFX("ButtonClick");
+        AudioManager.Instance.SFX("UIclick");
     }
 
     // GO INTO SHOP TAB
@@ -182,14 +195,19 @@ public class UIMainMenuManager : MonoBehaviour
     {
         UpgradeMenu.SetActive(true);
         Shop.SetBool("On", true);
+        AudioManager.Instance.SFX("UIclick");
     }
 
     // GO BACK TO MAINMENU FROM THE SHOP
     public void ExitButtonShop()
     {
-        Shop.SetBool("On", false);
-        UpgradeMenu.SetActive(true);
-        AudioManager.Instance.SFX("ButtonClick");
+        if (winning.active == false)
+        {
+            Shop.SetBool("On", false);
+            UpgradeMenu.SetActive(true);
+            AudioManager.Instance.SFX("UIclick");
+        }
+        
     }
 
     //SET VOLUME OF SFX
@@ -212,7 +230,8 @@ public class UIMainMenuManager : MonoBehaviour
 
     public void Upgrade1()
     {
-        if((priceUpgrade1 <= totalCoins) && upgrade1Tier == 0f && waitUntilDoneClicking)
+        AudioManager.Instance.SFX("UIclick");
+        if ((priceUpgrade1 <= totalCoins) && upgrade1Tier == 0f && waitUntilDoneClicking)
         {
             PlayerPrefs.SetFloat("Upgrade1", 1f);
             upgrade1Tier = PlayerPrefs.GetFloat("Upgrade1");
@@ -307,6 +326,7 @@ public class UIMainMenuManager : MonoBehaviour
 
     public void Upgrade2()
     {
+        AudioManager.Instance.SFX("UIclick");
         if ((priceUpgrade2_1 <= totalCoins) && upgrade2Tier == 0f && waitUntilDoneClicking)
         {
             PlayerPrefs.SetFloat("Upgrade2", 1f);
@@ -395,6 +415,7 @@ public class UIMainMenuManager : MonoBehaviour
     }
     public void upgrade3()
     {
+        AudioManager.Instance.SFX("UIclick");
         if ((priceUpgrade3_1 <= totalCoins) && upgrade3Tier == 0f && waitUntilDoneClicking)
         {
             PlayerPrefs.SetFloat("Arrow2", 1f);
@@ -427,6 +448,8 @@ public class UIMainMenuManager : MonoBehaviour
         camAnim.SetActive(false);
         //camAnim.SetBool("On", true);
         yield return new WaitForSecondsRealtime(sec);
+        Rope.SetActive(true);
+        balistaAnim.SetBool("Is Walking", false);
         StartCoroutine(StartGame(time));
     }
     //CO-ROUTINE FOR STARTING THE GAME
@@ -471,13 +494,32 @@ public class UIMainMenuManager : MonoBehaviour
             camera.transform.position = Vector3.Lerp(cameraStartPosition, CamStartMovementPoint.transform.position, cameraT);
             yield return null;
         }
-
+      
+       
         yield return new WaitForSeconds(0.2f);
+        float f = 0; // This is the interpolation factor for the camera
+
+        while (f < 1) //LERP THE PLAYER TO STARTPOSITION
+        {
+            f += Time.deltaTime / 1f; // This is the speed for the player
+
+            if (f > 1)
+            {
+                f = 1;
+            }
+
+            pP._Fraction.value = Mathf.Lerp(pP._Fraction.value, pP._Fraction.value = .25f, f);
+            pP._Brightness.value = Mathf.Lerp(pP._Brightness.value, pP._Brightness.value = 1.5f, f);
+            pP._Desaturate_Edge.value = Mathf.Lerp(pP._Desaturate_Edge.value, pP._Desaturate_Edge.value = 1f, f);
+            yield return null;
+        }
+       
         objectSpawner.canSpawnEnemy = true;
         uic.takeDist = true;
         StartMenu.SetBool("On", false);
         inGameMenu.SetActive(true);
         AudioManager.Instance.PlayBackGroundMusic("Gameplay");
+        balistaAnim.SetBool("Is Walking", true);
         this.gameObject.SetActive(false);
     }
     IEnumerator ClickedUpgrade(float sec)

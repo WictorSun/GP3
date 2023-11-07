@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Cinemachine;
 
 [System.Serializable]
 public class GameController : MonoBehaviour
@@ -31,6 +32,7 @@ public class GameController : MonoBehaviour
     public GameObject FakePlayer1;
 
     public GameObject ArrowBack1;
+   
 
     public BoxCollider FakeCol;
     [SerializeField] public static BoxCollider col;
@@ -44,7 +46,7 @@ public class GameController : MonoBehaviour
         ArrowFront = FakePlayer1;
         ArrowBack = ArrowBack1;
         col = FakeCol;
-
+       
     }
 
     void Update()
@@ -60,6 +62,7 @@ public class GameController : MonoBehaviour
         ArrowFront.SetActive(false);
         col.size = new Vector3(2,2,4);
         ArrowBack.SetActive(true);
+       
         float arrow2 = PlayerPrefs.GetFloat("Arrow2");
         if(arrow2 == 1f)
         {

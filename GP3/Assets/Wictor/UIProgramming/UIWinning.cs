@@ -52,6 +52,7 @@ public class UIWinning : MonoBehaviour
     public float newCoin;
     public TextMeshProUGUI upgradeCoins;
     public Animator ballista;
+    
 
     [SerializeField] private PostProcessVolume pPv;
     private SH_PostProcessPPSSettings pP;

@@ -419,7 +419,6 @@ GameObject:
   - component: {fileID: 250166224479209457}
   - component: {fileID: 277559111832683553}
   - component: {fileID: -7849446550132011355}
-  - component: {fileID: 7620315062599006182}
   - component: {fileID: 5967005249329811176}
   - component: {fileID: 2160916547139492789}
   - component: {fileID: 8367894348511911187}
@@ -528,20 +527,6 @@ MonoBehaviour:
   killAddition: 0.2
   Explode: {fileID: 5360798700580193594, guid: fffa54e346c37314d9667ad695a09407, type: 3}
   HitSound: Troll2
---- !u!114 &7620315062599006182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1708698447510989807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce881411839ad764d8f7760fb00f14cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 1
-  currentHealth: 1
 --- !u!114 &5967005249329811176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -557,6 +542,8 @@ MonoBehaviour:
   speed: 20
   objectDistance: -60
   despawnDistance: -110
+  startPos: {fileID: 4298153954637476431}
+  model: {fileID: 1588558108008714731}
 --- !u!54 &2160916547139492789
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -590,7 +577,7 @@ MonoBehaviour:
   uic: {fileID: 0}
   moveComponent: {fileID: 5967005249329811176}
   enemyController: {fileID: -7849446550132011355}
-  healthComponent: {fileID: 7620315062599006182}
+  healthComponent: {fileID: 0}
   animation: {fileID: 2824455637692742894}
   Shootpoints:
   - {fileID: 683184555786966371}

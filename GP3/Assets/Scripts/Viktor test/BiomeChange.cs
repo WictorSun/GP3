@@ -34,11 +34,14 @@ public class BiomeChange : MonoBehaviour
     void Update()
     {
         float distance = GameController.Distance;
-        Forrest = (distance <= 100);
-        Switch = ((distance >= 100) && (distance <= 107));
-        Autumn = ((distance >= 111) && (distance <= 200));
-        Switch2 = ((distance >= 200) && (distance <= 210));
-        Desert = ((distance >= 211));
+      
+            Forrest = (distance <= 100);
+            Switch = ((distance >= 100) && (distance <= 105));
+            Autumn = ((distance >= 105) && (distance <= 200));
+            Switch2 = ((distance >= 200) && (distance <= 210));
+            Desert = ((distance >= 211));
+       
+       
         float tileDistanceFromDespawn = transform.position.z - player.transform.position.z;//Mathf.Abs(transform.position.z - moveComponent.despawnDistance);
         if (tileDistanceFromDespawn <= -30f && !GameController.IsReturning)
         {
@@ -105,7 +108,7 @@ public class BiomeChange : MonoBehaviour
         }
         // Enable desert and disable other biomes
         forest.SetActive(false);
-        desert.SetActive(true);
+        desert.SetActive(false);
         forestToDesert.SetActive(false);
         forestToAutmn.SetActive(false);
         autumnToDesert.SetActive(false);

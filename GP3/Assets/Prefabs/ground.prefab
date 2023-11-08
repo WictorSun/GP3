@@ -58,6 +58,8 @@ MonoBehaviour:
   speed: 15
   objectDistance: -30
   despawnDistance: -50
+  startPos: {fileID: 0}
+  model: {fileID: 0}
 --- !u!114 &957127563208052931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,6 +111,10 @@ PrefabInstance:
     - target: {fileID: 5986845516468327447, guid: 03adffd7f936c524296d7f34beac8767, type: 3}
       propertyPath: m_Name
       value: forest
+      objectReference: {fileID: 0}
+    - target: {fileID: 5986845516468327447, guid: 03adffd7f936c524296d7f34beac8767, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6422040953107617206, guid: 03adffd7f936c524296d7f34beac8767, type: 3}
       propertyPath: m_RootOrder
@@ -176,6 +182,10 @@ PrefabInstance:
     - target: {fileID: 2880080782025578477, guid: f642604d3d84a9146b37671e5d308bf5, type: 3}
       propertyPath: m_Name
       value: AutomForestGround
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880080782025578477, guid: f642604d3d84a9146b37671e5d308bf5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3310772765066384972, guid: f642604d3d84a9146b37671e5d308bf5, type: 3}
       propertyPath: m_RootOrder
@@ -316,6 +326,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: F&ATransGround
       objectReference: {fileID: 0}
+    - target: {fileID: 5876082561118799425, guid: 6daa75e78023b6545bd04911e7de0d84, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6595004383431952352, guid: 6daa75e78023b6545bd04911e7de0d84, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -454,6 +468,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: forestToDesert (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 835880583568151411, guid: c518fb9c317b8794a86901974cc4d19e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8252994560625845137, guid: c518fb9c317b8794a86901974cc4d19e, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -520,6 +538,10 @@ PrefabInstance:
     - target: {fileID: 7105965990151917418, guid: d0341d00d7d8209419429536714dd902, type: 3}
       propertyPath: m_Name
       value: AutomForestGroundPumpkin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7105965990151917418, guid: d0341d00d7d8209419429536714dd902, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7536587149181882059, guid: d0341d00d7d8209419429536714dd902, type: 3}
       propertyPath: m_RootOrder
@@ -631,6 +653,10 @@ PrefabInstance:
     - target: {fileID: 7928440760669165202, guid: 18d3103d652a3b143ad852ea84a70023, type: 3}
       propertyPath: m_Name
       value: desert
+      objectReference: {fileID: 0}
+    - target: {fileID: 7928440760669165202, guid: 18d3103d652a3b143ad852ea84a70023, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18d3103d652a3b143ad852ea84a70023, type: 3}

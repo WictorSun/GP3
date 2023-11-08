@@ -126,8 +126,13 @@ public class MoveComponent : MonoBehaviour
         // Despawn the enemy when it's far enough from the player
         if (Mathf.Abs(transform.position.z - (player.transform.position.z + despawnOffset)) < 1f)
         {
+            if(gameObject.tag != "ExplodingEnemy") 
+            {
+
+                model.transform.position = startPos.transform.position;
+            }
             //health.ResetHealth();
-            model.transform.position = startPos.transform.position;
+            
             gameObject.SetActive(false);
         }
     }

@@ -147,7 +147,7 @@ public class MoveComponent : MonoBehaviour
         float actualDespawnDistance = GameController.IsReturning ? -despawnDistance * 2 : despawnDistance;
 
         // Deactivate the ground tile when it reaches the despawn distance
-        if (Mathf.Abs(transform.position.z - actualDespawnDistance) < 1f)
+        if (Mathf.Abs(transform.position.z - actualDespawnDistance) <= 1f)
         {
             // gameObject.SetActive(false);
             ObjectSpawner.instance.MoveGroundBack(gameObject);

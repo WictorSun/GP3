@@ -12,8 +12,8 @@ public class BiomeChange : MonoBehaviour
     public GameObject forestToAutmn;
     public GameObject autumnToDesert;
 
-    
 
+    public float upgradeTier;
     private bool Forrest;
     private bool Autumn;
     private bool Desert;
@@ -23,25 +23,55 @@ public class BiomeChange : MonoBehaviour
 
     void Start()
     {
-        // Find child GameObjects by their name
-        //forest = transform.Find("forest").gameObject;
-        //desert = transform.Find("desert").gameObject;
-        //forestToDesert = transform.Find("forestToDesert").gameObject;
+
      
        
     }
 
     void Update()
     {
+        upgradeTier = PlayerPrefs.GetFloat("Upgrade2");
         float distance = GameController.Distance;
       
+        if(upgradeTier == 0f)
+        {
             Forrest = (distance <= 100);
             Switch = ((distance >= 100) && (distance <= 105));
             Autumn = ((distance >= 105) && (distance <= 200));
             Switch2 = ((distance >= 200) && (distance <= 210));
             Desert = ((distance >= 211));
-       
-       
+
+        }
+        else if (upgradeTier == 1f)
+        {
+            Forrest = (distance <= 400);
+            Switch = ((distance >= 400) && (distance <= 405));
+            Autumn = ((distance >= 405) && (distance <= 500));
+            Switch2 = ((distance >= 500) && (distance <= 510));
+            Desert = ((distance >= 511));
+
+        }
+        else if (upgradeTier == 2f)
+        {
+            Forrest = (distance <= 600);
+            Switch = ((distance >= 600) && (distance <= 605));
+            Autumn = ((distance >= 605) && (distance <= 700));
+            Switch2 = ((distance >= 700) && (distance <= 710));
+            Desert = ((distance >= 711));
+
+        }
+        else if (upgradeTier == 3f)
+        {
+            Forrest = (distance <= 1100);
+            Switch = ((distance >= 1100) && (distance <= 1105));
+            Autumn = ((distance >= 1105) && (distance <= 1200));
+            Switch2 = ((distance >= 1200) && (distance <= 1210));
+            Desert = ((distance >= 1211));
+
+        }
+
+
+
         float tileDistanceFromDespawn = transform.position.z - player.transform.position.z;//Mathf.Abs(transform.position.z - moveComponent.despawnDistance);
         if (tileDistanceFromDespawn <= -30f && !GameController.IsReturning)
         {

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1006886029716126272}
   - component: {fileID: 1794101956003403881}
   - component: {fileID: 1006886029716126278}
-  - component: {fileID: 1006886029716126279}
   - component: {fileID: 1006886029716126276}
   - component: {fileID: 1905975224}
   - component: {fileID: 939264867719075225}
@@ -122,20 +121,6 @@ MonoBehaviour:
   killAddition: 0.2
   Explode: {fileID: 5360798700580193594, guid: fffa54e346c37314d9667ad695a09407, type: 3}
   HitSound: Goblin2
---- !u!114 &1006886029716126279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1006886029716126277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce881411839ad764d8f7760fb00f14cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 5
-  currentHealth: 1
 --- !u!114 &1006886029716126276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,6 +136,8 @@ MonoBehaviour:
   speed: 20
   objectDistance: -170
   despawnDistance: -170
+  startPos: {fileID: 1006886029716126274}
+  model: {fileID: 7964073974699327391}
 --- !u!54 &1905975224
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -184,7 +171,7 @@ MonoBehaviour:
   uic: {fileID: 0}
   moveComponent: {fileID: 1006886029716126276}
   enemyController: {fileID: 1006886029716126278}
-  healthComponent: {fileID: 1006886029716126279}
+  healthComponent: {fileID: 0}
   animation: {fileID: 7978568292322907804}
   Shootpoints:
   - {fileID: 9036426506843926477}

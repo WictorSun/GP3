@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7759421368175982102}
   - component: {fileID: 250166224479209457}
   - component: {fileID: -7849446550132011355}
-  - component: {fileID: 7620315062599006182}
   - component: {fileID: 5967005249329811176}
   - component: {fileID: 2160916547139492789}
   - component: {fileID: 554733888073369454}
@@ -106,20 +105,6 @@ MonoBehaviour:
   killAddition: 0.2
   Explode: {fileID: 5360798700580193594, guid: fffa54e346c37314d9667ad695a09407, type: 3}
   HitSound: SmallExplosion
---- !u!114 &7620315062599006182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1708698447510989807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce881411839ad764d8f7760fb00f14cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 1
-  currentHealth: 1
 --- !u!114 &5967005249329811176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,10 +163,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 7930161530227528620, guid: a615035447253a2489c3ecb65d0ad463, type: 3}
   rb: {fileID: 2160916547139492789}
+  uic: {fileID: 0}
   moveComponent: {fileID: 5967005249329811176}
   enemyController: {fileID: -7849446550132011355}
-  healthComponent: {fileID: 7620315062599006182}
+  healthComponent: {fileID: 0}
   animation: {fileID: 6017916130797946719}
+  Shootpoints: []
+  Cam: {fileID: 0}
+  model: {fileID: 0}
+  StartTransform: {fileID: 0}
 --- !u!1 &7114038731881146969
 GameObject:
   m_ObjectHideFlags: 0

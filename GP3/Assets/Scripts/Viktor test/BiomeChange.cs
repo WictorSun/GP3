@@ -49,7 +49,7 @@ public class BiomeChange : MonoBehaviour
             {
                 EnableForest();
             }
-            else if (Switch)
+            else if (Switch)    
             {
                 EnableSwitchAutumn();
             }

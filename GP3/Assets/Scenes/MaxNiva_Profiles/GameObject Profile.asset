@@ -114,14 +114,14 @@ MonoBehaviour:
     overrideState: 1
     value: {x: 0.5, y: 1.5, z: 0, w: 0}
   _Desaturate_Edge:
-    overrideState: 0
-    value: 1
+    overrideState: 1
+    value: 0
   _Brightness_Edge:
-    overrideState: 0
-    value: 0.7
-  _EdgeGradient_Edge:
-    overrideState: 0
+    overrideState: 1
     value: 1
+  _EdgeGradient_Edge:
+    overrideState: 1
+    value: 1.3
   _EdgeThreshold_Edge:
-    overrideState: 0
-    value: 0.45
+    overrideState: 1
+    value: 1

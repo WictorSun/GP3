@@ -86,6 +86,7 @@ public class UIWinning : MonoBehaviour
         winningAnim.SetBool("On", false);
         newCoin = PlayerPrefs.GetFloat("TotalCoins");
         upgradeCoins.text = "" + newCoin;
+        UIM.totalCoins = PlayerPrefs.GetFloat("TotalCoins");
     }
     public void ExitButtonShop()
     {

@@ -35,7 +35,7 @@ public class BiomeChange : MonoBehaviour
     {
         float distance = GameController.Distance;
         Forrest = (distance <= 100);
-        Switch = ((distance >= 101) && (distance <= 110));
+        Switch = ((distance >= 100) && (distance <= 107));
         Autumn = ((distance >= 111) && (distance <= 200));
         Switch2 = ((distance >= 200) && (distance <= 210));
         Desert = ((distance >= 211));

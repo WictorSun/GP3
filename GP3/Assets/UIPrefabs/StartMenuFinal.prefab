@@ -1458,7 +1458,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 255, y: -146}
+  m_AnchoredPosition: {x: 146, y: -146}
   m_SizeDelta: {x: 322.0619, y: 139.2138}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3305543118223544951
@@ -3988,7 +3988,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 255, y: -146}
+  m_AnchoredPosition: {x: 146, y: -146}
   m_SizeDelta: {x: 322.0619, y: 139.2138}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4793672435774476344
@@ -5504,6 +5504,7 @@ MonoBehaviour:
   settingsMenu: {fileID: 4793672435157531090}
   UpgradeMenu: {fileID: 4793672435254212823}
   inGameMenu: {fileID: 0}
+  uiWinning: {fileID: 0}
   uic: {fileID: 0}
   totalCoins: 0
   higscore: 0
@@ -7441,7 +7442,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 255, y: -146}
+  m_AnchoredPosition: {x: 146, y: -146}
   m_SizeDelta: {x: 322.0619, y: 139.2138}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4087620664668161767

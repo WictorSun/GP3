@@ -77,7 +77,7 @@ public class ScoreCounter : MonoBehaviour
         if (multipliermeter < multiplierComboLimit)
         {
             multipliermeter = multipliermeter + killMultiplieraddition;
-            Debug.Log(multipliermeter);
+           
             StartCoroutine(LerpCombo());
            
             //ComboSlider.value =  multipliermeter / 1f;

@@ -39,11 +39,11 @@ public class UIMainMenuManager : MonoBehaviour
     [SerializeField] private GameObject UpgradeMenu;
     [Tooltip("Pause menu Ref.")]
     [SerializeField] private GameObject inGameMenu;
-
+    [SerializeField] private UIWinning uiWinning;
     [SerializeField] private UIController uic;
 
     [Header("totalcoin and Highscore")]
-    [SerializeField] private float totalCoins;
+    [SerializeField] public float totalCoins;
     [SerializeField] public float higscore;
     [SerializeField] private TextMeshProUGUI HSText;
     [SerializeField] private TextMeshProUGUI totCoinUpgrade;
@@ -158,8 +158,9 @@ public class UIMainMenuManager : MonoBehaviour
         musicSlider.value = AudioManager.Instance.musicSource.volume;
         totalCoins = PlayerPrefs.GetFloat("TotalCoins");
         SC.multipliermeter = 0f;
+        totalCoins = PlayerPrefs.GetFloat("TotalCoins");
         //Debug.Log(upgrade1Tier);
-        
+
     }
 
     // PRESSING PLAY
@@ -226,6 +227,7 @@ public class UIMainMenuManager : MonoBehaviour
     {
         totCoinMain.text = "" + totalCoins;
         totCoinUpgrade.text = "" + totalCoins;
+        uiWinning.totalcoin.text = "" + totalCoins;
     }
 
     public void Upgrade1()
@@ -233,6 +235,7 @@ public class UIMainMenuManager : MonoBehaviour
         AudioManager.Instance.SFX("UIclick");
         if ((priceUpgrade1 <= totalCoins) && upgrade1Tier == 0f && waitUntilDoneClicking)
         {
+            
             PlayerPrefs.SetFloat("Upgrade1", 1f);
             upgrade1Tier = PlayerPrefs.GetFloat("Upgrade1");
             SC.multiplier = comboIncrease1;
@@ -245,10 +248,11 @@ public class UIMainMenuManager : MonoBehaviour
             PlayerPrefs.SetFloat("TotalCoins", totalCoins);
             UpdateCoins();
             StartCoroutine(ClickedUpgrade(.2f));
-            Debug.Log(SC.comboIncrease);
+            
         }
         else if ((priceUpgrade2 <= totalCoins) && upgrade1Tier == 1f && waitUntilDoneClicking)
         {
+            
             PlayerPrefs.SetFloat("Upgrade1", 2f);
             upgrade1Tier = PlayerPrefs.GetFloat("Upgrade1");
             SC.multiplier = comboIncrease2;
@@ -261,11 +265,12 @@ public class UIMainMenuManager : MonoBehaviour
             PlayerPrefs.SetFloat("TotalCoins", totalCoins);
             UpdateCoins();
             StartCoroutine(ClickedUpgrade(.2f));
-            Debug.Log(SC.comboIncrease);
+            
 
         }
         else if ((priceUpgrade3 <= totalCoins) && upgrade1Tier == 2f && waitUntilDoneClicking)
         {
+            
             PlayerPrefs.SetFloat("Upgrade1", 3f);
             upgrade1Tier = PlayerPrefs.GetFloat("Upgrade1");
             SC.multiplier = comboIncrease3;
@@ -279,7 +284,7 @@ public class UIMainMenuManager : MonoBehaviour
             PlayerPrefs.SetFloat("TotalCoins", totalCoins);
             UpdateCoins();
             StartCoroutine(ClickedUpgrade(.2f));
-            Debug.Log(SC.comboIncrease);
+            MaxUpgrade1.SetActive(true);
         }
     }
     public void Upgradesave1()
@@ -321,6 +326,7 @@ public class UIMainMenuManager : MonoBehaviour
             priceButton.SetActive(false);
             UpdateCoins();
             StartCoroutine(ClickedUpgrade(.2f));
+            MaxUpgrade1.SetActive(true);
         }
     }
 
@@ -329,6 +335,7 @@ public class UIMainMenuManager : MonoBehaviour
         AudioManager.Instance.SFX("UIclick");
         if ((priceUpgrade2_1 <= totalCoins) && upgrade2Tier == 0f && waitUntilDoneClicking)
         {
+            
             PlayerPrefs.SetFloat("Upgrade2", 1f);
             upgrade2Tier = PlayerPrefs.GetFloat("Upgrade2");
             PlayerPrefs.SetFloat("DistBost", DistanceIncrease1);
@@ -345,6 +352,7 @@ public class UIMainMenuManager : MonoBehaviour
         }
         else if ((priceUpgrade2_2 <= totalCoins) && upgrade2Tier == 1f && waitUntilDoneClicking)
         {
+            
             PlayerPrefs.SetFloat("Upgrade2", 2f);
             upgrade2Tier = PlayerPrefs.GetFloat("Upgrade2");
             PlayerPrefs.SetFloat("DistBost", DistanceIncrease2);
@@ -362,6 +370,7 @@ public class UIMainMenuManager : MonoBehaviour
         }
         else if ((priceUpgrade2_3 <= totalCoins) && upgrade2Tier == 2f && waitUntilDoneClicking)
         {
+            
             PlayerPrefs.SetFloat("Upgrade2", 3f);
             upgrade2Tier = PlayerPrefs.GetFloat("Upgrade2");
             PlayerPrefs.SetFloat("DistBost", DistanceIncrease3);
@@ -375,7 +384,8 @@ public class UIMainMenuManager : MonoBehaviour
             PlayerPrefs.SetFloat("TotalCoins", totalCoins);
             UpdateCoins();
             StartCoroutine(ClickedUpgrade(.2f));
-            
+            MaxUpgrade2.SetActive(true);
+
         }
     }
 
@@ -411,6 +421,7 @@ public class UIMainMenuManager : MonoBehaviour
             priceButton2.SetActive(false);
             UpdateCoins();
             StartCoroutine(ClickedUpgrade(.2f));
+            MaxUpgrade2.SetActive(true);
         }
     }
     public void upgrade3()
@@ -418,6 +429,7 @@ public class UIMainMenuManager : MonoBehaviour
         AudioManager.Instance.SFX("UIclick");
         if ((priceUpgrade3_1 <= totalCoins) && upgrade3Tier == 0f && waitUntilDoneClicking)
         {
+            
             PlayerPrefs.SetFloat("Arrow2", 1f);
             upgrade3Tier = PlayerPrefs.GetFloat("Arrow2");
             gemUpgrade3One.SetActive(true);
@@ -427,7 +439,8 @@ public class UIMainMenuManager : MonoBehaviour
             PlayerPrefs.SetFloat("TotalCoins", totalCoins);
             UpdateCoins();
             StartCoroutine(ClickedUpgrade(.2f));
-         
+            MaxUpgrade3.SetActive(true);
+
         }
     }
     public void Upgradesave3()
@@ -440,6 +453,7 @@ public class UIMainMenuManager : MonoBehaviour
             upgradeDescription3.text = "" + finalItemDescription;
             UpdateCoins();
             StartCoroutine(ClickedUpgrade(.2f));
+            MaxUpgrade3.SetActive(true);
         }
        
     }

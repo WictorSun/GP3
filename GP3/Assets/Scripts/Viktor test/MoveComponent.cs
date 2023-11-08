@@ -29,6 +29,9 @@ public class MoveComponent : MonoBehaviour
     private EnemyController enemy;
     private SpeedModifier speedModifier;
 
+    [SerializeField] private Transform startPos;
+    [SerializeField] private Transform model;
+
 
     private void Start()
     {
@@ -123,7 +126,8 @@ public class MoveComponent : MonoBehaviour
         // Despawn the enemy when it's far enough from the player
         if (Mathf.Abs(transform.position.z - (player.transform.position.z + despawnOffset)) < 1f)
         {
-            health.ResetHealth();
+            //health.ResetHealth();
+            model.transform.position = startPos.transform.position;
             gameObject.SetActive(false);
         }
     }

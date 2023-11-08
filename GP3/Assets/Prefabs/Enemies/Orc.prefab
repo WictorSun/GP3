@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 4971107453951017358}
   - component: {fileID: 2441219332478631463}
   - component: {fileID: 4069152037495023108}
-  - component: {fileID: 2203227902895827146}
   - component: {fileID: 1211075282716312668}
   - component: {fileID: 5251057831430686464}
   - component: {fileID: 400943601716719099}
@@ -153,20 +152,6 @@ MonoBehaviour:
   killAddition: 0.2
   Explode: {fileID: 5360798700580193594, guid: fffa54e346c37314d9667ad695a09407, type: 3}
   HitSound: Orc2
---- !u!114 &2203227902895827146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5048665178540273728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce881411839ad764d8f7760fb00f14cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 1
-  currentHealth: 1
 --- !u!114 &1211075282716312668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,6 +167,8 @@ MonoBehaviour:
   speed: 20
   objectDistance: -170
   despawnDistance: -170
+  startPos: {fileID: 8053710630416358174}
+  model: {fileID: 9091923894974254371}
 --- !u!54 &5251057831430686464
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -215,7 +202,7 @@ MonoBehaviour:
   uic: {fileID: 0}
   moveComponent: {fileID: 1211075282716312668}
   enemyController: {fileID: 4069152037495023108}
-  healthComponent: {fileID: 2203227902895827146}
+  healthComponent: {fileID: 0}
   animation: {fileID: 6170434750798129609}
   Shootpoints:
   - {fileID: 6057747913074755506}

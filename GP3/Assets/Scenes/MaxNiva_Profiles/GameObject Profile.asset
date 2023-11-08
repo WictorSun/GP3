@@ -74,7 +74,7 @@ MonoBehaviour:
   active: 1
   enabled:
     overrideState: 1
-    value: 0
+    value: 1
   _TextureSample1:
     overrideState: 0
     value: {fileID: 0}
@@ -100,7 +100,7 @@ MonoBehaviour:
     value: 0.25
   _Brightness:
     overrideState: 1
-    value: 1.5
+    value: 1
   _Gradient:
     overrideState: 0
     value: 1

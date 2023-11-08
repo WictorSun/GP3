@@ -145,6 +145,7 @@ public class UIInGameMenu : MonoBehaviour
     //CO-ROUTINE FOR CONTINUE THE GAME WITH A COUNTDOWN UNTIL THE TOUCH INPUT WORKS AGAIN
     IEnumerator ContinuePlayGame(float WaitForSecs, float OtherSec)
     {
+        mainPauseMenu.SetActive(false);
         pauseMenu.SetBool("On", false);
         yield return new WaitForSecondsRealtime(WaitForSecs);
         CountDown.SetBool("On", true);

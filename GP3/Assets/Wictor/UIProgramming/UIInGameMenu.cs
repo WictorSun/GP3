@@ -21,6 +21,7 @@ public class UIInGameMenu : MonoBehaviour
     [SerializeField] private GameObject LeftTouch;
     [Tooltip("drag in the Right touch Button")]
     [SerializeField] private GameObject RightTouch;
+    [SerializeField] private GameObject arrow2GO;
 
     [Tooltip("drag in the SfX Slider")]
     [SerializeField] private Slider sfxSlider;
@@ -36,17 +37,25 @@ public class UIInGameMenu : MonoBehaviour
     [SerializeField] private Animator pauseMenu;
     [Tooltip("drag in the CountDown Animator")]
     [SerializeField] private Animator CountDown;
+
+    public bool arrow2;
+    private float arrow2Tier;
     private void Awake()
     {
         muted = false;
         settingsMenu.SetActive(false);
         //this.gameObject.SetActive(false);
+        arrow2Tier = PlayerPrefs.GetFloat("Arrow2");
       
     }
-
+    public void updateArrowTier()
+    {
+        arrow2Tier = PlayerPrefs.GetFloat("Arrow2");
+    }
+   
     public void PauseTheGame()
     {
-        AudioManager.Instance.SFX("ButtonClick");
+        AudioManager.Instance.SFX("UIclick");
         pauseMenu.SetBool("On", true);
         mainPauseMenu.SetActive(true);
         RightTouch.SetActive(false);
@@ -59,13 +68,15 @@ public class UIInGameMenu : MonoBehaviour
     }
     public void ResumeGame()
     {
+        AudioManager.Instance.SFX("UIclick");
         StartCoroutine(ContinuePlayGame(1f, 2f));
 
 
     }
     public void BackToGame()
     {
-        AudioManager.Instance.SFX("ButtonClick");
+        AudioManager.Instance.SFX("UIclick");
+
         mainPauseMenu.SetActive(false);
         pauseButton.SetActive(true);
         Time.timeScale = 1f;
@@ -73,6 +84,7 @@ public class UIInGameMenu : MonoBehaviour
     }
     public void Settings()
     {
+        AudioManager.Instance.SFX("UIclick");
         settings.SetBool("On", true);
         settingsMenu.SetActive(true);
         musicSlider.value = AudioManager.Instance.musicSource.volume;
@@ -81,6 +93,7 @@ public class UIInGameMenu : MonoBehaviour
     }
     public void Mute()
     {
+        AudioManager.Instance.SFX("UIclick");
         Debug.Log(muted);
         if (!muted)
         {
@@ -98,6 +111,7 @@ public class UIInGameMenu : MonoBehaviour
     }
     public void ExitSettings()
     {
+        AudioManager.Instance.SFX("UIclick");
         settings.SetBool("On", false);
     }
     public void SFXSlider()
@@ -117,14 +131,21 @@ public class UIInGameMenu : MonoBehaviour
     }
     public void QuitGame()
     {
-       
-       
+
+        AudioManager.Instance.SFX("UIclick");
         StartCoroutine(QuitGame(1f));
 
+    }
+    IEnumerator ActivateArrow2()
+    {
+        arrow2GO.SetActive(true);
+        yield return new WaitForSeconds(0.01f);
+        arrow2 = false;
     }
     //CO-ROUTINE FOR CONTINUE THE GAME WITH A COUNTDOWN UNTIL THE TOUCH INPUT WORKS AGAIN
     IEnumerator ContinuePlayGame(float WaitForSecs, float OtherSec)
     {
+        mainPauseMenu.SetActive(false);
         pauseMenu.SetBool("On", false);
         yield return new WaitForSecondsRealtime(WaitForSecs);
         CountDown.SetBool("On", true);
@@ -140,6 +161,7 @@ public class UIInGameMenu : MonoBehaviour
     //CO-ROUTINE FOR RESETING THE GAME AND GOING BACK TO THE STARTSCREEN
     IEnumerator QuitGame(float sec)
     {
+
         pauseMenu.SetBool("On", false);
         yield return new WaitForSecondsRealtime(sec);
         Time.timeScale = 1f;

@@ -19,6 +19,7 @@ public class ArrowMovement : MonoBehaviour
     [SerializeField] float tiltSpeed = 5;
     [SerializeField] float spinSpeed = 0;
 
+
     private float lateralDirection = 1f; // 1 for right, -1 for left
 
     void Start()
@@ -38,6 +39,7 @@ public class ArrowMovement : MonoBehaviour
         if (leftButtonPressed && leftButtonStillDown)
         {
             transform.position += new Vector3(-1 * horizontalSpeed, 0, 0) * Time.deltaTime;
+            
         }
 
         if (rightButtonPressed && rightButtonStillDown)

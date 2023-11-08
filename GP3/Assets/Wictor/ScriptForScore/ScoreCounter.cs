@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class ScoreCounter : MonoBehaviour
 {
@@ -12,11 +14,13 @@ public class ScoreCounter : MonoBehaviour
     [Tooltip("Dont do anything here its only for debugging purposes")]
     [SerializeField] private int killScore;
     [Tooltip("Dont do anything here its only for debugging purposes")]
-    [SerializeField] private float multiplier = 1;
+    [SerializeField] public float multiplier = 1;
+    [SerializeField] private TextMeshProUGUI ComboNumber;
 
     private float addedScore;
     private float coins;
-    private float multipliermeter;
+    public float multipliermeter;
+    [SerializeField]public UIMainMenuManager uim;
 
     [Tooltip("Dont do anything here its only for debugging purposes")]
     [SerializeField] private float multiplierComboLimit;
@@ -28,6 +32,9 @@ public class ScoreCounter : MonoBehaviour
     [SerializeField] private UIWinning WinningScreen;
     [Tooltip("Drag in the GameController in the Scene")]
     [SerializeField] private GameController GC;
+
+    [SerializeField] private Slider ComboSlider;
+    [SerializeField] private GameObject ComboGO;
 
     [Header("Combo Stuff")]
     [Tooltip("Change howe much faster the combo//multiplier multiplies, its here for designers to mess around with")]
@@ -46,6 +53,7 @@ public class ScoreCounter : MonoBehaviour
             Destroy(gameObject);
         }
         totalCoins = PlayerPrefs.GetFloat("TotalCoins");
+        ComboNumber.text = "" + multiplier + "X";
     }
     void Start()
     {
@@ -65,15 +73,20 @@ public class ScoreCounter : MonoBehaviour
     //CALUCULATES THE MULTIPLIER THAT GETS ADDED IN THE END
     public void KillMultiplier(float killMultiplieraddition)
     {
-       
+        
         if (multipliermeter < multiplierComboLimit)
         {
             multipliermeter = multipliermeter + killMultiplieraddition;
+           
+            StartCoroutine(LerpCombo());
+           
+            //ComboSlider.value =  multipliermeter / 1f;
         }
         else
         {
             multipliermeter = 0f;
             multiplier = multiplier + 1;
+            ComboNumber.text = "" + multiplier + "X";
             multiplierComboLimit = multiplierComboLimit * comboIncrease;
         }
     }
@@ -82,7 +95,7 @@ public class ScoreCounter : MonoBehaviour
     {
         addedScore = metersTraveled + killScore;
         finalScore = addedScore * multiplier;
-        coins = Mathf.FloorToInt(finalScore) / 100;
+        coins = Mathf.FloorToInt(finalScore) / 10;
         if (coins <= 5)
         {
             coins = 5;
@@ -96,8 +109,27 @@ public class ScoreCounter : MonoBehaviour
         WinningScreen.totalScore.text = "" + finalScore;
         WinningScreen.coins.text = "" + coins;
         WinningScreen.totalcoin.text = "" + totalCoins;
-        
+        if(finalScore > uim.higscore)
+        {
+            uim.higscore = finalScore;
+            PlayerPrefs.SetFloat("HighScore", finalScore);
+        }
         //Debug.Log(finalScore);
     }
-  
+  IEnumerator LerpCombo()
+    {
+        float T = 0;
+        while (T < 1f)
+        {
+            T += Time.deltaTime / .5f;
+
+            if (T > 1f)
+            {
+                T = 1f;
+            }
+            ComboSlider.value = Mathf.Lerp(ComboSlider.value, multipliermeter / 1f, T);
+            yield return null;
+        }
+       
+    }
 }

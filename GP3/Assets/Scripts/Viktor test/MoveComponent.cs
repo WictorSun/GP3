@@ -29,6 +29,9 @@ public class MoveComponent : MonoBehaviour
     private EnemyController enemy;
     private SpeedModifier speedModifier;
 
+    [SerializeField] private Transform startPos;
+    [SerializeField] private Transform model;
+
 
     private void Start()
     {
@@ -114,8 +117,8 @@ public class MoveComponent : MonoBehaviour
     private void HandleDespawn()
     {
         // Despawn offset based on game direction
-        float despawnOffset = GameController.IsReturning ? 22f : -22f; 
-        // 24 cause then not see the disappear when reeled back
+        float despawnOffset = GameController.IsReturning ? 42f : -22f; 
+        // 24 cause then not see the disappear when reeled back //  changed to 42 because exploded debris dissapeared to quickly - Hugo
         
         // If it's not an enemy or despawning is disabled, do nothing
         if (enemy == null || !GameController.CanDespawnEnemies) return;
@@ -123,7 +126,13 @@ public class MoveComponent : MonoBehaviour
         // Despawn the enemy when it's far enough from the player
         if (Mathf.Abs(transform.position.z - (player.transform.position.z + despawnOffset)) < 1f)
         {
-            health.ResetHealth();
+            if(gameObject.tag != "ExplodingEnemy") 
+            {
+
+                model.transform.position = startPos.transform.position;
+            }
+            //health.ResetHealth();
+            
             gameObject.SetActive(false);
         }
     }

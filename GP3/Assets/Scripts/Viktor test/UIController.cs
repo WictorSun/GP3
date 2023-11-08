@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.SceneManagement;
-
+using Cinemachine;
 public class UIController : MonoBehaviour
 {
     [SerializeField] private float timeMod = 2.0f; // Time modifier for distance
@@ -21,11 +22,22 @@ public class UIController : MonoBehaviour
     [SerializeField] private ObjectSpawner objectSpawner;
 
     [SerializeField] private Animator winningAnim;
+    [SerializeField] public List<AttachEnemies> aE;
 
+    public BoxCollider FakeCol;
+    
     public GameObject SafeArea;
     public bool endGame = true;
+    public bool startPostProcess = true;
+    [SerializeField] private PostProcessVolume pPv;
+    private SH_PostProcessPPSSettings pP;
     
-    public bool takeDist; 
+    public bool takeDist;
+
+    private void Awake()
+    {
+        pPv.profile.TryGetSettings<SH_PostProcessPPSSettings>(out pP);
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +50,11 @@ public class UIController : MonoBehaviour
         if (takeDist)
         {
             TakeDist();
+        }
+        if(GameController.IsReturning && startPostProcess)
+        {
+            StartCoroutine(postprocess(.2f));
+            startPostProcess = false;
         }
     }
 
@@ -61,13 +78,13 @@ public class UIController : MonoBehaviour
         {
 
             Winning();
-
+            
         }
         
     }
     public void Winning()
     {
-        
+        FakeCol.size = new Vector3(1.21f , 1 , 2.41f);
         endGame = false;
         ScoreCounter.Instance.WinningScoreCounter();
         
@@ -76,18 +93,32 @@ public class UIController : MonoBehaviour
             obj.ReturnToStart();
         }
         StartCoroutine(StartGame(time));
+
     }
+    IEnumerator postprocess(float sec)
+    {
+        float f = 0; // This is the interpolation factor for the camera
 
-    IEnumerator StartGame(float time)
-    {  SpeedModifier.GameEnded();
-        GameObject[] enemies;
-        objectSpawner.canSpawnEnemy = false;
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach(GameObject enem in enemies)
+        while (f < 1) //LERP THE PLAYER TO STARTPOSITION
         {
-            enem.SetActive(false);
-        }
+            f += Time.deltaTime / 5f; // This is the speed for the player
 
+            if (f > 1)
+            {
+                f = 1;
+            }
+
+            pP._Switch.value = Mathf.Lerp(pP._Switch.value, pP._Switch.value = 0f, f);
+            
+            pP._Pan_V1.value = Mathf.Lerp(pP._Pan_V1.value, pP._Pan_V1.value = 0.15f, f);
+            yield return null;
+        }
+        yield return new WaitForSeconds(sec); 
+    }
+    IEnumerator StartGame(float time)
+    { 
+        SpeedModifier.GameEnded();
+        objectSpawner.canSpawnEnemy = false;
         takeDist = false;
         Vector3 cameraStartPosition = camera.transform.position;
         
@@ -96,7 +127,7 @@ public class UIController : MonoBehaviour
 
         while (cameraT < 1)
         {
-            cameraT += Time.deltaTime / 1.01f; // This is the speed for the player
+            cameraT += Time.deltaTime / .5f; // This is the speed for the player
 
             if (cameraT > 1)
             {
@@ -110,33 +141,63 @@ public class UIController : MonoBehaviour
 
        
         Vector3 playerStartPosition = player.transform.position;
+        Vector3 player2StartPosition = player2.transform.position;
         float T = 0;
-        while (T < 1)
-        {
-            T += Time.deltaTime / 1f; // This is the speed for the player
 
-            if (T > 1)
+        while (T < 1 )
+        {
+            T += Time.deltaTime / .5f; // This is the speed for the player
+         
+           if (T > 1)
             {
                 T = 1;
             }
             
+
             player.transform.position = Vector3.Lerp(playerStartPosition, StartMovementPoint.transform.position, T);
-            player2.transform.position = Vector3.Lerp(playerStartPosition, StartMovementPoint.transform.position, T);
+            player2.transform.position = Vector3.Lerp(player2StartPosition, StartMovementPoint.transform.position, T);
             yield return null;
         }
 
+       
+
         yield return new WaitForSeconds(0.2f);
+        float f = 0; // This is the interpolation factor for the camera
+
+        while (f < 1) //LERP THE PLAYER TO STARTPOSITION
+        {
+            f += Time.deltaTime / 1f; // This is the speed for the player
+
+            if (f > 1)
+            {
+                f = 1;
+            }
+
+            pP._Fraction.value = Mathf.Lerp(pP._Fraction.value, pP._Fraction.value = 0f, f);
+            pP._Brightness.value = Mathf.Lerp(pP._Brightness.value, pP._Brightness.value = 1f, f);
+            pP._Desaturate_Edge.value = Mathf.Lerp(pP._Desaturate_Edge.value, pP._Desaturate_Edge.value = 0f, f);
+            pP._Switch.value = Mathf.Lerp(pP._Switch.value, pP._Switch.value = 1f, f);
+
+            pP._Pan_V1.value = Mathf.Lerp(pP._Pan_V1.value, pP._Pan_V1.value = -0.15f, f);
+            yield return null;
+        }
         winningScreen.SetActive(true);
-     
+
         SafeArea.SetActive(true);
         winningAnim.SetBool("On", true);
         objectSpawner.canSpawnEnemy = false;
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (GameObject enem in enemies)
-        {
-            enem.SetActive(false);
-        }
+       
         SpeedModifier.ResetHit();
-        //Debug.Log(SpeedModifier.speed + "speeeeeeeeeeeeed");
+        foreach (AttachEnemies enem in aE)
+        {
+            enem.RemoveEnemies();
+
+        }
+        aE.Clear();
+        yield return new WaitForSecondsRealtime(2f);
+       
+        player2.SetActive(false);
+        
+
     }
 }

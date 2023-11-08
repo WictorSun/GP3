@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Rendering.PostProcessing;
+
 
 
 
@@ -22,8 +24,9 @@ public class UIMainMenuManager : MonoBehaviour
     [Tooltip("Player ref.")]
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject player2;
-
+    [SerializeField] private GameObject Rope;
     [SerializeField] private ObjectSpawner objectSpawner;
+    public GameObject winning;
 
     [Header("UI Elements")]
     [SerializeField] private Slider sfxSlider;
@@ -36,12 +39,13 @@ public class UIMainMenuManager : MonoBehaviour
     [SerializeField] private GameObject UpgradeMenu;
     [Tooltip("Pause menu Ref.")]
     [SerializeField] private GameObject inGameMenu;
-
+    [SerializeField] private UIWinning uiWinning;
     [SerializeField] private UIController uic;
 
     [Header("totalcoin and Highscore")]
-    [SerializeField] private float totalCoins;
-    [SerializeField] private float higscore;
+    [SerializeField] public float totalCoins;
+    [SerializeField] public float higscore;
+    [SerializeField] private TextMeshProUGUI HSText;
     [SerializeField] private TextMeshProUGUI totCoinUpgrade;
     [SerializeField] private TextMeshProUGUI totCoinMain;
 
@@ -86,8 +90,18 @@ public class UIMainMenuManager : MonoBehaviour
     [SerializeField] private string itemDescription2_2;
     [SerializeField] private string itemDescription2_3;
 
-
-
+    [Header("Upgrade3")]
+    [SerializeField] private float upgrade3Tier;
+    [SerializeField] private string finalItemDescription;
+    [SerializeField] private float priceUpgrade3_1;
+    [SerializeField] private TextMeshProUGUI levelUpgrade3;
+    [SerializeField] private TextMeshProUGUI upgradeDescription3;
+    [SerializeField] private TextMeshProUGUI priceTextFieldUpgrade3;
+    [SerializeField] private GameObject gemUpgrade3One;
+    [SerializeField] private GameObject MaxUpgrade3;
+    [SerializeField] private GameObject priceButton3;
+    [SerializeField] private GameObject arrow2;
+    [SerializeField] private Animator balistaAnim;
     private bool waitUntilDoneClicking = true;
 
 
@@ -101,7 +115,10 @@ public class UIMainMenuManager : MonoBehaviour
     [Tooltip("The animator controler for the Shop TAB")]
     [SerializeField] private Animator Shop;
     [SerializeField] private Animator StartMenu;
+    [SerializeField] private GameObject camAnim;
 
+    [SerializeField] private PostProcessVolume pPv;
+    private SH_PostProcessPPSSettings pP;
     public bool debug;
 
     private void Awake()
@@ -109,19 +126,30 @@ public class UIMainMenuManager : MonoBehaviour
         startMenu.SetActive(true);
         settingsMenu.SetActive(false);
         UpgradeMenu.SetActive(false);
+        pPv.profile.TryGetSettings<SH_PostProcessPPSSettings>(out pP);
 
         if (debug)
         {
+            PlayerPrefs.SetFloat("HighScore", 0f);
             PlayerPrefs.SetFloat("Upgrade1", 0f);
             PlayerPrefs.SetFloat("Upgrade2", 0f);
-            PlayerPrefs.SetFloat("TotalCoins", 40f);
+            PlayerPrefs.SetFloat("TotalCoins", 0f);
             PlayerPrefs.SetFloat("DistBost", 0f);
+            PlayerPrefs.SetFloat("Arrow2", 0f);
+            PlayerPrefs.SetFloat("Multip", 1f);
         }
         upgrade1Tier = PlayerPrefs.GetFloat("Upgrade1");
         upgrade2Tier = PlayerPrefs.GetFloat("Upgrade2");
+        upgrade3Tier = PlayerPrefs.GetFloat("Arrow2");
         totalCoins = PlayerPrefs.GetFloat("TotalCoins");
         totCoinMain.text = "" + totalCoins;
         totCoinUpgrade.text = "" + totalCoins;
+        higscore = PlayerPrefs.GetFloat("HighScore");
+        HSText.text = "Best Score:" + higscore;
+
+        Upgradesave1();
+        Upgradesave2();
+        Upgradesave3();
     }
 
     private void Start()
@@ -129,7 +157,10 @@ public class UIMainMenuManager : MonoBehaviour
         sfxSlider.value = AudioManager.Instance.sfxSource.volume;
         musicSlider.value = AudioManager.Instance.musicSource.volume;
         totalCoins = PlayerPrefs.GetFloat("TotalCoins");
+        SC.multipliermeter = 0f;
+        totalCoins = PlayerPrefs.GetFloat("TotalCoins");
         //Debug.Log(upgrade1Tier);
+
     }
 
     // PRESSING PLAY
@@ -137,14 +168,19 @@ public class UIMainMenuManager : MonoBehaviour
     {
         StartMenu.SetBool("On", true);
         GameController.Distance = PlayerPrefs.GetFloat("DistBost");
-        StartCoroutine(StartGame(time));
+        SC.multiplier = PlayerPrefs.GetFloat("Multip");
+        arrow2.SetActive(false);
+        StartCoroutine(PlayfirstAnim(2f));
+        AudioManager.Instance.SFX("UIclick");
+
     }
 
     //GOING INTO SETTINGS
     public void SettingsButton()
     {
+        
         settings.SetBool("On", true);
-        AudioManager.Instance.SFX("ButtonClick"); 
+        AudioManager.Instance.SFX("UIclick");
         settingsMenu.SetActive(true);
     }
 
@@ -152,7 +188,7 @@ public class UIMainMenuManager : MonoBehaviour
     public void ExitButton()
     {
         settings.SetBool("On", false);
-        AudioManager.Instance.SFX("ButtonClick");
+        AudioManager.Instance.SFX("UIclick");
     }
 
     // GO INTO SHOP TAB
@@ -160,14 +196,19 @@ public class UIMainMenuManager : MonoBehaviour
     {
         UpgradeMenu.SetActive(true);
         Shop.SetBool("On", true);
+        AudioManager.Instance.SFX("UIclick");
     }
 
     // GO BACK TO MAINMENU FROM THE SHOP
     public void ExitButtonShop()
     {
-        Shop.SetBool("On", false);
-        UpgradeMenu.SetActive(true);
-        AudioManager.Instance.SFX("ButtonClick");
+        if (winning.active == false)
+        {
+            Shop.SetBool("On", false);
+            UpgradeMenu.SetActive(true);
+            AudioManager.Instance.SFX("UIclick");
+        }
+        
     }
 
     //SET VOLUME OF SFX
@@ -186,15 +227,19 @@ public class UIMainMenuManager : MonoBehaviour
     {
         totCoinMain.text = "" + totalCoins;
         totCoinUpgrade.text = "" + totalCoins;
+        uiWinning.totalcoin.text = "" + totalCoins;
     }
 
     public void Upgrade1()
     {
-        if((priceUpgrade1 <= totalCoins) && upgrade1Tier == 0f && waitUntilDoneClicking)
+        AudioManager.Instance.SFX("UIclick");
+        if ((priceUpgrade1 <= totalCoins) && upgrade1Tier == 0f && waitUntilDoneClicking)
         {
+            
             PlayerPrefs.SetFloat("Upgrade1", 1f);
             upgrade1Tier = PlayerPrefs.GetFloat("Upgrade1");
-            SC.comboIncrease = comboIncrease1;
+            SC.multiplier = comboIncrease1;
+            PlayerPrefs.SetFloat("Multip", comboIncrease1);
             gemUpgrade1One.SetActive(true);
             levelUpgrade1.text = "Level 1 / 3";
             upgradeDescription1.text = itemDescription1;
@@ -203,13 +248,15 @@ public class UIMainMenuManager : MonoBehaviour
             PlayerPrefs.SetFloat("TotalCoins", totalCoins);
             UpdateCoins();
             StartCoroutine(ClickedUpgrade(.2f));
-            Debug.Log(SC.comboIncrease);
+            
         }
         else if ((priceUpgrade2 <= totalCoins) && upgrade1Tier == 1f && waitUntilDoneClicking)
         {
+            
             PlayerPrefs.SetFloat("Upgrade1", 2f);
             upgrade1Tier = PlayerPrefs.GetFloat("Upgrade1");
-            SC.comboIncrease = comboIncrease2;
+            SC.multiplier = comboIncrease2;
+            PlayerPrefs.SetFloat("Multip", comboIncrease2);
             gemUpgrade1Two.SetActive(true);
             levelUpgrade1.text = "Level 2 / 3";
             upgradeDescription1.text = itemDescription2;
@@ -218,14 +265,16 @@ public class UIMainMenuManager : MonoBehaviour
             PlayerPrefs.SetFloat("TotalCoins", totalCoins);
             UpdateCoins();
             StartCoroutine(ClickedUpgrade(.2f));
-            Debug.Log(SC.comboIncrease);
+            
 
         }
         else if ((priceUpgrade3 <= totalCoins) && upgrade1Tier == 2f && waitUntilDoneClicking)
         {
+            
             PlayerPrefs.SetFloat("Upgrade1", 3f);
             upgrade1Tier = PlayerPrefs.GetFloat("Upgrade1");
-            SC.comboIncrease = comboIncrease3;
+            SC.multiplier = comboIncrease3;
+            PlayerPrefs.SetFloat("Multip", comboIncrease3);
             gemUpgrade1Three.SetActive(true);
             levelUpgrade1.text = "Level 3 / 3";
             upgradeDescription1.text = itemDescription3;
@@ -235,14 +284,58 @@ public class UIMainMenuManager : MonoBehaviour
             PlayerPrefs.SetFloat("TotalCoins", totalCoins);
             UpdateCoins();
             StartCoroutine(ClickedUpgrade(.2f));
-            Debug.Log(SC.comboIncrease);
+            MaxUpgrade1.SetActive(true);
+        }
+    }
+    public void Upgradesave1()
+    {   
+        if(upgrade1Tier == 0f)
+        {
+            SC.multiplier = 1f;
+        }
+        if(upgrade1Tier == 1f)
+        {
+            SC.multiplier = comboIncrease1;
+            gemUpgrade1One.SetActive(true);
+            levelUpgrade1.text = "Level 1 / 3";
+            upgradeDescription1.text = itemDescription1;
+            priceTextFieldUpgrade1.text = "" + priceUpgrade1;
+            UpdateCoins();
+            StartCoroutine(ClickedUpgrade(.2f));
+        }
+        if (upgrade1Tier == 2f)
+        {
+            SC.multiplier = comboIncrease2;
+            gemUpgrade1Two.SetActive(true);
+            gemUpgrade1One.SetActive(true);
+            levelUpgrade1.text = "Level 2 / 3";
+            upgradeDescription1.text = itemDescription2;
+            priceTextFieldUpgrade1.text = "" + priceUpgrade2;
+            UpdateCoins();
+            StartCoroutine(ClickedUpgrade(.2f));
+        }
+        if (upgrade1Tier == 3f)
+        {
+            SC.multiplier = comboIncrease3;
+            gemUpgrade1Two.SetActive(true);
+            gemUpgrade1One.SetActive(true);
+            gemUpgrade1Three.SetActive(true);
+            levelUpgrade1.text = "Level 3 / 3";
+            upgradeDescription1.text = itemDescription3;
+            priceTextFieldUpgrade1.text = "" + priceUpgrade3;
+            priceButton.SetActive(false);
+            UpdateCoins();
+            StartCoroutine(ClickedUpgrade(.2f));
+            MaxUpgrade1.SetActive(true);
         }
     }
 
     public void Upgrade2()
     {
+        AudioManager.Instance.SFX("UIclick");
         if ((priceUpgrade2_1 <= totalCoins) && upgrade2Tier == 0f && waitUntilDoneClicking)
         {
+            
             PlayerPrefs.SetFloat("Upgrade2", 1f);
             upgrade2Tier = PlayerPrefs.GetFloat("Upgrade2");
             PlayerPrefs.SetFloat("DistBost", DistanceIncrease1);
@@ -259,6 +352,7 @@ public class UIMainMenuManager : MonoBehaviour
         }
         else if ((priceUpgrade2_2 <= totalCoins) && upgrade2Tier == 1f && waitUntilDoneClicking)
         {
+            
             PlayerPrefs.SetFloat("Upgrade2", 2f);
             upgrade2Tier = PlayerPrefs.GetFloat("Upgrade2");
             PlayerPrefs.SetFloat("DistBost", DistanceIncrease2);
@@ -276,6 +370,7 @@ public class UIMainMenuManager : MonoBehaviour
         }
         else if ((priceUpgrade2_3 <= totalCoins) && upgrade2Tier == 2f && waitUntilDoneClicking)
         {
+            
             PlayerPrefs.SetFloat("Upgrade2", 3f);
             upgrade2Tier = PlayerPrefs.GetFloat("Upgrade2");
             PlayerPrefs.SetFloat("DistBost", DistanceIncrease3);
@@ -289,20 +384,99 @@ public class UIMainMenuManager : MonoBehaviour
             PlayerPrefs.SetFloat("TotalCoins", totalCoins);
             UpdateCoins();
             StartCoroutine(ClickedUpgrade(.2f));
-            
+            MaxUpgrade2.SetActive(true);
+
         }
     }
 
+    public void Upgradesave2()
+    {
+        if (upgrade2Tier == 1f)
+        {
+            gemUpgrade2One.SetActive(true);
+            levelUpgrade2.text = "Level 1 / 3";
+            upgradeDescription2.text = itemDescription2_1;
+            priceTextFieldUpgrade2.text = "" + priceUpgrade2_1;
+            UpdateCoins();
+            StartCoroutine(ClickedUpgrade(.2f));
+        }
+        if (upgrade2Tier == 2f)
+        {
+            gemUpgrade2One.SetActive(true);
+            gemUpgrade2Two.SetActive(true);
+            levelUpgrade2.text = "Level 2 / 3";
+            upgradeDescription2.text = itemDescription2_2;
+            priceTextFieldUpgrade2.text = "" + priceUpgrade2_2;
+            UpdateCoins();
+            StartCoroutine(ClickedUpgrade(.2f));
+        }
+        if (upgrade2Tier == 3f)
+        {
+            gemUpgrade2One.SetActive(true);
+            gemUpgrade2Two.SetActive(true);
+            gemUpgrade2Three.SetActive(true);
+            levelUpgrade2.text = "Level 3 / 3";
+            upgradeDescription2.text = itemDescription2_3;
+            priceTextFieldUpgrade2.text = "" + priceUpgrade2_3;
+            priceButton2.SetActive(false);
+            UpdateCoins();
+            StartCoroutine(ClickedUpgrade(.2f));
+            MaxUpgrade2.SetActive(true);
+        }
+    }
+    public void upgrade3()
+    {
+        AudioManager.Instance.SFX("UIclick");
+        if ((priceUpgrade3_1 <= totalCoins) && upgrade3Tier == 0f && waitUntilDoneClicking)
+        {
+            
+            PlayerPrefs.SetFloat("Arrow2", 1f);
+            upgrade3Tier = PlayerPrefs.GetFloat("Arrow2");
+            gemUpgrade3One.SetActive(true);
+            priceButton3.SetActive(false);
+            totalCoins = totalCoins - priceUpgrade3_1;
+            upgradeDescription3.text = "" + finalItemDescription;
+            PlayerPrefs.SetFloat("TotalCoins", totalCoins);
+            UpdateCoins();
+            StartCoroutine(ClickedUpgrade(.2f));
+            MaxUpgrade3.SetActive(true);
+
+        }
+    }
+    public void Upgradesave3()
+    {
+        if (upgrade3Tier == 1f)
+        {
+
+            gemUpgrade3One.SetActive(true);
+            priceButton3.SetActive(false);
+            upgradeDescription3.text = "" + finalItemDescription;
+            UpdateCoins();
+            StartCoroutine(ClickedUpgrade(.2f));
+            MaxUpgrade3.SetActive(true);
+        }
+       
+    }
+    IEnumerator PlayfirstAnim(float sec)
+    {
+        camAnim.SetActive(false);
+        //camAnim.SetBool("On", true);
+        yield return new WaitForSecondsRealtime(sec);
+        Rope.SetActive(true);
+        balistaAnim.SetBool("Is Walking", false);
+        StartCoroutine(StartGame(time));
+    }
     //CO-ROUTINE FOR STARTING THE GAME
     IEnumerator StartGame(float time)
     {
         AudioManager.Instance.SFX("ButtonClick");
         Vector3 playerStartPosition = player.transform.position;
+        AudioManager.Instance.PlayBackGroundMusic("Shop");
 
         float T = 0; //time for "While loop" in co-routine
         while (T < 1) //LERP THE PLAYER TO STARTPOSITION
         {
-            T += Time.deltaTime / 1f; // This is the speed for the player
+            T += Time.deltaTime / .5f; // This is the speed for the player
 
             if(T > 1)
             {
@@ -324,7 +498,7 @@ public class UIMainMenuManager : MonoBehaviour
 
         while (cameraT < 1) //LERP THE PLAYER TO STARTPOSITION
         {
-            cameraT += Time.deltaTime / 1.01f; // This is the speed for the player
+            cameraT += Time.deltaTime / .5f; // This is the speed for the player
 
             if(cameraT > 1)
             {
@@ -334,12 +508,32 @@ public class UIMainMenuManager : MonoBehaviour
             camera.transform.position = Vector3.Lerp(cameraStartPosition, CamStartMovementPoint.transform.position, cameraT);
             yield return null;
         }
-
+      
+       
         yield return new WaitForSeconds(0.2f);
+        float f = 0; // This is the interpolation factor for the camera
+
+        while (f < 1) //LERP THE PLAYER TO STARTPOSITION
+        {
+            f += Time.deltaTime / 1f; // This is the speed for the player
+
+            if (f > 1)
+            {
+                f = 1;
+            }
+
+            pP._Fraction.value = Mathf.Lerp(pP._Fraction.value, pP._Fraction.value = .25f, f);
+            pP._Brightness.value = Mathf.Lerp(pP._Brightness.value, pP._Brightness.value = 1.25f, f);
+            pP._Desaturate_Edge.value = Mathf.Lerp(pP._Desaturate_Edge.value, pP._Desaturate_Edge.value = 0.5f, f);
+            yield return null;
+        }
+       
         objectSpawner.canSpawnEnemy = true;
         uic.takeDist = true;
         StartMenu.SetBool("On", false);
         inGameMenu.SetActive(true);
+        AudioManager.Instance.PlayBackGroundMusic("Gameplay");
+        balistaAnim.SetBool("Is Walking", true);
         this.gameObject.SetActive(false);
     }
     IEnumerator ClickedUpgrade(float sec)

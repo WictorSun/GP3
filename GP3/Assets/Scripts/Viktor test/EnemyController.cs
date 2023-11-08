@@ -8,6 +8,8 @@ public class EnemyController : MonoBehaviour
     [Header("Movement To the left and Right")]
     [SerializeField] public float moveSpeed = 2f;
     [SerializeField] private float killAddition = 0.2f;
+    [SerializeField] private ParticleSystem Explode;
+    [SerializeField] private string HitSound;
 
     private HealthComponent health; // prob will remove Health and just if collision with player, enemy dead
 
@@ -17,13 +19,21 @@ public class EnemyController : MonoBehaviour
         health = GetComponent<HealthComponent>();
     }
 
-    void OnTriggerStay(Collider other) // if enemy collides with player, enemy takes damage
+
+    private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            health.UpdateHealth(-1); // enemy takes 1 damage
-            ScoreCounter.Instance.KillMultiplier(0.02f);
+            AudioManager.Instance.SFX(HitSound);
+            Instantiate(Explode, transform.position, Quaternion.identity);
+            //health.UpdateHealth(-1); // enemy takes 1 damage
+            ScoreCounter.Instance.KillMultiplier(0.1f);
             ScoreCounter.Instance.AddKill(1);
+            if (!GameController.IsReturning)
+            {
+                GameController.AddArrow2();
+            }
+            
         }
     }
 }

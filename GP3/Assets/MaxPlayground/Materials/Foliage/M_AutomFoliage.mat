@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_AutomFoliage
+  m_Shader: {fileID: 4800000, guid: 38abe2da36847cd4ab8491d4d844e118, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _ColorRamp:
+        m_Texture: {fileID: 2800000, guid: 4378651f2ed612e4abe5216810ad3d61, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask:
+        m_Texture: {fileID: 2800000, guid: c011093f005faaa4892c6f64e6b4c11b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Noise:
+        m_Texture: {fileID: 2800000, guid: 09e44a1531ca44d4299453f9f1879301, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample1:
+        m_Texture: {fileID: 2800000, guid: 09e44a1531ca44d4299453f9f1879301, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 1
+    - _ColorPower: 1
+    - _Cutoff: 0.45
+    - _NoiseTile: 0.15
+    - _RimPower: 0
+    - _Rim_Offset: 1
+    - _WIndScroll: 0.05
+    - _WindStrength: 0.74
+    - _WindTile: 0.15
+    - __dirty: 0
+    m_Colors:
+    - _ColorMain: {r: 0.94509804, g: 0.60687697, b: 0.24313724, a: 0}
+    - _ColorVar: {r: 0.5283019, g: 0.33119857, b: 0.08721964, a: 0}
+    - _RimColor: {r: 0.1528542, g: 0.754717, b: 0, a: 1}
+    - _ShadowColor: {r: 0.8679245, g: 0.4730454, b: 0.27429688, a: 0}
+    - _Tiling: {r: 1, g: 1, b: 0, a: 0}
+  m_BuildTextureStacks: []

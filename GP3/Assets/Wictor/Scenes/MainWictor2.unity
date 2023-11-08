@@ -1807,8 +1807,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1036790421}
-  m_LocalRotation: {x: 0.51460344, y: -0.004886, z: 0.0029324987, w: 0.8574094}
-  m_LocalPosition: {x: 0.120000005, y: 28.18, z: -30.96}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.3, y: 6, z: -58.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3511,28 +3511,56 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 695897638}
     - target: {fileID: 4793672436496594553, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
-      propertyPath: comboIncrease1
-      value: 1
+      propertyPath: priceUpgrade1
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4793672436496594553, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
-      propertyPath: comboIncrease2
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4793672436496594553, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
-      propertyPath: comboIncrease3
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4793672436496594553, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
-      propertyPath: DistanceIncrease1
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 4793672436496594553, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
-      propertyPath: DistanceIncrease2
+      propertyPath: priceUpgrade2
       value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 4793672436496594553, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
-      propertyPath: DistanceIncrease3
+      propertyPath: priceUpgrade3
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 4793672436496594553, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
+      propertyPath: comboIncrease1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4793672436496594553, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
+      propertyPath: comboIncrease2
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4793672436496594553, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
+      propertyPath: comboIncrease3
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4793672436496594553, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
+      propertyPath: priceUpgrade2_1
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4793672436496594553, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
+      propertyPath: priceUpgrade2_2
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 4793672436496594553, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
+      propertyPath: priceUpgrade2_3
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4793672436496594553, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
+      propertyPath: priceUpgrade3_1
+      value: 2500
+      objectReference: {fileID: 0}
+    - target: {fileID: 4793672436496594553, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
+      propertyPath: DistanceIncrease1
       value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 4793672436496594553, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
+      propertyPath: DistanceIncrease2
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 4793672436496594553, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
+      propertyPath: DistanceIncrease3
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 4793672436496594553, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
       propertyPath: StartMovementPoint

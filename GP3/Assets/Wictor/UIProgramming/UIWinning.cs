@@ -184,8 +184,8 @@ public class UIWinning : MonoBehaviour
             }
 
             pP._Fraction.value = Mathf.Lerp(pP._Fraction.value, pP._Fraction.value = .25f, f);
-            pP._Brightness.value = Mathf.Lerp(pP._Brightness.value, pP._Brightness.value = 1.5f, f);
-            pP._Desaturate_Edge.value = Mathf.Lerp(pP._Desaturate_Edge.value, pP._Desaturate_Edge.value = 1f, f);
+            pP._Brightness.value = Mathf.Lerp(pP._Brightness.value, pP._Brightness.value = 1.25f, f);
+            pP._Desaturate_Edge.value = Mathf.Lerp(pP._Desaturate_Edge.value, pP._Desaturate_Edge.value = 0.5f, f);
             yield return null;
         }
         uic.takeDist = true;

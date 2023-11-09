@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Wictor/Scenes/MainWictor2.unity
     guid: b11be88842c22984191598bfb0548f55
-  - enabled: 1
+  - enabled: 0
     path: Assets/Wictor/Scenes/LoadBackScene.unity
     guid: 02ca6106317f2a642bbe7dc68f597c14
   m_configObjects: {}

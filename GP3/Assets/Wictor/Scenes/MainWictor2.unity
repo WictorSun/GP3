@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3804341, g: 0.6042093, b: 0.5531265, a: 1}
+  m_IndirectSpecularColor: {r: 0.38068357, g: 0.6045812, b: 0.5533325, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1112,6 +1112,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1450722844, guid: a615035447253a2489c3ecb65d0ad463, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450722844, guid: a615035447253a2489c3ecb65d0ad463, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450722844, guid: a615035447253a2489c3ecb65d0ad463, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450722844, guid: a615035447253a2489c3ecb65d0ad463, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7930161530227528619, guid: a615035447253a2489c3ecb65d0ad463, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -2543,13 +2559,13 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
-    m_Bias: 0.05
+    m_Bias: 0.4
     m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_NearPlane: 0.22
     m_CullingMatrixOverride:
       e00: 1
       e01: 0

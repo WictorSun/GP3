@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Wictor/Scenes/MainWictor2.unity
+    guid: b11be88842c22984191598bfb0548f55
   m_configObjects: {}

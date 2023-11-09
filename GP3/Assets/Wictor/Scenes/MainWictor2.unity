@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.38043413, g: 0.60420734, b: 0.5531256, a: 1}
+  m_IndirectSpecularColor: {r: 0.3806838, g: 0.604581, b: 0.5533329, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1735,8 +1735,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1036790421}
-  m_LocalRotation: {x: 0.51460344, y: -0.004886, z: 0.0029324987, w: 0.8574094}
-  m_LocalPosition: {x: 0.120000005, y: 28.18, z: -30.96}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.3, y: 6, z: -58.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1864,7 +1864,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 554946668184542047, guid: b3bd3ed38b7532f4b985d87890c649dd, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 554946668184542047, guid: b3bd3ed38b7532f4b985d87890c649dd, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1872,7 +1872,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 554946668184542047, guid: b3bd3ed38b7532f4b985d87890c649dd, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 881754001303684471, guid: b3bd3ed38b7532f4b985d87890c649dd, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1896,11 +1896,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2290432094950721276, guid: b3bd3ed38b7532f4b985d87890c649dd, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2290432094950721276, guid: b3bd3ed38b7532f4b985d87890c649dd, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3033548767849828464, guid: b3bd3ed38b7532f4b985d87890c649dd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4157377990094636720, guid: b3bd3ed38b7532f4b985d87890c649dd, type: 3}
       propertyPath: m_IsActive
@@ -1913,6 +1917,10 @@ PrefabInstance:
     - target: {fileID: 5851395523506062713, guid: b3bd3ed38b7532f4b985d87890c649dd, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5851395523612813154, guid: b3bd3ed38b7532f4b985d87890c649dd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -264
       objectReference: {fileID: 0}
     - target: {fileID: 5851395523853474965, guid: b3bd3ed38b7532f4b985d87890c649dd, type: 3}
       propertyPath: m_IsActive
@@ -2034,14 +2042,26 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5851395524575470736, guid: b3bd3ed38b7532f4b985d87890c649dd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -264.00003
+      objectReference: {fileID: 0}
     - target: {fileID: 5851395524900422235, guid: b3bd3ed38b7532f4b985d87890c649dd, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5851395524900422237, guid: b3bd3ed38b7532f4b985d87890c649dd, type: 3}
+      propertyPath: iM1
+      value: 
+      objectReference: {fileID: 1173385884}
+    - target: {fileID: 5851395524900422237, guid: b3bd3ed38b7532f4b985d87890c649dd, type: 3}
       propertyPath: StartMenu
       value: 
       objectReference: {fileID: 1338351808}
+    - target: {fileID: 5851395524900422237, guid: b3bd3ed38b7532f4b985d87890c649dd, type: 3}
+      propertyPath: blackOutScreen
+      value: 
+      objectReference: {fileID: 1173385886}
     - target: {fileID: 5851395524975816806, guid: b3bd3ed38b7532f4b985d87890c649dd, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -2162,6 +2182,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5851395525189981351, guid: b3bd3ed38b7532f4b985d87890c649dd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 83
+      objectReference: {fileID: 0}
     - target: {fileID: 5851395525360977427, guid: b3bd3ed38b7532f4b985d87890c649dd, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2260,6 +2284,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5851395525525290398, guid: b3bd3ed38b7532f4b985d87890c649dd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5972559156682099370, guid: b3bd3ed38b7532f4b985d87890c649dd, type: 3}
+      propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8832800195223528494, guid: b3bd3ed38b7532f4b985d87890c649dd, type: 3}
@@ -2362,6 +2390,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1173385884 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3033548767849828464, guid: b3bd3ed38b7532f4b985d87890c649dd, type: 3}
+  m_PrefabInstance: {fileID: 1153856052}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1173385886 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5972559156682099370, guid: b3bd3ed38b7532f4b985d87890c649dd, type: 3}
+  m_PrefabInstance: {fileID: 1153856052}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173385884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1185755386 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5851395525005423500, guid: b3bd3ed38b7532f4b985d87890c649dd, type: 3}
@@ -3283,6 +3327,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4793672436430372335, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
+      propertyPath: m_text
+      value: Increase the amount of score you earn!
+      objectReference: {fileID: 0}
     - target: {fileID: 4793672436442157353, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3460,6 +3508,18 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4793672436496594553, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
+      propertyPath: itemDescription1
+      value: "More score, more money, more upgrades, more score, more money,\u2026 "
+      objectReference: {fileID: 0}
+    - target: {fileID: 4793672436496594553, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
+      propertyPath: itemDescription2
+      value: "You discover an ancient cosmic truth: \u201CBigger number, better person\u201D "
+      objectReference: {fileID: 0}
+    - target: {fileID: 4793672436496594553, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
+      propertyPath: itemDescription3
+      value: 'You have conquered all score upgrades. Now go forth, and multiply! '
+      objectReference: {fileID: 0}
+    - target: {fileID: 4793672436496594553, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
       propertyPath: DistanceIncrease1
       value: 75
       objectReference: {fileID: 0}
@@ -3476,24 +3536,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 636839028}
     - target: {fileID: 4793672436496594553, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
+      propertyPath: itemDescription2_1
+      value: 'Increases the draw weight of the ballista, giving the arrow more force '
+      objectReference: {fileID: 0}
+    - target: {fileID: 4793672436496594553, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
+      propertyPath: itemDescription2_2
+      value: 'Puts some tiny rockets on the arrow, no one will notice... '
+      objectReference: {fileID: 0}
+    - target: {fileID: 4793672436496594553, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
+      propertyPath: itemDescription2_3
+      value: "Any more and we\u2019d be firing a missile launcher, not a ballista"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4793672436496594553, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
       propertyPath: finalItemDescription
-      value: Yeah You are my fire The one desire Believe when I say I want it that
-        way But we are two worlds apart Can't reach to your heart When you say That
-        I want it that way Tell me why Ain't nothin' but a heartache Tell me why
-        Ain't nothin' but a mistake Tell me why I never wanna hear you say I want
-        it that way Am I your fire? Your one desire Yes, I know it's too late But
-        I want it that way Tell me why Ain't nothin' but a heartache Tell me why
-        Ain't nothin' but a mistake Tell me why I never wanna hear you say I want
-        it that way Now I can see that we've fallen apart From the way that it used
-        to be, yeah No matter the distance, I want you to know That deep down inside
-        of me You are my fire The one desire You are (you are, you are, you are)
-        Don't wanna hear you say Ain't nothin' but a heartache Ain't nothin' but
-        a mistake (don't wanna hear you say) I never wanna hear you say (oh, yeah)
-        I want it that way Tell me why Ain't nothin' but a heartache Tell me why
-        Ain't nothin' but a mistake Tell me why I never wanna hear you say (don't
-        wanna hear you say) I want it that way Tell me why Ain't nothin' but a heartache
-        Ain't nothin' but a mistake Tell me why I never wanna hear you say (don't
-        wanna hear you say) I want it that way 'Cause I want it that way
+      value: Press to enable/disable Multiarrow
       objectReference: {fileID: 0}
     - target: {fileID: 4793672436496594553, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
       propertyPath: CamStartMovementPoint
@@ -3534,6 +3590,11 @@ PrefabInstance:
     - target: {fileID: 4793672437065778622, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5491695927508420264, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
+      propertyPath: m_text
+      value: "You know what\u2019s better than hitting enemies with an arrow? Hitting
+        them with two! "
       objectReference: {fileID: 0}
     - target: {fileID: 5910664699307719284, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3578,6 +3639,10 @@ PrefabInstance:
     - target: {fileID: 8190706560651272816, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8858652379989545502, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}
+      propertyPath: m_text
+      value: Shoot forward a set amount each run
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a7117c8ab081284fa21b7e7059a919e, type: 3}

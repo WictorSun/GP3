@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 
 public class UIInGameMenu : MonoBehaviour
 {
@@ -37,6 +37,9 @@ public class UIInGameMenu : MonoBehaviour
     [SerializeField] private Animator pauseMenu;
     [Tooltip("drag in the CountDown Animator")]
     [SerializeField] private Animator CountDown;
+
+    [SerializeField] private Image blackOutScreen;
+    [SerializeField] private GameObject iM1;
 
     public bool arrow2;
     private float arrow2Tier;
@@ -133,7 +136,8 @@ public class UIInGameMenu : MonoBehaviour
     {
 
         AudioManager.Instance.SFX("UIclick");
-        StartCoroutine(QuitGame(1f));
+        iM1.SetActive(true);
+
 
     }
     IEnumerator ActivateArrow2()
@@ -145,12 +149,13 @@ public class UIInGameMenu : MonoBehaviour
     //CO-ROUTINE FOR CONTINUE THE GAME WITH A COUNTDOWN UNTIL THE TOUCH INPUT WORKS AGAIN
     IEnumerator ContinuePlayGame(float WaitForSecs, float OtherSec)
     {
-        mainPauseMenu.SetActive(false);
+ 
         pauseMenu.SetBool("On", false);
         yield return new WaitForSecondsRealtime(WaitForSecs);
         CountDown.SetBool("On", true);
 
         yield return new WaitForSecondsRealtime(OtherSec);
+        mainPauseMenu.SetActive(false);
         CountDown.SetBool("On", false);
         Time.timeScale = 1f;
         Debug.Log(Time.timeScale);
@@ -158,15 +163,5 @@ public class UIInGameMenu : MonoBehaviour
         LeftTouch.SetActive(true);
     }
 
-    //CO-ROUTINE FOR RESETING THE GAME AND GOING BACK TO THE STARTSCREEN
-    IEnumerator QuitGame(float sec)
-    {
-
-        pauseMenu.SetBool("On", false);
-        yield return new WaitForSecondsRealtime(sec);
-        Time.timeScale = 1f;
-        Debug.Log(Time.timeScale);
-        StartMenu.SetActive(true);
-        this.gameObject.SetActive(false);
-    }
+   
 }

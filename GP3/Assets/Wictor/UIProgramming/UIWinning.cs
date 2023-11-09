@@ -52,6 +52,9 @@ public class UIWinning : MonoBehaviour
     public float newCoin;
     public TextMeshProUGUI upgradeCoins;
     public Animator ballista;
+
+    public GameObject Button1;
+    public GameObject Button2;
     
 
     [SerializeField] private PostProcessVolume pPv;
@@ -87,14 +90,15 @@ public class UIWinning : MonoBehaviour
         newCoin = PlayerPrefs.GetFloat("TotalCoins");
         upgradeCoins.text = "" + newCoin;
         UIM.totalCoins = PlayerPrefs.GetFloat("TotalCoins");
+        Button1.SetActive(false);
+        Button2.SetActive(true);
     }
     public void ExitButtonShop()
     {
         AudioManager.Instance.SFX("UIclick");
-        if (MainMenu.active == true)
-        {
+       
             StartCoroutine(closeShop(.5f));
-        }
+        
         
        
         //AudioManager.Instance.SFX("ButtonClick");
@@ -112,7 +116,7 @@ public class UIWinning : MonoBehaviour
         panelMM.SetActive(true);
         mmBG.SetActive(true);
         MainMenu.SetActive(false);
-        Debug.Log("fffffffffff");
+       
     }
     IEnumerator StartGame(float time)
     {

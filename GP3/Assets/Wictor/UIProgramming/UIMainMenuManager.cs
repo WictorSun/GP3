@@ -41,6 +41,11 @@ public class UIMainMenuManager : MonoBehaviour
     [SerializeField] private GameObject inGameMenu;
     [SerializeField] private UIWinning uiWinning;
     [SerializeField] private UIController uic;
+    [SerializeField] private GameObject tutorial;
+    [SerializeField] private GameObject tutText1;
+    [SerializeField] private GameObject tutText2;
+    [SerializeField] private GameObject tutText3;
+
 
     [Header("totalcoin and Highscore")]
     [SerializeField] public float totalCoins;
@@ -202,13 +207,48 @@ public class UIMainMenuManager : MonoBehaviour
     // GO BACK TO MAINMENU FROM THE SHOP
     public void ExitButtonShop()
     {
-        if (winning.active == false)
-        {
+        
             Shop.SetBool("On", false);
             UpgradeMenu.SetActive(true);
             AudioManager.Instance.SFX("UIclick");
-        }
         
+        
+    }
+    public void Tutorial()
+    {
+        tutorial.SetActive(true);
+        tutText1.SetActive(true);
+        tutText2.SetActive(false);
+        tutText3.SetActive(false);
+    }
+    public void NextSliderTutorial()
+    {
+        if (tutText1.active == true)
+        {
+            tutText1.SetActive(false);
+            tutText2.SetActive(true);
+            tutText3.SetActive(false);
+        }
+        else if (tutText2.active == true)
+        {
+            tutText1.SetActive(false);
+            tutText2.SetActive(false);
+            tutText3.SetActive(true);
+        }
+        else if (tutText3.active == true)
+        {
+            ExitTutorial();
+        }
+     
+
+
+    }
+    public void ExitTutorial()
+    {
+        tutorial.SetActive(false);
+        tutText1.SetActive(false);
+        tutText2.SetActive(false);
+        tutText3.SetActive(false);
     }
 
     //SET VOLUME OF SFX

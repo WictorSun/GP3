@@ -27,7 +27,7 @@ public class EnemyController : MonoBehaviour
             AudioManager.Instance.SFX(HitSound);
             Instantiate(Explode, transform.position, Quaternion.identity);
             //health.UpdateHealth(-1); // enemy takes 1 damage
-            ScoreCounter.Instance.KillMultiplier(0.1f);
+            ScoreCounter.Instance.KillMultiplier(killAddition);
             ScoreCounter.Instance.AddKill(1);
             if (!GameController.IsReturning)
             {

@@ -138,7 +138,7 @@ public class UIMainMenuManager : MonoBehaviour
             PlayerPrefs.SetFloat("HighScore", 0f);
             PlayerPrefs.SetFloat("Upgrade1", 0f);
             PlayerPrefs.SetFloat("Upgrade2", 0f);
-            PlayerPrefs.SetFloat("TotalCoins", 100000f);
+            PlayerPrefs.SetFloat("TotalCoins", 0f);
             PlayerPrefs.SetFloat("DistBost", 0f);
             PlayerPrefs.SetFloat("Arrow2", 0f);
             PlayerPrefs.SetFloat("Multip", 1f);

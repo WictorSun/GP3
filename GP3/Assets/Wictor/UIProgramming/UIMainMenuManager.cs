@@ -283,7 +283,7 @@ public class UIMainMenuManager : MonoBehaviour
             gemUpgrade1One.SetActive(true);
             levelUpgrade1.text = "Level 1 / 3";
             upgradeDescription1.text = itemDescription1;
-            priceTextFieldUpgrade1.text = "" + priceUpgrade1;
+            priceTextFieldUpgrade1.text = "" + priceUpgrade2;
             totalCoins = totalCoins - priceUpgrade1;
             PlayerPrefs.SetFloat("TotalCoins", totalCoins);
             UpdateCoins();
@@ -300,7 +300,7 @@ public class UIMainMenuManager : MonoBehaviour
             gemUpgrade1Two.SetActive(true);
             levelUpgrade1.text = "Level 2 / 3";
             upgradeDescription1.text = itemDescription2;
-            priceTextFieldUpgrade1.text = "" + priceUpgrade2;
+            priceTextFieldUpgrade1.text = "" + priceUpgrade3;
             totalCoins = totalCoins - priceUpgrade2;
             PlayerPrefs.SetFloat("TotalCoins", totalCoins);
             UpdateCoins();
@@ -339,7 +339,7 @@ public class UIMainMenuManager : MonoBehaviour
             gemUpgrade1One.SetActive(true);
             levelUpgrade1.text = "Level 1 / 3";
             upgradeDescription1.text = itemDescription1;
-            priceTextFieldUpgrade1.text = "" + priceUpgrade1;
+            priceTextFieldUpgrade1.text = "" + priceUpgrade2;
             UpdateCoins();
             StartCoroutine(ClickedUpgrade(.2f));
         }
@@ -350,7 +350,7 @@ public class UIMainMenuManager : MonoBehaviour
             gemUpgrade1One.SetActive(true);
             levelUpgrade1.text = "Level 2 / 3";
             upgradeDescription1.text = itemDescription2;
-            priceTextFieldUpgrade1.text = "" + priceUpgrade2;
+            priceTextFieldUpgrade1.text = "" + priceUpgrade3;
             UpdateCoins();
             StartCoroutine(ClickedUpgrade(.2f));
         }
@@ -383,7 +383,7 @@ public class UIMainMenuManager : MonoBehaviour
             gemUpgrade2One.SetActive(true);
             levelUpgrade2.text = "Level 1 / 3";
             upgradeDescription2.text = itemDescription2_1;
-            priceTextFieldUpgrade2.text = "" + priceUpgrade2_1;
+            priceTextFieldUpgrade2.text = "" + priceUpgrade2_2;
             totalCoins = totalCoins - priceUpgrade2_1;
             PlayerPrefs.SetFloat("TotalCoins", totalCoins);
             UpdateCoins();
@@ -400,7 +400,7 @@ public class UIMainMenuManager : MonoBehaviour
             gemUpgrade2Two.SetActive(true);
             levelUpgrade2.text = "Level 2 / 3";
             upgradeDescription2.text = itemDescription2_2;
-            priceTextFieldUpgrade2.text = "" + priceUpgrade2_2;
+            priceTextFieldUpgrade2.text = "" + priceUpgrade2_3;
             totalCoins = totalCoins - priceUpgrade2_2;
             PlayerPrefs.SetFloat("TotalCoins", totalCoins);
             UpdateCoins();
@@ -436,7 +436,7 @@ public class UIMainMenuManager : MonoBehaviour
             gemUpgrade2One.SetActive(true);
             levelUpgrade2.text = "Level 1 / 3";
             upgradeDescription2.text = itemDescription2_1;
-            priceTextFieldUpgrade2.text = "" + priceUpgrade2_1;
+            priceTextFieldUpgrade2.text = "" + priceUpgrade2_2;
             UpdateCoins();
             StartCoroutine(ClickedUpgrade(.2f));
         }
@@ -446,7 +446,7 @@ public class UIMainMenuManager : MonoBehaviour
             gemUpgrade2Two.SetActive(true);
             levelUpgrade2.text = "Level 2 / 3";
             upgradeDescription2.text = itemDescription2_2;
-            priceTextFieldUpgrade2.text = "" + priceUpgrade2_2;
+            priceTextFieldUpgrade2.text = "" + priceUpgrade2_3;
             UpdateCoins();
             StartCoroutine(ClickedUpgrade(.2f));
         }

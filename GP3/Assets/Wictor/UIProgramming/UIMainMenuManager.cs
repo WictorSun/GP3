@@ -207,12 +207,11 @@ public class UIMainMenuManager : MonoBehaviour
     // GO BACK TO MAINMENU FROM THE SHOP
     public void ExitButtonShop()
     {
-        if (winning.active == false)
-        {
+        
             Shop.SetBool("On", false);
             UpgradeMenu.SetActive(true);
             AudioManager.Instance.SFX("UIclick");
-        }
+        
         
     }
     public void Tutorial()

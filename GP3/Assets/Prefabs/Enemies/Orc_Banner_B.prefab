@@ -53,7 +53,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e56a2201ba93d75438632e8fe3b6eaea, type: 2}
+  - {fileID: 2100000, guid: 65edfa664dbad2347b600205e61d33cd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -757,7 +757,7 @@ GameObject:
   - component: {fileID: 5251057831430686464}
   - component: {fileID: 400943601716719099}
   m_Layer: 0
-  m_Name: Orc_Banner
+  m_Name: Orc_Banner_B
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

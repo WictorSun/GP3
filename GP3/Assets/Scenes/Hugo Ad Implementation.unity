@@ -2506,10 +2506,6 @@ PrefabInstance:
       propertyPath: m_Value
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8832800195223528494, guid: b3bd3ed38b7532f4b985d87890c649dd, type: 3}
-      propertyPath: m_Interactable
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3bd3ed38b7532f4b985d87890c649dd, type: 3}
 --- !u!1 &1170188284
@@ -2522,7 +2518,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1170188286}
   - component: {fileID: 1170188285}
-  - component: {fileID: 1170188287}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -2549,7 +2544,7 @@ Light:
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
-    m_Resolution: 0
+    m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
@@ -2607,18 +2602,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!114 &1170188287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1170188284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5d1dec98109eb24b88e0cc6b9c919bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1173385884 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3033548767849828464, guid: b3bd3ed38b7532f4b985d87890c649dd, type: 3}
@@ -2801,11 +2784,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8473077275504563640, guid: 0520c235fe9ac404ab984d437c0032b6, type: 3}
       propertyPath: enemySpawnInFront
-      value: 70
-      objectReference: {fileID: 0}
-    - target: {fileID: 8473077275504563640, guid: 0520c235fe9ac404ab984d437c0032b6, type: 3}
-      propertyPath: spawnSettings.Array.data[0].minWait
-      value: 1
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8473077275504563640, guid: 0520c235fe9ac404ab984d437c0032b6, type: 3}
       propertyPath: spawnableObjects.Array.data[0].weight
@@ -2888,36 +2867,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8473077275504563647, guid: 0520c235fe9ac404ab984d437c0032b6, type: 3}
-      propertyPath: pools.Array.data[0].size
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8473077275504563647, guid: 0520c235fe9ac404ab984d437c0032b6, type: 3}
-      propertyPath: pools.Array.data[1].size
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8473077275504563647, guid: 0520c235fe9ac404ab984d437c0032b6, type: 3}
-      propertyPath: pools.Array.data[2].size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8473077275504563647, guid: 0520c235fe9ac404ab984d437c0032b6, type: 3}
-      propertyPath: pools.Array.data[3].size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8473077275504563647, guid: 0520c235fe9ac404ab984d437c0032b6, type: 3}
       propertyPath: pools.Array.data[4].size
-      value: 3
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8473077275504563647, guid: 0520c235fe9ac404ab984d437c0032b6, type: 3}
       propertyPath: pools.Array.data[5].size
-      value: 10
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8473077275504563647, guid: 0520c235fe9ac404ab984d437c0032b6, type: 3}
       propertyPath: pools.Array.data[6].size
-      value: 10
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8473077275504563647, guid: 0520c235fe9ac404ab984d437c0032b6, type: 3}
       propertyPath: pools.Array.data[7].size
-      value: 3
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0520c235fe9ac404ab984d437c0032b6, type: 3}
